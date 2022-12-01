@@ -1,5 +1,5 @@
 <template>
-  <p class="text-justify text-lg mt-0 mb-4 leading-loose text-gray-600">
+  <p class="text-justify text-lg pb-6 leading-loose text-gray-600 dark:text-gray-400">
     {{ text }}
   </p>
 </template>

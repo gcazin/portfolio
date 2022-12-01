@@ -1,10 +1,10 @@
 <template>
-  <div class="pt-36 pb-48 isolate">
+  <div class="pt-36 pb-16 isolate">
     <div class="flex items-center h-full mx-auto container max-w-7xl">
       <div class="flex-1">
-        <p class="uppercase text-2xl text-gray-700 font-medium">{{ subtitle }}</p>
+        <p class="uppercase text-2xl text-gray-700 dark:text-gray-300 font-medium">{{ subtitle }}</p>
         <p class="text-blue-500 leading-normal font-extrabold tracking-tight text-8xl">{{ title }}</p>
-        <p class="uppercase text-gray-700 leading-normal font-bold tracking-tight text-xl">
+        <p class="uppercase text-gray-700 dark:text-gray-300 leading-normal font-bold tracking-tight text-xl">
           Un développeur <span class="element text-blue-500">{{ typed }}</span>
         </p>
       </div>

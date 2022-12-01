@@ -42,7 +42,7 @@
             <div class="flex items-center space-x-4">
               <template v-for="item in items">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a :href="item.url" class="uppercase text-gray-800 hover:text-blue-400 px-2 font-bold" aria-current="page">
+                <a :href="item.url" class="uppercase text-gray-800 dark:text-gray-200 hover:text-blue-400 px-2 font-bold" aria-current="page">
                   <template v-if="item.text === 'Contact'">
                     <Button :text="item.text" />
                   </template>
@@ -51,6 +51,7 @@
                   </template>
                 </a>
               </template>
+              <ion-icon class="text-2xl" :name="`${darkModeIcon}-outline`" @click="toggleTheme()"></ion-icon>
             </div>
           </div>
         </div>
@@ -77,7 +78,11 @@
 import Button from "./Button.vue";
 export default {
   name: "Navbar",
-  components: {Button},
+
+  components: {
+    Button
+  },
+
   data() {
     return {
       items: [
@@ -97,7 +102,44 @@ export default {
           url: '',
           text: 'Contact',
         }
-      ]
+      ],
+      darkModeIcon: 'moon'
+    }
+  },
+
+  mounted() {
+    this.checkTheme()
+  },
+
+  methods: {
+    checkTheme() {
+      const theme = localStorage.getItem('theme')
+
+      if (theme) {
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark')
+          this.darkModeIcon = 'sunny'
+        }
+      }
+    },
+    toggleTheme() {
+      const theme = localStorage.getItem('theme')
+      console.log('theme', theme)
+      if (theme) {
+        if (theme === 'light') {
+          localStorage.setItem('theme', 'dark')
+          document.documentElement.classList.add('dark')
+          this.darkModeIcon = 'sunny'
+        } else {
+          localStorage.setItem('theme', 'light')
+          document.documentElement.classList.remove('dark')
+          this.darkModeIcon = 'moon'
+        }
+      } else {
+        localStorage.setItem('theme', 'light')
+      }
+      console.log('theme', theme)
+
     }
   }
 }

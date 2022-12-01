@@ -1,22 +1,18 @@
 <script setup>
 import { ref } from 'vue'
 import Hero from "../components/Hero.vue";
-import Navbar from "../components/Navbar.vue";
 import Title from "../components/Title.vue";
 import Paragraph from "../components/Paragraph.vue";
-import Badge from "../components/Badge.vue";
 import Section from "../components/Section.vue";
 import SkillCard from "../components/SkillCard.vue";
 import Button from "../components/Button.vue";
 import Subtitle from "../components/Subtitle.vue";
+import ExperienceCard from "../components/ExperienceCard.vue";
 
 const count = ref(0)
 </script>
 
 <template>
-  <!-- Menu -->
-  <Navbar />
-
   <!-- Hero section -->
   <Hero />
 
@@ -26,17 +22,13 @@ const count = ref(0)
       <div class="flex-1">
         <div class="relative flex-1">
           <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_M9p23l.json" class="z-10 relative m-auto rounded-lg w-9/12" background="transparent"  speed="1" autoplay></lottie-player>
-          <div
-              class="absolute rounded-lg bg-blue-50 border-2 border-blue-100 w-full h-96"
-              style="top: 50%; left: 50%; transform: translate(-50%, -50%)"
-          >
-          </div>
         </div>
       </div>
       <div class="flex-1 text-left">
+        <p class="text-blue-500 font-bold pb-2 uppercase">Introduction</p>
         <Title text="👋 Bonjour !" data-aos="zoom-in" data-aos-duration="100"/>
         <Subtitle text="Développeur full-stack basé à Boulogne-sur-Mer" data-aos="zoom-in" data-aos-duration="100"/>
-        <Paragraph text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus mattis nunc aliquam tincidunt est non. Viverra nec eu, in ridiculus egestas mi. Vulputate tristique porttitor enim aliquam ullamcorper. Velit dui laoreet in et mus." data-aos="zoom-in" data-aos-duration="100"/>
+        <Paragraph text="Passionné par le développement web depuis maintenant mes 12 ans, j'aime apprendre et créer de nouvelles choses." data-aos="zoom-in" data-aos-duration="100"/>
         <Button text="Télécharger mon CV !"/>
       </div>
     </div>
@@ -71,11 +63,55 @@ const count = ref(0)
       </div>
     </div>
   </Section>
-  <Section has-background title="Test" description="idsidq" />
+  <Section title="Mes expériences" has-background has-button>
+    <template #button>
+      <Button text="Télécharger mon CV" size="lg" />
+    </template>
+    <div class="grid gap-10 grid-cols-2 grid-rows-2 auto-rows-max relative z-10">
+      <ExperienceCard
+          image="diatem.png"
+          company="Diatem"
+          job="Développeur web"
+          period="Nov. 2020 - Nov. 2022"
+          description="Lorem ipsum dolor sit amet"
+          data-aos="zoom-in" data-aos-duration="100"
+      />
+      <ExperienceCard
+          image="armatis.png"
+          company="Armatis"
+          job="Stage développeur web"
+          period="2020"
+          description="Lorem ipsum dolor sit amet"
+          data-aos="zoom-in" data-aos-duration="100"
+      />
+      <ExperienceCard
+          image="echinghen.png"
+          company="Commune d'Échinghen"
+          job="Développeur web"
+          period="2018"
+          description="Lorem ipsum dolor sit amet"
+          data-aos="zoom-in" data-aos-duration="100"
+      />
+      <ExperienceCard
+          image="armatis.png"
+          company="Armatis"
+          job="Développeur web"
+          period="Nov. 2020 - Nov. 2022"
+          description="Lorem ipsum dolor sit amet"
+          data-aos="zoom-in" data-aos-duration="100"
+      />
+    </div>
+<!--    <div
+        class="absolute rounded-lg bg-blue-50 dark:bg-blue-500 w-9/12 h-96"
+        style="top: 40%; left: 50%; transform: translate(-50%, -50%)">
+    </div>-->
+  </Section>
+  <Section title="Mes projets" has-button>
+    <template #button>
+      <Button size="lg" text="Voir tout"/>
+    </template>
+  </Section>
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
 </style>

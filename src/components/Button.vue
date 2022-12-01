@@ -6,7 +6,7 @@
         'bg-blue-500 hover:bg-blue-700': color === 'primary'
       }"
       type="button"
-      class="inline-block rounded-full text-base font-semibold leading-7 text-white transition-colors"
+      class="inline-block rounded-full text-base font-semibold leading-7 text-white transition-colors uppercase"
   >
     {{ text }}
   </button>

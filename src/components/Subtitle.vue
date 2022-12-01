@@ -1,5 +1,5 @@
 <template>
-  <p class="leading-tight text-2xl mt-0 mb-2 text-gray-700 mb-5">
+  <p class="leading-tight text-2xl pb-4 text-gray-700 dark:text-gray-300">
     {{ text }}
   </p>
 </template>
