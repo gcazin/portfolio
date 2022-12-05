@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-36 pb-16 isolate">
+  <div class="pt-36 isolate">
     <div class="flex items-center h-full mx-auto container max-w-7xl">
       <div class="flex-1">
         <p class="uppercase text-2xl text-gray-700 dark:text-gray-300 font-medium">{{ subtitle }}</p>
@@ -10,7 +10,7 @@
       </div>
       <div class="relative flex-1">
         <div class="mb-6" style="position: relative">
-            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_zvlsfl0d.json"  background="transparent"  speed="1" loop autoplay></lottie-player>
+            <lottie-player class="bg-gray-100 dark:bg-gray-900 rounded-lg" src="https://assets8.lottiefiles.com/packages/lf20_zvlsfl0d.json"  background="transparent"  speed="1" loop autoplay></lottie-player>
 
         </div>
       </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Button from "./Button.vue";
+import Button from "../elements/Button.vue";
 import Typed from 'typed.js'
 export default {
   name: "Hero",

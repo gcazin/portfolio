@@ -51,7 +51,7 @@
                   </template>
                 </a>
               </template>
-              <ion-icon class="text-2xl" :name="`${darkModeIcon}-outline`" @click="toggleTheme()"></ion-icon>
+              <ion-icon class="text-2xl dark:text-yellow-500" :name="`${darkModeIcon}-outline`" @click="toggleTheme()"></ion-icon>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import Button from "./Button.vue";
+import Button from "../elements/Button.vue";
 export default {
   name: "Navbar",
 

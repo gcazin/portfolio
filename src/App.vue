@@ -3,14 +3,15 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './views/Home.vue'
 import Home from "./views/Home.vue";
-import Navbar from "./components/Navbar.vue";
-import Footer from "./components/Footer.vue";
+import Navbar from "./components/layout/Navbar.vue";
+import Footer from "./components/layout/Footer.vue";
+import LocomotiveScroll from 'locomotive-scroll';
 </script>
 
 <template>
   <Navbar />
 
-  <Home />
+  <Home data-scroll-section />
 
   <Footer />
 </template>

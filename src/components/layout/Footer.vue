@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="max-w-7xl m-auto md:flex md:justify-between">
+    <div class="max-w-7xl m-auto md:flex md:justify-between py-10">
       <div class="mb-6 md:mb-0">
         <a href="https://flowbite.com/" class="flex items-center">
           <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo" />
