@@ -1,7 +1,7 @@
 <template>
   <!-- Hero section -->
   <Section>
-    <div class="isolate pt-16">
+    <div class="isolate pt-32 pb-16">
       <div class="flex items-center h-full mx-auto container max-w-7xl">
         <div class="flex-1">
           <Text type="subtitle" class="font-bold uppercase">👋, je suis</Text>
@@ -14,8 +14,9 @@
           </div>
         </div>
         <div class="relative text-center">
-          <img src="/images/blob-tear.svg" class="w-40 absolute -bottom-10 -right-10 -z-10" alt="">
-          <img src="/images/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="">
+          <img src="/images/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="">
+          <img src="/images/avatar.png" class="m-auto border border-blue-100 bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="">
+          <img src="/images/blob-tear.svg" class="w-40 absolute -top-12 -right-10 -z-10" alt="">
         </div>
       </div>
     </div>
@@ -142,12 +143,18 @@
 
   <!-- Contact -->
   <Section has-background>
-    <div class="max-w-7xl m-auto bg-blue-500 text-white rounded-lg py-10 text-center">
-      <div class="flex flex-col gap-5 px-10">
-        <Text type="title">Voulez-vous travailler avec moi ?</Text>
-        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris. Integer turpis nisi, ultrices et arcu sit amet, venenatis dapibus sapien. Quisque ut libero vel dolor blandit elementum non nec sapien. Aliquam accumsan hendrerit iaculis.</Text>
-        <Button color="white">Télécharger mon cv</Button>
+    <div class="relative overflow-hidden max-w-7xl m-auto bg-white dark:bg-gray-800 dark:text-white text-blue-500 rounded-lg py-10 text-center">
+      <div class="flex gap-5 pr-10 z-50 relative">
+        <div class="flex-1">
+          <Text type="title">Intéressé ? Contactez-moi !</Text>
+        </div>
+        <div class="flex-1 text-right">
+          <Button secondary color="white">Prise de contact</Button>
+        </div>
       </div>
+      <div class="absolute w-96 h-96 bg-gray-50 dark:bg-gray-700 right-28 -bottom-12 rotate-12"></div>
+      <div class="absolute w-96 h-96 bg-gray-100 dark:bg-gray-800 -right-0 -bottom-12 rotate-12"></div>
+      <div class="absolute w-96 h-96 bg-blue-500 dark:bg-blue-700 -right-28 -bottom-12 rotate-12"></div>
     </div>
   </Section>
 </template>
