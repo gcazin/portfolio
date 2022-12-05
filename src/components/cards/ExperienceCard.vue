@@ -5,7 +5,7 @@
           <div class="w-full lg:w-1/2" :class="{'lg:pl-8': right, 'lg:pr-8': !right}">
             <div class="flex flex-col gap-3 px-4">
               <Text type="subtitle">{{ job }}</Text>
-              <Text><img class="inline w-6 mr-3" :src="`images/${image}`" alt="">{{ company }}</Text>
+              <Text><img class="inline w-6 mr-3" :src="`/images/${image}`" alt="">{{ company }}</Text>
               <Badge>{{ period }}</Badge>
               <Text>{{ description }}</Text>
             </div>

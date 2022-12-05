@@ -14,8 +14,8 @@
           </div>
         </div>
         <div class="relative text-center">
-          <img src="images/blob-tear.svg" class="w-40 absolute -bottom-10 -right-10 -z-10" alt="">
-          <img src="images/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="">
+          <img src="/images/blob-tear.svg" class="w-40 absolute -bottom-10 -right-10 -z-10" alt="">
+          <img src="/images/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="">
         </div>
       </div>
     </div>
