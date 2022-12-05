@@ -5,7 +5,6 @@ import HelloWorld from './views/Home.vue'
 import Home from "./views/Home.vue";
 import Navbar from "./components/layout/Navbar.vue";
 import Footer from "./components/layout/Footer.vue";
-import LocomotiveScroll from 'locomotive-scroll';
 </script>
 
 <template>

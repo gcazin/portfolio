@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full" data-aos="zoom-in" data-aos-duration="500">
+  <div class="w-full" data-aos="zoom-in" data-aos-duration="500">
     <slot></slot>
   </div>
 </template>

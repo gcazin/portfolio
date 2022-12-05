@@ -14,7 +14,7 @@
             <div>
               <img class="rounded-lg w-full max-w-5xl" :src="slide.image" :alt="slide.title">
               <div class="py-5">
-                <Title>{{ slide.title }}</Title>
+                <Text type="title">{{ slide.title }}</Text>
                 <Text>{{ slide.description }}</Text>
               </div>
             </div>
@@ -22,17 +22,12 @@
         </div>
       </transition-group>
     </div>
-    <div class="flex items-center gap-3">
-      <div class="flex-auto" @click="move(-1)">
-        <div class="prev ml-auto">
-          <ion-icon class="text-xl" name="chevron-back-outline"></ion-icon>
-        </div>
+    <div class="flex justify-center gap-3">
+      <div @click="move(-1)" class="text-xl flex items-center justify-center rounded-full h-16 w-16 text-xl border-2 border-blue-500 text-blue-500 font-bold prev">
+        <ion-icon name="chevron-back-outline"></ion-icon>
       </div>
-      <div class="flex-auto" @click="move(1)">
-        <div class="next mr-auto">
-          <ion-icon class="text-xl" name="chevron-forward-outline"></ion-icon>
-
-        </div>
+      <div @click="move(1)" class="text-xl flex items-center justify-center rounded-full h-16 w-16 text-xl border-2 border-blue-500 text-blue-500 font-bold prev">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
       </div>
     </div>
     <!--  <ul class="dots">
@@ -91,21 +86,11 @@ export default {
 <style scoped>
 .prev,
 .next {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #221e21;
-  color: #221e21;
-  border-radius: 50%;
   cursor: pointer;
-  line-height: 48px;
-  text-align: center;
-  text-indent: -2px;
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .prev:hover,
 .next:hover {
-  background: #221e21;
-  color: #fff;
   transform: scale(1.2);
 }
 .prev:active,
