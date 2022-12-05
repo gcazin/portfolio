@@ -3,7 +3,7 @@
   <!-- :class="{'bg-slate-50 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-800': !hasBackground}" -->
   <div :id="id" class="relative overflow" :class="{'bg-slate-50 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-800': !hasBackground}">
     <div class="overflow-hidden">
-      <div v-if="!hasBackground" class="absolute -bottom-16 z-10">
+      <div v-if="!hasBackground" class="absolute -bottom-20 z-10">
         <img src="/images/blob-tear.svg" class="w-40" alt="">
       </div>
     </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="overflow-hidden">
-      <div v-if="hasBackground" class="absolute -bottom-16 right-0 z-10">
+      <div v-if="hasBackground" class="absolute -bottom-20 right-0 z-10">
         <img src="/images/blob-tear.svg" class="w-40" alt="">
       </div>
     </div>
