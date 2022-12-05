@@ -1,7 +1,7 @@
 <template>
-  <nav>
+  <nav class="fixed top-0 z-10 w-full dark:bg-gray-800 border-b dark:border-gray-900 backdrop-blur-md">
     <div class="mx-auto max-w-7xl container">
-      <div class="relative flex h-16 items-center justify-between">
+      <div class="relative flex h-20 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -29,12 +29,9 @@
           </button>
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="flex flex-shrink-0 items-center">
-            <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-          </div>
-          <div class="hidden sm:ml-6 sm:block">
-          </div>
+          <Text type="subtitle" class="hidden sm:block">
+            Guillaume Cazin
+          </Text>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <!-- Profile dropdown -->
@@ -44,16 +41,21 @@
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <a :href="item.url" class="uppercase text-gray-800 dark:text-gray-200 hover:text-blue-400 px-2 font-bold" aria-current="page">
                   <template v-if="item.text === 'Contact'">
-                    <Button :text="item.text" />
+                    <Button>{{ item.text }}</Button>
                   </template>
                   <template v-else>
                     {{ item.text }}
                   </template>
                 </a>
               </template>
-              <ion-icon class="text-2xl" :name="`${darkModeIcon}-outline`" @click="toggleTheme()"></ion-icon>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="absolute right-5 top-1/4 h-full">
+        <div class="flex dark:bg-gray-900 bg-gray-100 px-2 py-1.5 gap-2 rounded-xl" :key="componentKey">
+          <ion-icon :class="{'bg-yellow-50 dark:bg-gray-700': checkTheme() === 'light'}" class="text-yellow-500 p-1 rounded-lg text-xl" name="sunny" @click="toggleTheme()"></ion-icon>
+          <ion-icon :class="{'bg-gray-100 dark:bg-gray-700': checkTheme() === 'dark'}" class="dark:text-white p-1 rounded-lg text-xl" name="moon" @click="toggleTheme()"></ion-icon>
         </div>
       </div>
     </div>
@@ -75,11 +77,13 @@
 </template>
 
 <script>
-import Button from "./Button.vue";
+import Button from "../elements/Button.vue";
+import Text from "../elements/Text.vue";
 export default {
   name: "Navbar",
 
   components: {
+    Text,
     Button
   },
 
@@ -103,7 +107,8 @@ export default {
           text: 'Contact',
         }
       ],
-      darkModeIcon: 'moon'
+      darkModeIcon: 'moon',
+      componentKey: 0,
     }
   },
 
@@ -121,6 +126,8 @@ export default {
           this.darkModeIcon = 'sunny'
         }
       }
+
+      return theme
     },
     toggleTheme() {
       const theme = localStorage.getItem('theme')
@@ -138,6 +145,7 @@ export default {
       } else {
         localStorage.setItem('theme', 'light')
       }
+      this.componentKey += 1
       console.log('theme', theme)
 
     }
