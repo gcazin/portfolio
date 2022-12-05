@@ -51,7 +51,7 @@ export default {
     return {
       slides: [
         {
-          image: 'images/hello.gif',
+          image: '/images/hello.gif',
           title: 'AutoSortingSpotifyLikedSongs',
           description: 'Oui',
         },
