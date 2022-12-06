@@ -1,14 +1,14 @@
 <template>
 <!--  <svg v-if="hasBackground" class="-mt-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#111827" fill-opacity="1" d="M0,256L1440,224L1440,320L0,320Z"></path></svg>-->
   <!-- :class="{'bg-slate-50 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-800': !hasBackground}" -->
-  <div :id="id" class="relative overflow" :class="{'bg-slate-50 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-800': !hasBackground}">
+  <div :id="id" class="relative overflow border-t border-gray-100 dark:border-gray-900" :class="{'bg-slate-50/70 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-900/90': !hasBackground}">
     <div class="overflow-hidden">
-      <div v-if="!hasBackground" class="absolute -bottom-20 z-10">
+      <div v-if="!hasBackground" class="absolute invisible lg:visible -bottom-20 z-10">
         <img src="/images/blob-tear.svg" class="w-40" alt="">
       </div>
     </div>
     <div class="relative w-8/12 m-auto py-16">
-      <div class="relative flex flex-col justify-center text-center items-center">
+      <div class="relative flex flex-col justify-center text-justify lg:text-center items-center">
         <template v-if="title">
           <Text type="heading">{{ heading }}</Text>
           <Text type="title">{{ title }}</Text>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="overflow-hidden">
-      <div v-if="hasBackground" class="absolute -bottom-20 right-0 z-10">
+      <div v-if="hasBackground" class="absolute invisible lg:visible -bottom-20 right-0 z-10">
         <img src="/images/blob-tear.svg" class="w-40" alt="">
       </div>
     </div>
@@ -32,12 +32,11 @@
 </template>
 
 <script>
-import Title from "../elements/Title.vue";
 import Text from "../elements/Text.vue";
 import Button from "../elements/Button.vue";
 export default {
   name: "Section",
-  components: {Button, Text, Title},
+  components: {Button, Text},
   props: {
     id: {
       type: String,

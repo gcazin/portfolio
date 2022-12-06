@@ -1,10 +1,10 @@
 <template>
-  <nav class="fixed top-0 z-10 w-full dark:bg-gray-800 border-b dark:border-gray-900 backdrop-blur-md">
+  <nav class="fixed top-0 z-50 w-full border-b dark:border-gray-800 backdrop-blur-md">
     <div class="mx-auto max-w-7xl container">
       <div class="relative flex h-20 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
-          <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <button type="button" @click="toggleNavbar" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <!--
               Icon when menu is closed.
@@ -33,8 +33,7 @@
             Guillaume Cazin
           </Text>
         </div>
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <!-- Profile dropdown -->
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 invisible lg:static lg:visible sm:inset-auto sm:ml-6 sm:pr-0">
           <div class="relative ml-3">
             <div class="flex items-center space-x-4">
               <template v-for="item in items">
@@ -54,23 +53,21 @@
       </div>
       <div class="absolute right-5 top-1/4 h-full">
         <div class="flex dark:bg-gray-900 bg-gray-100 px-2 py-1.5 gap-2 rounded-xl" :key="componentKey">
-          <ion-icon :class="{'bg-yellow-50 dark:bg-gray-700': checkTheme() === 'light'}" class="text-yellow-500 p-1 rounded-lg text-xl" name="sunny" @click="toggleTheme()"></ion-icon>
-          <ion-icon :class="{'bg-gray-100 dark:bg-gray-700': checkTheme() === 'dark'}" class="dark:text-white p-1 rounded-lg text-xl" name="moon" @click="toggleTheme()"></ion-icon>
+          <ion-icon :class="{'bg-yellow-50 dark:bg-gray-700': checkTheme() === 'light'}" class="cursor-pointer text-yellow-500 p-1 rounded-lg text-xl hover:bg-gray-700" name="sunny" @click="toggleTheme()"></ion-icon>
+          <ion-icon :class="{'bg-gray-100 dark:bg-gray-700': checkTheme() === 'dark'}" class="text-gray-500 cursor-pointer dark:text-white p-1 rounded-lg text-xl" name="moon" @click="toggleTheme()"></ion-icon>
         </div>
       </div>
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
+    <div :class="{'static': menuMobileVisible, 'hidden': !menuMobileVisible}" id="mobile-menu">
       <div class="space-y-1 px-2 pt-2 pb-3">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+        <template v-for="item in items">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a :href="item.url" class="bg-blue-500 dark:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+            {{ item.text }}
+          </a>
+        </template>
       </div>
     </div>
   </nav>
@@ -95,18 +92,19 @@ export default {
           text: 'Accueil',
         },
         {
-          url: '',
+          url: '#introduction',
           text: 'À propos',
         },
         {
-          url: '',
+          url: '#projets',
           text: 'Projets',
         },
         {
-          url: '',
+          url: '#contact',
           text: 'Contact',
         }
       ],
+      menuMobileVisible: false,
       darkModeIcon: 'moon',
       componentKey: 0,
     }
@@ -117,6 +115,9 @@ export default {
   },
 
   methods: {
+    toggleNavbar() {
+      this.menuMobileVisible = !this.menuMobileVisible
+    },
     checkTheme() {
       const theme = localStorage.getItem('theme')
 

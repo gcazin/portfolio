@@ -12,7 +12,7 @@
           </div>
         </div>
         <div
-            class="absolute flex items-center justify-center w-4 h-4 transform -translate-x-1/2 -translate-y-4 bg-blue-50 border-4 border-blue-500 rounded-full left-1/2 sm:translate-y-0">
+            class="absolute invisible lg:visible flex items-center justify-center w-4 h-4 transform -translate-x-1/2 -translate-y-4 bg-blue-50 border-4 border-blue-500 rounded-full left-1/2 sm:translate-y-0">
         </div>
       </div>
   </AnimateOnScroll>

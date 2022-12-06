@@ -1,12 +1,19 @@
 <template>
-  <div class="w-full" data-aos="zoom-in" data-aos-duration="500">
+  <div :class="{'w-full': full}" data-aos="zoom-in" data-aos-duration="500">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "AnimateOnScroll"
+  name: "AnimateOnScroll",
+
+  props: {
+    full: {
+      type: Boolean,
+      default: false,
+    }
+  }
 }
 </script>
 
