@@ -3,9 +3,9 @@
     <p
         :class="{
           'text-blue-500 font-bold pb-2 uppercase': type === 'heading',
-          'text-4xl font-bold leading-tight pb-2': type === 'title',
+          'text-3xl lg:text-4xl font-bold leading-tight pb-2 dark:text-white': type === 'title',
           'text-2xl leading-tight text-gray-700 dark:text-gray-300 pb-2': type === 'subtitle',
-          'text-lg leading-loose text-gray-600 dark:text-gray-400 pb-2': type === 'text',
+          'text-lg leading-loose text-gray-800 dark:text-gray-200 pb-2': type === 'text',
         }"
     >
       <slot></slot>

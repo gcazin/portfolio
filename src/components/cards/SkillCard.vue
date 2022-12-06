@@ -1,6 +1,6 @@
 <template>
-  <AnimateOnScroll>
-    <div :class="`flex-1 ${last ? null : 'border-r'}`">
+  <AnimateOnScroll full>
+    <div :class="`flex-1 ${last ? null : 'border-b lg:border-b-0 lg:border-r'}`">
         <ion-icon :class="`p-2 rounded bg-blue-100 text-blue-400 text-5xl mb-6`" :name="`${icon}-outline`"></ion-icon>
       <Text type="subtitle">{{ title }}</Text>
       <div class="flex mb-2" v-for="(skill, index) in skills" :key="index">

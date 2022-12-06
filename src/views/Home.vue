@@ -5,7 +5,7 @@
       <div class="flex items-center h-full mx-auto container max-w-7xl">
         <div class="flex-1">
           <Text type="subtitle" class="font-bold uppercase">👋, je suis</Text>
-          <p class="text-blue-500 leading-normal font-extrabold tracking-tight text-8xl">Guillaume</p>
+          <p class="text-blue-500 leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
           <Text type="subtitle" class="font-bold uppercase">
             Un développeur <span class="element text-blue-500">{{ typed }}</span>
           </Text>
@@ -13,9 +13,9 @@
             <Button>Me contacter</Button>
           </div>
         </div>
-        <div class="relative text-center">
+        <div class="relative text-center hidden lg:block">
           <img src="/images/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="">
-          <img src="/images/avatar.png" class="m-auto border border-blue-100 bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="">
+          <img src="/images/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="">
           <img src="/images/blob-tear.svg" class="w-40 absolute -top-12 -right-10 -z-10" alt="">
         </div>
       </div>
@@ -24,6 +24,7 @@
 
   <!-- À propos -->
   <Section
+      id="introduction"
       heading="Introduction"
       title="👋 Bonjour !"
       subtitle="Développeur full-stack basé à Boulogne-sur-Mer" has-background
@@ -33,7 +34,7 @@
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris. Integer turpis nisi, ultrices et arcu sit amet, venenatis dapibus sapien. Quisque ut libero vel dolor blandit elementum non nec sapien. Aliquam accumsan hendrerit iaculis.
         </Text>
-        <div class="grid grid-rows-2 grid-cols-2 gap-5 my-5">
+        <div class="grid sm:grid-cols-2 gap-5 my-5">
           <Text class="border-b">
             <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
             Boulogne-sur-Mer
@@ -57,7 +58,10 @@
   </Section>
 
   <!-- Expériences -->
-  <Section heading="Formations & diplômes" title="Mes expériences">
+  <Section
+      heading="Formations & diplômes"
+      title="Mes expériences"
+  >
     <div class="flex flex-col justify-center py-6 lg:py-12">
       <div class="w-full mx-auto lg:max-w-4xl">
         <div class="relative">
@@ -100,9 +104,12 @@
   </Section>
 
   <!-- Mes compétences -->
-  <Section  title="Mes compétences" has-background>
+  <Section
+      title="Mes compétences"
+      has-background
+  >
     <div class="py-10">
-      <div class="flex text-center">
+      <div class="grid lg:grid-cols-3 gap-5 text-center">
         <SkillCard
             icon="code-slash"
             color="blue"
@@ -128,13 +135,14 @@
 
   <!-- Mes projets -->
   <Section
+      id="projets"
       heading="Portfolio"
       title="Mes projets"
       description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris. Integer turpis nisi, ultrices et arcu sit amet, venenatis dapibus sapien. Quisque ut libero vel dolor blandit elementum non nec sapien. Aliquam accumsan hendrerit iaculis.">
-    <div class="flex justify-center gap-5">
-      <Badge>Tout</Badge>
-      <Badge>Site web</Badge>
-      <Badge>Application web</Badge>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <Button size="sm">Tout</Button>
+      <Button secondary size="sm">Site web</Button>
+      <Button secondary size="sm">Application web</Button>
     </div>
     <div class="mt-5">
       <Slider />
@@ -142,25 +150,44 @@
   </Section>
 
   <!-- Contact -->
-  <Section has-background>
-    <div class="relative overflow-hidden max-w-7xl m-auto bg-white dark:bg-gray-800 dark:text-white text-blue-500 rounded-lg py-10 text-center">
-      <div class="flex gap-5 pr-10 z-50 relative">
+  <Section
+      id="contact"
+      has-background
+  >
+    <div class="relative overflow-hidden max-w-7xl m-auto bg-white dark:bg-blue-700 dark:text-white text-blue-500 rounded-lg py-10 text-center">
+      <div class="flex flex-col gap-5 lg:pr-10 z-10 relative">
         <div class="flex-1">
           <Text type="title">Intéressé ? Contactez-moi !</Text>
         </div>
-        <div class="flex-1 text-right">
+        <div class="flex-1">
           <Button secondary color="white">Prise de contact</Button>
         </div>
       </div>
-      <div class="absolute w-96 h-96 bg-gray-50 dark:bg-gray-700 right-28 -bottom-12 rotate-12"></div>
-      <div class="absolute w-96 h-96 bg-gray-100 dark:bg-gray-800 -right-0 -bottom-12 rotate-12"></div>
-      <div class="absolute w-96 h-96 bg-blue-500 dark:bg-blue-700 -right-28 -bottom-12 rotate-12"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <svg width="818" height="286" viewBox="0 0 818 286" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-center">
+          <circle cx="409" cy="409" r="408.5" stroke="url(#paint0_linear_0:1)"></circle>
+          <circle cx="409" cy="409" r="349.5" stroke="url(#paint1_linear_0:1)"></circle>
+          <defs>
+            <linearGradient id="paint0_linear_0:1" x1="-34.5" y1="291.5" x2="851" y2="291.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="white" stop-opacity="0.35"></stop>
+              <stop offset="0.218415" stop-color="white" stop-opacity="0"></stop>
+              <stop offset="0.728079" stop-color="white" stop-opacity="0"></stop>
+              <stop offset="1" stop-color="white" stop-opacity="0.35"></stop>
+            </linearGradient>
+            <linearGradient id="paint1_linear_0:1" x1="29.4768" y1="308.45" x2="787.24" y2="308.45" gradientUnits="userSpaceOnUse">
+              <stop stop-color="white" stop-opacity="0.35"></stop>
+              <stop offset="0.218415" stop-color="white" stop-opacity="0"></stop>
+              <stop offset="0.777261" stop-color="white" stop-opacity="0"></stop>
+              <stop offset="1" stop-color="white" stop-opacity="0.35"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
     </div>
   </Section>
 </template>
 
 <script>
-import Title from "../components/elements/Title.vue";
 import Text from "../components/elements/Text.vue";
 import Section from "../components/layout/Section.vue";
 import SkillCard from "../components/cards/SkillCard.vue";
@@ -177,7 +204,6 @@ export default {
 
   components: {
     Icon,
-    Title,
     Text,
     Section,
     SkillCard,
