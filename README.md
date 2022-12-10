@@ -5,7 +5,7 @@ A web application that showcases my work and skills as a developer.
 ## Technology Stack
 
 - Vue.js with Vite
-- VueJS
+- TailwindCSS
 
 ## Features
 
