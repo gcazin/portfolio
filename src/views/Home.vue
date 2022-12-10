@@ -1,22 +1,20 @@
 <template>
   <!-- Hero section -->
-  <Section>
+  <Section id="hero">
     <div class="isolate pt-32 pb-16">
       <div class="flex items-center h-full mx-auto container max-w-7xl">
-        <div class="flex-1">
+        <div class="flex-1 flex flex-col gap-7">
           <Text type="subtitle" class="font-bold uppercase">👋, je suis</Text>
-          <p class="text-blue-500 leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
+          <p class="text-blue-500 dark:text-blue-700 leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
           <Text type="subtitle" class="font-bold uppercase">
-            Un développeur <span class="element text-blue-500">{{ typed }}</span>
+            Un développeur <span class="element text-blue-500 dark:text-blue-600">{{ typed }}</span>
           </Text>
-          <div class="mt-8 flex">
-            <Button>Me contacter</Button>
-          </div>
+          <Button>Me contacter</Button>
         </div>
         <div class="relative text-center hidden lg:block">
-          <img src="/images/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="">
-          <img src="/images/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="">
-          <img src="/images/blob-tear.svg" class="w-40 absolute -top-12 -right-10 -z-10" alt="">
+          <img src="/images/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="Background">
+          <img src="/images/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="Avatar">
+          <img src="/images/blob-tear.svg" class="w-40 absolute -top-12 -right-10 -z-10" alt="Background">
         </div>
       </div>
     </div>
@@ -31,20 +29,27 @@
   >
     <div class="flex lg:flex-col gap-5 text-center">
       <div class="md:max-w-4xl m-auto text-justify">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris. Integer turpis nisi, ultrices et arcu sit amet, venenatis dapibus sapien. Quisque ut libero vel dolor blandit elementum non nec sapien. Aliquam accumsan hendrerit iaculis.
-        </Text>
-        <div class="flex md:gap-20">
+        <div class="flex-1 mb-5">
+          <Text>
+            Bonjour! Je m'appelle Guillaume et je suis développeur web avec 2 ans d'expérience dans l'industrie.
+            Passionné depuis plus de 12 ans par le développement web,
+            je suis spécialisé en JS, et plus spécifiquement en VueJS et très à l'aise en PHP notamment avec le framework Laravel.
+            J'ai une passion pour la création de sites web intuitifs et visuellement attrayants.
+            Au cours de ma carrière, j'ai travaillé sur une variété de projets allant des sites web de petites entreprises aux plateformes très spécifiques pour des entreprises de grande échelle.
+            Dans mes temps libres, j'aime être à jour sur les dernières tendances et techniques en matière de développement web.
+          </Text>
+        </div>
+        <div class="flex-1 flex md:gap-20">
           <div class="flex flex-col gap-5 my-5">
-            <Text class="border-b">
+            <Text class="border-b dark:border-b-blue-900">
               <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
               Boulogne-sur-Mer
             </Text>
-            <Text class="border-b">
+            <Text class="border-b dark:border-b-blue-900">
               <Icon :outline="false" name="mail" class="text-blue-500 font-bold mr-2" />
               czn.guillaume[at]gmail[dot]com
             </Text>
-            <Text class="border-b">
+            <Text class="border-b dark:border-b-blue-900">
               <Icon :outline="false" name="speedometer" class="text-blue-500 font-bold mr-2" />
               Niveau confirmé (2 ans d'exp.)
             </Text>
@@ -66,6 +71,7 @@
 
   <!-- Expériences -->
   <Section
+      id="experiences"
       heading="Formations & diplômes"
       title="Mes expériences"
   >
@@ -79,7 +85,8 @@
                 job="Développeur web"
                 company="Diatem"
                 period="Nov. 2020 - Nov. 2022"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris."
+                description="Utilisation de VueJS pour créer des interfaces utilisateur interactives et réactives, Drupal 8 pour construire des sites web à l'aide de son système de gestion de contenu (CMS) et Wordpress 5 pour mettre en œuvre des fonctionnalités avancées et personnalisées sur des sites web. Au cours de cette expérience, j'ai acquis une solide connaissance de ces technologies et j'ai également développé des compétences en matière de travail d'équipe et de communication."
+                :technologies="['HTML5', 'CSS3', 'VueJS', 'PHP', 'Drupal 8', 'Wordpress', 'Laravel', 'jQuery', 'API', 'Test']"
             />
             <ExperienceCard
                 image="armatis.png"
@@ -87,6 +94,7 @@
                 company="Armatis"
                 period="2020"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris."
+                :technologies="['React Native', 'HTML5', 'CSS3', 'PHP', 'Lumen', 'API']"
                 right
             />
             <ExperienceCard
@@ -95,6 +103,7 @@
                 company="Commune d'Échinghen"
                 period="2018"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris."
+                :technologies="['HTML5', 'CSS3', 'PHP']"
             />
             <ExperienceCard
                 image="armatis.png"
@@ -102,6 +111,7 @@
                 job="Stage en développement web"
                 period="Nov. 2020 - Nov. 2022"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris."
+                :technologies="['HTML5', 'CSS3', 'Symfony', 'Framework Cocorico']"
                 right
             />
           </div>
@@ -112,6 +122,7 @@
 
   <!-- Mes compétences -->
   <Section
+      id="competences"
       title="Mes compétences"
       has-background
   >
@@ -145,8 +156,8 @@
       id="projets"
       heading="Portfolio"
       title="Projets & réalisations"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris. Integer turpis nisi, ultrices et arcu sit amet, venenatis dapibus sapien. Quisque ut libero vel dolor blandit elementum non nec sapien. Aliquam accumsan hendrerit iaculis.">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      description="Exemples de mes travaux en développement web, ainsi que des informations sur les technologies et les outils que j'ai utilisés pour les réaliser.">
+    <div class="flex flex-col md:flex-row justify-center lg:grid-cols-3 gap-5">
       <Button size="sm">Tout</Button>
       <Button secondary size="sm">Site web</Button>
       <Button secondary size="sm">Application web</Button>
@@ -227,10 +238,12 @@ export default {
     return {
       typed: null,
       skills: [
-        'front-end',
-        'back-end',
+        'full-stack',
+        'JS',
         'VueJS',
         'PHP',
+        'Drupal',
+        'Wordpress',
         'Laravel',
       ]
     }
@@ -245,7 +258,8 @@ export default {
       return new Promise((successCallback) => {
         const typed = new Typed('.element', {
           strings: this.skills,
-          typeSpeed: 150
+          typeSpeed: 150,
+          loop: true,
         });
         successCallback(typed)
       })

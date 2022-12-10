@@ -6,8 +6,13 @@
             <div class="flex flex-col gap-3 px-4">
               <Text type="subtitle">{{ job }}</Text>
               <Text><img class="inline w-6 mr-3" :src="`/images/${image}`" alt="">{{ company }}</Text>
-              <Badge>{{ period }}</Badge>
+              <Text>{{ period }}</Text>
               <Text>{{ description }}</Text>
+              <div class="flex gap-x-1 gap-y-2 flex-wrap" v-if="technologies.length">
+                <template v-for="(technology, index) in technologies" :key="index">
+                  <Badge size="sm">{{ technology }}</Badge>
+                </template>
+              </div>
             </div>
           </div>
         </div>
@@ -23,6 +28,7 @@ import AnimateOnScroll from "../misc/AnimateOnScroll.vue";
 import Badge from "../elements/Badge.vue";
 import Subtitle from "../elements/Subtitle.vue";
 import Text from "../elements/Text.vue";
+import Stringifier from "postcss/lib/stringifier";
 export default {
   name: "ExperienceCard",
   components: {Text, Subtitle, Badge, AnimateOnScroll},
@@ -41,6 +47,9 @@ export default {
     },
     description: {
       type: String,
+    },
+    technologies: {
+      type: Array
     },
     right: {
       type: Boolean,

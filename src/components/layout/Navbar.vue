@@ -38,7 +38,7 @@
             <div class="flex items-center space-x-4">
               <template v-for="item in items">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a :href="item.url" class="uppercase text-gray-800 dark:text-gray-200 hover:text-blue-400 px-2 font-bold" aria-current="page">
+                <a :href="item.url" class="uppercase text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-600 px-2 font-bold transition-colors" aria-current="page">
                   <template v-if="item.text === 'Contact'">
                     <Button>{{ item.text }}</Button>
                   </template>
@@ -95,12 +95,20 @@ export default {
     return {
       items: [
         {
-          url: '',
+          url: '#hero',
           text: 'Accueil',
         },
         {
           url: '#introduction',
           text: 'À propos',
+        },
+        {
+          url: '#experiences',
+          text: 'Expériences',
+        },
+        {
+          url: '#competences',
+          text: 'Compétences',
         },
         {
           url: '#projets',
@@ -135,13 +143,27 @@ export default {
         }
       }
 
+      this.setDefaultTheme()
+
       return theme
+    },
+    setDefaultTheme() {
+      if (
+          localStorage.theme === 'dark'
+          || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark')
+        localStorage.theme = 'dark'
+      } else {
+        document.documentElement.classList.remove('dark')
+        localStorage.theme = 'light'
+      }
     },
     toggleTheme() {
       const theme = localStorage.getItem('theme')
       console.log('theme', theme)
       if (theme) {
-        if (theme === 'light') {
+        if (theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
           localStorage.setItem('theme', 'dark')
           document.documentElement.classList.add('dark')
           this.darkModeIcon = 'sunny'
