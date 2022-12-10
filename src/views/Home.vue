@@ -73,7 +73,7 @@
   <Section
       id="experiences"
       heading="Formations & diplômes"
-      title="Mes expériences"
+      title="Expériences"
   >
     <div class="flex flex-col justify-center py-6 lg:py-12">
       <div class="w-full mx-auto lg:max-w-4xl">
@@ -122,8 +122,9 @@
 
   <!-- Mes compétences -->
   <Section
+      heading="Technologies & outils"
       id="competences"
-      title="Mes compétences"
+      title="Compétences"
       has-background
   >
     <div class="py-10">
