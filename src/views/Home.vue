@@ -28,7 +28,7 @@
       subtitle="Développeur full-stack basé à Boulogne-sur-Mer" has-background
   >
     <div class="text-center">
-      <div class="lg:flex lg:flex-col gap-5 lg:max-w-4xl m-auto text-justify">
+      <div class="lg:flex lg:flex-col gap-5 m-auto text-justify">
         <div class="flex-1 mb-5">
           <Text>
             Bonjour! Je m'appelle Guillaume et je suis développeur web avec 2 ans d'expérience dans l'industrie.
@@ -159,12 +159,13 @@
       title="Projets & réalisations"
       description="Exemples de mes travaux en développement web, ainsi que des informations sur les technologies et les outils que j'ai utilisés pour les réaliser.">
     <div class="flex flex-col md:flex-row justify-center lg:grid-cols-3 gap-5">
-      <Button size="sm">Tout</Button>
-      <Button secondary size="sm">Site web</Button>
-      <Button secondary size="sm">Application web</Button>
+      <Button size="sm" :secondary="projectCategory !== 'all'" @click="projectCategory = 'all'">Tout</Button>
+      <Button :secondary="projectCategory !== 'website'" size="sm" @click="projectCategory = 'website'">Site web</Button>
+      <Button :secondary="projectCategory !== 'web-application'" size="sm" @click="projectCategory = 'web-application'">Application web</Button>
+      <Button :secondary="projectCategory !== 'resources'" secondary size="sm" @click="projectCategory = 'resources'">Ressources</Button>
     </div>
     <div class="mt-5">
-      <Projects />
+      <Projects :category="projectCategory"/>
     </div>
   </Section>
 
@@ -252,6 +253,7 @@ export default {
         'Wordpress',
         'Laravel',
       ],
+      projectCategory: 'all',
       scrollTop: 0,
       scrollTopPositionButtonAppear: 250,
     }
@@ -263,6 +265,9 @@ export default {
     window.addEventListener("scroll", this.getScrollTop);
   },
   methods: {
+    projects() {
+      return projects
+    },
     async getTyped() {
       return new Promise((successCallback) => {
         const typed = new Typed('.element', {
