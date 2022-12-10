@@ -86,7 +86,7 @@
                 company="Diatem"
                 period="Nov. 2020 - Nov. 2022"
                 description="Utilisation de VueJS pour créer des interfaces utilisateur interactives et réactives, Drupal 8 pour construire des sites web à l'aide de son système de gestion de contenu (CMS) et Wordpress 5 pour mettre en œuvre des fonctionnalités avancées et personnalisées sur des sites web. Au cours de cette expérience, j'ai acquis une solide connaissance de ces technologies et j'ai également développé des compétences en matière de travail d'équipe et de communication."
-                :technologies="['HTML5', 'CSS3', 'VueJS', 'PHP', 'Drupal 8', 'Wordpress', 'Laravel', 'jQuery', 'API', 'Test']"
+                :technologies="['HTML5', 'CSS3', 'VueJS', 'PHP', 'Drupal 8', 'Wordpress', 'Laravel', 'jQuery', 'API']"
             />
             <ExperienceCard
                 image="armatis.png"
