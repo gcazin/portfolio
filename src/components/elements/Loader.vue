@@ -1,16 +1,18 @@
 <template>
-<div v-show="loading" class="bg-gray-50 h-full w-full z-50 fixed top-0 bottom-0 left-0 right-0">
-  <div class="flex flex-col justify-center items-center h-full w-full">
-    <div class='cssload-loader'>
-      <div class='cssload-inner cssload-one border-b-4 border-blue-800'></div>
-      <div class='cssload-inner cssload-two border-r-4 border-blue-700'></div>
-      <div class='cssload-inner cssload-three border-t-4 border-blue-500'></div>
-    </div>
-    <div class="mt-3">
-      <Text class="font-bold">Chargement...</Text>
+  <Transition name="fade">
+  <div v-show="loading" class="bg-gray-50 dark:bg-gray-900 h-full w-full z-50 fixed top-0 bottom-0 left-0 right-0">
+    <div class="flex flex-col justify-center items-center h-full w-full">
+      <div class='cssload-loader'>
+        <div class='cssload-inner cssload-one border-b-4 border-blue-800'></div>
+        <div class='cssload-inner cssload-two border-r-4 border-blue-700'></div>
+        <div class='cssload-inner cssload-three border-t-4 border-blue-500'></div>
+      </div>
+      <div class="mt-3">
+        <Text class="font-bold">Chargement...</Text>
+      </div>
     </div>
   </div>
-</div>
+  </Transition>
 </template>
 
 <script>
@@ -134,5 +136,14 @@ export default {
   100% {
     -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.7s ease;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
