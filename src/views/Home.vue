@@ -27,8 +27,8 @@
       title="👋 Bonjour !"
       subtitle="Développeur full-stack basé à Boulogne-sur-Mer" has-background
   >
-    <div class="flex lg:flex-col gap-5 text-center">
-      <div class="md:max-w-4xl m-auto text-justify">
+    <div class="text-center">
+      <div class="lg:flex lg:flex-col gap-5 lg:max-w-4xl m-auto text-justify">
         <div class="flex-1 mb-5">
           <Text>
             Bonjour! Je m'appelle Guillaume et je suis développeur web avec 2 ans d'expérience dans l'industrie.
@@ -39,7 +39,7 @@
             Dans mes temps libres, j'aime être à jour sur les dernières tendances et techniques en matière de développement web.
           </Text>
         </div>
-        <div class="flex-1 flex md:gap-20">
+        <div class="flex-1 lg:flex md:gap-20">
           <div class="flex flex-col gap-5 my-5">
             <Text class="border-b dark:border-b-blue-900">
               <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
@@ -65,7 +65,7 @@
           </div>
         </div>
       </div>
-      <Button secondary>Télécharger mon CV</Button>
+      <Button class="mt-10" secondary>Télécharger mon CV</Button>
     </div>
   </Section>
 
@@ -174,7 +174,7 @@
       has-background
   >
     <div class="relative overflow-hidden max-w-7xl m-auto bg-white dark:bg-blue-700 dark:text-white text-blue-500 rounded-lg py-10 text-center">
-      <div class="flex flex-col gap-5 lg:pr-10 z-10 relative">
+      <div class="flex flex-col gap-5 px-5 lg:pr-10 z-10 relative">
         <div class="flex-1">
           <Text type="title">Intéressé ? Contactez-moi !</Text>
         </div>

@@ -7,7 +7,7 @@
               <Text type="subtitle">{{ job }}</Text>
               <Text><img class="inline w-6 mr-3" :src="`/images/${image}`" alt="">{{ company }}</Text>
               <Text>{{ period }}</Text>
-              <Text>{{ description }}</Text>
+              <Text class="text-justify lg:text-left">{{ description }}</Text>
               <div class="flex gap-x-1 gap-y-2 flex-wrap" v-if="technologies.length">
                 <template v-for="(technology, index) in technologies" :key="index">
                   <Badge size="sm">{{ technology }}</Badge>
