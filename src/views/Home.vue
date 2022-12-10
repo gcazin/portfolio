@@ -203,6 +203,10 @@
       </div>
     </div>
   </Section>
+
+  <div v-if="scrollTop > scrollTopPositionButtonAppear" class="fixed bottom-5 right-5 z-50">
+    <Button @click="scrollToTop"><Icon name="chevron-up" /></Button>
+  </div>
 </template>
 
 <script>
@@ -236,6 +240,7 @@ export default {
 
   data() {
     return {
+      url: null,
       typed: null,
       skills: [
         'full-stack',
@@ -245,13 +250,16 @@ export default {
         'Drupal',
         'Wordpress',
         'Laravel',
-      ]
+      ],
+      scrollTop: 0,
+      scrollTopPositionButtonAppear: 250,
     }
   },
   mounted() {
     this.getTyped().then((typed) => {
       this.typed = typed
     })
+    window.addEventListener("scroll", this.getScrollTop);
   },
   methods: {
     async getTyped() {
@@ -263,6 +271,27 @@ export default {
         });
         successCallback(typed)
       })
+    },
+    getScrollTop() {
+      this.scrollTop = document.documentElement.scrollTop;
+    },
+    scrollToTop() {
+      const url = window.location.href
+
+      this.url = this.removeAnchor(url)
+
+      window.scrollTo({
+        top: 0,
+      });
+    },
+    removeAnchor(url) {
+      const index = url.indexOf("#")
+
+      if (index !== -1) {
+        return url.substring(0, index)
+      }
+
+      return url
     }
   }
 }
