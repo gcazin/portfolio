@@ -11,15 +11,15 @@
           <Icon class="text-xl" name="logo-linkedin" :outline="false" />
           <span class="sr-only">LinkedIn</span>
         </a>
-        <a href="http://github.com/gcazin" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+        <a target="_blank" href="http://github.com/gcazin" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
           <Icon class="text-xl" name="logo-github" :outline="false" />
           <span class="sr-only">GitHub</span>
         </a>
-        <a target="_blank" href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+        <a target="_blank" href="https://twitter.com/guilomeczn" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
           <Icon class="text-xl" name="logo-twitter" :outline="false" />
           <span class="sr-only">Twitter</span>
         </a>
-        <a target="_blank" href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+        <a target="_blank" href="https://codepen.io/gcazin" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
           <Icon class="text-xl" name="logo-codepen" :outline="false" />
           <span class="sr-only">Codepen</span>
         </a>
