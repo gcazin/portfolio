@@ -138,7 +138,7 @@
             icon="cog"
             color="purple"
             title="Outils"
-            :skills="['Figma', 'PhpStorm', 'Visual studio code']"
+            :skills="['Figma', 'PhpStorm', 'Code']"
         />
         <SkillCard
             icon="cog"
