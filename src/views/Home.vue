@@ -12,9 +12,9 @@
           <Button>Me contacter</Button>
         </div>
         <div class="relative text-center hidden lg:block">
-          <img src="/images/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="Background">
-          <img src="/images/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="Avatar">
-          <img src="/images/blob-tear.svg" class="w-40 absolute -top-12 -right-10 -z-10" alt="Background">
+          <img src="/images/misc/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="Background">
+          <img src="/images/misc/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="Avatar">
+          <img src="/images/misc/blob-tear.svg" class="w-40 absolute -top-12 -right-10 -z-10" alt="Background">
         </div>
       </div>
     </div>
@@ -69,11 +69,21 @@
     </div>
   </Section>
 
+  <Section
+      id="references"
+      heading="Projets d'entreprises"
+      title="Références"
+      description="Projets d'entreprises pour lesquelle j'ai travaillé durant mes expériences professionnelles"
+  >
+    <References />
+  </Section>
+
   <!-- Expériences -->
   <Section
       id="experiences"
       heading="Formations & diplômes"
       title="Expériences"
+      has-background
   >
     <div class="flex flex-col justify-center py-6 lg:py-12">
       <div class="w-full mx-auto lg:max-w-4xl">
@@ -93,7 +103,9 @@
                 job="Stage en développement web"
                 company="Armatis"
                 period="2020"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris."
+                description="Développement d'une application mobile qui vise à simplifier les repas entre collègues. Cette application, développée en React Native, permet aux utilisateurs de s'organiser facilement pour les repas en groupe, que ce soit au bureau ou en déplacement.
+La partie API de l'application a été écrite en PHP avec le framework Lumen, ce qui lui permet d'être rapide et fiable. L'application est conçue pour être facile à utiliser et intuitive.
+Les utilisateurs peuvent créer des événements de repas en quelques minutes seulement, et inviter leurs collègues."
                 :technologies="['React Native', 'HTML5', 'CSS3', 'PHP', 'Lumen', 'API']"
                 right
             />
@@ -102,7 +114,7 @@
                 job="Stage en développement web"
                 company="Commune d'Échinghen"
                 period="2018"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris."
+                description="Développement d'un site web vitrine pour une mairie. Conçu en PHP, ce site est destiné à être une plateforme en ligne pour la mairie, offrant aux citoyens un accès facile à des informations importantes sur les services municipaux et les événements en cours."
                 :technologies="['HTML5', 'CSS3', 'PHP']"
             />
             <ExperienceCard
@@ -110,7 +122,7 @@
                 company="Mesconcierges"
                 job="Stage en développement web"
                 period="Nov. 2020 - Nov. 2022"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris."
+                description="Développement d'un site web avec le framework Cocorico basé sur Symfony, qui offre aux utilisateurs une plateforme en ligne pour gérer les services de conciergerie dans leurs locations."
                 :technologies="['HTML5', 'CSS3', 'Symfony', 'Framework Cocorico']"
                 right
             />
@@ -125,7 +137,6 @@
       heading="Technologies & outils"
       id="competences"
       title="Compétences"
-      has-background
   >
     <div class="py-10">
       <div class="grid lg:grid-cols-3 gap-5 text-center">
@@ -157,7 +168,9 @@
       id="projets"
       heading="Portfolio"
       title="Projets & réalisations"
-      description="Exemples de mes travaux en développement web, ainsi que des informations sur les technologies et les outils que j'ai utilisés pour les réaliser.">
+      description="Exemples de mes travaux en développement web, ainsi que des informations sur les technologies et les outils que j'ai utilisés pour les réaliser."
+      has-background
+  >
     <div class="flex flex-col md:flex-row justify-center lg:grid-cols-3 gap-5">
       <Button size="sm" :secondary="projectCategory !== 'all'" @click="projectCategory = 'all'">Tout</Button>
       <Button :secondary="projectCategory !== 'website'" size="sm" @click="projectCategory = 'website'">Site web</Button>
@@ -172,7 +185,6 @@
   <!-- Contact -->
   <Section
       id="contact"
-      has-background
   >
     <div class="relative overflow-hidden max-w-7xl m-auto bg-white dark:bg-blue-700 dark:text-white text-blue-500 rounded-lg py-10 text-center">
       <div class="flex flex-col gap-5 px-5 lg:pr-10 z-10 relative">
@@ -223,11 +235,13 @@ import Typed from 'typed.js'
 import Icon from "../components/elements/Icon.vue";
 import Projects from "../components/misc/Projects.vue";
 import Card from "../components/cards/Card.vue";
+import References from "../components/misc/References.vue";
 
 export default {
   name: "Home",
 
   components: {
+    References,
     Card,
     Projects,
     Icon,

@@ -5,9 +5,13 @@
           <div class="w-full lg:w-1/2" :class="{'lg:pl-8': right, 'lg:pr-8': !right}">
             <div class="flex flex-col gap-3 px-4">
               <Text type="subtitle">{{ job }}</Text>
-              <Text><img class="inline w-6 mr-3" :src="`/images/${image}`" alt="">{{ company }}</Text>
+              <Text><img class="inline w-6 mr-3" :src="`/images/companies/${image}`" alt="">{{ company }}</Text>
               <Text>{{ period }}</Text>
-              <Text class="text-justify lg:text-left">{{ description }}</Text>
+              <Text class="text-justify lg:text-left">
+                {{ !showFullText ? description.slice(0, 100) : description }} <template v-if="!showFullText">...</template>
+                <button v-show="!showFullText" @click="showFullText = true" type="button" class="text-blue-500">Voir plus</button>
+                <button v-show="showFullText" @click="showFullText = false" type="button" class="text-blue-500">Voir moins</button>
+              </Text>
               <div class="flex gap-x-1 gap-y-2 flex-wrap" v-if="technologies.length">
                 <template v-for="(technology, index) in technologies" :key="index">
                   <Badge size="sm">{{ technology }}</Badge>
@@ -32,6 +36,7 @@ import Stringifier from "postcss/lib/stringifier";
 export default {
   name: "ExperienceCard",
   components: {Text, Subtitle, Badge, AnimateOnScroll},
+
   props: {
     image: {
       type: String,
@@ -54,6 +59,12 @@ export default {
     right: {
       type: Boolean,
       default: false
+    }
+  },
+
+  data() {
+    return {
+      showFullText: false,
     }
   }
 }

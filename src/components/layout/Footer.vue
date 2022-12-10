@@ -1,5 +1,5 @@
 <template>
-  <footer :class="{'bg-slate-50/70 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-900/90': !hasBackground}">
+  <footer class="border-t border-gray-100 dark:border-gray-900" :class="{'bg-slate-50/70 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-900/90': !hasBackground}">
     <Container>
       <div class="md:flex md:justify-between py-10">
         <div class="mb-6 md:mb-0">
