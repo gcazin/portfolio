@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
       <div v-for="(project, index) in filteredProjects" :key="index">
         <div class="group relative bg-slate-50 rounded-xl hover:bg-blue-500 transition-colors duration-500 hover:text-white group-hover:bg-blue-500">
-          <img class="rounded w-full" :src="project.image" :alt="project.title">
+          <img class="rounded w-full" :src="`images/projects/${project.image}`" :alt="project.title">
           <div
               class="
               text-lg
@@ -103,7 +103,7 @@ export default {
     return {
       projects: [
         {
-          image: '/images/spotify-automatic-playlist-filler.png',
+          image: 'spotify-automatic-playlist-filler.png',
           title: 'Spotify automatic playlist sorter',
           description: "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists",
           technologies: ['VueJS', 'API', 'Bootstrap'],
@@ -112,7 +112,7 @@ export default {
           category: 'web-application'
         },
         {
-          image: '/images/pure-css-windows-10-desktop.png',
+          image: 'pure-css-windows-10-desktop.png',
           title: 'Pure CSS Windows 10 desktop',
           description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS",
           technologies: ['SCSS'],
@@ -121,7 +121,7 @@ export default {
           category: 'resources'
         },
         {
-          image: '/images/slimys.png',
+          image: 'slimys.png',
           title: 'Slimys',
           description: "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen",
           technologies: ['Lumen', 'VueJS', 'Bootstrap'],
@@ -130,7 +130,7 @@ export default {
 
         },
         {
-          image: '/images/inskub.jpg',
+          image: 'inskub.jpg',
           title: 'Inskub',
           description: "Création d'une plateforme d'assurance mettant en lien les experts du domaine au travers d'une plateforme sociale.",
           technologies: ['Laravel', 'Boostrap'],
@@ -138,7 +138,7 @@ export default {
           category: 'website'
         },
         {
-          image: '/images/medializ.png',
+          image: 'medializ.png',
           title: 'Medializ',
           description: "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter",
           technologies: ['Laravel', 'Tailwind'],
@@ -146,7 +146,7 @@ export default {
           category: 'website'
         },
         {
-          image: '/images/quotesharing.png',
+          image: 'quotesharing.png',
           title: 'QuoteSharing',
           description: "Création d'une plateforme permettant aux utilisateurs de poster des citations",
           technologies: ['Laravel', 'Bootstrap'],
