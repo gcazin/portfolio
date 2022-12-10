@@ -6,6 +6,10 @@
           <span class="text-2xl font-semibold dark:text-white">Guillaume Cazin</span>
         </a>
         <div class="flex pt-5 space-x-6 sm:mt-0">
+          <a target="_blank" href="https://www.linkedin.com/in/guillaume-cazin/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <Icon class="text-xl" name="logo-linkedin" :outline="false" />
+            <span class="sr-only">LinkedIn</span>
+          </a>
           <a href="http://github.com/gcazin" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
             <Icon class="text-xl" name="logo-github" :outline="false" />
             <span class="sr-only">GitHub</span>

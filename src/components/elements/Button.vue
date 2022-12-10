@@ -7,8 +7,8 @@
         'px-4 py-3 text-lg': size === 'lg',
         'px-7 py-3 w-100': size === 'full',
         'bg-gray-100 hover:bg-gray-200 text-blue-500': color === 'white',
-        'bg-blue-500 hover:bg-blue-700': color === 'primary',
-        'bg-blue-100 text-blue-600 hover:bg-blue-500 hover:text-white dark:bg-gray-800 dark:hover:bg-blue-800': secondary,
+        'bg-blue-500 dark:bg-blue-700 hover:bg-blue-700': color === 'primary',
+        'bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:bg-gray-800 dark:hover:bg-blue-800': secondary,
       }"
         type="button"
         class="inline-block rounded-full font-semibold leading-7 text-white transition-all duration-250 uppercase"

@@ -7,7 +7,7 @@
         <img src="/images/blob-tear.svg" class="w-40" alt="">
       </div>
     </div>
-    <div class="relative w-8/12 m-auto py-16">
+    <div class="relative w-8/12 m-auto py-24">
       <div class="relative flex flex-col justify-center text-justify lg:text-center items-center">
         <template v-if="title">
           <Text type="heading">{{ heading }}</Text>

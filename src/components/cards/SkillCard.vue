@@ -1,7 +1,7 @@
 <template>
   <AnimateOnScroll full>
     <div :class="`flex-1 ${last ? null : 'border-b lg:border-b-0 lg:border-r'}`">
-        <ion-icon :class="`p-2 rounded bg-blue-100 text-blue-400 text-5xl mb-6`" :name="`${icon}-outline`"></ion-icon>
+        <ion-icon :class="`p-2 rounded-xl bg-blue-100 dark:bg-blue-400 text-blue-400 dark:text-blue-900 text-5xl mb-6`" :name="`${icon}-outline`"></ion-icon>
       <Text type="subtitle">{{ title }}</Text>
       <div class="flex mb-2" v-for="(skill, index) in skills" :key="index">
         <!--      <div class="flex-1 text-right mr-2">-->

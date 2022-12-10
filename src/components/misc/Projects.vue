@@ -3,12 +3,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
       <div v-for="(slide, index) in slides" :key="index">
         <div class="group relative bg-slate-50 rounded-xl hover:bg-blue-500 transition-colors hover:text-white group-hover:bg-blue-500">
-          <img class="rounded-xl" :src="slide.image" :alt="slide.title">
+          <img class="rounded" :src="slide.image" :alt="slide.title">
           <div
               class="
               text-lg
                 overflow-hidden
-                rounded-xl
+                rounded
                 group-hover:transition-colors
                 invisible group-hover:visible
                 group-hover:bg-blue-500/90 group-hover:text-white
