@@ -11,7 +11,7 @@ import Loader from "./components/elements/Loader.vue";
   <Loader />
   <Home />
 
-  <Footer has-background />
+  <Footer />
 </template>
 
 <style scoped>

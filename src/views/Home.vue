@@ -207,7 +207,7 @@
   </Section>
 
   <div v-if="scrollTop > scrollTopPositionButtonAppear" class="fixed bottom-5 right-5 z-50">
-    <Button @click="scrollToTop"><Icon name="chevron-up" /></Button>
+    <Button secondary @click="scrollToTop"><Icon name="chevron-up" /></Button>
   </div>
 </template>
 
