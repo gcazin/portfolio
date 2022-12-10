@@ -1,39 +1,19 @@
 <template>
   <nav class="fixed top-0 z-50 w-full border-b dark:border-gray-800 backdrop-blur-md">
-    <div class="mx-auto max-w-7xl container">
+    <div class="mx-auto w-10/12 lg:max-w-7xl container">
       <div class="relative flex h-20 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
-          <button type="button" @click="toggleNavbar" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!--
-              Icon when menu is closed.
-
-              Heroicon name: outline/bars-3
-
-              Menu open: "hidden", Menu closed: "block"
-            -->
-            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!--
-              Icon when menu is open.
-
-              Heroicon name: outline/x-mark
-
-              Menu open: "block", Menu closed: "hidden"
-            -->
-            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <Button @click="toggleNavbar" color="transparent">
+            <Icon class="text-3xl" name="menu" />
+          </Button>
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <Text type="subtitle" class="hidden sm:block">
             Guillaume Cazin
           </Text>
         </div>
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 invisible lg:static lg:visible sm:inset-auto sm:ml-6 sm:pr-0">
+        <div class="absolute inset-y-0 right-0 flex items-center invisible lg:static lg:visible sm:inset-auto">
           <div class="relative ml-3">
             <div class="flex items-center space-x-4">
               <template v-for="item in items">
@@ -51,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="absolute right-5 top-1/4 h-full">
+      <div class="absolute right-5 top-5 lg:top-1/4 lg:h-full">
         <div class="flex dark:bg-gray-900 bg-gray-100 px-2 py-1.5 gap-2 rounded-xl" :key="componentKey">
           <ion-icon
               :class="{
@@ -67,11 +47,17 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div :class="{'static': menuMobileVisible, 'hidden': !menuMobileVisible}" id="mobile-menu">
-      <div class="space-y-1 px-2 pt-2 pb-3">
+    <div :key="componentKey" class="w-10/12 mx-auto" :class="{'static': menuMobileVisible, 'hidden': !menuMobileVisible}" id="mobile-menu">
+      <div class="space-y-1 pb-3">
         <template v-for="item in items">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <a :href="item.url" class="bg-blue-500 dark:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+          <a
+              :href="item.url"
+              @click="checkCurrentUrl()"
+              :class="{'bg-blue-500 text-white dark:bg-blue-800': anchorName === item.url}"
+              class="dark:text-white block px-3 py-2 rounded-md text-base font-medium"
+              aria-current="page"
+          >
             {{ item.text }}
           </a>
         </template>
@@ -83,10 +69,12 @@
 <script>
 import Button from "../elements/Button.vue";
 import Text from "../elements/Text.vue";
+import Icon from "../elements/Icon.vue";
 export default {
   name: "Navbar",
 
   components: {
+    Icon,
     Text,
     Button
   },
@@ -121,6 +109,7 @@ export default {
       ],
       menuMobileVisible: false,
       darkModeIcon: 'moon',
+      anchorName: null,
       componentKey: 0,
     }
   },
@@ -176,8 +165,18 @@ export default {
         localStorage.setItem('theme', 'light')
       }
       this.componentKey += 1
-      console.log('theme', theme)
+    },
+    checkCurrentUrl() {
+      this.menuMobileVisible = false
 
+      const anchor = window.location.hash
+
+      console.log('anchor', anchor)
+
+      if (anchor) {
+        this.anchorName = anchor
+        this.componentKey += 1
+      }
     }
   }
 }
