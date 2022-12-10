@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8789a72a-eaf2-4390-a329-c006674c525f/deploy-status)](https://app.netlify.com/sites/guillaume-cazin/deploys)
+
 # Portfolio
 
 A web application that showcases my work and skills as a developer.
