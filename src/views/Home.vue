@@ -29,28 +29,35 @@
       title="👋 Bonjour !"
       subtitle="Développeur full-stack basé à Boulogne-sur-Mer" has-background
   >
-    <div class="flex flex-col gap-5 text-center">
-      <div class="max-w-4xl m-auto text-justify">
+    <div class="flex lg:flex-col gap-5 text-center">
+      <div class="md:max-w-4xl m-auto text-justify">
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris. Integer turpis nisi, ultrices et arcu sit amet, venenatis dapibus sapien. Quisque ut libero vel dolor blandit elementum non nec sapien. Aliquam accumsan hendrerit iaculis.
         </Text>
-        <div class="grid sm:grid-cols-2 gap-5 my-5">
-          <Text class="border-b">
-            <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
-            Boulogne-sur-Mer
-          </Text>
-          <Text class="border-b">
-            <Icon :outline="false" name="mail" class="text-blue-500 font-bold mr-2" />
-            czn.guillaume[at]gmail[dot]com
-          </Text>
-          <Text>
-            <Icon :outline="false" name="speedometer" class="text-blue-500 font-bold mr-2" />
-            Niveau confirmé (2 ans d'exp.)
-          </Text>
-          <Text>
-            <Icon :outline="false" name="laptop" class="text-blue-500 font-bold mr-2" />
-            Télétravail total
-          </Text>
+        <div class="flex md:gap-20">
+          <div class="flex flex-col gap-5 my-5">
+            <Text class="border-b">
+              <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
+              Boulogne-sur-Mer
+            </Text>
+            <Text class="border-b">
+              <Icon :outline="false" name="mail" class="text-blue-500 font-bold mr-2" />
+              czn.guillaume[at]gmail[dot]com
+            </Text>
+            <Text class="border-b">
+              <Icon :outline="false" name="speedometer" class="text-blue-500 font-bold mr-2" />
+              Niveau confirmé (2 ans d'exp.)
+            </Text>
+            <Text>
+              <Icon :outline="false" name="laptop" class="text-blue-500 font-bold mr-2" />
+              Télétravail total
+            </Text>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-5">
+            <Card title="+12" description="ans de passions" />
+            <Card title="+2" description="ans d'expériences" />
+            <Card title="+19" description="projets GitHub" />
+          </div>
         </div>
       </div>
       <Button secondary>Télécharger mon CV</Button>
@@ -137,7 +144,7 @@
   <Section
       id="projets"
       heading="Portfolio"
-      title="Mes projets"
+      title="Projets & réalisations"
       description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tincidunt arcu, vitae accumsan mauris. Integer turpis nisi, ultrices et arcu sit amet, venenatis dapibus sapien. Quisque ut libero vel dolor blandit elementum non nec sapien. Aliquam accumsan hendrerit iaculis.">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
       <Button size="sm">Tout</Button>
@@ -145,7 +152,7 @@
       <Button secondary size="sm">Application web</Button>
     </div>
     <div class="mt-5">
-      <Slider />
+      <Projects />
     </div>
   </Section>
 
@@ -194,15 +201,18 @@ import SkillCard from "../components/cards/SkillCard.vue";
 import Button from "../components/elements/Button.vue";
 import Subtitle from "../components/elements/Subtitle.vue";
 import ExperienceCard from "../components/cards/ExperienceCard.vue";
-import Slider from "../components/elements/Slider.vue";
 import Badge from "../components/elements/Badge.vue";
 import Typed from 'typed.js'
 import Icon from "../components/elements/Icon.vue";
+import Projects from "../components/misc/Projects.vue";
+import Card from "../components/cards/Card.vue";
 
 export default {
   name: "Home",
 
   components: {
+    Card,
+    Projects,
     Icon,
     Text,
     Section,
@@ -210,7 +220,6 @@ export default {
     Button,
     Subtitle,
     ExperienceCard,
-    Slider,
     Badge
   },
 

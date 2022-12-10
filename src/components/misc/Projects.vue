@@ -1,16 +1,17 @@
 <template>
   <AnimateOnScroll>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
       <div v-for="(slide, index) in slides" :key="index">
         <div class="group relative bg-slate-50 rounded-xl hover:bg-blue-500 transition-colors hover:text-white group-hover:bg-blue-500">
           <img class="rounded-xl" :src="slide.image" :alt="slide.title">
           <div
               class="
+              text-lg
                 overflow-hidden
                 rounded-xl
                 group-hover:transition-colors
                 invisible group-hover:visible
-                group-hover:bg-blue-500/90 group-hover:!text-white group-hover:text-lg
+                group-hover:bg-blue-500/90 group-hover:text-white
                 absolute p-5 h-full w-full z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
               "
           >
@@ -21,14 +22,25 @@
               </svg>
             </div>
             <div class="flex flex-col gap-3 items-center justify-center h-full">
-              <p>{{ slide.title }}</p>
+              <p class="text-xl">{{ slide.title }}</p>
               <p>{{ slide.description }}</p>
+              <div class="flex text-3xl gap-1">
+                <template v-if="slide.url">
+                  <a target="_blank" :href="slide.url"><Icon name="link" /></a>
+                </template>
+                <template v-if="slide.codepen">
+                  <a target="_blank" :href="slide.codepen"><Icon name="logo-codepen" :outline="false" /></a>
+                </template>
+                <template v-if="slide.github">
+                  <a target="_blank" :href="`https://github.com/gcazin/${slide.github}`"><Icon name="logo-github" :outline="false" /></a>
+                </template>
+              </div>
               <ul class="flex gap-1">
                 <li
                     v-for="(technology, index) in slide.technologies"
                     :key="index"
                 >
-                  <Badge secondary>{{ technology }}</Badge>
+                  <Badge>{{ technology }}</Badge>
                 </li>
               </ul>
             </div>
@@ -56,12 +68,14 @@
 </template>
 
 <script>
-import Text from "./Text.vue";
-import AnimateOnScroll from "../misc/AnimateOnScroll.vue";
-import Badge from "./Badge.vue";
+import Text from "../elements/Text.vue";
+import AnimateOnScroll from "./AnimateOnScroll.vue";
+import Badge from "../elements/Badge.vue";
+import Icon from "../elements/Icon.vue";
 export default {
-  name: "Slider",
+  name: "Projects",
   components: {
+    Icon,
     Badge,
     AnimateOnScroll,
     Text
@@ -71,35 +85,48 @@ export default {
     return {
       slides: [
         {
-          image: '/images/hello.gif',
-          title: 'AutoSortingSpotifyLikedSongs',
-          description: 'Oui',
-          technologies: ['VueJS', 'API']
+          image: '/images/spotify-automatic-playlist-filler.png',
+          title: 'Spotify automatic playlist sorter',
+          description: "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists",
+          technologies: ['VueJS', 'API', 'Bootstrap'],
+          url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
+          github: 'auto-sorting-spotify-liked-songs',
         },
         {
-          image: '/images/hello.gif',
-          title: 'AutoSortingSpotifyLikedSongs',
-          description: 'Oui',
+          image: '/images/pure-css-windows-10-desktop.png',
+          title: 'Pure CSS Windows 10 desktop',
+          description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS",
+          technologies: ['SCSS'],
+          github: 'pure-css-windows-10-desktop',
+          codepen: 'https://codepen.io/gcazin/full/bKbMQW'
         },
         {
-          image: '/images/hello.gif',
-          title: 'AutoSortingSpotifyLikedSongs',
-          description: 'Oui',
+          image: '/images/slimys.png',
+          title: 'Slimys',
+          description: "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen",
+          technologies: ['Lumen', 'VueJS', 'Bootstrap'],
+          url: 'https://www.slimysnft.io/',
         },
         {
-          image: '/images/hello.gif',
-          title: 'AutoSortingSpotifyLikedSongs',
-          description: 'Oui',
+          image: '/images/inskub.jpg',
+          title: 'Inskub',
+          description: "Création d'une plateforme d'assurance mettant en lien les experts du domaine au travers d'une plateforme sociale.",
+          technologies: ['Laravel', 'Boostrap'],
+          github: 'inskub'
         },
         {
-          image: '/images/hello.gif',
-          title: 'AutoSortingSpotifyLikedSongs',
-          description: 'Oui',
+          image: '/images/medializ.png',
+          title: 'Medializ',
+          description: "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter",
+          technologies: ['Laravel', 'Tailwind'],
+          github: 'medializ'
         },
         {
-          image: '/images/hello.gif',
-          title: 'AutoSortingSpotifyLikedSongs',
-          description: 'Oui',
+          image: '/images/quotesharing.png',
+          title: 'QuoteSharing',
+          description: "Création d'une plateforme permettant aux utilisateurs de poster des citations",
+          technologies: ['Laravel', 'Bootstrap'],
+          github: 'quotesharing'
         },
       ],
       active: 0

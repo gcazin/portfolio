@@ -53,8 +53,15 @@
       </div>
       <div class="absolute right-5 top-1/4 h-full">
         <div class="flex dark:bg-gray-900 bg-gray-100 px-2 py-1.5 gap-2 rounded-xl" :key="componentKey">
-          <ion-icon :class="{'bg-yellow-50 dark:bg-gray-700': checkTheme() === 'light'}" class="cursor-pointer text-yellow-500 p-1 rounded-lg text-xl hover:bg-gray-700" name="sunny" @click="toggleTheme()"></ion-icon>
-          <ion-icon :class="{'bg-gray-100 dark:bg-gray-700': checkTheme() === 'dark'}" class="text-gray-500 cursor-pointer dark:text-white p-1 rounded-lg text-xl" name="moon" @click="toggleTheme()"></ion-icon>
+          <ion-icon
+              :class="{
+            'bg-yellow-50 dark:bg-gray-700 text-yellow-500': darkModeIcon === 'sunny',
+            'bg-gray-100 dark:bg-gray-300 text-gray-500 hover:bg-gray-300': darkModeIcon === 'moon',
+          }"
+              class="cursor-pointer p-1 rounded-lg text-xl"
+              :name="checkTheme() === 'light' ? 'moon' : 'sunny'"
+              @click="toggleTheme()"
+          ></ion-icon>
         </div>
       </div>
     </div>
