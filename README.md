@@ -1,7 +1,29 @@
-# Vue 3 + Vite
+# Portfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A web application that showcases my work and skills as a developer.
 
-## Recommended IDE Setup
+## Technology Stack
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- Vue.js with Vite
+- VueJS
+
+## Features
+
+- Introduction
+- Resume
+- Skills
+- Display projects with screenshots and descriptions
+
+
+## Getting Started
+
+1. Install the required dependencies:
+
+```npm install```
+
+2. Build and serve the project locally:
+
+``npm run dev``
+
+3. Access the application in a web browser at http://localhost:5173
+
