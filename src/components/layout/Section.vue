@@ -7,21 +7,23 @@
         <img src="/images/blob-tear.svg" class="w-40" alt="">
       </div>
     </div>
-    <div class="relative w-10/12 lg:w-8/12 m-auto py-24">
-      <div class="relative flex flex-col justify-center text-justify lg:text-center items-center">
-        <template v-if="title">
-          <Text type="heading">{{ heading }}</Text>
-          <Text type="title">{{ title }}</Text>
-          <div class="container" v-if="description">
-            <Text>{{ description }}</Text>
-          </div>
-        </template>
-      </div>
+    <Container>
+      <div class="py-24">
+        <div class="relative flex flex-col justify-center text-justify lg:text-center items-center">
+          <template v-if="title">
+            <Text type="heading">{{ heading }}</Text>
+            <Text type="title">{{ title }}</Text>
+            <div class="container" v-if="description">
+              <Text>{{ description }}</Text>
+            </div>
+          </template>
+        </div>
 
-      <div class="my-5">
-        <slot></slot>
+        <div class="my-5">
+          <slot></slot>
+        </div>
       </div>
-    </div>
+    </Container>
     <div class="overflow-hidden">
       <div v-if="hasBackground" class="absolute invisible lg:visible -bottom-20 right-0 z-10">
         <img src="/images/blob-tear.svg" class="w-40" alt="">
@@ -34,9 +36,10 @@
 <script>
 import Text from "../elements/Text.vue";
 import Button from "../elements/Button.vue";
+import Container from "./Container.vue";
 export default {
   name: "Section",
-  components: {Button, Text},
+  components: {Container, Button, Text},
   props: {
     id: {
       type: String,
