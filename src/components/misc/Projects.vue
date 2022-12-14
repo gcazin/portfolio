@@ -125,7 +125,7 @@ export default {
           title: 'Slimys',
           description: "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen",
           technologies: ['Lumen', 'VueJS', 'Bootstrap'],
-          url: 'https://www.slimysnft.io/',
+          url: 'https://beta-slimys.netlify.app/',
           category: 'website'
 
         },
