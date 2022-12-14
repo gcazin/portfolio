@@ -186,13 +186,13 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
   <Section
       id="contact"
   >
-    <div class="relative overflow-hidden max-w-7xl m-auto bg-white dark:bg-blue-700 dark:text-white text-blue-500 rounded-lg py-10 text-center">
+    <div class="relative overflow-hidden max-w-7xl m-auto bg-blue-500 dark:bg-blue-700 dark:text-white text-blue-500 rounded-lg py-10 text-center">
       <div class="flex flex-col gap-5 px-5 lg:pr-10 z-10 relative">
         <div class="flex-1">
-          <Text type="title">Intéressé ? Contactez-moi !</Text>
+          <Text type="title" class="text-white">Intéressé ? Contactez-moi !</Text>
         </div>
         <div class="flex-1">
-          <Button secondary color="white">Prise de contact</Button>
+          <Button secondary>Prise de contact</Button>
         </div>
       </div>
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
