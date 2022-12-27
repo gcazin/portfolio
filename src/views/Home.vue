@@ -1,4 +1,7 @@
 <template>
+  <!-- Navbar -->
+  <Navbar />
+
   <!-- Hero section -->
   <Section id="hero">
     <div class="isolate pt-32 pb-16">
@@ -218,6 +221,8 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     </div>
   </Section>
 
+  <Footer has-background />
+
   <div v-if="scrollTop > scrollTopPositionButtonAppear" class="fixed bottom-5 right-5 z-50">
     <Button secondary @click="scrollToTop"><Icon name="chevron-up" /></Button>
   </div>
@@ -236,6 +241,8 @@ import Icon from "../components/elements/Icon.vue";
 import Projects from "../components/misc/Projects.vue";
 import Card from "../components/cards/Card.vue";
 import References from "../components/misc/References.vue";
+import Navbar from "../components/layout/Navbar.vue";
+import Footer from "../components/layout/Footer.vue";
 
 export default {
   name: "Home",
@@ -251,7 +258,9 @@ export default {
     Button,
     Subtitle,
     ExperienceCard,
-    Badge
+    Badge,
+    Navbar,
+    Footer
   },
 
   data() {

@@ -6,12 +6,8 @@ import Loader from "./components/elements/Loader.vue";
 </script>
 
 <template>
-  <Navbar />
-
   <Loader />
-  <Home />
-
-  <Footer has-background />
+  <router-view />
 </template>
 
 <style scoped>
