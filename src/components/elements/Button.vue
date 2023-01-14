@@ -10,6 +10,7 @@
         'bg-blue-500 dark:bg-blue-700 hover:bg-blue-700': color === 'primary',
         'bg-transparent text-black dark:text-white px-0': color === 'transparent',
         'bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:bg-gray-800 dark:hover:bg-blue-800': secondary,
+        'cursor-not-allowed opacity-50': disabled
       }"
         type="button"
         class="inline-block rounded-full font-semibold leading-7 text-white transition-all duration-250 uppercase"
@@ -42,6 +43,10 @@ export default {
     },
     icon: {
       type: String,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     }
   }
 }
