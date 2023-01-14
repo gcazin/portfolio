@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "typed.js": "^2.0.12",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
