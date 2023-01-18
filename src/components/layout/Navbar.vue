@@ -9,16 +9,18 @@
           </Button>
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <Text type="subtitle" class="hidden sm:block">
-            Guillaume Cazin
-          </Text>
+          <Link to="home">
+            <Text type="subtitle" class="hidden sm:block">
+              Guillaume Cazin
+            </Text>
+          </Link>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center invisible lg:static lg:visible sm:inset-auto">
           <div class="relative ml-3">
             <div class="flex items-center space-x-4">
               <template v-for="item in items">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a :href="item.url" class="uppercase text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-600 px-2 font-bold transition-colors" aria-current="page">
+                <a :href="`/${item.url}`" class="uppercase text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-600 px-2 font-bold transition-colors" aria-current="page">
                   <template v-if="item.text === 'Contact'">
                     <Button>{{ item.text }}</Button>
                   </template>
@@ -51,8 +53,9 @@
       <div class="space-y-1 pb-3">
         <template v-for="item in items">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          {{ $route }}
           <a
-              :href="item.url"
+              :href="`/${item.url}`"
               @click="checkCurrentUrl()"
               :class="{'bg-blue-500 text-white dark:bg-blue-800': anchorName === item.url}"
               class="dark:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -70,10 +73,12 @@
 import Button from "../elements/Button.vue";
 import Text from "../elements/Text.vue";
 import Icon from "../elements/Icon.vue";
+import Link from "../elements/Link.vue";
 export default {
   name: "Navbar",
 
   components: {
+    Link,
     Icon,
     Text,
     Button
@@ -150,7 +155,6 @@ export default {
     },
     toggleTheme() {
       const theme = localStorage.getItem('theme')
-      console.log('theme', theme)
       if (theme) {
         if (theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
           localStorage.setItem('theme', 'dark')
@@ -170,8 +174,6 @@ export default {
       this.menuMobileVisible = false
 
       const anchor = window.location.hash
-
-      console.log('anchor', anchor)
 
       if (anchor) {
         this.anchorName = anchor

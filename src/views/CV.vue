@@ -1,11 +1,12 @@
 <template>
   <Navbar />
 
-  <Section title="CV">
+  <Section title="CV" id="hero">
     <div class="max-w-4xl mx-auto">
-      <Button class="mb-7 text-center" :disabled="loading" @click="download()">{{ !loading ? 'Version pdf téléchargeable' : 'En cours de génération'}}</Button>
-      <div class="shadow-lg" id="cv" style="width: 21cm;
-        height: 29.7cm;overflow: hidden">
+      <a href="/images/misc/cv.pdf" target="_blank">
+        <Button class="mb-7 text-center">Version PDF</Button>
+      </a>
+      <div class="shadow-lg" id="cv">
         <!-- First section -->
         <div class="flex">
           <div class="w-60">
@@ -153,13 +154,13 @@ import Navbar from "../components/layout/Navbar.vue";
 import Section from "../components/layout/Section.vue";
 import Footer from "../components/layout/Footer.vue";
 import Button from "../components/elements/Button.vue";
-import html2canvas from 'html2canvas'
-import jsPDF from 'jspdf'
+import Link from "../components/elements/Link.vue";
 
 export default {
   name: "CV",
 
   components: {
+    Link,
     Button,
     Footer,
     Section,
@@ -231,27 +232,15 @@ export default {
       loading: false,
     }
   },
-
-  methods: {
-    download() {
-      this.loading = true
-      html2canvas(document.querySelector('#cv')).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-
-        const pdf = new jsPDF({
-          precision: 1,
-          unit: 'px'
-        });
-        pdf.addImage(imgData, 'PNG', 0, 0);
-        pdf.save('cv')
-        this.loading = false
-      })
-    }
-  }
 }
 </script>
 
 <style scoped>
+#cv {
+  height: 29.7cm;
+  width: 21cm;
+  overflow: hidden
+}
 .border-before {
   position: relative;
 }
