@@ -21,7 +21,7 @@
             </div>
             <div>
               Passionné depuis 12 ans par tout ce qui est attrait au développement web,
-              j'y ai consacré l'entiéreté de mes années d'études et la majorité de mon temps libre durant tout ces années.
+              j'y ai consacré l'entiéreté de mes années d'études et la majorité de mon temps libre durant toutes ces années.
             </div>
           </div>
         </div>
