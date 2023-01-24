@@ -9,10 +9,10 @@
       <div class="shadow-lg" id="cv">
         <!-- First section -->
         <div class="flex">
-          <div class="w-60">
+<!--          <div class="w-60">
             <img class="m-auto w-full" src="/images/misc/me.jpg" alt="Photo de profil">
-          </div>
-          <div class="flex justify-center gap-3 bg-gray-100 flex-col p-7 flex-1">
+          </div>-->
+          <div class="flex justify-center gap-3 bg-gray-100 flex-col p-7 flex-1 border-b">
             <div class="">
               <span class="uppercase text-4xl font-bold">Guillaume Cazin</span>
             </div>
@@ -28,7 +28,7 @@
 
         <!-- Second section -->
         <div class="flex">
-          <div class="py-4 px-6 w-60 bg-gray-100">
+          <div class="py-4 px-6 w-60 bg-gray-100 border-r">
             <div class="flex flex-col gap-3">
               <div class="flex-1">
                 <span class="border-before font-bold text-lg border-b-2 border-blue-300 block uppercase pb-2">
@@ -138,7 +138,7 @@
             </div>
           </div>
         </div>
-        <div class="bg-gray-100 text-center">
+        <div class="bg-gray-100 text-center border-t">
           Version web de ce CV : <a class="text-blue-600 font-bold" href="/cv">https://guillaume-cazin.fr/cv</a> © Guillaume Cazin, {{ date }}
         </div>
       </div>
