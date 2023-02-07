@@ -211,22 +211,28 @@ export default {
         },
         {
           title: "Stage en développement web",
-          enterprise: 'Stage, Mes Concierges, Marquise (62250)',
+          enterprise: 'Stage, Armatis, Calais (62100)',
           date: '2019',
+          description: "Création d'une application mobile en React-Native avec API développé en Laravel",
+        },
+        {
+          title: "Stage en développement web",
+          enterprise: 'Stage, Mes Concierges, Marquise (62250)',
+          date: '2018',
           description: "Création d'une marketplace avec l'utilisation d'un framework PHP (Cocorico)",
         },
         {
           title: "Stage en développement web",
           enterprise: "Stage, Mairie d'Echinghen, Echinghen (62360)",
-          date: '2018',
+          date: '2017',
           description: "Création d'un site vitrine en utilisant le CMS Wordpress",
         },
-        {
+        /*{
           title: "Stage dans une entreprise d'informatique",
           enterprise: 'Stage, Boutique informatique, Boulogne-sur-Mer (62200)',
           date: '2012',
           description: 'Approfondissement des connaissances sur le langage PHP',
-        },
+        },*/
       ],
       date: new Date().getFullYear(),
       loading: false,
