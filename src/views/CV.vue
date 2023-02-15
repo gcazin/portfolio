@@ -77,7 +77,7 @@
           </div>
           <div class="bg-white pb-2 mb-1">
             Passionné depuis 12 ans par tout ce qui est attrait au développement web,
-            j'y ai consacré l'entiéreté de mes années d'études et la majorité de mon temps libre durant toutes ces années.
+            j'y ai consacré l'entièreté de mes années d'études et la majorité de mon temps libre durant toutes ces années.
           </div>
         </div>
 
