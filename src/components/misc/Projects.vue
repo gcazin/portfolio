@@ -22,9 +22,9 @@
               </svg>
             </div>
             <div class="flex flex-col gap-3 items-center justify-center px-10  h-full">
-              <p class="text-xl">{{ project.title }}</p>
-              <p>{{ project.description }}</p>
-              <div class="flex text-3xl gap-1">
+              <p class="text-lg lg:text-xl">{{ project.title }}</p>
+              <p class="text-sm lg:text-base">{{ project.description }}</p>
+              <div class="flex text-xl lg:text-3xl gap-1">
                 <template v-if="project.url">
                   <a target="_blank" :href="project.url"><Icon name="link" /></a>
                 </template>
@@ -40,7 +40,7 @@
                     v-for="(technology, index) in project.technologies"
                     :key="index"
                 >
-                  <Badge>{{ technology }}</Badge>
+                  <Badge class="text-sm lg:text-inherit">{{ technology }}</Badge>
                 </li>
               </ul>
             </div>
@@ -103,9 +103,9 @@ export default {
     return {
       projects: [
         {
-          image: 'spotify-automatic-playlist-filler.png',
-          title: 'Spotify automatic playlist sorter',
-          description: "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists",
+          image: 'spotify-liked-tracks-sorter.png',
+          title: 'Spotify liked tracks sorter',
+          description: "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement",
           technologies: ['VueJS', 'API', 'Bootstrap'],
           url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
           github: 'auto-sorting-spotify-liked-songs',
