@@ -329,6 +329,9 @@ export default {
       window.scroll(0,0)
     }
   },
+  mounted() {
+    document.title = "CV - Portfolio de Guillaume Cazin"
+  }
 }
 </script>
 
