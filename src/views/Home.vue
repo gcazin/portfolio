@@ -12,9 +12,7 @@
           <Text type="subtitle" class="font-bold uppercase">
             Un développeur <span class="element text-blue-500 dark:text-blue-600">{{ typed }}</span>
           </Text>
-          <Link to="cv">
-            <Button>Voir mon cv</Button>
-          </Link>
+          <Button is-link to="cv">Voir mon cv</Button>
         </div>
         <div class="relative text-center hidden lg:block">
           <img src="/images/misc/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="Background">
@@ -37,15 +35,16 @@
         <div class="flex-1 mb-5">
           <Text>
             Bonjour! Je m'appelle Guillaume et je suis développeur web avec 2 ans d'expérience dans l'industrie.
-            Passionné depuis plus de 12 ans par le développement web,
+            Passioné et autodidacte depuis plus de 12 ans dans le développement web,
             je suis spécialisé en JS, et plus spécifiquement en VueJS et très à l'aise en PHP notamment avec le framework Laravel.
-            J'ai une passion pour la création de sites web intuitifs et visuellement attrayants.
+          </Text>
+          <Text>
             Au cours de ma carrière, j'ai travaillé sur une variété de projets allant des sites web de petites entreprises aux plateformes très spécifiques pour des entreprises de grande échelle.
-            Dans mes temps libres, j'aime être à jour sur les dernières tendances et techniques en matière de développement web.
+            Durant mon temps libre, j'aime me tenir informé des dernières tendances et techniques en matière de développement web.
           </Text>
         </div>
-        <div class="flex-1 lg:flex md:gap-20">
-          <div class="flex flex-col gap-5 my-5">
+        <div class="flex-1 lg:flex md:gap-10">
+          <div class="flex flex-col w-1/3 gap-5 my-5">
             <Text class="border-b dark:border-b-blue-900">
               <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
               Boulogne-sur-Mer
@@ -70,9 +69,7 @@
           </div>
         </div>
       </div>
-      <Link to="cv">
-        <Button class="mt-10" secondary>Voir mon CV</Button>
-      </Link>
+      <Button is-link to="cv" class="mt-10" secondary>Voir mon CV</Button>
     </div>
   </Section>
 
@@ -80,7 +77,7 @@
       id="references"
       heading="Projets d'entreprises"
       title="Références"
-      description="Projets d'entreprises pour lesquelle j'ai travaillé durant mes expériences professionnelles"
+      description="Projets d'entreprises pour lesquelles j'ai travaillé durant mes expériences professionnelles"
   >
     <References />
   </Section>
@@ -96,7 +93,7 @@
       <div class="w-full mx-auto lg:max-w-4xl">
         <div class="relative">
           <div class="absolute hidden w-px h-full transform -translate-x-1/2 bg-blue-500 lg:block left-1/2"></div>
-          <div class="space-y-12 lg:space-y-8">
+          <div class="space-y-24 lg:space-y-8">
             <ExperienceCard
                 image="diatem.png"
                 job="Développeur web"
@@ -199,9 +196,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
           <Text type="title" class="text-white">Intéressé ? Contactez-moi !</Text>
         </div>
         <div class="flex-1">
-          <Link to="cv">
-            <Button secondary>Prise de contact</Button>
-          </Link>
+          <Button is-link to="cv" secondary>Prise de contact</Button>
         </div>
       </div>
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -227,11 +222,12 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     </div>
   </Section>
 
-  <Footer has-background />
-
+  <!-- Scroll to top -->
   <div v-if="scrollTop > scrollTopPositionButtonAppear" class="fixed bottom-5 right-5 z-50">
     <Button secondary @click="scrollToTop"><Icon name="chevron-up" /></Button>
   </div>
+
+  <Footer has-background />
 </template>
 
 <script>
@@ -249,13 +245,11 @@ import Card from "../components/cards/Card.vue";
 import References from "../components/misc/References.vue";
 import Navbar from "../components/layout/Navbar.vue";
 import Footer from "../components/layout/Footer.vue";
-import Link from "../components/elements/Link.vue";
 
 export default {
   name: "Home",
 
   components: {
-    Link,
     References,
     Card,
     Projects,
@@ -290,6 +284,7 @@ export default {
     }
   },
   mounted() {
+    document.title = "Accueil - Portfolio de Guillaume Cazin"
     this.getTyped().then((typed) => {
       this.typed = typed
     })
