@@ -35,7 +35,7 @@
         <div class="flex-1 mb-5">
           <Text>
             Bonjour! Je m'appelle Guillaume et je suis développeur web avec 2 ans d'expérience dans l'industrie.
-            Passionné depuis plus de 12 ans par le développement web,
+            Passioné et autodidacte depuis plus de 12 ans dans le développement web,
             je suis spécialisé en JS, et plus spécifiquement en VueJS et très à l'aise en PHP notamment avec le framework Laravel.
           </Text>
           <Text>

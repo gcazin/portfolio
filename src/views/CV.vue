@@ -100,9 +100,16 @@
                     {{ skill.title }}
                   </span>
                   <div class="flex items-center">
-                    <svg v-for="i in skill.rating" :key="i" aria-hidden="true" class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    <svg v-for="n in 5 - skill.rating" :key="n" aria-hidden="true" class="w-4 h-4 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-
+                    <span
+                        :class="{
+                          'bg-green-50': skill.rating === 'Maîtrise',
+                          'bg-orange-50': skill.rating === 'Connaissance',
+                          'bg-red-50': skill.rating === 'Utilisation'
+                        }"
+                        class="w-fit py-1 px-2 text-sm leading-none text-center whitespace-nowrap align-baseline font-bold rounded-full transition-colors"
+                    >
+                      {{ skill.rating }}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -211,11 +218,13 @@ import Section from "../components/layout/Section.vue";
 import Footer from "../components/layout/Footer.vue";
 import Button from "../components/elements/Button.vue";
 import Link from "../components/elements/Link.vue";
+import Badge from "../components/elements/Badge.vue";
 
 export default {
   name: "CV",
 
   components: {
+    Badge,
     Link,
     Button,
     Footer,
@@ -228,44 +237,48 @@ export default {
     return {
       skills: [
         {
-          title: 'HTML5',
-          rating: 5
+          title: 'HTML',
+          rating: 'Maîtrise'
         },
         {
-          title: 'CSS3',
-          rating: 4
-        },
-        {
-          title: 'SCSS',
-          rating: 3,
+          title: 'CSS',
+          rating: 'Maîtrise'
         },
         {
           title: 'Javascript',
-          rating: 4,
+          rating: 'Maîtrise',
         },
         {
           title: 'VueJS 3',
-          rating: 5
+          rating: 'Maîtrise'
         },
         {
           title: 'jQuery',
-          rating: 4
+          rating: 'Maîtrise'
         },
         {
-          title: 'PHP8',
-          rating: 4
+          title: 'PHP',
+          rating: 'Maîtrise'
         },
         {
           title: 'Laravel 9',
-          rating: 4
+          rating: 'Maîtrise'
         },
         {
-          title: 'Wordpress 6',
-          rating: 3,
+          title: 'SCSS',
+          rating: 'Connaissance',
+        },
+        {
+          title: 'Wordpress',
+          rating: 'Connaissance',
         },
         {
           title: 'Drupal 8',
-          rating: 3
+          rating: 'Connaissance'
+        },
+        {
+          title: 'Symfony 5',
+          rating: 'Utilisation'
         },
       ],
       formations: [
