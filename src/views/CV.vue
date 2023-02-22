@@ -324,6 +324,11 @@ export default {
       loading: false,
     }
   },
+  beforeCreate() {
+    if (window.scrollY) {
+      window.scroll(0,0)
+    }
+  },
 }
 </script>
 

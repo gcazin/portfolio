@@ -7,7 +7,9 @@ import Loader from "./components/elements/Loader.vue";
 
 <template>
   <Loader />
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 </template>
 
 <style scoped>

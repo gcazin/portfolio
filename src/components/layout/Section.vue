@@ -1,7 +1,7 @@
 <template>
 <!--  <svg v-if="hasBackground" class="-mt-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#111827" fill-opacity="1" d="M0,256L1440,224L1440,320L0,320Z"></path></svg>-->
   <!-- :class="{'bg-slate-50 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-800': !hasBackground}" -->
-  <div :id="id" class="relative overflow border-t border-gray-100 dark:border-gray-800" :class="{'bg-slate-50/70 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-900/90': !hasBackground}">
+  <section :id="id" class="relative overflow border-t border-gray-100 dark:border-gray-800" :class="{'bg-slate-50/70 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-900/90': !hasBackground}">
     <div class="overflow-hidden">
       <div v-if="!hasBackground" class="absolute invisible lg:visible -bottom-20 z-10">
         <img src="/images/misc/blob-tear.svg" class="w-40" alt="">
@@ -29,7 +29,7 @@
         <img src="/images/misc/blob-tear.svg" class="w-40" alt="">
       </div>
     </div>
-  </div>
+  </section>
 <!--  <svg v-if="hasBackground" class="-mt-16" style="transform: scaleX(-1);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220"><path fill="#111827" fill-opacity="1" d="M0,160L1440,96L1440,0L0,0Z"></path></svg>-->
 </template>
 
