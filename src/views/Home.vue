@@ -10,7 +10,7 @@
           <Text type="subtitle" class="font-bold uppercase">👋, je suis</Text>
           <p class="text-blue-500 dark:text-blue-700 leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
           <Text type="subtitle" class="font-bold uppercase">
-            Un développeur <span class="element text-blue-500 dark:text-blue-600">{{ typed }}</span>
+            Un freelance <span class="element text-blue-500 dark:text-blue-600">{{ typed }}</span>
           </Text>
           <Button is-link to="cv">Voir mon cv</Button>
         </div>
@@ -44,7 +44,7 @@
           </Text>
         </div>
         <div class="flex-1 lg:flex md:gap-10">
-          <div class="flex flex-col w-1/3 gap-5 my-5">
+          <div class="flex flex-col w-full lg:w-1/3 gap-5 my-5">
             <Text class="border-b dark:border-b-blue-900">
               <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
               Boulogne-sur-Mer
