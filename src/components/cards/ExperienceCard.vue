@@ -3,9 +3,9 @@
       <div class="flex flex-col items-center">
         <div class="flex items-center w-full mx-auto" :class="{'justify-end': right, 'justify-start': !right}">
           <div class="w-full lg:w-1/2" :class="{'lg:pl-8': right, 'lg:pr-8': !right}">
-            <div class="flex flex-col gap-3 px-4">
+            <div class="flex flex-col gap-2 px-4">
               <Text type="subtitle">{{ job }}</Text>
-              <Text><img class="inline w-6 mr-3" :src="`/images/companies/${image}`" alt="">{{ company }}</Text>
+              <Text><img class="inline w-6 mr-2" :src="`/images/companies/${image}`" alt="">{{ company }}</Text>
               <Text>{{ period }}</Text>
               <Text class="text-justify lg:text-left">
                 {{ !showFullText ? description.slice(0, 100) : description }} <template v-if="!showFullText">...</template>

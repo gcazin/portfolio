@@ -30,7 +30,7 @@
     <hr class="m-auto border-gray-200 sm:mx-auto dark:border-gray-700" />
     <Container>
       <div class="py-5 sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline">Guillaume Cazin™</a>. Tous droits réservés.
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ new Date().getFullYear() }} <a href="https://guillaume-cazin.fr/" class="hover:underline">Guillaume Cazin™</a>. Tous droits réservés.
         </span>
       </div>
     </Container>
