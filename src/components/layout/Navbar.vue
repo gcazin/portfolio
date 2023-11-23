@@ -33,6 +33,13 @@
                 </a>
                 <Button v-else is-link to="cv">{{ item.text }}</Button>
               </li>
+              <a
+                  v-if="isAuthenticated"
+                  href="/admin/dashboard"
+                  class="uppercase text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-600 px-2 font-bold transition-colors"
+              >
+                Administration
+              </a>
             </ul>
           </div>
         </div>
@@ -121,6 +128,7 @@ export default {
       darkModeIcon: 'moon',
       anchorName: null,
       componentKey: 0,
+      isAuthenticated: this.$auth0.isAuthenticated
     }
   },
 

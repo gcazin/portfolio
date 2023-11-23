@@ -4,7 +4,7 @@
   <Section title="CV" id="hero">
     <div class="max-w-4xl mx-auto">
       <a href="/images/misc/cv.pdf" target="_blank">
-        <Button class="mb-7 text-center">Version PDF</Button>
+        <Button class="mb-7 text-center">Télécharger la version PDF</Button>
       </a>
       <div class="block lg:hidden">
         <img src="/images/misc/cv.png" class="w-full" type="application/pdf" alt="CV">

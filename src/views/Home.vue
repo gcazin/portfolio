@@ -243,11 +243,13 @@ import Card from "../components/cards/Card.vue";
 import References from "../components/misc/References.vue";
 import Navbar from "../components/layout/Navbar.vue";
 import Footer from "../components/layout/Footer.vue";
+import LoginButton from "../admin/components/Login.vue";
 
 export default {
   name: "Home",
 
   components: {
+    LoginButton,
     References,
     Card,
     Projects,
@@ -279,6 +281,7 @@ export default {
       projectCategory: 'all',
       scrollTop: 0,
       scrollTopPositionButtonAppear: 250,
+      user: this.$auth0.user,
     }
   },
   mounted() {
@@ -289,9 +292,6 @@ export default {
     window.addEventListener("scroll", this.getScrollTop);
   },
   methods: {
-    projects() {
-      return projects
-    },
     async getTyped() {
       return new Promise((successCallback) => {
         const typed = new Typed('.element', {
