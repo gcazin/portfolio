@@ -8,7 +8,7 @@ export default {
     handleLogout() {
       this.$auth0.logout({
         logoutParams: {
-          returnTo: '/',
+          returnTo: window.location.origin,
         },
       });
     },
