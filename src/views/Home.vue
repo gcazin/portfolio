@@ -144,23 +144,32 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
   >
     <div class="py-10">
       <div class="grid lg:grid-cols-3 gap-5 text-center">
+        <!--
+        ['HTML', 'CSS', 'Boostrap', 'Tailwind', 'PHP', 'Laravel', 'Twig', 'Vanilla JS', 'VueJS', 'jQuery']
+        -->
         <SkillCard
             icon="code-slash"
             color="blue"
             title="Développement"
-            :skills="['HTML', 'CSS', 'Boostrap', 'Tailwind', 'PHP', 'Laravel', 'Twig', 'Vanilla JS', 'VueJS', 'jQuery']"
+            :skills="skillsSection.development"
         />
+        <!--
+        ['Figma', 'PhpStorm', 'Code']
+        -->
         <SkillCard
             icon="cog"
             color="purple"
             title="Outils"
-            :skills="['Figma', 'PhpStorm', 'Code']"
+            :skills="skillsSection.tools"
         />
+        <!--
+        ['Workstation Linux', 'Méthodes agile (Scrum, Kanban)', 'Versionning Git', 'Télétravail']
+        -->
         <SkillCard
             icon="cog"
             color="yellow"
             title="Workflow"
-            :skills="['Workstation Linux', 'Méthodes agile (Scrum, Kanban)', 'Versionning Git', 'Télétravail']"
+            :skills="skillsSection.workflow"
             last
         />
       </div>
@@ -175,12 +184,6 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
       description="Exemples de mes travaux en développement web, ainsi que des informations sur les technologies et les outils que j'ai utilisés pour les réaliser."
       has-background
   >
-    <div class="flex flex-col md:flex-row justify-center lg:grid-cols-3 gap-4">
-      <Button size="sm" :secondary="projectCategory !== 'all'" @click="projectCategory = 'all'">Tout</Button>
-      <Button :secondary="projectCategory !== 'website'" size="sm" @click="projectCategory = 'website'">Site web</Button>
-      <Button :secondary="projectCategory !== 'web-application'" size="sm" @click="projectCategory = 'web-application'">Application web</Button>
-      <Button :secondary="projectCategory !== 'resources'" secondary size="sm" @click="projectCategory = 'resources'">Ressources</Button>
-    </div>
     <Projects :category="projectCategory"/>
   </Section>
 
@@ -278,6 +281,11 @@ export default {
         'Wordpress',
         'Laravel',
       ],
+      skillsSection: {
+        development: [],
+        tools: [],
+        workflow: [],
+      },
       projectCategory: 'all',
       scrollTop: 0,
       scrollTopPositionButtonAppear: 250,
@@ -289,7 +297,8 @@ export default {
     this.getTyped().then((typed) => {
       this.typed = typed
     })
-    window.addEventListener("scroll", this.getScrollTop);
+    window.addEventListener("scroll", this.getScrollTop)
+    this.fetchSkills()
   },
   methods: {
     async getTyped() {
@@ -322,6 +331,21 @@ export default {
       }
 
       return url
+    },
+    async fetchSkills() {
+      const developmentSkill = await this.databaseService.getCollection('skills.development')
+      const toolsSkill = await this.databaseService.getCollection('skills.tools')
+      const workflowSkill = await this.databaseService.getCollection('skills.workflow')
+
+      this.skillsSection.development = developmentSkill.map((dss) => {
+        return dss.title
+      })
+      this.skillsSection.tools = toolsSkill.map((dss) => {
+        return dss.title
+      })
+      this.skillsSection.workflow = workflowSkill.map((dss) => {
+        return dss.title
+      })
     }
   }
 }

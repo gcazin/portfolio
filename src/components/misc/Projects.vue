@@ -1,10 +1,24 @@
 <template>
   <AnimateOnScroll>
-    <div class="flex gap-12 mt-12 mb-16" v-for="(project, index) in filteredProjects" :key="index">
+    <div class="flex flex-col md:flex-row justify-center lg:grid-cols-3 gap-4">
+      <Button size="sm" :secondary="category !== 'all'" @click="category = 'all'">
+        Tout ({{ projects.length }})
+      </Button>
+      <Button :secondary="category !== 'website'" size="sm" @click="category = 'website'">
+        Site web ({{ countProjectsByCategory('website') }})
+      </Button>
+      <Button :secondary="category !== 'web-application'" size="sm" @click="category = 'web-application'">
+        Application web ({{ countProjectsByCategory('web-application') }})
+      </Button>
+      <Button :secondary="category !== 'resources'" secondary size="sm" @click="category = 'resources'">
+        Ressources ({{ countProjectsByCategory('resources') }})
+      </Button>
+    </div>
+    <div class="flex gap-6 mt-12 mb-16" v-for="(project, index) in filteredProjects" :key="index">
       <div :class="index % 2 === 0 ? 'order-0' : 'order-1'">
         <img class="rounded-lg shadow-lg" :src="`images/projects/${project.image}`" :alt="project.title">
       </div>
-      <div class="w-full flex flex-col gap-2" :class="index % 2 === 0 ? 'order-1' : 'order-0'">
+      <div class="w-full flex flex-col gap-2 bg-white shadow-sm dark:bg-gray-800/30 p-4 rounded-lg" :class="index % 2 === 0 ? 'order-1' : 'order-0'">
         <Text type="title" class="dark:text-white">{{ project.title }}</Text>
         <template v-if="project.url">
           <a class="text-blue-500 text-lg" target="_blank" :href="project.url">
@@ -17,19 +31,25 @@
           </a>
         </template>
         <Text type="text">{{ project.description }}</Text>
-        <ul class="flex gap-2">
-          <li
-              v-for="(technology, index) in project.technologies"
-              :key="index"
+        <Text class="font-bold">Technologies utilisés</Text>
+        <div
+            class="flex flex-row gap-4 items-center"
+            v-for="(technology, index) in project.technologies"
+            :key="index"
+        >
+          <div
           >
             <img
-                class="w-8"
+                class="w-6"
                 :src="`images/skills/${technology.toLowerCase()}.png`"
                 :alt="technology"
                 :title="technology"
             >
-          </li>
-        </ul>
+          </div>
+          <div>
+            <Text>{{ technology }}</Text>
+          </div>
+        </div>
       </div>
     </div>
   </AnimateOnScroll>
@@ -40,11 +60,13 @@ import Text from "../elements/Text.vue";
 import AnimateOnScroll from "./AnimateOnScroll.vue";
 import Badge from "../elements/Badge.vue";
 import Icon from "../elements/Icon.vue";
-import projects from "./Projects.vue";
+import Button from "../elements/Button.vue";
+
 export default {
   name: "Projects",
 
   components: {
+    Button,
     Icon,
     Badge,
     AnimateOnScroll,
@@ -95,7 +117,6 @@ export default {
           technologies: ['HTML5', 'Laravel', 'VueJS', 'Bootstrap'],
           url: 'https://beta-slimys.netlify.app/',
           category: 'website'
-
         },
         {
           image: 'inskub.jpg',
@@ -109,7 +130,7 @@ export default {
           image: 'medializ.png',
           title: 'Medializ',
           description: "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter.",
-          technologies: ['HTML5', 'Laravel', 'Tailwind'],
+          technologies: ['HTML5', 'Laravel', 'TailwindCSS'],
           github: 'medializ',
           category: 'website'
         },
@@ -121,6 +142,14 @@ export default {
           github: 'quotesharing',
           category: 'website'
         },
+        {
+          image: 'portfolio.png',
+          title: 'Portfolio',
+          description: "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
+          technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
+          github: 'portfolio',
+          category: 'website'
+        },
       ],
       filteredProjects: [],
       active: 0
@@ -128,8 +157,11 @@ export default {
   },
 
   methods: {
+    countProjectsByCategory(category) {
+      return this.projects.filter((project) => project.category === category).length
+    },
     projects() {
-      return projects
+      return this.projects
     },
     filteringProjects(category) {
       this.filteredProjects = this.projects

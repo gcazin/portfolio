@@ -4,7 +4,10 @@
   <Section>
 
     <div class="mb-4">
-      <Text type="title">Tableau de bord <span class="text-base">(Connecté en tant que {{ user.given_name }})</span></Text>
+      <Text type="title">
+        Tableau de bord
+        <span class="text-base">(Connecté en tant que <span class="italic">{{ user.email }}</span>)</span>
+      </Text>
     </div>
     <div class="flex mb-2">
       <div class="flex-1">
@@ -43,7 +46,7 @@
             <thead class="text-blue-800 uppercase bg-blue-500 dark:bg-gray-900 dark:text-white">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Développement
+                Développement ({{ skills.development.length }})
               </th>
             </tr>
             </thead>
@@ -69,7 +72,7 @@
             <thead class="text-blue-800 uppercase bg-blue-500 dark:bg-gray-900 dark:text-white">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Outils
+                Outils ({{ skills.tools.length }})
               </th>
             </tr>
             </thead>
@@ -95,7 +98,7 @@
             <thead class="text-blue-800 uppercase bg-blue-500 dark:bg-gray-900 dark:text-white">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Workflow
+                Workflow ({{ skills.workflow.length }})
               </th>
             </tr>
             </thead>
@@ -157,50 +160,24 @@ export default {
           choice: 'development',
           name: '',
         }
-      }
+      },
+      isLoading: this.$auth0.isLoading
     }
   },
 
   mounted() {
-    this.fetchUsers()
     this.fetchDevelopmentSkills()
   },
 
   methods: {
-    async createUser() {
-      // 'users' collection reference
-      const colRef = collection(db, 'users')
-      // data to send
-      const dataObj = {
-        firstName: 'John',
-        lastName: 'Doe',
-        dob: '1990'
-      }
-
-      // create document and return reference to it
-      const docRef = await addDoc(colRef, dataObj)
-
-      this.fetchUsers()
-      // access auto-generated ID with '.id'
-      console.log('Document was created with ID:', docRef.id)
-    },
     async createSkill() {
-      console.log(this.field.skill.choice)
-      console.log(this.field.skill.name)
-      // 'users' collection reference
       const colRef = collection(db, `skills.${this.field.skill.choice}`)
-      // data to send
-      const dataObj = {
-        title: this.field.skill.name
-      }
 
-      // create document and return reference to it
-      await addDoc(colRef, dataObj)
+      await addDoc(colRef, {
+        title: this.field.skill.name
+      })
 
       await this.fetchDevelopmentSkills()
-    },
-    async fetchUsers() {
-      this.users = await this.databaseService.getCollection('users')
     },
     async fetchDevelopmentSkills() {
       this.skills.development = await this.databaseService.getCollection('skills.development')
