@@ -1,65 +1,53 @@
 <template>
   <AnimateOnScroll>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
-      <div v-for="(project, index) in filteredProjects" :key="index">
-        <div class="group relative bg-slate-50 rounded-xl hover:bg-blue-500 transition-colors duration-500 hover:text-white group-hover:bg-blue-500">
-          <img class="rounded w-full" :src="`images/projects/${project.image}`" :alt="project.title">
+    <div class="flex flex-row flex-wrap justify-center lg:grid-cols-3 gap-4">
+      <Button size="sm" :secondary="category !== 'all'" @click="category = 'all'">
+        Tout ({{ projects.length }})
+      </Button>
+      <Button :secondary="category !== 'website'" size="sm" @click="category = 'website'">
+        Site web ({{ countProjectsByCategory('website') }})
+      </Button>
+      <Button :secondary="category !== 'web-application'" size="sm" @click="category = 'web-application'">
+        Application web ({{ countProjectsByCategory('web-application') }})
+      </Button>
+      <Button :secondary="category !== 'resources'" secondary size="sm" @click="category = 'resources'">
+        Ressources ({{ countProjectsByCategory('resources') }})
+      </Button>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-2 lg:gap-6 mt-12 mb-16" v-for="(project, index) in filteredProjects" :key="index">
+      <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
+        <img class="rounded-lg shadow-lg" :src="`images/projects/${project.image}`" :alt="project.title">
+      </div>
+      <div class="w-full flex flex-col gap-2 bg-white shadow-sm dark:bg-gray-800/30 p-4 rounded-lg" :class="index % 2 === 0 ? 'order-1' : 'order-0'">
+        <Text type="title" class="dark:text-white">{{ project.title }}</Text>
+        <template v-if="project.url">
+          <a class="text-blue-500 text-lg" target="_blank" :href="project.url">
+            {{ project.url }} <Icon name="arrow-redo" />
+          </a>
+        </template>
+        <template v-if="project.github">
+          <a class="text-blue-500 text-lg" target="_blank" :href="`https://github.com/gcazin/${project.github}`">
+            gcazin/{{ project.github }} <Icon name="logo-github" :outline="false"/>
+          </a>
+        </template>
+        <Text type="text">{{ project.description }}</Text>
+        <Text class="font-bold">Technologies utilisés</Text>
+        <div
+            class="flex flex-row gap-4 items-center"
+            v-for="(technology, index) in project.technologies"
+            :key="index"
+        >
           <div
-              class="
-              text-lg
-                overflow-hidden
-                rounded
-                group-hover:transition-colors
-                invisible group-hover:visible
-                group-hover:bg-blue-500/90 group-hover:text-white
-                absolute p-5 h-full w-full z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-              "
           >
-            <div class="absolute right-0 top-0">
-              <svg width="218" height="109" viewBox="0 0 218 109" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle opacity="0.05" cx="156.5" cy="-47.5" r="156.5" fill="white"></circle>
-                <circle opacity="0.08" cx="210" cy="6" r="62" fill="white"></circle>
-              </svg>
-            </div>
-            <div class="flex flex-col gap-3 items-center justify-center px-10  h-full">
-              <p class="text-lg lg:text-xl">{{ project.title }}</p>
-              <p class="text-sm lg:text-base">{{ project.description }}</p>
-              <div class="flex text-xl lg:text-3xl gap-1">
-                <template v-if="project.url">
-                  <a target="_blank" :href="project.url"><Icon name="link" /></a>
-                </template>
-                <template v-if="project.codepen">
-                  <a target="_blank" :href="project.codepen"><Icon name="logo-codepen" :outline="false" /></a>
-                </template>
-                <template v-if="project.github">
-                  <a target="_blank" :href="`https://github.com/gcazin/${project.github}`"><Icon name="logo-github" :outline="false" /></a>
-                </template>
-              </div>
-              <ul class="flex gap-1">
-                <li
-                    v-for="(technology, index) in project.technologies"
-                    :key="index"
-                >
-                  <Badge class="text-sm lg:text-inherit">{{ technology }}</Badge>
-                </li>
-              </ul>
-            </div>
-            <div class="absolute bottom-0 left-0">
-              <svg width="23" height="32" viewBox="0 0 23 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="21.262" cy="1.12081" r="1.12081" transform="rotate(90 21.262 1.12081)" fill="white"></circle>
-                <circle cx="21.262" cy="30.4863" r="1.12081" transform="rotate(90 21.262 30.4863)" fill="white"></circle>
-                <circle cx="1.76005" cy="1.12081" r="1.12081" transform="rotate(90 1.76005 1.12081)" fill="white"></circle>
-                <circle cx="1.76005" cy="30.4863" r="1.12081" transform="rotate(90 1.76005 30.4863)" fill="white"></circle>
-                <circle cx="11.6228" cy="1.12081" r="1.12081" transform="rotate(90 11.6228 1.12081)" fill="white"></circle>
-                <circle cx="11.6228" cy="30.4863" r="1.12081" transform="rotate(90 11.6228 30.4863)" fill="white"></circle>
-                <circle cx="21.262" cy="10.9839" r="1.12081" transform="rotate(90 21.262 10.9839)" fill="white"></circle>
-                <circle cx="1.76005" cy="10.9839" r="1.12081" transform="rotate(90 1.76005 10.9839)" fill="white"></circle>
-                <circle cx="11.6228" cy="10.9839" r="1.12081" transform="rotate(90 11.6228 10.9839)" fill="white"></circle>
-                <circle cx="21.262" cy="20.8469" r="1.12081" transform="rotate(90 21.262 20.8469)" fill="white"></circle>
-                <circle cx="1.76005" cy="20.8469" r="1.12081" transform="rotate(90 1.76005 20.8469)" fill="white"></circle>
-                <circle cx="11.6228" cy="20.8469" r="1.12081" transform="rotate(90 11.6228 20.8469)" fill="white"></circle>
-              </svg>
-            </div>
+            <img
+                class="w-6"
+                :src="`images/skills/${technology.toLowerCase()}.png`"
+                :alt="technology"
+                :title="technology"
+            >
+          </div>
+          <div>
+            <Text>{{ technology }}</Text>
           </div>
         </div>
       </div>
@@ -72,11 +60,13 @@ import Text from "../elements/Text.vue";
 import AnimateOnScroll from "./AnimateOnScroll.vue";
 import Badge from "../elements/Badge.vue";
 import Icon from "../elements/Icon.vue";
-import projects from "./Projects.vue";
+import Button from "../elements/Button.vue";
+
 export default {
   name: "Projects",
 
   components: {
+    Button,
     Icon,
     Badge,
     AnimateOnScroll,
@@ -105,8 +95,8 @@ export default {
         {
           image: 'spotify-liked-tracks-sorter.png',
           title: 'Spotify liked tracks sorter',
-          description: "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement",
-          technologies: ['VueJS', 'API', 'Bootstrap'],
+          description: "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
+          technologies: ['HTML5', 'VueJS', 'Bootstrap', 'Api'],
           url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
           github: 'auto-sorting-spotify-liked-songs',
           category: 'web-application'
@@ -114,43 +104,59 @@ export default {
         {
           image: 'pure-css-windows-10-desktop.png',
           title: 'Pure CSS Windows 10 desktop',
-          description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS",
-          technologies: ['SCSS'],
+          description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS.",
+          technologies: ['HTML5', 'SCSS'],
+          url: 'https://codepen.io/gcazin/full/bKbMQW',
           github: 'pure-css-windows-10-desktop',
-          codepen: 'https://codepen.io/gcazin/full/bKbMQW',
           category: 'resources'
         },
         {
           image: 'slimys.png',
           title: 'Slimys',
-          description: "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen",
-          technologies: ['Lumen', 'VueJS', 'Bootstrap'],
+          description: "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen.",
+          technologies: ['HTML5', 'Laravel', 'VueJS', 'Bootstrap'],
           url: 'https://beta-slimys.netlify.app/',
           category: 'website'
-
         },
         {
           image: 'inskub.jpg',
           title: 'Inskub',
           description: "Création d'une plateforme d'assurance mettant en lien les experts du domaine au travers d'une plateforme sociale.",
-          technologies: ['Laravel', 'Boostrap'],
+          technologies: ['HTML5', 'Laravel', 'Bootstrap'],
           github: 'inskub',
           category: 'website'
         },
         {
           image: 'medializ.png',
           title: 'Medializ',
-          description: "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter",
-          technologies: ['Laravel', 'Tailwind'],
+          description: "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter.",
+          technologies: ['HTML5', 'Laravel', 'TailwindCSS'],
           github: 'medializ',
           category: 'website'
         },
         {
           image: 'quotesharing.png',
           title: 'QuoteSharing',
-          description: "Création d'une plateforme permettant aux utilisateurs de poster des citations",
-          technologies: ['Laravel', 'Bootstrap'],
+          description: "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
+          technologies: ['HTML5', 'Laravel', 'Bootstrap'],
           github: 'quotesharing',
+          category: 'website'
+        },
+        {
+          image: 'portfolio.png',
+          title: 'Portfolio',
+          description: "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
+          technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
+          github: 'portfolio',
+          category: 'website'
+        },
+        {
+          image: 'x-memes.png',
+          title: 'X-Memes',
+          description: "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
+          technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
+          url: 'https://x-memes.com',
+          github: 'x-memes',
           category: 'website'
         },
       ],
@@ -160,8 +166,11 @@ export default {
   },
 
   methods: {
+    countProjectsByCategory(category) {
+      return this.projects.filter((project) => project.category === category).length
+    },
     projects() {
-      return projects
+      return this.projects
     },
     filteringProjects(category) {
       this.filteredProjects = this.projects

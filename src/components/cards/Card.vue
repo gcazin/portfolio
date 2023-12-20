@@ -1,10 +1,12 @@
 <template>
   <div class="group">
-    <div class="h-full relative flex flex-col overflow-hidden items-center bg-white dark:bg-blue-900/50 shadow justify-center p-5 rounded-xl group-hover:bg-blue-500 transition-all duration-250">
-      <div class="invisible group-hover:visible z-10 absolute right-0 top-0">
+    <div
+        class="h-full relative flex flex-col overflow-hidden items-center bg-white dark:bg-blue-900/50 shadow justify-center p-5 rounded group-hover:bg-blue-500 transition-all duration-250"
+    >
+      <div class="z-10 absolute right-0 top-0">
         <svg width="218" height="109" viewBox="0 0 218 109" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle opacity="0.05" cx="156.5" cy="-47.5" r="156.5" fill="white"></circle>
-          <circle opacity="0.08" cx="210" cy="6" r="62" fill="white"></circle>
+          <circle opacity="0.01" cx="156.5" cy="-47.5" r="156.5" fill="white"></circle>
+          <circle opacity="0.02" cx="210" cy="6" r="62" fill="white"></circle>
         </svg>
       </div>
       <Text class="text-blue-500 group-hover:text-white" type="title">{{ title }}</Text>
@@ -33,7 +35,9 @@
 import Text from "../elements/Text.vue";
 export default {
   name: "Card",
-  components: {Text},
+  components: {
+    Text
+  },
 
   props: {
     title: {
@@ -41,11 +45,10 @@ export default {
     },
     description: {
       type: String,
-    }
+    },
   }
 }
 </script>
 
 <style scoped>
-
 </style>

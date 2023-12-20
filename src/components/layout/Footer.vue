@@ -16,7 +16,7 @@
             <Icon class="text-xl" name="logo-github" :outline="false" />
             <span class="sr-only">GitHub</span>
           </a>
-          <a target="_blank" href="https://twitter.com/guilomeczn" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+          <a target="_blank" href="https://twitter.com/gcazinonx" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
             <Icon class="text-xl" name="logo-twitter" :outline="false" />
             <span class="sr-only">Twitter</span>
           </a>
@@ -30,8 +30,15 @@
     <hr class="m-auto border-gray-200 sm:mx-auto dark:border-gray-700" />
     <Container>
       <div class="py-5 sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline">Guillaume Cazin™</a>. Tous droits réservés.
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ new Date().getFullYear() }} <a href="https://guillaume-cazin.fr/" class="hover:underline">Guillaume Cazin™</a>. Tous droits réservés.
         </span>
+        <template v-if="!isAuthenticated">
+          <Login />
+        </template>
+        <template v-else>
+          <Link class="text-gray-700" to="adminDashboard">Administration</Link>
+          <Logout />
+        </template>
       </div>
     </Container>
   </footer>
@@ -40,10 +47,17 @@
 <script>
 import Icon from "../elements/Icon.vue";
 import Container from "./Container.vue";
+import Login from "../../admin/components/Login.vue";
+import Logout from "../../admin/components/Logout.vue";
+import Link from "../elements/Link.vue";
+
 export default {
   name: "Footer",
 
   components: {
+    Link,
+    Logout,
+    Login,
     Container,
     Icon
   },
@@ -52,6 +66,12 @@ export default {
     hasBackground: {
       type: Boolean,
       default: false,
+    }
+  },
+
+  data() {
+    return {
+      isAuthenticated: this.$auth0.isAuthenticated
     }
   }
 }

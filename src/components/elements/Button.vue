@@ -56,15 +56,15 @@ export default {
   computed: {
     property() {
       return {
-        'inline-block rounded-full font-semibold leading-7 text-white transition-all duration-250 uppercase': true,
+        'inline-block rounded font-semibold leading-7 text-white transition-all duration-250 uppercase': true,
         'px-4 py-1 text-sm': this.size === 'sm',
         'px-4 py-2.5': this.size === 'normal',
         'px-4 py-3 text-lg': this.size === 'lg',
         'px-7 py-3 w-100': this.size === 'full',
         'bg-gray-100 hover:bg-gray-200 text-blue-500': this.color === 'white',
-        'bg-blue-500 dark:bg-blue-700 hover:bg-blue-700': this.color === 'primary',
+        'bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800': this.color === 'primary',
         'bg-transparent text-black dark:text-white px-0': this.color === 'transparent',
-        'bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:bg-gray-800 dark:hover:bg-blue-800': this.secondary,
+        'bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-800': this.secondary,
         'cursor-not-allowed opacity-50': this.disabled
       }
     }

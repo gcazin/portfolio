@@ -6,9 +6,10 @@
   <Section id="hero">
     <div class="isolate pt-32 pb-16">
       <div class="flex items-center h-full mx-auto container max-w-7xl">
-        <div class="flex-1 flex flex-col gap-7">
+        <div class="flex-1 flex flex-col gap-6">
           <Text type="subtitle" class="font-bold uppercase">👋, je suis</Text>
           <p class="text-blue-500 dark:text-blue-700 leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
+          <p class="text-blue-500 dark:text-gray-200 leading-normal font-extrabold tracking-tight text-5xl lg:text-7xl">Cazin</p>
           <Text type="subtitle" class="font-bold uppercase">
             Un freelance <span class="element text-blue-500 dark:text-blue-600">{{ typed }}</span>
           </Text>
@@ -31,20 +32,25 @@
       subtitle="Développeur full-stack basé à Boulogne-sur-Mer" has-background
   >
     <div class="text-center">
-      <div class="lg:flex lg:flex-col gap-5 m-auto text-justify">
-        <div class="flex-1 mb-5">
+      <div class="lg:flex lg:flex-col gap-4 m-auto text-justify">
+        <div class="flex-1 mb-4">
           <Text>
-            Bonjour! Je m'appelle Guillaume et je suis développeur web avec 2 ans d'expérience dans l'industrie.
-            Passioné et autodidacte depuis plus de 12 ans dans le développement web,
-            je suis spécialisé en JS, et plus spécifiquement en VueJS et très à l'aise en PHP notamment avec le framework Laravel.
+            Je m'appelle Guillaume et je suis <span class="font-bold">développeur web freelance</span> avec 2 ans d'expérience en entreprise.
           </Text>
           <Text>
-            Au cours de ma carrière, j'ai travaillé sur une variété de projets allant des sites web de petites entreprises aux plateformes très spécifiques pour des entreprises de grande échelle.
+            <span class="font-bold">Passioné et autodidacte depuis plus de 12 ans dans le développement web</span>,
+            je me suis spécialisé en PHP, et plus spécifiquement avec le framework <span class="font-bold">Laravel</span> et très à l'aise en JS notamment en <span class="font-bold">VueJS</span>.
+          </Text>
+          <Text>
+            Durant mon parcours,
+            j'ai eu la chance de travailler sur une variété de projets allant des sites web de petites entreprises aux plateformes très spécifiques pour des entreprises de grande échelle.
+          </Text>
+          <Text>
             Durant mon temps libre, j'aime me tenir informé des dernières tendances et techniques en matière de développement web.
           </Text>
         </div>
         <div class="flex-1 lg:flex md:gap-10">
-          <div class="flex flex-col w-full lg:w-1/3 gap-5 my-5">
+          <div class="flex flex-col w-full lg:w-1/3 gap-4 my-4">
             <Text class="border-b dark:border-b-blue-900">
               <Icon :outline="false" name="home" class="text-blue-500 mr-2" />
               Boulogne-sur-Mer
@@ -62,10 +68,11 @@
               Télétravail total
             </Text>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
             <Card title="+12" description="ans de passions" />
             <Card title="+2" description="ans d'expériences" />
-            <Card title="+19" description="projets GitHub" />
+            <Card title="+47" description="projets GitHub" />
+            <Card title="+514" description="commits sur GitHub" />
           </div>
         </div>
       </div>
@@ -89,7 +96,7 @@
       title="Expériences"
       has-background
   >
-    <div class="flex flex-col justify-center py-6 lg:py-12">
+    <div class="flex flex-col justify-center py-8 lg:py-12">
       <div class="w-full mx-auto lg:max-w-4xl">
         <div class="relative">
           <div class="absolute hidden w-px h-full transform -translate-x-1/2 bg-blue-500 lg:block left-1/2"></div>
@@ -144,23 +151,32 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
   >
     <div class="py-10">
       <div class="grid lg:grid-cols-3 gap-5 text-center">
+        <!--
+        ['HTML', 'CSS', 'Boostrap', 'Tailwind', 'PHP', 'Laravel', 'Twig', 'Vanilla JS', 'VueJS', 'jQuery']
+        -->
         <SkillCard
             icon="code-slash"
             color="blue"
             title="Développement"
-            :skills="['HTML', 'CSS', 'Boostrap', 'Tailwind', 'PHP', 'Laravel', 'Twig', 'Vanilla JS', 'VueJS', 'jQuery']"
+            :skills="skillsSection.development"
         />
+        <!--
+        ['Figma', 'PhpStorm', 'Code']
+        -->
         <SkillCard
             icon="cog"
             color="purple"
             title="Outils"
-            :skills="['Figma', 'PhpStorm', 'Code']"
+            :skills="skillsSection.tools"
         />
+        <!--
+        ['Workstation Linux', 'Méthodes agile (Scrum, Kanban)', 'Versionning Git', 'Télétravail']
+        -->
         <SkillCard
             icon="cog"
             color="yellow"
             title="Workflow"
-            :skills="['Workstation Linux', 'Méthodes agile (Scrum, Kanban)', 'Versionning Git', 'Télétravail']"
+            :skills="skillsSection.workflow"
             last
         />
       </div>
@@ -175,15 +191,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
       description="Exemples de mes travaux en développement web, ainsi que des informations sur les technologies et les outils que j'ai utilisés pour les réaliser."
       has-background
   >
-    <div class="flex flex-col md:flex-row justify-center lg:grid-cols-3 gap-5">
-      <Button size="sm" :secondary="projectCategory !== 'all'" @click="projectCategory = 'all'">Tout</Button>
-      <Button :secondary="projectCategory !== 'website'" size="sm" @click="projectCategory = 'website'">Site web</Button>
-      <Button :secondary="projectCategory !== 'web-application'" size="sm" @click="projectCategory = 'web-application'">Application web</Button>
-      <Button :secondary="projectCategory !== 'resources'" secondary size="sm" @click="projectCategory = 'resources'">Ressources</Button>
-    </div>
-    <div class="mt-5">
-      <Projects :category="projectCategory"/>
-    </div>
+    <Projects :category="projectCategory"/>
   </Section>
 
   <!-- Contact -->
@@ -245,11 +253,13 @@ import Card from "../components/cards/Card.vue";
 import References from "../components/misc/References.vue";
 import Navbar from "../components/layout/Navbar.vue";
 import Footer from "../components/layout/Footer.vue";
+import LoginButton from "../admin/components/Login.vue";
 
 export default {
   name: "Home",
 
   components: {
+    LoginButton,
     References,
     Card,
     Projects,
@@ -270,17 +280,21 @@ export default {
       url: null,
       typed: null,
       skills: [
-        'full-stack',
-        'JS',
+        'Full-stack',
+        'Laravel',
         'VueJS',
         'PHP',
-        'Drupal',
-        'Wordpress',
-        'Laravel',
+        'JS',
       ],
+      skillsSection: {
+        development: [],
+        tools: [],
+        workflow: [],
+      },
       projectCategory: 'all',
       scrollTop: 0,
       scrollTopPositionButtonAppear: 250,
+      user: this.$auth0.user,
     }
   },
   mounted() {
@@ -288,12 +302,10 @@ export default {
     this.getTyped().then((typed) => {
       this.typed = typed
     })
-    window.addEventListener("scroll", this.getScrollTop);
+    window.addEventListener("scroll", this.getScrollTop)
+    this.fetchSkills()
   },
   methods: {
-    projects() {
-      return projects
-    },
     async getTyped() {
       return new Promise((successCallback) => {
         const typed = new Typed('.element', {
@@ -324,6 +336,21 @@ export default {
       }
 
       return url
+    },
+    async fetchSkills() {
+      const developmentSkill = await this.databaseService.getCollection('skills.development')
+      const toolsSkill = await this.databaseService.getCollection('skills.tools')
+      const workflowSkill = await this.databaseService.getCollection('skills.workflow')
+
+      this.skillsSection.development = developmentSkill.map((dss) => {
+        return dss.title
+      })
+      this.skillsSection.tools = toolsSkill.map((dss) => {
+        return dss.title
+      })
+      this.skillsSection.workflow = workflowSkill.map((dss) => {
+        return dss.title
+      })
     }
   }
 }
