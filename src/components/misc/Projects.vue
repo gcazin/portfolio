@@ -1,6 +1,6 @@
 <template>
   <AnimateOnScroll>
-    <div class="flex flex-col md:flex-row justify-center lg:grid-cols-3 gap-4">
+    <div class="flex flex-row flex-wrap justify-center lg:grid-cols-3 gap-4">
       <Button size="sm" :secondary="category !== 'all'" @click="category = 'all'">
         Tout ({{ projects.length }})
       </Button>
@@ -14,8 +14,8 @@
         Ressources ({{ countProjectsByCategory('resources') }})
       </Button>
     </div>
-    <div class="flex gap-6 mt-12 mb-16" v-for="(project, index) in filteredProjects" :key="index">
-      <div :class="index % 2 === 0 ? 'order-0' : 'order-1'">
+    <div class="flex flex-col lg:flex-row gap-2 lg:gap-6 mt-12 mb-16" v-for="(project, index) in filteredProjects" :key="index">
+      <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
         <img class="rounded-lg shadow-lg" :src="`images/projects/${project.image}`" :alt="project.title">
       </div>
       <div class="w-full flex flex-col gap-2 bg-white shadow-sm dark:bg-gray-800/30 p-4 rounded-lg" :class="index % 2 === 0 ? 'order-1' : 'order-0'">
@@ -148,6 +148,15 @@ export default {
           description: "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
           technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
           github: 'portfolio',
+          category: 'website'
+        },
+        {
+          image: 'x-memes.png',
+          title: 'X-Memes',
+          description: "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
+          technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
+          url: 'https://x-memes.com',
+          github: 'x-memes',
           category: 'website'
         },
       ],

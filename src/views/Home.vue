@@ -9,6 +9,7 @@
         <div class="flex-1 flex flex-col gap-6">
           <Text type="subtitle" class="font-bold uppercase">👋, je suis</Text>
           <p class="text-blue-500 dark:text-blue-700 leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
+          <p class="text-blue-500 dark:text-gray-200 leading-normal font-extrabold tracking-tight text-5xl lg:text-7xl">Cazin</p>
           <Text type="subtitle" class="font-bold uppercase">
             Un freelance <span class="element text-blue-500 dark:text-blue-600">{{ typed }}</span>
           </Text>
@@ -34,12 +35,17 @@
       <div class="lg:flex lg:flex-col gap-4 m-auto text-justify">
         <div class="flex-1 mb-4">
           <Text>
-            Bonjour! Je m'appelle Guillaume et je suis développeur web avec 2 ans d'expérience dans l'industrie.
-            Passioné et autodidacte depuis plus de 12 ans dans le développement web,
-            je suis spécialisé en JS, et plus spécifiquement en VueJS et très à l'aise en PHP notamment avec le framework Laravel.
+            Je m'appelle Guillaume et je suis <span class="font-bold">développeur web freelance</span> avec 2 ans d'expérience en entreprise.
           </Text>
           <Text>
-            Au cours de ma carrière, j'ai travaillé sur une variété de projets allant des sites web de petites entreprises aux plateformes très spécifiques pour des entreprises de grande échelle.
+            <span class="font-bold">Passioné et autodidacte depuis plus de 12 ans dans le développement web</span>,
+            je me suis spécialisé en PHP, et plus spécifiquement avec le framework <span class="font-bold">Laravel</span> et très à l'aise en JS notamment en <span class="font-bold">VueJS</span>.
+          </Text>
+          <Text>
+            Durant mon parcours,
+            j'ai eu la chance de travailler sur une variété de projets allant des sites web de petites entreprises aux plateformes très spécifiques pour des entreprises de grande échelle.
+          </Text>
+          <Text>
             Durant mon temps libre, j'aime me tenir informé des dernières tendances et techniques en matière de développement web.
           </Text>
         </div>
@@ -65,7 +71,8 @@
           <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
             <Card title="+12" description="ans de passions" />
             <Card title="+2" description="ans d'expériences" />
-            <Card title="+19" description="projets GitHub" />
+            <Card title="+47" description="projets GitHub" />
+            <Card title="+514" description="commits sur GitHub" />
           </div>
         </div>
       </div>
@@ -273,13 +280,11 @@ export default {
       url: null,
       typed: null,
       skills: [
-        'full-stack',
-        'JS',
+        'Full-stack',
+        'Laravel',
         'VueJS',
         'PHP',
-        'Drupal',
-        'Wordpress',
-        'Laravel',
+        'JS',
       ],
       skillsSection: {
         development: [],

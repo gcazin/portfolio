@@ -16,7 +16,7 @@
             <Icon class="text-xl" name="logo-github" :outline="false" />
             <span class="sr-only">GitHub</span>
           </a>
-          <a target="_blank" href="https://twitter.com/guilomeczn" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+          <a target="_blank" href="https://twitter.com/gcazinonx" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
             <Icon class="text-xl" name="logo-twitter" :outline="false" />
             <span class="sr-only">Twitter</span>
           </a>

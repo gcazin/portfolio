@@ -46,18 +46,19 @@
       </div>
       <div class="absolute right-5 top-5 lg:top-1/4 lg:h-full">
         <button
-            class="flex dark:bg-gray-900 bg-gray-100 px-2 py-1.5 gap-2 rounded-xl"
+            class="flex dark:bg-gray-900 bg-gray-100 gap-2 rounded-xl"
             :key="componentKey"
             @click="toggleTheme()"
         >
-          <ion-icon
+          <Icon
               :class="{
                 'bg-yellow-50 dark:bg-gray-700 text-yellow-500': darkModeIcon === 'sunny',
                 'bg-gray-100 dark:bg-gray-300 text-gray-500 hover:bg-gray-300': darkModeIcon === 'moon',
               }"
-              class="cursor-pointer p-1 rounded-lg text-xl"
+              class="cursor-pointer p-1 rounded-lg text-xl px-2 py-1.5"
               :name="checkTheme() === 'light' ? 'moon' : 'sunny'"
-          ></ion-icon>
+              :outline="false"
+          ></Icon>
         </button>
       </div>
     </div>
