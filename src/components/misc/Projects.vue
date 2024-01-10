@@ -1,60 +1,3 @@
-<template>
-  <AnimateOnScroll>
-    <div class="flex flex-row flex-wrap justify-center lg:grid-cols-3 gap-4">
-      <Button size="sm" :secondary="category !== 'all'" @click="category = 'all'">
-        Tout ({{ projects.length }})
-      </Button>
-      <Button :secondary="category !== 'website'" size="sm" @click="category = 'website'">
-        Site web ({{ countProjectsByCategory('website') }})
-      </Button>
-      <Button :secondary="category !== 'web-application'" size="sm" @click="category = 'web-application'">
-        Application web ({{ countProjectsByCategory('web-application') }})
-      </Button>
-      <Button :secondary="category !== 'resources'" secondary size="sm" @click="category = 'resources'">
-        Ressources ({{ countProjectsByCategory('resources') }})
-      </Button>
-    </div>
-    <div class="flex flex-col lg:flex-row gap-2 lg:gap-6 mt-12 mb-16" v-for="(project, index) in filteredProjects" :key="index">
-      <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
-        <img class="rounded-lg shadow-lg" :src="`images/projects/${project.image}`" :alt="project.title">
-      </div>
-      <div class="w-full flex flex-col gap-2 bg-white shadow-sm dark:bg-gray-800/30 p-4 rounded-lg" :class="index % 2 === 0 ? 'order-1' : 'order-0'">
-        <Text type="title" class="dark:text-white">{{ project.title }}</Text>
-        <template v-if="project.url">
-          <a class="text-blue-500 text-lg" target="_blank" :href="project.url">
-            {{ project.url }} <Icon name="arrow-redo" />
-          </a>
-        </template>
-        <template v-if="project.github">
-          <a class="text-blue-500 text-lg" target="_blank" :href="`https://github.com/gcazin/${project.github}`">
-            gcazin/{{ project.github }} <Icon name="logo-github" :outline="false"/>
-          </a>
-        </template>
-        <Text type="text">{{ project.description }}</Text>
-        <Text class="font-bold">Technologies utilisés</Text>
-        <div
-            class="flex flex-row gap-4 items-center"
-            v-for="(technology, index) in project.technologies"
-            :key="index"
-        >
-          <div
-          >
-            <img
-                class="w-6"
-                :src="`images/skills/${technology.toLowerCase()}.png`"
-                :alt="technology"
-                :title="technology"
-            >
-          </div>
-          <div>
-            <Text>{{ technology }}</Text>
-          </div>
-        </div>
-      </div>
-    </div>
-  </AnimateOnScroll>
-</template>
-
 <script>
 import Text from "../elements/Text.vue";
 import AnimateOnScroll from "./AnimateOnScroll.vue";
@@ -145,7 +88,7 @@ export default {
         {
           image: 'portfolio.png',
           title: 'Portfolio',
-          description: "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
+          description: "Création de mon portfolio.",
           technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
           github: 'portfolio',
           category: 'website'
@@ -184,6 +127,63 @@ export default {
   }
 }
 </script>
+
+<template>
+  <AnimateOnScroll>
+    <div class="flex flex-row flex-wrap justify-center lg:grid-cols-3 gap-4">
+      <Button size="sm" :secondary="category !== 'all'" @click="category = 'all'">
+        Tout ({{ projects.length }})
+      </Button>
+      <Button :secondary="category !== 'website'" size="sm" @click="category = 'website'">
+        Site web ({{ countProjectsByCategory('website') }})
+      </Button>
+      <Button :secondary="category !== 'web-application'" size="sm" @click="category = 'web-application'">
+        Application web ({{ countProjectsByCategory('web-application') }})
+      </Button>
+      <Button :secondary="category !== 'resources'" secondary size="sm" @click="category = 'resources'">
+        Ressources ({{ countProjectsByCategory('resources') }})
+      </Button>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-2 lg:gap-6 mt-12 mb-16" v-for="(project, index) in filteredProjects" :key="index">
+      <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
+        <img class="rounded-lg shadow-lg" :src="`images/projects/${project.image}`" :alt="project.title">
+      </div>
+      <div class="w-full flex flex-col gap-2 bg-white shadow-sm dark:bg-gray-800/30 p-4 rounded-lg" :class="index % 2 === 0 ? 'order-1' : 'order-0'">
+        <Text type="title" class="dark:text-white">{{ project.title }}</Text>
+        <template v-if="project.url">
+          <a class="text-blue-500 text-lg" target="_blank" :href="project.url">
+            {{ project.url }} <Icon name="arrow-redo" />
+          </a>
+        </template>
+        <template v-if="project.github">
+          <a class="text-blue-500 text-lg" target="_blank" :href="`https://github.com/gcazin/${project.github}`">
+            gcazin/{{ project.github }} <Icon name="logo-github" :outline="false"/>
+          </a>
+        </template>
+        <Text type="text">{{ project.description }}</Text>
+        <Text class="font-bold">Technologies utilisés</Text>
+        <div
+            class="flex flex-row gap-4 items-center"
+            v-for="(technology, index) in project.technologies"
+            :key="index"
+        >
+          <div
+          >
+            <img
+                class="w-6"
+                :src="`images/skills/${technology.toLowerCase()}.png`"
+                :alt="technology"
+                :title="technology"
+            >
+          </div>
+          <div>
+            <Text>{{ technology }}</Text>
+          </div>
+        </div>
+      </div>
+    </div>
+  </AnimateOnScroll>
+</template>
 
 <style scoped>
 .v-enter-active,

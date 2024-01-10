@@ -4,20 +4,20 @@
 
   <!-- Hero section -->
   <Section id="hero">
-    <div class="isolate pt-32 pb-16">
-      <div class="flex items-center h-full mx-auto container max-w-7xl">
-        <div class="flex-1 flex flex-col gap-6">
+    <BlobBackground hero />
+    <div class="isolate pt-8 lg:pt-32 lg:pb-16">
+      <div class="flex flex-col lg:flex-row items-center h-full mx-auto container max-w-7xl gap-24 lg:gap-0">
+        <div class="flex-1 flex flex-col gap-6 order-1 lg:order-0">
           <Text type="subtitle" class="font-bold uppercase">👋, je suis</Text>
-          <p class="text-blue-500 dark:text-blue-700 leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
-          <p class="text-blue-500 dark:text-gray-200 leading-normal font-extrabold tracking-tight text-5xl lg:text-7xl">Cazin</p>
+          <p class="text-blue-500 dark:text-blue-700 lg:leading-normal font-extrabold tracking-tight text-7xl lg:text-8xl">Guillaume</p>
           <Text type="subtitle" class="font-bold uppercase">
             Un freelance <span class="element text-blue-500 dark:text-blue-600">{{ typed }}</span>
           </Text>
           <Button is-link to="cv">Voir mon cv</Button>
         </div>
-        <div class="relative text-center hidden lg:block">
+        <div class="relative text-center order-0 lg:order-1">
           <img src="/images/misc/blob-tear.svg" class="w-40 absolute -bottom-12 -left-10 -z-10" alt="Background">
-          <img src="/images/misc/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-80 rounded-tl-3xl rounded-br-3xl" alt="Avatar">
+          <img src="/images/misc/avatar.png" class="m-auto bg-gray-50 dark:bg-gray-900 w-40 lg:w-80 rounded-tl-3xl rounded-br-3xl" alt="Avatar">
           <img src="/images/misc/blob-tear.svg" class="w-40 absolute -top-12 -right-10 -z-10" alt="Background">
         </div>
       </div>
@@ -29,24 +29,17 @@
       id="introduction"
       heading="Introduction"
       title="👋 Bonjour !"
-      subtitle="Développeur full-stack basé à Boulogne-sur-Mer" has-background
+      subtitle="Développeur full-stack basé à Boulogne-sur-Mer"
+      has-background
   >
     <div class="text-center">
-      <div class="lg:flex lg:flex-col gap-4 m-auto text-justify">
+      <div class="lg:flex lg:flex-col gap-4 m-auto text-left">
         <div class="flex-1 mb-4">
           <Text>
-            Je m'appelle Guillaume et je suis <span class="font-bold">développeur web freelance</span> avec 2 ans d'expérience en entreprise.
+            Passionné et autodidacte depuis plus de 12 ans dans le développement web, je me suis spécialisé en PHP, notamment avec le framework Laravel, et je suis très à l'aise en JS, en particulier avec VueJS.
           </Text>
           <Text>
-            <span class="font-bold">Passioné et autodidacte depuis plus de 12 ans dans le développement web</span>,
-            je me suis spécialisé en PHP, et plus spécifiquement avec le framework <span class="font-bold">Laravel</span> et très à l'aise en JS notamment en <span class="font-bold">VueJS</span>.
-          </Text>
-          <Text>
-            Durant mon parcours,
-            j'ai eu la chance de travailler sur une variété de projets allant des sites web de petites entreprises aux plateformes très spécifiques pour des entreprises de grande échelle.
-          </Text>
-          <Text>
-            Durant mon temps libre, j'aime me tenir informé des dernières tendances et techniques en matière de développement web.
+            J'ai travaillé sur divers projets, allant de sites web pour petites entreprises à des plateformes spécifiques pour de grandes entreprises.
           </Text>
         </div>
         <div class="flex-1 lg:flex md:gap-10">
@@ -86,6 +79,7 @@
       title="Références"
       description="Projets d'entreprises pour lesquelles j'ai travaillé durant mes expériences professionnelles"
   >
+    <BlobBackground invert />
     <References />
   </Section>
 
@@ -149,6 +143,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
       id="competences"
       title="Compétences"
   >
+    <BlobBackground />
     <div class="py-10">
       <div class="grid lg:grid-cols-3 gap-5 text-center">
         <!--
@@ -198,6 +193,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
   <Section
       id="contact"
   >
+    <BlobBackground invert />
     <div class="relative overflow-hidden max-w-7xl m-auto bg-blue-500 dark:bg-blue-700 dark:text-white text-blue-500 rounded-lg py-10 text-center">
       <div class="flex flex-col gap-5 px-5 lg:pr-10 z-10 relative">
         <div class="flex-1">
@@ -254,11 +250,13 @@ import References from "../components/misc/References.vue";
 import Navbar from "../components/layout/Navbar.vue";
 import Footer from "../components/layout/Footer.vue";
 import LoginButton from "../admin/components/Login.vue";
+import BlobBackground from "../components/misc/BlobBackground.vue";
 
 export default {
   name: "Home",
 
   components: {
+    BlobBackground,
     LoginButton,
     References,
     Card,
@@ -356,5 +354,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
