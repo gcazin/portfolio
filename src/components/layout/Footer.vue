@@ -1,8 +1,6 @@
 <script>
 import Icon from "../elements/Icon.vue";
 import Container from "./Container.vue";
-import Login from "../../admin/components/Login.vue";
-import Logout from "../../admin/components/Logout.vue";
 import Link from "../elements/Link.vue";
 
 export default {
@@ -10,8 +8,6 @@ export default {
 
   components: {
     Link,
-    Logout,
-    Login,
     Container,
     Icon
   },
@@ -22,12 +18,6 @@ export default {
       default: false,
     }
   },
-
-  data() {
-    return {
-      isAuthenticated: this.$auth0.isAuthenticated
-    }
-  }
 }
 </script>
 
@@ -68,13 +58,6 @@ export default {
       <div class="py-5 sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ new Date().getFullYear() }} <a href="https://guillaume-cazin.fr/" class="hover:underline">Guillaume Cazin™</a>. Tous droits réservés.
         </span>
-        <template v-if="!isAuthenticated">
-          <Login />
-        </template>
-        <template v-else>
-          <Link class="text-gray-700" to="adminDashboard">Administration</Link>
-          <Logout />
-        </template>
       </div>
     </Container>
   </footer>

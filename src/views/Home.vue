@@ -1,3 +1,104 @@
+<script>
+import Text from "../components/elements/Text.vue";
+import Section from "../components/layout/Section.vue";
+import SkillCard from "../components/cards/SkillCard.vue";
+import Button from "../components/elements/Button.vue";
+import Subtitle from "../components/elements/Subtitle.vue";
+import ExperienceCard from "../components/cards/ExperienceCard.vue";
+import Badge from "../components/elements/Badge.vue";
+import Typed from 'typed.js'
+import Icon from "../components/elements/Icon.vue";
+import Projects from "../components/misc/Projects.vue";
+import Card from "../components/cards/Card.vue";
+import References from "../components/misc/References.vue";
+import Navbar from "../components/layout/Navbar.vue";
+import Footer from "../components/layout/Footer.vue";
+import BlobBackground from "../components/misc/BlobBackground.vue";
+
+export default {
+  name: "Home",
+
+  components: {
+    BlobBackground,
+    References,
+    Card,
+    Projects,
+    Icon,
+    Text,
+    Section,
+    SkillCard,
+    Button,
+    Subtitle,
+    ExperienceCard,
+    Badge,
+    Navbar,
+    Footer
+  },
+
+  data() {
+    return {
+      url: null,
+      typed: null,
+      skills: [
+        'Full-stack',
+        'Laravel',
+        'VueJS',
+        'PHP',
+        'JS',
+      ],
+      skillsSection: {
+        development: [],
+        tools: [],
+        workflow: [],
+      },
+      projectCategory: 'all',
+      scrollTop: 0,
+      scrollTopPositionButtonAppear: 250,
+    }
+  },
+  mounted() {
+    document.title = "Accueil - Portfolio de Guillaume Cazin"
+    this.getTyped().then((typed) => {
+      this.typed = typed
+    })
+    window.addEventListener("scroll", this.getScrollTop)
+  },
+  methods: {
+    async getTyped() {
+      return new Promise((successCallback) => {
+        const typed = new Typed('.element', {
+          strings: this.skills,
+          typeSpeed: 150,
+          loop: true,
+        });
+        successCallback(typed)
+      })
+    },
+    getScrollTop() {
+      this.scrollTop = document.documentElement.scrollTop;
+    },
+    scrollToTop() {
+      const url = window.location.href
+
+      this.url = this.removeAnchor(url)
+
+      window.scrollTo({
+        top: 0,
+      });
+    },
+    removeAnchor(url) {
+      const index = url.indexOf("#")
+
+      if (index !== -1) {
+        return url.substring(0, index)
+      }
+
+      return url
+    },
+  }
+}
+</script>
+
 <template>
   <!-- Navbar -->
   <Navbar />
@@ -146,32 +247,23 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     <BlobBackground />
     <div class="py-10">
       <div class="grid lg:grid-cols-3 gap-5 text-center">
-        <!--
-        ['HTML', 'CSS', 'Boostrap', 'Tailwind', 'PHP', 'Laravel', 'Twig', 'Vanilla JS', 'VueJS', 'jQuery']
-        -->
         <SkillCard
             icon="code-slash"
             color="blue"
             title="Développement"
-            :skills="skillsSection.development"
+            :skills="['HTML', 'CSS', 'Boostrap', 'Tailwind', 'PHP', 'Laravel', 'Twig', 'Vanilla JS', 'VueJS', 'jQuery']"
         />
-        <!--
-        ['Figma', 'PhpStorm', 'Code']
-        -->
         <SkillCard
             icon="cog"
             color="purple"
             title="Outils"
-            :skills="skillsSection.tools"
+            :skills="['Figma', 'PhpStorm', 'Code']"
         />
-        <!--
-        ['Workstation Linux', 'Méthodes agile (Scrum, Kanban)', 'Versionning Git', 'Télétravail']
-        -->
         <SkillCard
             icon="cog"
             color="yellow"
             title="Workflow"
-            :skills="skillsSection.workflow"
+            :skills="['Workstation Linux', 'Méthodes agile (Scrum, Kanban)', 'Versionning Git', 'Télétravail']"
             last
         />
       </div>
@@ -233,125 +325,5 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
 
   <Footer has-background />
 </template>
-
-<script>
-import Text from "../components/elements/Text.vue";
-import Section from "../components/layout/Section.vue";
-import SkillCard from "../components/cards/SkillCard.vue";
-import Button from "../components/elements/Button.vue";
-import Subtitle from "../components/elements/Subtitle.vue";
-import ExperienceCard from "../components/cards/ExperienceCard.vue";
-import Badge from "../components/elements/Badge.vue";
-import Typed from 'typed.js'
-import Icon from "../components/elements/Icon.vue";
-import Projects from "../components/misc/Projects.vue";
-import Card from "../components/cards/Card.vue";
-import References from "../components/misc/References.vue";
-import Navbar from "../components/layout/Navbar.vue";
-import Footer from "../components/layout/Footer.vue";
-import LoginButton from "../admin/components/Login.vue";
-import BlobBackground from "../components/misc/BlobBackground.vue";
-
-export default {
-  name: "Home",
-
-  components: {
-    BlobBackground,
-    LoginButton,
-    References,
-    Card,
-    Projects,
-    Icon,
-    Text,
-    Section,
-    SkillCard,
-    Button,
-    Subtitle,
-    ExperienceCard,
-    Badge,
-    Navbar,
-    Footer
-  },
-
-  data() {
-    return {
-      url: null,
-      typed: null,
-      skills: [
-        'Full-stack',
-        'Laravel',
-        'VueJS',
-        'PHP',
-        'JS',
-      ],
-      skillsSection: {
-        development: [],
-        tools: [],
-        workflow: [],
-      },
-      projectCategory: 'all',
-      scrollTop: 0,
-      scrollTopPositionButtonAppear: 250,
-      user: this.$auth0.user,
-    }
-  },
-  mounted() {
-    document.title = "Accueil - Portfolio de Guillaume Cazin"
-    this.getTyped().then((typed) => {
-      this.typed = typed
-    })
-    window.addEventListener("scroll", this.getScrollTop)
-    this.fetchSkills()
-  },
-  methods: {
-    async getTyped() {
-      return new Promise((successCallback) => {
-        const typed = new Typed('.element', {
-          strings: this.skills,
-          typeSpeed: 150,
-          loop: true,
-        });
-        successCallback(typed)
-      })
-    },
-    getScrollTop() {
-      this.scrollTop = document.documentElement.scrollTop;
-    },
-    scrollToTop() {
-      const url = window.location.href
-
-      this.url = this.removeAnchor(url)
-
-      window.scrollTo({
-        top: 0,
-      });
-    },
-    removeAnchor(url) {
-      const index = url.indexOf("#")
-
-      if (index !== -1) {
-        return url.substring(0, index)
-      }
-
-      return url
-    },
-    async fetchSkills() {
-      const developmentSkill = await this.databaseService.getCollection('skills.development')
-      const toolsSkill = await this.databaseService.getCollection('skills.tools')
-      const workflowSkill = await this.databaseService.getCollection('skills.workflow')
-
-      this.skillsSection.development = developmentSkill.map((dss) => {
-        return dss.title
-      })
-      this.skillsSection.tools = toolsSkill.map((dss) => {
-        return dss.title
-      })
-      this.skillsSection.workflow = workflowSkill.map((dss) => {
-        return dss.title
-      })
-    }
-  }
-}
-</script>
 
 <style scoped></style>
