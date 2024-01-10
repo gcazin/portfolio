@@ -1,360 +1,526 @@
 <template>
-  <Navbar />
+    <Navbar />
 
-  <Section title="CV" id="hero">
-    <div class="max-w-4xl mx-auto">
-      <a href="/images/misc/cv.pdf" target="_blank">
-        <Button class="mb-7 text-center">Télécharger la version PDF</Button>
-      </a>
-      <div class="block lg:hidden">
-        <img src="/images/misc/cv.png" class="w-full" type="application/pdf" alt="CV">
-      </div>
-      <div class="shadow-lg bg-white dark:bg-gray-800 hidden lg:block" id="cv">
-        <!-- First section -->
-        <div class="flex pl-10 mt-5 mb-3 items-center">
-          <div class="w-60 mr-5">
-            <div class="relative text-center hidden lg:block">
-              <img src="/images/misc/blob-tear.svg" class="w-20 absolute -bottom-2 -left-2" alt="Background">
-              <img src="/images/misc/avatar.png" class="relative m-auto bg-gray-50 w-52 rounded-tl-3xl rounded-br-3xl z-30" alt="Avatar">
-              <img src="/images/misc/blob-tear.svg" class="w-20 absolute -top-2 -right-2" alt="Background">
-            </div>
-          </div>
-          <div class="flex justify-center gap-3 flex-col pl-7 flex-1">
-            <div class="text-2xl">
-              <span class="uppercase text-3xl">Guillaume Cazin</span>
-            </div>
-            <div>
-              <span class="text-4xl uppercase font-bold">Développeur web</span>
-            </div>
-            <div class="flex justify-between">
-              <div class="flex-1">
-                <div class="block">
-                  <span class="border-before font-bold uppercase pb-2">Contact</span>
-                  <span class="text-blue-700 inline font-bold">__</span>
-                </div>
-                <div class="flex flex-col gap-1 mt-2">
-                  <a href="mailto:czn.guillaume@gmail.com" target="_blank" class="flex items-center underline decoration-dotted">
-                    <Icon name="mail" :outline="false" class="text-blue-700 mr-1" />
-                    czn.guillaume@gmail.com
-                  </a>
-                  <a href="tel:06.10.85.42.18" target="_blank" class="flex items-center underline decoration-dotted">
-                    <Icon name="call" :outline="false" class="text-blue-700 mr-1" />
-                    +33 6 10 85 42 18
-                  </a>
-                </div>
-              </div>
-              <div class="flex-1">
-                <div class="block">
-                  <span class="border-before font-bold uppercase pb-2">Social</span>
-                  <span class="text-blue-700 inline font-bold">__</span>
-                </div>
-                <div class="flex flex-col gap-1 mt-2">
-                  <a target="_blank" href="https://www.linkedin.com/in/guillaume-cazin/" class="flex items-center underline decoration-dotted">
-                    <Icon name="logo-linkedin" class="mr-1" :outline="false" />
-                    guillaume-cazin
-                  </a>
-                  <a target="_blank" href="http://github.com/gcazin" class="flex items-center underline decoration-dotted">
-                    <Icon name="logo-github" class="mr-1" :outline="false" />
-                    gcazin
-                  </a>
-                  <a target="_blank" href="https://codepen.io/gcazin" class="flex items-center underline decoration-dotted">
-                    <Icon name="logo-codepen" class="mr-1" :outline="false" />
-                    gcazin
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div>
-              <a class="text-blue-700 font-bold uppercase" href="/cv">www.guillaume-cazin.fr</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="mx-10 border-b">
-          <div class="block mb-2">
-            <span class="border-before font-bold text-xl uppercase pb-2"><Icon name="person" class="mr-1 text-blue-700" /> A propos</span>
-            <span class="text-blue-700 inline font-bold"> __</span>
-          </div>
-          <div class="bg-white pb-2 mb-1">
-            Passionné depuis 12 ans par tout ce qui est attrait au développement web,
-            j'y ai consacré l'entièreté de mes années d'études et la majorité de mon temps libre durant toutes ces années.
-          </div>
-        </div>
-
-        <!-- Second section -->
-        <div class="flex">
-          <div class="py-4 pl-10 w-60">
-            <div class="flex flex-col gap-3">
-              <div class="flex-1 mb-2">
-                <div class="block mb-2">
-                  <span class="border-before font-bold text-lg uppercase pb-2"><Icon name="code-slash" class="mr-1 text-blue-700" /> Compétences</span>
-                  <span class="text-blue-700 inline font-bold">__</span>
-                </div>
-                <div
-                    class="flex justify-between flex-wrap gap-x-1 gap-y-2 mt-3 bg-white"
-                    v-for="(skill, index) in skills.sort((a,b) => b.rating - a.rating)"
-                    :key="index"
+    <Section title="CV" id="hero">
+        <div class="mx-auto max-w-4xl">
+            <a href="/images/misc/cv.pdf" target="_blank">
+                <Button class="mb-7 text-center"
+                    >Télécharger la version PDF</Button
                 >
-                  <span
-                  >
-                    {{ skill.title }}
-                  </span>
-                  <div class="flex items-center">
-                    <span
-                        :class="{
-                          'bg-green-50': skill.rating === 'Maîtrise',
-                          'bg-orange-50': skill.rating === 'Connaissance',
-                          'bg-red-50': skill.rating === 'Utilisation'
-                        }"
-                        class="w-fit py-1 px-2 text-sm leading-none text-center whitespace-nowrap align-baseline font-bold rounded-full transition-colors"
-                    >
-                      {{ skill.rating }}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <hr>
-              <div class="flex-1 mb-2">
-                <div class="block">
-                  <span class="border-before font-bold text-lg uppercase pb-2"><Icon name="language" class="mr-1 text-blue-700" /> Langues</span>
-                  <span class="text-blue-700 inline font-bold">__</span>
-                </div>
-                <div class="flex flex-col gap-y-2 mt-3 bg-white">
-                  <div class="flex w-full">
-                    <div class="flex-1">Français</div>
-                    <div class="flex-1 text-end">Natale</div>
-                  </div>
-                  <div class="flex w-full">
-                    <div class="flex-1">Anglais</div>
-                    <div class="flex-1 text-end">Confirmé</div>
-                  </div>
-                </div>
-              </div>
-              <hr>
-              <div class="flex-1">
-                <div class="block">
-                  <span class="border-before font-bold text-lg uppercase pb-2"><Icon name="library" class="mr-1 text-blue-700" /> Loisirs</span>
-                  <span class="text-blue-700 inline font-bold">__</span>
-                </div>
-                <div class="mt-3 bg-white">
-                  🚲Vélo, 👨‍💻programmation, 🎮jeux-vidéo, 🪐astronomie
-                </div>
-              </div>
+            </a>
+            <div class="block lg:hidden">
+                <img
+                    src="/images/misc/cv.png"
+                    class="w-full"
+                    type="application/pdf"
+                    alt="CV"
+                />
             </div>
-          </div>
-          <div class="flex-1">
-            <div class="flex flex-col gap-3 px-7 py-3">
-              <!-- Expériences professionnelles -->
-              <div class="flex-1">
-                <div class="block mb-2">
-                  <span class="border-before font-bold text-lg uppercase pb-2"><Icon name="briefcase" class="mr-1 text-blue-700" /> Expériences professionnelles</span>
-                  <span class="text-blue-700 inline font-bold">__</span>
-                </div>
-                <div class="flex flex-col gap-2 bg-white">
-                  <div class="flex" v-for="(experience, index) in experiences" :key="index">
-                    <div class="flex flex-col flex-1">
-                      <div class="flex-1">
-                      <span class="font-bold">
-                        {{ experience.title }}
-                      </span>
-                      </div>
-                      <div class="flex-1">
-                        <div class="text-gray-500">
-                          {{ experience.enterprise }}
+            <div
+                class="hidden bg-white shadow-lg dark:bg-gray-800 lg:block"
+                id="cv"
+            >
+                <!-- First section -->
+                <div class="mt-5 mb-3 flex items-center pl-10">
+                    <div class="mr-5 w-60">
+                        <div class="relative hidden text-center lg:block">
+                            <img
+                                src="/images/misc/blob-tear.svg"
+                                class="absolute -bottom-2 -left-2 w-20"
+                                alt="Background"
+                            />
+                            <img
+                                src="/images/misc/avatar.png"
+                                class="relative z-30 m-auto w-52 rounded-tl-3xl rounded-br-3xl bg-gray-50"
+                                alt="Avatar"
+                            />
+                            <img
+                                src="/images/misc/blob-tear.svg"
+                                class="absolute -top-2 -right-2 w-20"
+                                alt="Background"
+                            />
                         </div>
-                      </div>
-                      <div class="flex-1">
-                        <div class="text-md text-gray-700">{{ experience.description }}</div>
-                      </div>
                     </div>
-                    <div class="w-32 text-end">{{ experience.date }}</div>
-                  </div>
-                </div>
-              </div>
-
-              <hr>
-
-              <!-- Formations & diplômes -->
-              <div class="flex-1 mb-2">
-                <div class="block mb-2">
-                  <span class="border-before font-bold text-lg uppercase pb-2"><Icon name="school" class="mr-1 text-blue-700" /> Formations & diplômes</span>
-                  <span class="text-blue-700 inline font-bold">__</span>
-                </div>
-                <div class="flex flex-col gap-2 bg-white">
-                  <div class="flex" v-for="(formation, index) in formations" :key="index">
-                    <div class="flex flex-col flex-1">
-                      <div class="flex-1">
-                      <span class="font-bold">
-                        {{ formation.title }}
-                      </span>
-                      </div>
-                      <div class="flex-1">
-                        <div class="text-gray-500">
-                          {{ formation.school }}
+                    <div class="flex flex-1 flex-col justify-center gap-3 pl-7">
+                        <div class="text-2xl">
+                            <span class="text-3xl uppercase"
+                                >Guillaume Cazin</span
+                            >
                         </div>
-                      </div>
-                      <!--                      <div class="flex-1">
+                        <div>
+                            <span class="text-4xl font-bold uppercase"
+                                >Développeur web</span
+                            >
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="flex-1">
+                                <div class="block">
+                                    <span
+                                        class="border-before pb-2 font-bold uppercase"
+                                        >Contact</span
+                                    >
+                                    <span class="inline font-bold text-blue-700"
+                                        >__</span
+                                    >
+                                </div>
+                                <div class="mt-2 flex flex-col gap-1">
+                                    <a
+                                        href="mailto:czn.guillaume@gmail.com"
+                                        target="_blank"
+                                        class="flex items-center underline decoration-dotted"
+                                    >
+                                        <Icon
+                                            name="mail"
+                                            :outline="false"
+                                            class="mr-1 text-blue-700"
+                                        />
+                                        czn.guillaume@gmail.com
+                                    </a>
+                                    <a
+                                        href="tel:06.10.85.42.18"
+                                        target="_blank"
+                                        class="flex items-center underline decoration-dotted"
+                                    >
+                                        <Icon
+                                            name="call"
+                                            :outline="false"
+                                            class="mr-1 text-blue-700"
+                                        />
+                                        +33 6 10 85 42 18
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="block">
+                                    <span
+                                        class="border-before pb-2 font-bold uppercase"
+                                        >Social</span
+                                    >
+                                    <span class="inline font-bold text-blue-700"
+                                        >__</span
+                                    >
+                                </div>
+                                <div class="mt-2 flex flex-col gap-1">
+                                    <a
+                                        target="_blank"
+                                        href="https://www.linkedin.com/in/guillaume-cazin/"
+                                        class="flex items-center underline decoration-dotted"
+                                    >
+                                        <Icon
+                                            name="logo-linkedin"
+                                            class="mr-1"
+                                            :outline="false"
+                                        />
+                                        guillaume-cazin
+                                    </a>
+                                    <a
+                                        target="_blank"
+                                        href="http://github.com/gcazin"
+                                        class="flex items-center underline decoration-dotted"
+                                    >
+                                        <Icon
+                                            name="logo-github"
+                                            class="mr-1"
+                                            :outline="false"
+                                        />
+                                        gcazin
+                                    </a>
+                                    <a
+                                        target="_blank"
+                                        href="https://codepen.io/gcazin"
+                                        class="flex items-center underline decoration-dotted"
+                                    >
+                                        <Icon
+                                            name="logo-codepen"
+                                            class="mr-1"
+                                            :outline="false"
+                                        />
+                                        gcazin
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <a
+                                class="font-bold uppercase text-blue-700"
+                                href="/cv"
+                                >www.guillaume-cazin.fr</a
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mx-10 border-b">
+                    <div class="mb-2 block">
+                        <span
+                            class="border-before pb-2 text-xl font-bold uppercase"
+                            ><Icon name="person" class="mr-1 text-blue-700" /> A
+                            propos</span
+                        >
+                        <span class="inline font-bold text-blue-700"> __</span>
+                    </div>
+                    <div class="mb-1 bg-white pb-2">
+                        Passionné depuis 12 ans par tout ce qui est attrait au
+                        développement web, j'y ai consacré l'entièreté de mes
+                        années d'études et la majorité de mon temps libre durant
+                        toutes ces années.
+                    </div>
+                </div>
+
+                <!-- Second section -->
+                <div class="flex">
+                    <div class="w-60 py-4 pl-10">
+                        <div class="flex flex-col gap-3">
+                            <div class="mb-2 flex-1">
+                                <div class="mb-2 block">
+                                    <span
+                                        class="border-before pb-2 text-lg font-bold uppercase"
+                                        ><Icon
+                                            name="code-slash"
+                                            class="mr-1 text-blue-700"
+                                        />
+                                        Compétences</span
+                                    >
+                                    <span class="inline font-bold text-blue-700"
+                                        >__</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-3 flex flex-wrap justify-between gap-x-1 gap-y-2 bg-white"
+                                    v-for="(skill, index) in skills.sort(
+                                        (a, b) => b.rating - a.rating
+                                    )"
+                                    :key="index"
+                                >
+                                    <span>
+                                        {{ skill.title }}
+                                    </span>
+                                    <div class="flex items-center">
+                                        <span
+                                            :class="{
+                                                'bg-green-50':
+                                                    skill.rating === 'Maîtrise',
+                                                'bg-orange-50':
+                                                    skill.rating ===
+                                                    'Connaissance',
+                                                'bg-red-50':
+                                                    skill.rating ===
+                                                    'Utilisation',
+                                            }"
+                                            class="w-fit whitespace-nowrap rounded-full py-1 px-2 text-center align-baseline text-sm font-bold leading-none transition-colors"
+                                        >
+                                            {{ skill.rating }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="mb-2 flex-1">
+                                <div class="block">
+                                    <span
+                                        class="border-before pb-2 text-lg font-bold uppercase"
+                                        ><Icon
+                                            name="language"
+                                            class="mr-1 text-blue-700"
+                                        />
+                                        Langues</span
+                                    >
+                                    <span class="inline font-bold text-blue-700"
+                                        >__</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-3 flex flex-col gap-y-2 bg-white"
+                                >
+                                    <div class="flex w-full">
+                                        <div class="flex-1">Français</div>
+                                        <div class="flex-1 text-end">
+                                            Natale
+                                        </div>
+                                    </div>
+                                    <div class="flex w-full">
+                                        <div class="flex-1">Anglais</div>
+                                        <div class="flex-1 text-end">
+                                            Confirmé
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="flex-1">
+                                <div class="block">
+                                    <span
+                                        class="border-before pb-2 text-lg font-bold uppercase"
+                                        ><Icon
+                                            name="library"
+                                            class="mr-1 text-blue-700"
+                                        />
+                                        Loisirs</span
+                                    >
+                                    <span class="inline font-bold text-blue-700"
+                                        >__</span
+                                    >
+                                </div>
+                                <div class="mt-3 bg-white">
+                                    🚲Vélo, 👨‍💻programmation, 🎮jeux-vidéo,
+                                    🪐astronomie
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col gap-3 px-7 py-3">
+                            <!-- Expériences professionnelles -->
+                            <div class="flex-1">
+                                <div class="mb-2 block">
+                                    <span
+                                        class="border-before pb-2 text-lg font-bold uppercase"
+                                        ><Icon
+                                            name="briefcase"
+                                            class="mr-1 text-blue-700"
+                                        />
+                                        Expériences professionnelles</span
+                                    >
+                                    <span class="inline font-bold text-blue-700"
+                                        >__</span
+                                    >
+                                </div>
+                                <div class="flex flex-col gap-2 bg-white">
+                                    <div
+                                        class="flex"
+                                        v-for="(
+                                            experience, index
+                                        ) in experiences"
+                                        :key="index"
+                                    >
+                                        <div class="flex flex-1 flex-col">
+                                            <div class="flex-1">
+                                                <span class="font-bold">
+                                                    {{ experience.title }}
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-gray-500">
+                                                    {{ experience.enterprise }}
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div
+                                                    class="text-md text-gray-700"
+                                                >
+                                                    {{ experience.description }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-32 text-end">
+                                            {{ experience.date }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <!-- Formations & diplômes -->
+                            <div class="mb-2 flex-1">
+                                <div class="mb-2 block">
+                                    <span
+                                        class="border-before pb-2 text-lg font-bold uppercase"
+                                        ><Icon
+                                            name="school"
+                                            class="mr-1 text-blue-700"
+                                        />
+                                        Formations & diplômes</span
+                                    >
+                                    <span class="inline font-bold text-blue-700"
+                                        >__</span
+                                    >
+                                </div>
+                                <div class="flex flex-col gap-2 bg-white">
+                                    <div
+                                        class="flex"
+                                        v-for="(formation, index) in formations"
+                                        :key="index"
+                                    >
+                                        <div class="flex flex-1 flex-col">
+                                            <div class="flex-1">
+                                                <span class="font-bold">
+                                                    {{ formation.title }}
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-gray-500">
+                                                    {{ formation.school }}
+                                                </div>
+                                            </div>
+                                            <!--                      <div class="flex-1">
                                               <div class="text-md text-gray-700">{{ formation.description }}</div>
                                             </div>-->
+                                        </div>
+                                        <div class="w-32 text-end">
+                                            {{ formation.date }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="w-32 text-end">{{ formation.date }}</div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </Section>
+    </Section>
 
-  <Footer has-background />
+    <Footer has-background />
 </template>
 
 <script>
-import Icon from "../components/elements/Icon.vue";
-import Navbar from "../components/layout/Navbar.vue";
-import Section from "../components/layout/Section.vue";
-import Footer from "../components/layout/Footer.vue";
-import Button from "../components/elements/Button.vue";
-import Link from "../components/elements/Link.vue";
-import Badge from "../components/elements/Badge.vue";
+import Icon from '../components/elements/Icon.vue'
+import Navbar from '../components/layout/Navbar.vue'
+import Section from '../components/layout/Section.vue'
+import Footer from '../components/layout/Footer.vue'
+import Button from '../components/elements/Button.vue'
+import Link from '../components/elements/Link.vue'
+import Badge from '../components/elements/Badge.vue'
 
 export default {
-  name: "CV",
+    name: 'CV',
 
-  components: {
-    Badge,
-    Link,
-    Button,
-    Footer,
-    Section,
-    Navbar,
-    Icon
-  },
+    components: {
+        Badge,
+        Link,
+        Button,
+        Footer,
+        Section,
+        Navbar,
+        Icon,
+    },
 
-  data() {
-    return {
-      skills: [
-        {
-          title: 'HTML',
-          rating: 'Maîtrise'
-        },
-        {
-          title: 'CSS',
-          rating: 'Maîtrise'
-        },
-        {
-          title: 'Javascript',
-          rating: 'Maîtrise',
-        },
-        {
-          title: 'VueJS 3',
-          rating: 'Maîtrise'
-        },
-        {
-          title: 'jQuery',
-          rating: 'Maîtrise'
-        },
-        {
-          title: 'PHP',
-          rating: 'Maîtrise'
-        },
-        {
-          title: 'Laravel 9',
-          rating: 'Maîtrise'
-        },
-        {
-          title: 'SCSS',
-          rating: 'Connaissance',
-        },
-        {
-          title: 'Wordpress',
-          rating: 'Connaissance',
-        },
-        {
-          title: 'Drupal 8',
-          rating: 'Connaissance'
-        },
-        {
-          title: 'Symfony 5',
-          rating: 'Utilisation'
-        },
-      ],
-      formations: [
-        {
-          title: 'Licence professionnelle Développement Internet et Mobile',
-          school: 'IUT, Calais (62250)',
-          date: '2019-2020',
-          // description: 'Lorem ipsum dolor sit amet',
-        },
-        {
-          title: "BTS SIO option SLAM",
-          school: 'Lycée Saint-Joseph, Saint-Martin-Boulogne (62280)',
-          date: 'Juin 2019',
-          // description: 'Lorem ipsum dolor sit amet',
-        },
-        {
-          title: "Bac STI2D option SIN",
-          school: 'Lycée Édouard Branly, Boulogne-sur-Mer (62200)',
-          date: 'Juin 2017',
-          // description: 'Lorem ipsum dolor sit amet',
-        },
-      ],
-      experiences: [
-        {
-          title: "Développeur web",
-          enterprise: 'CDI, Diatem, Strasbourg (67000)',
-          date: '2020-2022',
-          description: "Plateforme spécialisée en PHP et VueJS, Site vitrine sous Drupal et Wordpress",
-        },
-        {
-          title: "Stage en développement web",
-          enterprise: 'Stage, Armatis, Calais (62100)',
-          date: '2019',
-          description: "Création d'une application mobile en React-Native avec API développé en Laravel",
-        },
-        {
-          title: "Stage en développement web",
-          enterprise: 'Stage, Mes Concierges, Marquise (62250)',
-          date: '2018',
-          description: "Création d'une marketplace avec l'utilisation d'un framework PHP (Cocorico)",
-        },
-        {
-          title: "Stage en développement web",
-          enterprise: "Stage, Mairie d'Echinghen, Echinghen (62360)",
-          date: '2017',
-          description: "Création d'un site vitrine en utilisant le CMS Wordpress",
-        },
-        /*{
+    data() {
+        return {
+            skills: [
+                {
+                    title: 'HTML',
+                    rating: 'Maîtrise',
+                },
+                {
+                    title: 'CSS',
+                    rating: 'Maîtrise',
+                },
+                {
+                    title: 'Javascript',
+                    rating: 'Maîtrise',
+                },
+                {
+                    title: 'VueJS 3',
+                    rating: 'Maîtrise',
+                },
+                {
+                    title: 'jQuery',
+                    rating: 'Maîtrise',
+                },
+                {
+                    title: 'PHP',
+                    rating: 'Maîtrise',
+                },
+                {
+                    title: 'Laravel 9',
+                    rating: 'Maîtrise',
+                },
+                {
+                    title: 'SCSS',
+                    rating: 'Connaissance',
+                },
+                {
+                    title: 'Wordpress',
+                    rating: 'Connaissance',
+                },
+                {
+                    title: 'Drupal 8',
+                    rating: 'Connaissance',
+                },
+                {
+                    title: 'Symfony 5',
+                    rating: 'Utilisation',
+                },
+            ],
+            formations: [
+                {
+                    title: 'Licence professionnelle Développement Internet et Mobile',
+                    school: 'IUT, Calais (62250)',
+                    date: '2019-2020',
+                    // description: 'Lorem ipsum dolor sit amet',
+                },
+                {
+                    title: 'BTS SIO option SLAM',
+                    school: 'Lycée Saint-Joseph, Saint-Martin-Boulogne (62280)',
+                    date: 'Juin 2019',
+                    // description: 'Lorem ipsum dolor sit amet',
+                },
+                {
+                    title: 'Bac STI2D option SIN',
+                    school: 'Lycée Édouard Branly, Boulogne-sur-Mer (62200)',
+                    date: 'Juin 2017',
+                    // description: 'Lorem ipsum dolor sit amet',
+                },
+            ],
+            experiences: [
+                {
+                    title: 'Développeur web',
+                    enterprise: 'CDI, Diatem, Strasbourg (67000)',
+                    date: '2020-2022',
+                    description:
+                        'Plateforme spécialisée en PHP et VueJS, Site vitrine sous Drupal et Wordpress',
+                },
+                {
+                    title: 'Stage en développement web',
+                    enterprise: 'Stage, Armatis, Calais (62100)',
+                    date: '2019',
+                    description:
+                        "Création d'une application mobile en React-Native avec API développé en Laravel",
+                },
+                {
+                    title: 'Stage en développement web',
+                    enterprise: 'Stage, Mes Concierges, Marquise (62250)',
+                    date: '2018',
+                    description:
+                        "Création d'une marketplace avec l'utilisation d'un framework PHP (Cocorico)",
+                },
+                {
+                    title: 'Stage en développement web',
+                    enterprise: "Stage, Mairie d'Echinghen, Echinghen (62360)",
+                    date: '2017',
+                    description:
+                        "Création d'un site vitrine en utilisant le CMS Wordpress",
+                },
+                /*{
           title: "Stage dans une entreprise d'informatique",
           enterprise: 'Stage, Boutique informatique, Boulogne-sur-Mer (62200)',
           date: '2012',
           description: 'Approfondissement des connaissances sur le langage PHP',
         },*/
-      ],
-      date: new Date().getFullYear(),
-      loading: false,
-    }
-  },
-  beforeCreate() {
-    if (window.scrollY) {
-      window.scroll(0,0)
-    }
-  },
-  mounted() {
-    document.title = "CV - Portfolio de Guillaume Cazin"
-  }
+            ],
+            date: new Date().getFullYear(),
+            loading: false,
+        }
+    },
+    beforeCreate() {
+        if (window.scrollY) {
+            window.scroll(0, 0)
+        }
+    },
+    mounted() {
+        document.title = 'CV - Portfolio de Guillaume Cazin'
+    },
 }
 </script>
 
 <style scoped>
 #cv {
-  height: 29.7cm;
-  width: 21cm;
-  overflow: hidden;
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%231d4ed8' fill-opacity='0.05'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    height: 29.7cm;
+    width: 21cm;
+    overflow: hidden;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%231d4ed8' fill-opacity='0.05'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 }
 /*.border-before {
   position: relative;

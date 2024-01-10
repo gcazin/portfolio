@@ -1,15 +1,13 @@
 <template>
-  <p class="text-gray-500 dark:text-gray-300 text-lg">
-    <slot></slot>
-  </p>
+    <p class="text-lg text-gray-500 dark:text-gray-300">
+        <slot></slot>
+    </p>
 </template>
 
 <script>
 export default {
-  name: "SecondaryText",
+    name: 'SecondaryText',
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
