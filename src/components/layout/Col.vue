@@ -1,25 +1,22 @@
 <script>
 export default {
-  name: "Col",
+    name: 'Col',
 
-  props: {
-    number: {
-      type: Number,
-      default: 2,
-    }
-  }
+    props: {
+        number: {
+            type: Number,
+            default: 2,
+        },
+    },
 }
 </script>
 
 <template>
-  <div class="flex flex-col">
-    <div v-for="(n, index) in number" :key="index" class="flex-1">
-      <slot :name="n"></slot>
+    <div class="flex flex-col">
+        <div v-for="(n, index) in number" :key="index" class="flex-1">
+            <slot :name="n"></slot>
+        </div>
     </div>
-  </div>
 </template>
 
-
-<style scoped>
-
-</style>
+<style scoped></style>

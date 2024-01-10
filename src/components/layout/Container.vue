@@ -1,13 +1,9 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-  <div class="w-10/12 lg:w-8/12 m-auto">
-    <slot></slot>
-  </div>
+    <div class="m-auto w-10/12 lg:w-8/12">
+        <slot></slot>
+    </div>
 </template>
 
-
-<style scoped>
-
-</style>
+<style scoped></style>

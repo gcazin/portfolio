@@ -1,36 +1,37 @@
 <template>
-  <AnimateOnScroll>
-    <p
-        :class="{
-          'text-blue-500 font-bold pb-2 uppercase': type === 'heading',
-          'text-3xl lg:text-4xl font-bold leading-tight pb-2 dark:text-white': type === 'title',
-          'text-xl lg:text-2xl leading-tight text-gray-700 dark:text-gray-300 pb-2': type === 'subtitle',
-          'text-base lg:text-lg leading-loose text-gray-800 dark:text-gray-200 pb-2': type === 'text',
-        }"
-    >
-      <slot></slot>
-    </p>
-  </AnimateOnScroll>
+    <AnimateOnScroll>
+        <p
+            :class="{
+                'pb-2 font-bold uppercase text-blue-500': type === 'heading',
+                'pb-2 text-3xl font-bold leading-tight dark:text-white lg:text-4xl':
+                    type === 'title',
+                'pb-2 text-xl leading-tight text-gray-700 dark:text-gray-300 lg:text-2xl':
+                    type === 'subtitle',
+                'pb-2 text-base leading-loose text-gray-800 dark:text-gray-200 lg:text-lg':
+                    type === 'text',
+            }"
+        >
+            <slot></slot>
+        </p>
+    </AnimateOnScroll>
 </template>
 
 <script>
-import AnimateOnScroll from "../misc/AnimateOnScroll.vue";
+import AnimateOnScroll from '../misc/AnimateOnScroll.vue'
 export default {
-  name: "Text",
+    name: 'Text',
 
-  components: {
-    AnimateOnScroll
-  },
+    components: {
+        AnimateOnScroll,
+    },
 
-  props: {
-    type: {
-      type: String,
-      default: 'text'
-    }
-  }
+    props: {
+        type: {
+            type: String,
+            default: 'text',
+        },
+    },
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

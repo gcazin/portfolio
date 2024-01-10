@@ -1,21 +1,19 @@
 <template>
-  <router-link :to="{ name: to }">
-    <slot></slot>
-  </router-link>
+    <router-link :to="{ name: to }">
+        <slot></slot>
+    </router-link>
 </template>
 
 <script>
 export default {
-  name: "Link",
+    name: 'Link',
 
-  props: {
-    to: {
-      type: String,
+    props: {
+        to: {
+            type: String,
+        },
     },
-  }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
