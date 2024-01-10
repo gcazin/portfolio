@@ -45,7 +45,6 @@ export default {
       darkModeIcon: 'moon',
       anchorName: null,
       componentKey: 0,
-      isAuthenticated: this.$auth0.isAuthenticated
     }
   },
 
