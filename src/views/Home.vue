@@ -100,7 +100,7 @@ export default {
     <!-- Hero section -->
     <Section id="hero">
         <BlobBackground hero />
-        <div class="isolate pt-8 lg:pt-32 lg:pb-16">
+        <div class="isolate pt-32 pb-8 lg:pb-16">
             <div
                 class="container mx-auto flex h-full max-w-7xl flex-col items-center gap-24 lg:flex-row lg:gap-0"
             >
