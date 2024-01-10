@@ -1,10 +1,5 @@
-<template>
-  <div :class="{'w-full': full}" data-aos="zoom-in" data-aos-duration="500" data-aos-once="true">
-    <slot></slot>
-  </div>
-</template>
-
 <script>
+
 export default {
   name: "AnimateOnScroll",
 
@@ -17,6 +12,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<template>
+  <div :class="{'w-full': full}" data-aos="zoom-in" data-aos-duration="500" data-aos-once="true">
+    <slot></slot>
+  </div>
+</template>
 
+<style scoped>
 </style>

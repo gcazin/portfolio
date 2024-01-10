@@ -1,5 +1,41 @@
+<script>
+import Icon from "../elements/Icon.vue";
+import Container from "./Container.vue";
+import Login from "../../admin/components/Login.vue";
+import Logout from "../../admin/components/Logout.vue";
+import Link from "../elements/Link.vue";
+
+export default {
+  name: "Footer",
+
+  components: {
+    Link,
+    Logout,
+    Login,
+    Container,
+    Icon
+  },
+
+  props: {
+    hasBackground: {
+      type: Boolean,
+      default: false,
+    }
+  },
+
+  data() {
+    return {
+      isAuthenticated: this.$auth0.isAuthenticated
+    }
+  }
+}
+</script>
+
 <template>
-  <footer class="border-t border-gray-100 dark:border-gray-900" :class="{'bg-slate-50/70 dark:bg-gray-900': hasBackground, 'bg-white dark:bg-gray-900/90': !hasBackground}">
+  <footer
+      class="border-t border-gray-100 dark:border-gray-900"
+      :class="{'bg-slate-100 dark:bg-[#0B1120]/90': hasBackground, 'bg-slate-50 dark:bg-[#0B1120]': !hasBackground}"
+  >
     <Container>
       <div class="md:flex md:justify-between py-10">
         <div class="mb-6 md:mb-0">
@@ -44,39 +80,5 @@
   </footer>
 </template>
 
-<script>
-import Icon from "../elements/Icon.vue";
-import Container from "./Container.vue";
-import Login from "../../admin/components/Login.vue";
-import Logout from "../../admin/components/Logout.vue";
-import Link from "../elements/Link.vue";
-
-export default {
-  name: "Footer",
-
-  components: {
-    Link,
-    Logout,
-    Login,
-    Container,
-    Icon
-  },
-
-  props: {
-    hasBackground: {
-      type: Boolean,
-      default: false,
-    }
-  },
-
-  data() {
-    return {
-      isAuthenticated: this.$auth0.isAuthenticated
-    }
-  }
-}
-</script>
-
 <style scoped>
-
 </style>
