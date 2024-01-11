@@ -1,6 +1,4 @@
 <script setup>
-import AnimateOnScroll from '../misc/AnimateOnScroll.vue'
-
 defineProps({
     type: {
         type: String,
@@ -10,7 +8,6 @@ defineProps({
 </script>
 
 <template>
-    <AnimateOnScroll>
         <p
             :class="{
                 'pb-2 font-bold uppercase text-blue-500': type === 'heading',
@@ -24,7 +21,6 @@ defineProps({
         >
             <slot></slot>
         </p>
-    </AnimateOnScroll>
 </template>
 
 <style scoped></style>

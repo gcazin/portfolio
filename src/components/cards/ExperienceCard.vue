@@ -1,5 +1,5 @@
 <script setup>
-import AnimateOnScroll from '../misc/AnimateOnScroll.vue'
+import AnimateOnScroll from '../misc/Animate.vue'
 import Badge from '../elements/Badge.vue'
 import Text from '../elements/Text.vue'
 import { ref } from 'vue'

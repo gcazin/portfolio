@@ -1,6 +1,4 @@
 <script setup>
-import AnimateOnScroll from '../misc/AnimateOnScroll.vue'
-
 const props = defineProps({
     // Style
     size: {
@@ -53,7 +51,6 @@ const property = () => {
 </script>
 
 <template>
-    <AnimateOnScroll>
         <button v-if="!isLink" :class="property()" type="button">
             <template v-if="icon">
                 <ion-icon
@@ -66,7 +63,6 @@ const property = () => {
         <router-link v-else :class="property()" :to="{ name: to }">
             <slot></slot>
         </router-link>
-    </AnimateOnScroll>
 </template>
 
 <style scoped></style>
