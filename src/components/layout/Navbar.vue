@@ -115,7 +115,7 @@ const checkCurrentUrl = () => {
                 </div>
                 <div class="lg:ml-0">
                     <Link to="home">
-                        <Text type="subtitle"> Guillaume Cazin </Text>
+                        <Text type="subtitle">Guillaume Cazin</Text>
                     </Link>
                 </div>
                 <div

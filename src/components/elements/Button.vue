@@ -41,7 +41,7 @@ const property = () => {
         'bg-gray-100 hover:bg-gray-200 text-blue-500': props.color === 'white',
         'bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800':
             props.color === 'primary',
-        'bg-transparent text-black dark:text-white px-0':
+        'bg-transparent text-black dark:text-white':
             props.color === 'transparent',
         'bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-800':
             props.secondary,
