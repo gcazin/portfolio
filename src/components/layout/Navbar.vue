@@ -144,13 +144,6 @@ const checkCurrentUrl = () => {
                                     item.text
                                 }}</Button>
                             </li>
-                            <a
-                                v-if="isAuthenticated"
-                                href="/admin/dashboard"
-                                class="px-2 font-bold uppercase text-gray-800 transition-colors hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-600"
-                            >
-                                Administration
-                            </a>
                         </ul>
                     </div>
                 </div>

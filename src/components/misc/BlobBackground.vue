@@ -25,12 +25,12 @@ defineProps({
 
 <style scoped>
 .dark .hero {
-    background-image: url(/images/misc/background/hero-dark.jpg);
+    background-image: url(/images/misc/background/hero-dark.webp);
     background-size: 100rem;
     height: 100%;
 }
 .dark .section {
-    background-image: url(/images/misc/background/section-dark.png);
+    background-image: url(/images/misc/background/section-dark.webp);
     background-size: 125.5rem 100%;
     height: 100%;
 }
