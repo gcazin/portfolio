@@ -91,7 +91,6 @@ const category = ref('all')
 const filteredProjects = ref([])
 
 watch(category, (oldCategory, newCategory) => {
-    console.log('ici')
     filteringProjects(newCategory)
 })
 

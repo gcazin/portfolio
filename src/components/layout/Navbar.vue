@@ -93,8 +93,6 @@ const checkCurrentUrl = () => {
         anchorName.value = anchor
     }
 }
-
-console.log('theme')
 </script>
 
 <template>
