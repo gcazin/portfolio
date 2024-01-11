@@ -1,38 +1,30 @@
-<script>
-export default {
-    name: 'References',
-
-    data() {
-        return {
-            references: [
-                {
-                    name: 'Eléphant bleu',
-                    image: 'elephant-bleu',
-                },
-                {
-                    name: 'Eurométropole Strasbourg',
-                    image: 'eurometropole-strasbourg',
-                },
-                {
-                    name: 'Institut Henry Poincaré',
-                    image: 'ihp',
-                },
-                {
-                    name: 'Wolfberger',
-                    image: 'wolfberger',
-                },
-                {
-                    name: 'iTurf',
-                    image: 'iturf',
-                },
-                {
-                    name: 'DDEC',
-                    image: 'ddec',
-                },
-            ],
-        }
+<script setup>
+const references = [
+    {
+        name: 'Eléphant bleu',
+        image: 'elephant-bleu',
     },
-}
+    {
+        name: 'Eurométropole Strasbourg',
+        image: 'eurometropole-strasbourg',
+    },
+    {
+        name: 'Institut Henry Poincaré',
+        image: 'ihp',
+    },
+    {
+        name: 'Wolfberger',
+        image: 'wolfberger',
+    },
+    {
+        name: 'iTurf',
+        image: 'iturf',
+    },
+    {
+        name: 'DDEC',
+        image: 'ddec',
+    },
+]
 </script>
 
 <template>

@@ -1,3 +1,121 @@
+<script setup>
+import Icon from '../components/elements/Icon.vue'
+import Navbar from '../components/layout/Navbar.vue'
+import Section from '../components/layout/Section.vue'
+import Footer from '../components/layout/Footer.vue'
+import Button from '../components/elements/Button.vue'
+import Link from '../components/elements/Link.vue'
+import Badge from '../components/elements/Badge.vue'
+import { onBeforeMount, onMounted, ref } from 'vue'
+
+const skills = [
+    {
+        title: 'HTML',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'CSS',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'Javascript',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'VueJS 3',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'jQuery',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'PHP',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'Laravel 9',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'SCSS',
+        rating: 'Connaissance',
+    },
+    {
+        title: 'Wordpress',
+        rating: 'Connaissance',
+    },
+    {
+        title: 'Drupal 8',
+        rating: 'Connaissance',
+    },
+    {
+        title: 'Symfony 5',
+        rating: 'Utilisation',
+    },
+]
+
+const formations = [
+    {
+        title: 'Licence professionnelle Développement Internet et Mobile',
+        school: 'IUT, Calais (62250)',
+        date: '2019-2020',
+        // description: 'Lorem ipsum dolor sit amet',
+    },
+    {
+        title: 'BTS SIO option SLAM',
+        school: 'Lycée Saint-Joseph, Saint-Martin-Boulogne (62280)',
+        date: 'Juin 2019',
+        // description: 'Lorem ipsum dolor sit amet',
+    },
+    {
+        title: 'Bac STI2D option SIN',
+        school: 'Lycée Édouard Branly, Boulogne-sur-Mer (62200)',
+        date: 'Juin 2017',
+    },
+]
+
+const experiences = [
+    {
+        title: 'Développeur web',
+        enterprise: 'CDI, Diatem, Strasbourg (67000)',
+        date: '2020-2022',
+        description:
+            'Plateforme spécialisée en PHP et VueJS, Site vitrine sous Drupal et Wordpress',
+    },
+    {
+        title: 'Stage en développement web',
+        enterprise: 'Stage, Armatis, Calais (62100)',
+        date: '2019',
+        description:
+            "Création d'une application mobile en React-Native avec API développé en Laravel",
+    },
+    {
+        title: 'Stage en développement web',
+        enterprise: 'Stage, Mes Concierges, Marquise (62250)',
+        date: '2018',
+        description:
+            "Création d'une marketplace avec l'utilisation d'un framework PHP (Cocorico)",
+    },
+    {
+        title: 'Stage en développement web',
+        enterprise: "Stage, Mairie d'Echinghen, Echinghen (62360)",
+        date: '2017',
+        description: "Création d'un site vitrine en utilisant le CMS Wordpress",
+    },
+]
+
+onBeforeMount(() => {
+    if (window.scrollY) {
+        window.scroll(0, 0)
+    }
+})
+
+onMounted(() => {
+    document.title = 'CV - Portfolio de Guillaume Cazin'
+})
+</script>
+
 <template>
     <Navbar />
 
@@ -21,7 +139,7 @@
                 id="cv"
             >
                 <!-- First section -->
-                <div class="mt-5 mb-3 flex items-center pl-10">
+                <div class="mb-3 mt-5 flex items-center pl-10">
                     <div class="mr-5 w-60">
                         <div class="relative hidden text-center lg:block">
                             <img
@@ -31,12 +149,12 @@
                             />
                             <img
                                 src="/images/misc/avatar.png"
-                                class="relative z-30 m-auto w-52 rounded-tl-3xl rounded-br-3xl bg-gray-50"
+                                class="relative z-30 m-auto w-52 rounded-br-3xl rounded-tl-3xl bg-gray-50"
                                 alt="Avatar"
                             />
                             <img
                                 src="/images/misc/blob-tear.svg"
-                                class="absolute -top-2 -right-2 w-20"
+                                class="absolute -right-2 -top-2 w-20"
                                 alt="Background"
                             />
                         </div>
@@ -207,7 +325,7 @@
                                                     skill.rating ===
                                                     'Utilisation',
                                             }"
-                                            class="w-fit whitespace-nowrap rounded-full py-1 px-2 text-center align-baseline text-sm font-bold leading-none transition-colors"
+                                            class="w-fit whitespace-nowrap rounded-full px-2 py-1 text-center align-baseline text-sm font-bold leading-none transition-colors"
                                         >
                                             {{ skill.rating }}
                                         </span>
@@ -372,147 +490,6 @@
 
     <Footer has-background />
 </template>
-
-<script>
-import Icon from '../components/elements/Icon.vue'
-import Navbar from '../components/layout/Navbar.vue'
-import Section from '../components/layout/Section.vue'
-import Footer from '../components/layout/Footer.vue'
-import Button from '../components/elements/Button.vue'
-import Link from '../components/elements/Link.vue'
-import Badge from '../components/elements/Badge.vue'
-
-export default {
-    name: 'CV',
-
-    components: {
-        Badge,
-        Link,
-        Button,
-        Footer,
-        Section,
-        Navbar,
-        Icon,
-    },
-
-    data() {
-        return {
-            skills: [
-                {
-                    title: 'HTML',
-                    rating: 'Maîtrise',
-                },
-                {
-                    title: 'CSS',
-                    rating: 'Maîtrise',
-                },
-                {
-                    title: 'Javascript',
-                    rating: 'Maîtrise',
-                },
-                {
-                    title: 'VueJS 3',
-                    rating: 'Maîtrise',
-                },
-                {
-                    title: 'jQuery',
-                    rating: 'Maîtrise',
-                },
-                {
-                    title: 'PHP',
-                    rating: 'Maîtrise',
-                },
-                {
-                    title: 'Laravel 9',
-                    rating: 'Maîtrise',
-                },
-                {
-                    title: 'SCSS',
-                    rating: 'Connaissance',
-                },
-                {
-                    title: 'Wordpress',
-                    rating: 'Connaissance',
-                },
-                {
-                    title: 'Drupal 8',
-                    rating: 'Connaissance',
-                },
-                {
-                    title: 'Symfony 5',
-                    rating: 'Utilisation',
-                },
-            ],
-            formations: [
-                {
-                    title: 'Licence professionnelle Développement Internet et Mobile',
-                    school: 'IUT, Calais (62250)',
-                    date: '2019-2020',
-                    // description: 'Lorem ipsum dolor sit amet',
-                },
-                {
-                    title: 'BTS SIO option SLAM',
-                    school: 'Lycée Saint-Joseph, Saint-Martin-Boulogne (62280)',
-                    date: 'Juin 2019',
-                    // description: 'Lorem ipsum dolor sit amet',
-                },
-                {
-                    title: 'Bac STI2D option SIN',
-                    school: 'Lycée Édouard Branly, Boulogne-sur-Mer (62200)',
-                    date: 'Juin 2017',
-                    // description: 'Lorem ipsum dolor sit amet',
-                },
-            ],
-            experiences: [
-                {
-                    title: 'Développeur web',
-                    enterprise: 'CDI, Diatem, Strasbourg (67000)',
-                    date: '2020-2022',
-                    description:
-                        'Plateforme spécialisée en PHP et VueJS, Site vitrine sous Drupal et Wordpress',
-                },
-                {
-                    title: 'Stage en développement web',
-                    enterprise: 'Stage, Armatis, Calais (62100)',
-                    date: '2019',
-                    description:
-                        "Création d'une application mobile en React-Native avec API développé en Laravel",
-                },
-                {
-                    title: 'Stage en développement web',
-                    enterprise: 'Stage, Mes Concierges, Marquise (62250)',
-                    date: '2018',
-                    description:
-                        "Création d'une marketplace avec l'utilisation d'un framework PHP (Cocorico)",
-                },
-                {
-                    title: 'Stage en développement web',
-                    enterprise: "Stage, Mairie d'Echinghen, Echinghen (62360)",
-                    date: '2017',
-                    description:
-                        "Création d'un site vitrine en utilisant le CMS Wordpress",
-                },
-                /*{
-          title: "Stage dans une entreprise d'informatique",
-          enterprise: 'Stage, Boutique informatique, Boulogne-sur-Mer (62200)',
-          date: '2012',
-          description: 'Approfondissement des connaissances sur le langage PHP',
-        },*/
-            ],
-            date: new Date().getFullYear(),
-            loading: false,
-        }
-    },
-    beforeCreate() {
-        if (window.scrollY) {
-            window.scroll(0, 0)
-        }
-    },
-    mounted() {
-        document.title = 'CV - Portfolio de Guillaume Cazin'
-    },
-}
-</script>
 
 <style scoped>
 #cv {

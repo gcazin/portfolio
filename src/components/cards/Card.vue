@@ -1,3 +1,16 @@
+<script setup>
+import Text from '../elements/Text.vue'
+
+defineProps({
+    title: {
+        type: String,
+    },
+    description: {
+        type: String,
+    },
+})
+</script>
+
 <template>
     <div class="group">
         <div
@@ -130,24 +143,5 @@
         </div>
     </div>
 </template>
-
-<script>
-import Text from '../elements/Text.vue'
-export default {
-    name: 'Card',
-    components: {
-        Text,
-    },
-
-    props: {
-        title: {
-            type: String,
-        },
-        description: {
-            type: String,
-        },
-    },
-}
-</script>
 
 <style scoped></style>

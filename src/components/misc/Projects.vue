@@ -1,145 +1,116 @@
-<script>
+<script setup>
 import Text from '../elements/Text.vue'
 import AnimateOnScroll from './AnimateOnScroll.vue'
 import Badge from '../elements/Badge.vue'
 import Icon from '../elements/Icon.vue'
 import Button from '../elements/Button.vue'
+import { onMounted, ref, watch, watchEffect } from 'vue'
 
-export default {
-    name: 'Projects',
-
-    components: {
-        Button,
-        Icon,
-        Badge,
-        AnimateOnScroll,
-        Text,
+defineProps({
+    category: {
+        type: String,
     },
+})
 
-    props: {
-        category: {
-            type: String,
-        },
+const projects = [
+    {
+        image: 'spotify-liked-tracks-sorter.png',
+        title: 'Spotify liked tracks sorter',
+        description:
+            "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
+        technologies: ['HTML5', 'VueJS', 'Bootstrap', 'Api'],
+        url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
+        github: 'auto-sorting-spotify-liked-songs',
+        category: 'web-application',
     },
-
-    watch: {
-        category(newCategory) {
-            this.filteringProjects(newCategory)
-        },
+    {
+        image: 'pure-css-windows-10-desktop.png',
+        title: 'Pure CSS Windows 10 desktop',
+        description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS.",
+        technologies: ['HTML5', 'SCSS'],
+        url: 'https://codepen.io/gcazin/full/bKbMQW',
+        github: 'pure-css-windows-10-desktop',
+        category: 'resources',
     },
-
-    mounted() {
-        this.filteredProjects = this.projects
+    {
+        image: 'slimys.png',
+        title: 'Slimys',
+        description:
+            "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen.",
+        technologies: ['HTML5', 'Laravel', 'VueJS', 'Bootstrap'],
+        url: 'https://beta-slimys.netlify.app/',
+        category: 'website',
     },
-
-    data() {
-        return {
-            projects: [
-                {
-                    image: 'spotify-liked-tracks-sorter.png',
-                    title: 'Spotify liked tracks sorter',
-                    description:
-                        "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
-                    technologies: ['HTML5', 'VueJS', 'Bootstrap', 'Api'],
-                    url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
-                    github: 'auto-sorting-spotify-liked-songs',
-                    category: 'web-application',
-                },
-                {
-                    image: 'pure-css-windows-10-desktop.png',
-                    title: 'Pure CSS Windows 10 desktop',
-                    description:
-                        "Reproduction de l'interface de Windows 10 en HTML5/SCSS.",
-                    technologies: ['HTML5', 'SCSS'],
-                    url: 'https://codepen.io/gcazin/full/bKbMQW',
-                    github: 'pure-css-windows-10-desktop',
-                    category: 'resources',
-                },
-                {
-                    image: 'slimys.png',
-                    title: 'Slimys',
-                    description:
-                        "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen.",
-                    technologies: ['HTML5', 'Laravel', 'VueJS', 'Bootstrap'],
-                    url: 'https://beta-slimys.netlify.app/',
-                    category: 'website',
-                },
-                {
-                    image: 'inskub.jpg',
-                    title: 'Inskub',
-                    description:
-                        "Création d'une plateforme d'assurance mettant en lien les experts du domaine au travers d'une plateforme sociale.",
-                    technologies: ['HTML5', 'Laravel', 'Bootstrap'],
-                    github: 'inskub',
-                    category: 'website',
-                },
-                {
-                    image: 'medializ.png',
-                    title: 'Medializ',
-                    description:
-                        "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter.",
-                    technologies: ['HTML5', 'Laravel', 'TailwindCSS'],
-                    github: 'medializ',
-                    category: 'website',
-                },
-                {
-                    image: 'quotesharing.png',
-                    title: 'QuoteSharing',
-                    description:
-                        "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
-                    technologies: ['HTML5', 'Laravel', 'Bootstrap'],
-                    github: 'quotesharing',
-                    category: 'website',
-                },
-                {
-                    image: 'portfolio.png',
-                    title: 'Portfolio',
-                    description: 'Création de mon portfolio.',
-                    technologies: [
-                        'HTML5',
-                        'VueJS',
-                        'TailwindCSS',
-                        'Auth0',
-                        'Firebase',
-                    ],
-                    github: 'portfolio',
-                    category: 'website',
-                },
-                {
-                    image: 'x-memes.png',
-                    title: 'X-Memes',
-                    description:
-                        "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
-                    technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
-                    url: 'https://x-memes.com',
-                    github: 'x-memes',
-                    category: 'website',
-                },
-            ],
-            filteredProjects: [],
-            active: 0,
-        }
+    {
+        image: 'inskub.jpg',
+        title: 'Inskub',
+        description:
+            "Création d'une plateforme d'assurance mettant en lien les experts du domaine au travers d'une plateforme sociale.",
+        technologies: ['HTML5', 'Laravel', 'Bootstrap'],
+        github: 'inskub',
+        category: 'website',
     },
-
-    methods: {
-        countProjectsByCategory(category) {
-            return this.projects.filter(
-                (project) => project.category === category
-            ).length
-        },
-        projects() {
-            return this.projects
-        },
-        filteringProjects(category) {
-            this.filteredProjects = this.projects
-
-            if (!category || category !== 'all') {
-                this.filteredProjects = this.projects.filter((project) => {
-                    return project.category === category
-                })
-            }
-        },
+    {
+        image: 'medializ.png',
+        title: 'Medializ',
+        description:
+            "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter.",
+        technologies: ['HTML5', 'Laravel', 'TailwindCSS'],
+        github: 'medializ',
+        category: 'website',
     },
+    {
+        image: 'quotesharing.png',
+        title: 'QuoteSharing',
+        description:
+            "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
+        technologies: ['HTML5', 'Laravel', 'Bootstrap'],
+        github: 'quotesharing',
+        category: 'website',
+    },
+    {
+        image: 'portfolio.png',
+        title: 'Portfolio',
+        description: 'Création de mon portfolio.',
+        technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
+        github: 'portfolio',
+        category: 'website',
+    },
+    {
+        image: 'x-memes.png',
+        title: 'X-Memes',
+        description:
+            "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
+        technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
+        url: 'https://x-memes.com',
+        github: 'x-memes',
+        category: 'website',
+    },
+]
+const category = ref('all')
+const filteredProjects = ref([])
+
+watch(category, (oldCategory, newCategory) => {
+    console.log('ici')
+    filteringProjects(newCategory)
+})
+
+onMounted(() => {
+    filteredProjects.value = projects
+})
+
+const filteringProjects = (category) => {
+    filteredProjects.value = projects
+
+    if (!category || category !== 'all') {
+        filteredProjects.value = projects.filter((project) => {
+            return project.category === category
+        })
+    }
+}
+
+const countProjectsByCategory = (category) => {
+    return projects.filter((project) => project.category === category).length
 }
 </script>
 
@@ -181,7 +152,7 @@ export default {
             </Button>
         </div>
         <div
-            class="mt-12 mb-16 flex flex-col gap-2 lg:flex-row lg:gap-6"
+            class="mb-16 mt-12 flex flex-col gap-2 lg:flex-row lg:gap-6"
             v-for="(project, index) in filteredProjects"
             :key="index"
         >
@@ -242,14 +213,4 @@ export default {
     </AnimateOnScroll>
 </template>
 
-<style scoped>
-.v-enter-active,
-.v-leave-active {
-    transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-    opacity: 0;
-}
-</style>
+<style scoped></style>
