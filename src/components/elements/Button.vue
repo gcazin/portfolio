@@ -51,18 +51,18 @@ const property = () => {
 </script>
 
 <template>
-        <button v-if="!isLink" :class="property()" type="button">
-            <template v-if="icon">
-                <ion-icon
-                    class="rounded-full bg-blue-500 p-2 align-middle text-2xl text-white"
-                    :name="`${icon}-outline`"
-                ></ion-icon>
-            </template>
-            <slot></slot>
-        </button>
-        <router-link v-else :class="property()" :to="{ name: to }">
-            <slot></slot>
-        </router-link>
+    <button v-if="!isLink" :class="property()" type="button">
+        <template v-if="icon">
+            <ion-icon
+                class="rounded-full bg-blue-500 p-2 align-middle text-2xl text-white"
+                :name="`${icon}-outline`"
+            ></ion-icon>
+        </template>
+        <slot></slot>
+    </button>
+    <router-link v-else :class="property()" :to="{ name: to }">
+        <slot></slot>
+    </router-link>
 </template>
 
 <style scoped></style>

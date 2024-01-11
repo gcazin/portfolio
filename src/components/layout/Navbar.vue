@@ -102,10 +102,14 @@ const checkCurrentUrl = () => {
         aria-label="navigation"
     >
         <div class="container mx-auto w-10/12 lg:max-w-7xl">
-            <div class="flex items-center lg:justify-between h-20">
+            <div class="flex h-20 items-center lg:justify-between">
                 <div class="lg:hidden">
                     <!-- Mobile menu button-->
-                    <Button @click="toggleNavbar" color="transparent" class="!pl-0">
+                    <Button
+                        @click="toggleNavbar"
+                        color="transparent"
+                        class="!pl-0"
+                    >
                         <Icon class="text-3xl" name="menu" />
                     </Button>
                 </div>
@@ -129,8 +133,8 @@ const checkCurrentUrl = () => {
                                     {{ item.text }}
                                 </a>
                                 <Button v-else is-link to="cv">{{
-                                        item.text
-                                    }}</Button>
+                                    item.text
+                                }}</Button>
                             </li>
                         </ul>
                     </div>
@@ -143,13 +147,13 @@ const checkCurrentUrl = () => {
                 >
                     <Icon
                         v-if="getTheme() === 'light'"
-                        class="cursor-pointer rounded-lg p-1 px-2 py-1.5 text-xl bg-gray-100 text-gray-500 hover:bg-gray-300 dark:bg-gray-300"
+                        class="cursor-pointer rounded-lg bg-gray-100 p-1 px-2 py-1.5 text-xl text-gray-500 hover:bg-gray-300 dark:bg-gray-300"
                         :name="iconTheme"
                         :outline="false"
                     ></Icon>
                     <Icon
                         v-else
-                        class="cursor-pointer rounded-lg p-1 px-2 py-1.5 text-xl bg-yellow-50 text-yellow-500 dark:bg-gray-700"
+                        class="cursor-pointer rounded-lg bg-yellow-50 p-1 px-2 py-1.5 text-xl text-yellow-500 dark:bg-gray-700"
                         :name="iconTheme"
                         :outline="false"
                     ></Icon>

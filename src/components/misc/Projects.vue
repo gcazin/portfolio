@@ -3,7 +3,7 @@ import Text from '../elements/Text.vue'
 import Icon from '../elements/Icon.vue'
 import Button from '../elements/Button.vue'
 import { onMounted, ref, watch } from 'vue'
-import Animate from "./Animate.vue";
+import Animate from './Animate.vue'
 
 defineProps({
     category: {
@@ -113,9 +113,7 @@ const countProjectsByCategory = (category) => {
 </script>
 
 <template>
-    <div
-        class="flex flex-row flex-wrap justify-center gap-4 lg:grid-cols-3"
-    >
+    <div class="flex flex-row flex-wrap justify-center gap-4 lg:grid-cols-3">
         <Button
             size="sm"
             :secondary="category !== 'all'"
@@ -135,9 +133,7 @@ const countProjectsByCategory = (category) => {
             size="sm"
             @click="category = 'web-application'"
         >
-            Application web ({{
-                countProjectsByCategory('web-application')
-            }})
+            Application web ({{ countProjectsByCategory('web-application') }})
         </Button>
         <Button
             :secondary="category !== 'resources'"
@@ -166,11 +162,11 @@ const countProjectsByCategory = (category) => {
             :class="index % 2 === 0 ? 'order-1' : 'order-0'"
         >
             <Text type="title" class="dark:text-white">{{
-                    project.title
-                }}</Text>
+                project.title
+            }}</Text>
             <template v-if="project.url">
                 <a
-                    class="text-lg text-blue-500 break-all"
+                    class="break-all text-lg text-blue-500"
                     target="_blank"
                     :href="project.url"
                 >
@@ -179,7 +175,7 @@ const countProjectsByCategory = (category) => {
             </template>
             <template v-if="project.github">
                 <a
-                    class="text-lg text-blue-500 break-all"
+                    class="break-all text-lg text-blue-500"
                     target="_blank"
                     :href="`https://github.com/gcazin/${project.github}`"
                 >

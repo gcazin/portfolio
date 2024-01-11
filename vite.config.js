@@ -13,8 +13,8 @@ export default defineConfig({
                 compilerOptions: {
                     isCustomElement: (tag) => {
                         return tag.startsWith('ion-') // (return true)
-                    }
-                }
+                    },
+                },
             },
         }),
     ],

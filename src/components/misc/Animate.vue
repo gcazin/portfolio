@@ -6,16 +6,16 @@ const props = defineProps({
     },
     type: {
         type: String,
-        default: 'fade'
+        default: 'fade',
     },
     to: {
         type: String,
-        default: 'up'
+        default: 'up',
     },
     duration: {
         type: Number,
         default: 500,
-    }
+    },
 })
 </script>
 

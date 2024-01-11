@@ -13,7 +13,7 @@ import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import BlobBackground from '../components/misc/BlobBackground.vue'
 import { onMounted, ref } from 'vue'
-import Animate from "../components/misc/Animate.vue";
+import Animate from '../components/misc/Animate.vue'
 
 onMounted(() => {
     document.title = 'Guillaume Cazin - Développeur web freelance'
@@ -128,15 +128,15 @@ const removeAnchor = (url) => {
                 <div class="mb-4 flex-1">
                     <Animate type="zoom" to="in">
                         <Text>
-                            Passionné et autodidacte depuis plus de 12 ans dans le
-                            développement web, je me suis spécialisé en PHP,
-                            notamment avec le framework Laravel, et je suis très à
-                            l'aise en JS, en particulier avec VueJS.
+                            Passionné et autodidacte depuis plus de 12 ans dans
+                            le développement web, je me suis spécialisé en PHP,
+                            notamment avec le framework Laravel, et je suis très
+                            à l'aise en JS, en particulier avec VueJS.
                         </Text>
                         <Text>
-                            J'ai travaillé sur divers projets, allant de sites web
-                            pour petites entreprises à des plateformes spécifiques
-                            pour de grandes entreprises.
+                            J'ai travaillé sur divers projets, allant de sites
+                            web pour petites entreprises à des plateformes
+                            spécifiques pour de grandes entreprises.
                         </Text>
                     </Animate>
                 </div>
@@ -178,17 +178,24 @@ const removeAnchor = (url) => {
                         </Animate>
                     </div>
                     <Animate to="left">
-                    <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
+                        <div
+                            class="grid w-full grid-cols-1 gap-4 md:grid-cols-2"
+                        >
                             <Card title="+12" description="ans de passions" />
                             <Card title="+2" description="ans d'expériences" />
                             <Card title="+47" description="projets GitHub" />
-                            <Card title="+514" description="commits sur GitHub" />
-                    </div>
+                            <Card
+                                title="+514"
+                                description="commits sur GitHub"
+                            />
+                        </div>
                     </Animate>
                 </div>
             </div>
             <Animate>
-                <Button is-link to="cv" class="mt-10" secondary>Voir mon CV</Button>
+                <Button is-link to="cv" class="mt-10" secondary
+                    >Voir mon CV</Button
+                >
             </Animate>
         </div>
     </Section>
@@ -296,17 +303,17 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                         color="blue"
                         title="Développement"
                         :skills="[
-                        'HTML',
-                        'CSS',
-                        'Boostrap',
-                        'Tailwind',
-                        'PHP',
-                        'Laravel',
-                        'Twig',
-                        'Vanilla JS',
-                        'VueJS',
-                        'jQuery',
-                    ]"
+                            'HTML',
+                            'CSS',
+                            'Boostrap',
+                            'Tailwind',
+                            'PHP',
+                            'Laravel',
+                            'Twig',
+                            'Vanilla JS',
+                            'VueJS',
+                            'jQuery',
+                        ]"
                     />
                 </Animate>
                 <SkillCard
@@ -321,11 +328,11 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                         color="yellow"
                         title="Workflow"
                         :skills="[
-                        'Workstation Linux',
-                        'Méthodes agile (Scrum, Kanban)',
-                        'Versionning Git',
-                        'Télétravail',
-                    ]"
+                            'Workstation Linux',
+                            'Méthodes agile (Scrum, Kanban)',
+                            'Versionning Git',
+                            'Télétravail',
+                        ]"
                         last
                     />
                 </Animate>
@@ -354,11 +361,13 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                 <div class="relative z-10 flex flex-col gap-5 px-5 lg:pr-10">
                     <div class="flex-1">
                         <Text type="title" class="text-white"
-                        >Intéressé ? Contactez-moi !</Text
+                            >Intéressé ? Contactez-moi !</Text
                         >
                     </div>
                     <div class="flex-1">
-                        <Button is-link to="cv" secondary>Prise de contact</Button>
+                        <Button is-link to="cv" secondary
+                            >Prise de contact</Button
+                        >
                     </div>
                 </div>
                 <div
@@ -393,7 +402,10 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                 y2="291.5"
                                 gradientUnits="userSpaceOnUse"
                             >
-                                <stop stop-color="white" stop-opacity="0.35"></stop>
+                                <stop
+                                    stop-color="white"
+                                    stop-opacity="0.35"
+                                ></stop>
                                 <stop
                                     offset="0.218415"
                                     stop-color="white"
@@ -418,7 +430,10 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                 y2="308.45"
                                 gradientUnits="userSpaceOnUse"
                             >
-                                <stop stop-color="white" stop-opacity="0.35"></stop>
+                                <stop
+                                    stop-color="white"
+                                    stop-opacity="0.35"
+                                ></stop>
                                 <stop
                                     offset="0.218415"
                                     stop-color="white"
