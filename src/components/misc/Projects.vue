@@ -1,10 +1,9 @@
 <script setup>
 import Text from '../elements/Text.vue'
-import AnimateOnScroll from './AnimateOnScroll.vue'
-import Badge from '../elements/Badge.vue'
 import Icon from '../elements/Icon.vue'
 import Button from '../elements/Button.vue'
-import { onMounted, ref, watch, watchEffect } from 'vue'
+import { onMounted, ref, watch } from 'vue'
+import Animate from "./Animate.vue";
 
 defineProps({
     category: {
@@ -114,46 +113,50 @@ const countProjectsByCategory = (category) => {
 </script>
 
 <template>
-    <AnimateOnScroll>
-        <div
-            class="flex flex-row flex-wrap justify-center gap-4 lg:grid-cols-3"
+    <div
+        class="flex flex-row flex-wrap justify-center gap-4 lg:grid-cols-3"
+    >
+        <Button
+            size="sm"
+            :secondary="category !== 'all'"
+            @click="category = 'all'"
         >
-            <Button
-                size="sm"
-                :secondary="category !== 'all'"
-                @click="category = 'all'"
-            >
-                Tout ({{ projects.length }})
-            </Button>
-            <Button
-                :secondary="category !== 'website'"
-                size="sm"
-                @click="category = 'website'"
-            >
-                Site web ({{ countProjectsByCategory('website') }})
-            </Button>
-            <Button
-                :secondary="category !== 'web-application'"
-                size="sm"
-                @click="category = 'web-application'"
-            >
-                Application web ({{
-                    countProjectsByCategory('web-application')
-                }})
-            </Button>
-            <Button
-                :secondary="category !== 'resources'"
-                secondary
-                size="sm"
-                @click="category = 'resources'"
-            >
-                Ressources ({{ countProjectsByCategory('resources') }})
-            </Button>
-        </div>
-        <div
+            Tout ({{ projects.length }})
+        </Button>
+        <Button
+            :secondary="category !== 'website'"
+            size="sm"
+            @click="category = 'website'"
+        >
+            Site web ({{ countProjectsByCategory('website') }})
+        </Button>
+        <Button
+            :secondary="category !== 'web-application'"
+            size="sm"
+            @click="category = 'web-application'"
+        >
+            Application web ({{
+                countProjectsByCategory('web-application')
+            }})
+        </Button>
+        <Button
+            :secondary="category !== 'resources'"
+            secondary
+            size="sm"
+            @click="category = 'resources'"
+        >
+            Ressources ({{ countProjectsByCategory('resources') }})
+        </Button>
+    </div>
+    <div
+
+        v-for="(project, index) in filteredProjects"
+        :key="index"
+    >
+        <Animate
+            :full="false"
             class="mb-16 mt-12 flex flex-col gap-2 lg:flex-row lg:gap-6"
-            v-for="(project, index) in filteredProjects"
-            :key="index"
+            :to="index % 2 === 0 ? 'right' : 'left'"
         >
             <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
                 <img
@@ -167,8 +170,8 @@ const countProjectsByCategory = (category) => {
                 :class="index % 2 === 0 ? 'order-1' : 'order-0'"
             >
                 <Text type="title" class="dark:text-white">{{
-                    project.title
-                }}</Text>
+                        project.title
+                    }}</Text>
                 <template v-if="project.url">
                     <a
                         class="text-lg text-blue-500"
@@ -208,8 +211,8 @@ const countProjectsByCategory = (category) => {
                     </div>
                 </div>
             </div>
-        </div>
-    </AnimateOnScroll>
+        </Animate>
+    </div>
 </template>
 
 <style scoped></style>

@@ -13,6 +13,7 @@ import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import BlobBackground from '../components/misc/BlobBackground.vue'
 import { onMounted, ref } from 'vue'
+import Animate from "../components/misc/Animate.vue";
 
 onMounted(() => {
     document.title = 'Accueil - Portfolio de Guillaume Cazin'
@@ -89,7 +90,9 @@ const removeAnchor = (url) => {
                             >{{ typed }}</span
                         >
                     </Text>
-                    <Button is-link to="cv">Voir mon cv</Button>
+                    <div>
+                        <Button is-link to="cv">Voir mon cv</Button>
+                    </div>
                 </div>
                 <div class="order-0 relative text-center lg:order-1">
                     <img
@@ -123,62 +126,70 @@ const removeAnchor = (url) => {
         <div class="text-center">
             <div class="m-auto gap-4 text-left lg:flex lg:flex-col">
                 <div class="mb-4 flex-1">
-                    <Text>
-                        Passionné et autodidacte depuis plus de 12 ans dans le
-                        développement web, je me suis spécialisé en PHP,
-                        notamment avec le framework Laravel, et je suis très à
-                        l'aise en JS, en particulier avec VueJS.
-                    </Text>
-                    <Text>
-                        J'ai travaillé sur divers projets, allant de sites web
-                        pour petites entreprises à des plateformes spécifiques
-                        pour de grandes entreprises.
-                    </Text>
+                    <Animate type="zoom" to="in">
+                        <Text>
+                            Passionné et autodidacte depuis plus de 12 ans dans le
+                            développement web, je me suis spécialisé en PHP,
+                            notamment avec le framework Laravel, et je suis très à
+                            l'aise en JS, en particulier avec VueJS.
+                        </Text>
+                        <Text>
+                            J'ai travaillé sur divers projets, allant de sites web
+                            pour petites entreprises à des plateformes spécifiques
+                            pour de grandes entreprises.
+                        </Text>
+                    </Animate>
                 </div>
                 <div class="flex-1 md:gap-10 lg:flex">
                     <div class="my-4 flex w-full flex-col gap-4 lg:w-1/3">
-                        <Text class="border-b dark:border-b-blue-900">
-                            <Icon
-                                :outline="false"
-                                name="home"
-                                class="mr-2 text-blue-500"
-                            />
-                            Boulogne-sur-Mer
-                        </Text>
-                        <Text class="border-b dark:border-b-blue-900">
-                            <Icon
-                                :outline="false"
-                                name="mail"
-                                class="mr-2 font-bold text-blue-500"
-                            />
-                            czn.guillaume[at]gmail[dot]com
-                        </Text>
-                        <Text class="border-b dark:border-b-blue-900">
-                            <Icon
-                                :outline="false"
-                                name="speedometer"
-                                class="mr-2 font-bold text-blue-500"
-                            />
-                            Niveau confirmé (2 ans d'exp.)
-                        </Text>
-                        <Text>
-                            <Icon
-                                :outline="false"
-                                name="laptop"
-                                class="mr-2 font-bold text-blue-500"
-                            />
-                            Télétravail total
-                        </Text>
+                        <Animate to="right">
+                            <Text class="border-b dark:border-b-blue-900">
+                                <Icon
+                                    :outline="false"
+                                    name="home"
+                                    class="mr-2 text-blue-500"
+                                />
+                                Boulogne-sur-Mer
+                            </Text>
+                            <Text class="border-b dark:border-b-blue-900">
+                                <Icon
+                                    :outline="false"
+                                    name="mail"
+                                    class="mr-2 font-bold text-blue-500"
+                                />
+                                czn.guillaume[at]gmail[dot]com
+                            </Text>
+                            <Text class="border-b dark:border-b-blue-900">
+                                <Icon
+                                    :outline="false"
+                                    name="speedometer"
+                                    class="mr-2 font-bold text-blue-500"
+                                />
+                                Niveau confirmé (2 ans d'exp.)
+                            </Text>
+                            <Text>
+                                <Icon
+                                    :outline="false"
+                                    name="laptop"
+                                    class="mr-2 font-bold text-blue-500"
+                                />
+                                Télétravail total
+                            </Text>
+                        </Animate>
                     </div>
+                    <Animate to="left">
                     <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
-                        <Card title="+12" description="ans de passions" />
-                        <Card title="+2" description="ans d'expériences" />
-                        <Card title="+47" description="projets GitHub" />
-                        <Card title="+514" description="commits sur GitHub" />
+                            <Card title="+12" description="ans de passions" />
+                            <Card title="+2" description="ans d'expériences" />
+                            <Card title="+47" description="projets GitHub" />
+                            <Card title="+514" description="commits sur GitHub" />
                     </div>
+                    </Animate>
                 </div>
             </div>
-            <Button is-link to="cv" class="mt-10" secondary>Voir mon CV</Button>
+            <Animate>
+                <Button is-link to="cv" class="mt-10" secondary>Voir mon CV</Button>
+            </Animate>
         </div>
     </Section>
 
@@ -279,11 +290,12 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         <BlobBackground />
         <div class="py-10">
             <div class="grid gap-5 text-center lg:grid-cols-3">
-                <SkillCard
-                    icon="code-slash"
-                    color="blue"
-                    title="Développement"
-                    :skills="[
+                <Animate to="right">
+                    <SkillCard
+                        icon="code-slash"
+                        color="blue"
+                        title="Développement"
+                        :skills="[
                         'HTML',
                         'CSS',
                         'Boostrap',
@@ -295,25 +307,28 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                         'VueJS',
                         'jQuery',
                     ]"
-                />
+                    />
+                </Animate>
                 <SkillCard
                     icon="cog"
                     color="purple"
                     title="Outils"
                     :skills="['Figma', 'PhpStorm', 'Code']"
                 />
-                <SkillCard
-                    icon="cog"
-                    color="yellow"
-                    title="Workflow"
-                    :skills="[
+                <Animate to="left">
+                    <SkillCard
+                        icon="cog"
+                        color="yellow"
+                        title="Workflow"
+                        :skills="[
                         'Workstation Linux',
                         'Méthodes agile (Scrum, Kanban)',
                         'Versionning Git',
                         'Télétravail',
                     ]"
-                    last
-                />
+                        last
+                    />
+                </Animate>
             </div>
         </div>
     </Section>
@@ -332,97 +347,99 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     <!-- Contact -->
     <Section id="contact">
         <BlobBackground invert />
-        <div
-            class="relative m-auto max-w-7xl overflow-hidden rounded-lg bg-blue-500 py-10 text-center text-blue-500 dark:bg-blue-700 dark:text-white"
-        >
-            <div class="relative z-10 flex flex-col gap-5 px-5 lg:pr-10">
-                <div class="flex-1">
-                    <Text type="title" class="text-white"
-                        >Intéressé ? Contactez-moi !</Text
-                    >
-                </div>
-                <div class="flex-1">
-                    <Button is-link to="cv" secondary>Prise de contact</Button>
-                </div>
-            </div>
+        <Animate type="zoom" to="in">
             <div
-                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                class="relative m-auto max-w-7xl overflow-hidden rounded-lg bg-blue-500 py-10 text-center text-blue-500 dark:bg-blue-700 dark:text-white"
             >
-                <svg
-                    width="818"
-                    height="286"
-                    viewBox="0 0 818 286"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="text-center"
+                <div class="relative z-10 flex flex-col gap-5 px-5 lg:pr-10">
+                    <div class="flex-1">
+                        <Text type="title" class="text-white"
+                        >Intéressé ? Contactez-moi !</Text
+                        >
+                    </div>
+                    <div class="flex-1">
+                        <Button is-link to="cv" secondary>Prise de contact</Button>
+                    </div>
+                </div>
+                <div
+                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
                 >
-                    <circle
-                        cx="409"
-                        cy="409"
-                        r="408.5"
-                        stroke="url(#paint0_linear_0:1)"
-                    ></circle>
-                    <circle
-                        cx="409"
-                        cy="409"
-                        r="349.5"
-                        stroke="url(#paint1_linear_0:1)"
-                    ></circle>
-                    <defs>
-                        <linearGradient
-                            id="paint0_linear_0:1"
-                            x1="-34.5"
-                            y1="291.5"
-                            x2="851"
-                            y2="291.5"
-                            gradientUnits="userSpaceOnUse"
-                        >
-                            <stop stop-color="white" stop-opacity="0.35"></stop>
-                            <stop
-                                offset="0.218415"
-                                stop-color="white"
-                                stop-opacity="0"
-                            ></stop>
-                            <stop
-                                offset="0.728079"
-                                stop-color="white"
-                                stop-opacity="0"
-                            ></stop>
-                            <stop
-                                offset="1"
-                                stop-color="white"
-                                stop-opacity="0.35"
-                            ></stop>
-                        </linearGradient>
-                        <linearGradient
-                            id="paint1_linear_0:1"
-                            x1="29.4768"
-                            y1="308.45"
-                            x2="787.24"
-                            y2="308.45"
-                            gradientUnits="userSpaceOnUse"
-                        >
-                            <stop stop-color="white" stop-opacity="0.35"></stop>
-                            <stop
-                                offset="0.218415"
-                                stop-color="white"
-                                stop-opacity="0"
-                            ></stop>
-                            <stop
-                                offset="0.777261"
-                                stop-color="white"
-                                stop-opacity="0"
-                            ></stop>
-                            <stop
-                                offset="1"
-                                stop-color="white"
-                                stop-opacity="0.35"
-                            ></stop>
-                        </linearGradient>
-                    </defs>
-                </svg>
+                    <svg
+                        width="818"
+                        height="286"
+                        viewBox="0 0 818 286"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="text-center"
+                    >
+                        <circle
+                            cx="409"
+                            cy="409"
+                            r="408.5"
+                            stroke="url(#paint0_linear_0:1)"
+                        ></circle>
+                        <circle
+                            cx="409"
+                            cy="409"
+                            r="349.5"
+                            stroke="url(#paint1_linear_0:1)"
+                        ></circle>
+                        <defs>
+                            <linearGradient
+                                id="paint0_linear_0:1"
+                                x1="-34.5"
+                                y1="291.5"
+                                x2="851"
+                                y2="291.5"
+                                gradientUnits="userSpaceOnUse"
+                            >
+                                <stop stop-color="white" stop-opacity="0.35"></stop>
+                                <stop
+                                    offset="0.218415"
+                                    stop-color="white"
+                                    stop-opacity="0"
+                                ></stop>
+                                <stop
+                                    offset="0.728079"
+                                    stop-color="white"
+                                    stop-opacity="0"
+                                ></stop>
+                                <stop
+                                    offset="1"
+                                    stop-color="white"
+                                    stop-opacity="0.35"
+                                ></stop>
+                            </linearGradient>
+                            <linearGradient
+                                id="paint1_linear_0:1"
+                                x1="29.4768"
+                                y1="308.45"
+                                x2="787.24"
+                                y2="308.45"
+                                gradientUnits="userSpaceOnUse"
+                            >
+                                <stop stop-color="white" stop-opacity="0.35"></stop>
+                                <stop
+                                    offset="0.218415"
+                                    stop-color="white"
+                                    stop-opacity="0"
+                                ></stop>
+                                <stop
+                                    offset="0.777261"
+                                    stop-color="white"
+                                    stop-opacity="0"
+                                ></stop>
+                                <stop
+                                    offset="1"
+                                    stop-color="white"
+                                    stop-opacity="0.35"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
             </div>
-        </div>
+        </Animate>
     </Section>
 
     <!-- Scroll to top -->

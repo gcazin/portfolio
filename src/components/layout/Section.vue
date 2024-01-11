@@ -26,7 +26,7 @@ defineProps({
 <template>
     <section
         :id="id"
-        class="overflow background relative border-t border-gray-100 dark:border-gray-800"
+        class="overflow background relative border-t border-gray-200 dark:border-gray-800"
         :class="{
             'bg-slate-100 dark:bg-[#0B1120]/95': hasBackground,
             'bg-slate-50 dark:bg-[#0B1120]': !hasBackground,
