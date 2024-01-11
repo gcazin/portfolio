@@ -17,7 +17,7 @@ defineProps({
     ></div>
     <div
         v-else
-        class="section absolute inset-x-0 top-0 z-0 bg-top bg-no-repeat opacity-25"
+        class="section absolute inset-x-0 top-0 z-0 bg-right lg:bg-top bg-no-repeat opacity-25"
         :style="{ transform: invert ? 'rotateY(3.142rad)' : null }"
     ></div>
 </template>
