@@ -24,6 +24,7 @@ const props = defineProps({
         :class="{ 'w-full': full }"
         :data-aos="`${type}-${to}`"
         :data-aos-duration="duration"
+        data-aos-once="true"
     >
         <slot></slot>
     </div>
