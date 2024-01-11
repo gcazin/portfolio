@@ -148,71 +148,66 @@ const countProjectsByCategory = (category) => {
             Ressources ({{ countProjectsByCategory('resources') }})
         </Button>
     </div>
-    <div
-
+    <Animate
         v-for="(project, index) in filteredProjects"
         :key="index"
+        class="mb-16 mt-12 flex flex-col gap-2 lg:flex-row lg:gap-6"
+        :to="index % 2 === 0 ? 'right' : 'left'"
     >
-        <Animate
-            :full="false"
-            class="mb-16 mt-12 flex flex-col gap-2 lg:flex-row lg:gap-6"
-            :to="index % 2 === 0 ? 'right' : 'left'"
+        <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
+            <img
+                class="rounded-lg shadow-lg"
+                :src="`images/projects/${project.image}.webp`"
+                :alt="project.title"
+            />
+        </div>
+        <div
+            class="flex w-full flex-col gap-2 rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800/30"
+            :class="index % 2 === 0 ? 'order-1' : 'order-0'"
         >
-            <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
-                <img
-                    class="rounded-lg shadow-lg"
-                    :src="`images/projects/${project.image}.webp`"
-                    :alt="project.title"
-                />
-            </div>
-            <div
-                class="flex w-full flex-col gap-2 rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800/30"
-                :class="index % 2 === 0 ? 'order-1' : 'order-0'"
-            >
-                <Text type="title" class="dark:text-white">{{
-                        project.title
-                    }}</Text>
-                <template v-if="project.url">
-                    <a
-                        class="text-lg text-blue-500"
-                        target="_blank"
-                        :href="project.url"
-                    >
-                        {{ project.url }} <Icon name="arrow-redo" />
-                    </a>
-                </template>
-                <template v-if="project.github">
-                    <a
-                        class="text-lg text-blue-500"
-                        target="_blank"
-                        :href="`https://github.com/gcazin/${project.github}`"
-                    >
-                        gcazin/{{ project.github }}
-                        <Icon name="logo-github" :outline="false" />
-                    </a>
-                </template>
-                <Text type="text">{{ project.description }}</Text>
-                <Text class="font-bold">Technologies utilisés</Text>
-                <div
-                    class="flex flex-row items-center gap-4"
-                    v-for="(technology, index) in project.technologies"
-                    :key="index"
+            <Text type="title" class="dark:text-white">{{
+                    project.title
+                }}</Text>
+            <template v-if="project.url">
+                <a
+                    class="text-lg text-blue-500 break-all"
+                    target="_blank"
+                    :href="project.url"
                 >
-                    <div>
-                        <img
-                            class="w-6"
-                            :src="`images/skills/${technology.toLowerCase()}.png`"
-                            :alt="technology"
-                            :title="technology"
-                        />
-                    </div>
-                    <div>
-                        <Text>{{ technology }}</Text>
-                    </div>
+                    {{ project.url }} <Icon name="arrow-redo" />
+                </a>
+            </template>
+            <template v-if="project.github">
+                <a
+                    class="text-lg text-blue-500 break-all"
+                    target="_blank"
+                    :href="`https://github.com/gcazin/${project.github}`"
+                >
+                    gcazin/{{ project.github }}
+                    <Icon name="logo-github" :outline="false" />
+                </a>
+            </template>
+            <Text type="text">{{ project.description }}</Text>
+            <Text class="font-bold">Technologies utilisés</Text>
+            <div
+                class="flex flex-row items-center gap-4"
+                v-for="(technology, index) in project.technologies"
+                :key="index"
+            >
+                <div>
+                    <img
+                        class="w-6"
+                        :src="`images/skills/${technology.toLowerCase()}.png`"
+                        :alt="technology"
+                        :title="technology"
+                    />
+                </div>
+                <div>
+                    <Text>{{ technology }}</Text>
                 </div>
             </div>
-        </Animate>
-    </div>
+        </div>
+    </Animate>
 </template>
 
 <style scoped></style>

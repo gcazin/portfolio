@@ -102,14 +102,14 @@ const checkCurrentUrl = () => {
         aria-label="navigation"
     >
         <div class="container mx-auto w-10/12 lg:max-w-7xl">
-            <div class="relative flex h-20 items-center justify-between">
+            <div class="flex items-center lg:justify-between h-20">
                 <div class="lg:hidden">
                     <!-- Mobile menu button-->
-                    <Button @click="toggleNavbar" color="transparent">
+                    <Button @click="toggleNavbar" color="transparent" class="!pl-0">
                         <Icon class="text-3xl" name="menu" />
                     </Button>
                 </div>
-                <div class="ml-4 flex flex-1 items-center lg:ml-0">
+                <div class="lg:ml-0">
                     <Link to="home">
                         <Text type="subtitle"> Guillaume Cazin </Text>
                     </Link>
@@ -136,7 +136,7 @@ const checkCurrentUrl = () => {
                     </div>
                 </div>
             </div>
-            <div class="absolute right-5 top-5 lg:top-1/4 lg:h-full">
+            <div class="absolute right-8 top-5 lg:top-1/4 lg:h-full">
                 <button
                     class="flex gap-2 rounded-xl bg-gray-100 dark:bg-gray-900"
                     @click="toggleTheme()"
