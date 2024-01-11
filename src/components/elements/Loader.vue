@@ -1,8 +1,23 @@
+<script setup>
+import Text from './Text.vue'
+import Icon from './Icon.vue'
+import { onMounted, ref } from 'vue'
+
+const loading = ref(false)
+
+onMounted(() => {
+    loading.value = true
+    window.onload = () => {
+        loading.value = false
+    }
+})
+</script>
+
 <template>
     <Transition name="fade">
         <div
             v-show="loading"
-            class="fixed top-0 bottom-0 left-0 right-0 z-50 h-full w-full bg-gray-50 dark:bg-gray-900"
+            class="fixed bottom-0 left-0 right-0 top-0 z-50 h-full w-full bg-gray-50 dark:bg-gray-900"
         >
             <div
                 class="flex h-full w-full flex-col items-center justify-center"
@@ -25,29 +40,6 @@
         </div>
     </Transition>
 </template>
-
-<script>
-import Text from './Text.vue'
-import Icon from './Icon.vue'
-
-export default {
-    name: 'Loader',
-    components: { Icon, Text },
-
-    data() {
-        return {
-            loading: false,
-        }
-    },
-
-    mounted() {
-        this.loading = true
-        window.onload = () => {
-            this.loading = false
-        }
-    },
-}
-</script>
 
 <style scoped>
 .cssload-loader {

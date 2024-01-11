@@ -1,3 +1,14 @@
+<script setup>
+import AnimateOnScroll from '../misc/AnimateOnScroll.vue'
+
+defineProps({
+    type: {
+        type: String,
+        default: 'text',
+    },
+})
+</script>
+
 <template>
     <AnimateOnScroll>
         <p
@@ -15,23 +26,5 @@
         </p>
     </AnimateOnScroll>
 </template>
-
-<script>
-import AnimateOnScroll from '../misc/AnimateOnScroll.vue'
-export default {
-    name: 'Text',
-
-    components: {
-        AnimateOnScroll,
-    },
-
-    props: {
-        type: {
-            type: String,
-            default: 'text',
-        },
-    },
-}
-</script>
 
 <style scoped></style>

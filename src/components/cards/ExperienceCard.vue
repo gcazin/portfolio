@@ -1,44 +1,35 @@
-<script>
+<script setup>
 import AnimateOnScroll from '../misc/AnimateOnScroll.vue'
 import Badge from '../elements/Badge.vue'
-import Subtitle from '../elements/Subtitle.vue'
 import Text from '../elements/Text.vue'
-import Stringifier from 'postcss/lib/stringifier'
-export default {
-    name: 'ExperienceCard',
-    components: { Text, Subtitle, Badge, AnimateOnScroll },
+import { ref } from 'vue'
 
-    props: {
-        image: {
-            type: String,
-        },
-        company: {
-            type: String,
-        },
-        job: {
-            type: String,
-        },
-        period: {
-            type: String,
-        },
-        description: {
-            type: String,
-        },
-        technologies: {
-            type: Array,
-        },
-        right: {
-            type: Boolean,
-            default: false,
-        },
-    },
+const showFullText = ref(false)
 
-    data() {
-        return {
-            showFullText: false,
-        }
+defineProps({
+    image: {
+        type: String,
     },
-}
+    company: {
+        type: String,
+    },
+    job: {
+        type: String,
+    },
+    period: {
+        type: String,
+    },
+    description: {
+        type: String,
+    },
+    technologies: {
+        type: Array,
+    },
+    right: {
+        type: Boolean,
+        default: false,
+    },
+})
 </script>
 
 <template>

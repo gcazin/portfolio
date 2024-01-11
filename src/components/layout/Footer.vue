@@ -1,24 +1,14 @@
-<script>
+<script setup>
 import Icon from '../elements/Icon.vue'
 import Container from './Container.vue'
 import Link from '../elements/Link.vue'
 
-export default {
-    name: 'Footer',
-
-    components: {
-        Link,
-        Container,
-        Icon,
+defineProps({
+    hasBackground: {
+        type: Boolean,
+        default: false,
     },
-
-    props: {
-        hasBackground: {
-            type: Boolean,
-            default: false,
-        },
-    },
-}
+})
 </script>
 
 <template>

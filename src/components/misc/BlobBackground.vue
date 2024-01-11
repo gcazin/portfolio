@@ -10,6 +10,7 @@ defineProps({
     },
 })
 </script>
+
 <template>
     <div
         v-if="hero"
@@ -17,10 +18,11 @@ defineProps({
     ></div>
     <div
         v-else
-        class="section absolute inset-x-0 top-0 z-0 bg-right lg:bg-top bg-no-repeat opacity-25"
+        class="section absolute inset-x-0 top-0 z-0 bg-right bg-no-repeat opacity-25 lg:bg-top"
         :style="{ transform: invert ? 'rotateY(3.142rad)' : null }"
     ></div>
 </template>
+
 <style scoped>
 .dark .hero {
     background-image: url(/images/misc/background/hero-dark.jpg);

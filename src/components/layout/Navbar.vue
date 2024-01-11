@@ -1,121 +1,109 @@
-<script>
+<script setup>
 import Button from '../elements/Button.vue'
 import Text from '../elements/Text.vue'
 import Icon from '../elements/Icon.vue'
 import Link from '../elements/Link.vue'
-export default {
-    name: 'Navbar',
-
-    components: {
-        Link,
-        Icon,
-        Text,
-        Button,
+import { onMounted, ref } from 'vue'
+const items = [
+    {
+        url: '#hero',
+        text: 'Accueil',
     },
+    {
+        url: '#introduction',
+        text: 'À propos',
+    },
+    {
+        url: '#experiences',
+        text: 'Expériences',
+    },
+    {
+        url: '#competences',
+        text: 'Compétences',
+    },
+    {
+        url: '#projets',
+        text: 'Projets',
+    },
+    {
+        url: '#contact',
+        text: 'Contact',
+    },
+]
+const menuMobileVisible = ref(false)
+const darkModeIcon = ref('moon')
+const anchorName = ref('')
+const componentKey = ref(0)
 
-    data() {
-        return {
-            items: [
-                {
-                    url: '#hero',
-                    text: 'Accueil',
-                },
-                {
-                    url: '#introduction',
-                    text: 'À propos',
-                },
-                {
-                    url: '#experiences',
-                    text: 'Expériences',
-                },
-                {
-                    url: '#competences',
-                    text: 'Compétences',
-                },
-                {
-                    url: '#projets',
-                    text: 'Projets',
-                },
-                {
-                    url: '#contact',
-                    text: 'Contact',
-                },
-            ],
-            menuMobileVisible: false,
-            darkModeIcon: 'moon',
-            anchorName: null,
-            componentKey: 0,
+onMounted(() => {
+    checkTheme()
+})
+
+const toggleNavbar = () => {
+    menuMobileVisible.value = !menuMobileVisible.value
+}
+
+const checkTheme = () => {
+    const theme = localStorage.getItem('theme')
+
+    if (theme) {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark')
+            darkModeIcon.value = 'sunny'
         }
-    },
+    }
 
-    mounted() {
-        this.checkTheme()
-    },
+    setDefaultTheme()
 
-    methods: {
-        toggleNavbar() {
-            this.menuMobileVisible = !this.menuMobileVisible
-        },
-        checkTheme() {
-            const theme = localStorage.getItem('theme')
+    return theme
+}
 
-            if (theme) {
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark')
-                    this.darkModeIcon = 'sunny'
-                }
-            }
+const setDefaultTheme = () => {
+    if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+        document.documentElement.classList.add('dark')
+        localStorage.theme = 'dark'
+    } else {
+        document.documentElement.classList.remove('dark')
+        localStorage.theme = 'light'
+    }
+}
 
-            this.setDefaultTheme()
+const toggleTheme = () => {
+    const theme = localStorage.getItem('theme')
+    if (theme) {
+        if (
+            theme === 'light' ||
+            (!('theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: light)').matches)
+        ) {
+            localStorage.setItem('theme', 'dark')
+            document.documentElement.classList.add('dark')
+            darkModeIcon.value = 'sunny'
+        } else {
+            localStorage.setItem('theme', 'light')
+            document.documentElement.classList.remove('dark')
+            darkModeIcon.value = 'moon'
+        }
+    } else {
+        localStorage.setItem('theme', 'light')
+    }
 
-            return theme
-        },
-        setDefaultTheme() {
-            if (
-                localStorage.theme === 'dark' ||
-                (!('theme' in localStorage) &&
-                    window.matchMedia('(prefers-color-scheme: dark)').matches)
-            ) {
-                document.documentElement.classList.add('dark')
-                localStorage.theme = 'dark'
-            } else {
-                document.documentElement.classList.remove('dark')
-                localStorage.theme = 'light'
-            }
-        },
-        toggleTheme() {
-            const theme = localStorage.getItem('theme')
-            if (theme) {
-                if (
-                    theme === 'light' ||
-                    (!('theme' in localStorage) &&
-                        window.matchMedia('(prefers-color-scheme: light)')
-                            .matches)
-                ) {
-                    localStorage.setItem('theme', 'dark')
-                    document.documentElement.classList.add('dark')
-                    this.darkModeIcon = 'sunny'
-                } else {
-                    localStorage.setItem('theme', 'light')
-                    document.documentElement.classList.remove('dark')
-                    this.darkModeIcon = 'moon'
-                }
-            } else {
-                localStorage.setItem('theme', 'light')
-            }
-            this.componentKey += 1
-        },
-        checkCurrentUrl() {
-            this.menuMobileVisible = false
+    componentKey.value += 1
+}
 
-            const anchor = window.location.hash
+const checkCurrentUrl = () => {
+    menuMobileVisible.value = false
 
-            if (anchor) {
-                this.anchorName = anchor
-                this.componentKey += 1
-            }
-        },
-    },
+    const anchor = window.location.hash
+
+    if (anchor) {
+        anchorName.value = anchor
+        componentKey.value += 1
+    }
 }
 </script>
 

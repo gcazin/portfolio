@@ -1,11 +1,9 @@
-<script>
+<script setup>
 import Text from '../components/elements/Text.vue'
 import Section from '../components/layout/Section.vue'
 import SkillCard from '../components/cards/SkillCard.vue'
 import Button from '../components/elements/Button.vue'
-import Subtitle from '../components/elements/Subtitle.vue'
 import ExperienceCard from '../components/cards/ExperienceCard.vue'
-import Badge from '../components/elements/Badge.vue'
 import Typed from 'typed.js'
 import Icon from '../components/elements/Icon.vue'
 import Projects from '../components/misc/Projects.vue'
@@ -14,82 +12,53 @@ import References from '../components/misc/References.vue'
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import BlobBackground from '../components/misc/BlobBackground.vue'
+import { onMounted, ref } from 'vue'
 
-export default {
-    name: 'Home',
+onMounted(() => {
+    document.title = 'Accueil - Portfolio de Guillaume Cazin'
+    getTyped().then((typed) => {
+        typed.value = typed
+    })
+    window.addEventListener('scroll', getScrollTop)
+})
 
-    components: {
-        BlobBackground,
-        References,
-        Card,
-        Projects,
-        Icon,
-        Text,
-        Section,
-        SkillCard,
-        Button,
-        Subtitle,
-        ExperienceCard,
-        Badge,
-        Navbar,
-        Footer,
-    },
+const typed = ref(null)
+const skills = ['Full-stack', 'Laravel', 'VueJS', 'PHP', 'JS']
+const projectCategory = ref('all')
+const scrollTop = ref(0)
+const scrollTopPositionButtonAppear = 250
 
-    data() {
-        return {
-            url: null,
-            typed: null,
-            skills: ['Full-stack', 'Laravel', 'VueJS', 'PHP', 'JS'],
-            skillsSection: {
-                development: [],
-                tools: [],
-                workflow: [],
-            },
-            projectCategory: 'all',
-            scrollTop: 0,
-            scrollTopPositionButtonAppear: 250,
-        }
-    },
-    mounted() {
-        document.title = 'Accueil - Portfolio de Guillaume Cazin'
-        this.getTyped().then((typed) => {
-            this.typed = typed
+const getTyped = async () => {
+    return new Promise((successCallback) => {
+        const typed = new Typed('.element', {
+            strings: skills,
+            typeSpeed: 150,
+            loop: true,
         })
-        window.addEventListener('scroll', this.getScrollTop)
-    },
-    methods: {
-        async getTyped() {
-            return new Promise((successCallback) => {
-                const typed = new Typed('.element', {
-                    strings: this.skills,
-                    typeSpeed: 150,
-                    loop: true,
-                })
-                successCallback(typed)
-            })
-        },
-        getScrollTop() {
-            this.scrollTop = document.documentElement.scrollTop
-        },
-        scrollToTop() {
-            const url = window.location.href
+        successCallback(typed)
+    })
+}
 
-            this.url = this.removeAnchor(url)
+const getScrollTop = () => {
+    scrollTop.value = document.documentElement.scrollTop
+}
 
-            window.scrollTo({
-                top: 0,
-            })
-        },
-        removeAnchor(url) {
-            const index = url.indexOf('#')
+const scrollToTop = () => {
+    removeAnchor(window.location.href)
 
-            if (index !== -1) {
-                return url.substring(0, index)
-            }
+    window.scrollTo({
+        top: 0,
+    })
+}
 
-            return url
-        },
-    },
+const removeAnchor = (url) => {
+    const index = url.indexOf('#')
+
+    if (index !== -1) {
+        return url.substring(0, index)
+    }
+
+    return url
 }
 </script>
 
@@ -100,7 +69,7 @@ export default {
     <!-- Hero section -->
     <Section id="hero">
         <BlobBackground hero />
-        <div class="isolate pt-32 pb-8 lg:pb-16">
+        <div class="isolate pb-8 pt-32 lg:pb-16">
             <div
                 class="container mx-auto flex h-full max-w-7xl flex-col items-center gap-24 lg:flex-row lg:gap-0"
             >
@@ -130,12 +99,12 @@ export default {
                     />
                     <img
                         src="/images/misc/avatar.png"
-                        class="avatar-background m-auto w-40 rounded-tl-3xl rounded-br-3xl lg:w-80"
+                        class="avatar-background m-auto w-40 rounded-br-3xl rounded-tl-3xl lg:w-80"
                         alt="Avatar"
                     />
                     <img
                         src="/images/misc/blob-tear.svg"
-                        class="absolute -top-12 -right-10 -z-10 w-40"
+                        class="absolute -right-10 -top-12 -z-10 w-40"
                         alt="Background"
                     />
                 </div>
@@ -377,7 +346,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                 </div>
             </div>
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
             >
                 <svg
                     width="818"

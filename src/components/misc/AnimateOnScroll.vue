@@ -1,14 +1,10 @@
-<script>
-export default {
-    name: 'AnimateOnScroll',
-
-    props: {
-        full: {
-            type: Boolean,
-            default: false,
-        },
+<script setup>
+defineProps({
+    full: {
+        type: Boolean,
+        default: false,
     },
-}
+})
 </script>
 
 <template>

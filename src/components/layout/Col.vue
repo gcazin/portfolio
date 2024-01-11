@@ -1,14 +1,10 @@
-<script>
-export default {
-    name: 'Col',
-
-    props: {
-        number: {
-            type: Number,
-            default: 2,
-        },
+<script setup>
+defineProps({
+    number: {
+        type: Number,
+        default: 2,
     },
-}
+})
 </script>
 
 <template>

@@ -1,29 +1,26 @@
-<script>
+<script setup>
 import Text from '../elements/Text.vue'
 import Button from '../elements/Button.vue'
 import Container from './Container.vue'
-export default {
-    name: 'Section',
-    components: { Container, Button, Text },
-    props: {
-        id: {
-            type: String,
-        },
-        heading: {
-            type: String,
-        },
-        title: {
-            type: String,
-        },
-        description: {
-            type: String,
-        },
-        hasBackground: {
-            type: Boolean,
-            default: false,
-        },
+
+defineProps({
+    id: {
+        type: String,
     },
-}
+    heading: {
+        type: String,
+    },
+    title: {
+        type: String,
+    },
+    description: {
+        type: String,
+    },
+    hasBackground: {
+        type: Boolean,
+        default: false,
+    },
+})
 </script>
 
 <template>
