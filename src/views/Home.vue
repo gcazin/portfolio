@@ -16,7 +16,7 @@ import { onMounted, ref } from 'vue'
 import Animate from "../components/misc/Animate.vue";
 
 onMounted(() => {
-    document.title = 'Accueil - Portfolio de Guillaume Cazin'
+    document.title = 'Guillaume Cazin - Développeur web freelance'
     getTyped().then((typed) => {
         typed.value = typed
     })
