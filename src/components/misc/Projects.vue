@@ -14,7 +14,7 @@ defineProps({
 
 const projects = [
     {
-        image: 'spotify-liked-tracks-sorter.png',
+        image: 'spotify-liked-tracks-sorter',
         title: 'Spotify liked tracks sorter',
         description:
             "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
@@ -24,7 +24,7 @@ const projects = [
         category: 'web-application',
     },
     {
-        image: 'pure-css-windows-10-desktop.png',
+        image: 'pure-css-windows-10-desktop',
         title: 'Pure CSS Windows 10 desktop',
         description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS.",
         technologies: ['HTML5', 'SCSS'],
@@ -33,7 +33,7 @@ const projects = [
         category: 'resources',
     },
     {
-        image: 'slimys.png',
+        image: 'slimys',
         title: 'Slimys',
         description:
             "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen.",
@@ -42,7 +42,7 @@ const projects = [
         category: 'website',
     },
     {
-        image: 'inskub.jpg',
+        image: 'inskub',
         title: 'Inskub',
         description:
             "Création d'une plateforme d'assurance mettant en lien les experts du domaine au travers d'une plateforme sociale.",
@@ -51,7 +51,7 @@ const projects = [
         category: 'website',
     },
     {
-        image: 'medializ.png',
+        image: 'medializ',
         title: 'Medializ',
         description:
             "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter.",
@@ -60,7 +60,7 @@ const projects = [
         category: 'website',
     },
     {
-        image: 'quotesharing.png',
+        image: 'quotesharing',
         title: 'QuoteSharing',
         description:
             "Création d'une plateforme permettant aux utilisateurs de poster des citations.",
@@ -69,7 +69,7 @@ const projects = [
         category: 'website',
     },
     {
-        image: 'portfolio.png',
+        image: 'portfolio',
         title: 'Portfolio',
         description: 'Création de mon portfolio.',
         technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
@@ -77,7 +77,7 @@ const projects = [
         category: 'website',
     },
     {
-        image: 'x-memes.png',
+        image: 'x-memes',
         title: 'X-Memes',
         description:
             "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
@@ -159,7 +159,7 @@ const countProjectsByCategory = (category) => {
             <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
                 <img
                     class="rounded-lg shadow-lg"
-                    :src="`images/projects/${project.image}`"
+                    :src="`images/projects/${project.image}.webp`"
                     :alt="project.title"
                 />
             </div>

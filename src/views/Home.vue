@@ -98,7 +98,7 @@ const removeAnchor = (url) => {
                         alt="Background"
                     />
                     <img
-                        src="/images/misc/avatar.png"
+                        src="/images/misc/avatar.webp"
                         class="avatar-background m-auto w-40 rounded-br-3xl rounded-tl-3xl lg:w-80"
                         alt="Avatar"
                     />
@@ -207,7 +207,7 @@ const removeAnchor = (url) => {
                     ></div>
                     <div class="space-y-24 lg:space-y-8">
                         <ExperienceCard
-                            image="diatem.png"
+                            image="diatem.webp"
                             job="Développeur web"
                             company="Diatem"
                             period="Nov. 2020 - Nov. 2022"
@@ -225,7 +225,7 @@ const removeAnchor = (url) => {
                             ]"
                         />
                         <ExperienceCard
-                            image="armatis.png"
+                            image="armatis.webp"
                             job="Stage en développement web"
                             company="Armatis"
                             period="2020"
@@ -243,7 +243,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                             right
                         />
                         <ExperienceCard
-                            image="echinghen.png"
+                            image="echinghen.webp"
                             job="Stage en développement web"
                             company="Commune d'Échinghen"
                             period="2018"
@@ -251,7 +251,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                             :technologies="['HTML5', 'CSS3', 'PHP']"
                         />
                         <ExperienceCard
-                            image="armatis.png"
+                            image="armatis.webp"
                             company="Mesconcierges"
                             job="Stage en développement web"
                             period="Nov. 2020 - Nov. 2022"

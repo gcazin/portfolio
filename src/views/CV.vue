@@ -128,7 +128,7 @@ onMounted(() => {
             </a>
             <div class="block lg:hidden">
                 <img
-                    src="/images/misc/cv.png"
+                    src="/images/misc/cv.webp"
                     class="w-full"
                     type="application/pdf"
                     alt="CV"
@@ -148,7 +148,7 @@ onMounted(() => {
                                 alt="Background"
                             />
                             <img
-                                src="/images/misc/avatar.png"
+                                src="/images/misc/avatar.webp"
                                 class="relative z-30 m-auto w-52 rounded-br-3xl rounded-tl-3xl bg-gray-50"
                                 alt="Avatar"
                             />

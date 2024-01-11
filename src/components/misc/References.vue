@@ -33,7 +33,7 @@ const references = [
     >
         <template v-for="(reference, index) in references" :key="index">
             <img
-                :src="`/images/references/${reference.image}.png`"
+                :src="`/images/references/${reference.image}.webp`"
                 class="m-auto w-32 lg:text-inherit"
                 :alt="reference.name"
             />
