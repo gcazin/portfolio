@@ -4,6 +4,7 @@ import Text from '../elements/Text.vue'
 import Icon from '../elements/Icon.vue'
 import Link from '../elements/Link.vue'
 import { onMounted, ref } from 'vue'
+
 const items = [
     {
         url: '#hero',
@@ -31,33 +32,30 @@ const items = [
     },
 ]
 const menuMobileVisible = ref(false)
-const darkModeIcon = ref('moon')
+const iconTheme = ref('moon')
 const anchorName = ref('')
-const componentKey = ref(0)
 
 onMounted(() => {
-    checkTheme()
+    setDefaultTheme()
 })
 
 const toggleNavbar = () => {
     menuMobileVisible.value = !menuMobileVisible.value
 }
 
-const checkTheme = () => {
-    const theme = localStorage.getItem('theme')
-
-    if (theme) {
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark')
-            darkModeIcon.value = 'sunny'
-        }
-    }
-
-    setDefaultTheme()
-
-    return theme
+const getTheme = () => {
+    return localStorage.getItem('theme')
 }
 
+const setTheme = (theme) => {
+    localStorage.setItem('theme', theme)
+
+    if (getTheme() === 'dark') {
+        iconTheme.value = 'sunny'
+    } else {
+        iconTheme.value = 'moon'
+    }
+}
 const setDefaultTheme = () => {
     if (
         localStorage.theme === 'dark' ||
@@ -65,34 +63,25 @@ const setDefaultTheme = () => {
             window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
         document.documentElement.classList.add('dark')
-        localStorage.theme = 'dark'
+        setTheme('dark')
     } else {
         document.documentElement.classList.remove('dark')
-        localStorage.theme = 'light'
+        setTheme('light')
     }
 }
 
 const toggleTheme = () => {
     const theme = localStorage.getItem('theme')
-    if (theme) {
-        if (
-            theme === 'light' ||
-            (!('theme' in localStorage) &&
-                window.matchMedia('(prefers-color-scheme: light)').matches)
-        ) {
-            localStorage.setItem('theme', 'dark')
-            document.documentElement.classList.add('dark')
-            darkModeIcon.value = 'sunny'
-        } else {
-            localStorage.setItem('theme', 'light')
-            document.documentElement.classList.remove('dark')
-            darkModeIcon.value = 'moon'
-        }
-    } else {
-        localStorage.setItem('theme', 'light')
-    }
 
-    componentKey.value += 1
+    if (theme) {
+        if (theme === 'light') {
+            setTheme('dark')
+            document.documentElement.classList.add('dark')
+        } else {
+            setTheme('light')
+            document.documentElement.classList.remove('dark')
+        }
+    }
 }
 
 const checkCurrentUrl = () => {
@@ -102,9 +91,10 @@ const checkCurrentUrl = () => {
 
     if (anchor) {
         anchorName.value = anchor
-        componentKey.value += 1
     }
 }
+
+console.log('theme')
 </script>
 
 <template>
@@ -141,8 +131,8 @@ const checkCurrentUrl = () => {
                                     {{ item.text }}
                                 </a>
                                 <Button v-else is-link to="cv">{{
-                                    item.text
-                                }}</Button>
+                                        item.text
+                                    }}</Button>
                             </li>
                         </ul>
                     </div>
@@ -151,18 +141,18 @@ const checkCurrentUrl = () => {
             <div class="absolute right-5 top-5 lg:top-1/4 lg:h-full">
                 <button
                     class="flex gap-2 rounded-xl bg-gray-100 dark:bg-gray-900"
-                    :key="componentKey"
                     @click="toggleTheme()"
                 >
                     <Icon
-                        :class="{
-                            'bg-yellow-50 text-yellow-500 dark:bg-gray-700':
-                                darkModeIcon === 'sunny',
-                            'bg-gray-100 text-gray-500 hover:bg-gray-300 dark:bg-gray-300':
-                                darkModeIcon === 'moon',
-                        }"
-                        class="cursor-pointer rounded-lg p-1 px-2 py-1.5 text-xl"
-                        :name="checkTheme() === 'light' ? 'moon' : 'sunny'"
+                        v-if="getTheme() === 'light'"
+                        class="cursor-pointer rounded-lg p-1 px-2 py-1.5 text-xl bg-gray-100 text-gray-500 hover:bg-gray-300 dark:bg-gray-300"
+                        :name="iconTheme"
+                        :outline="false"
+                    ></Icon>
+                    <Icon
+                        v-else
+                        class="cursor-pointer rounded-lg p-1 px-2 py-1.5 text-xl bg-yellow-50 text-yellow-500 dark:bg-gray-700"
+                        :name="iconTheme"
                         :outline="false"
                     ></Icon>
                 </button>
@@ -171,7 +161,6 @@ const checkCurrentUrl = () => {
 
         <!-- Mobile menu, show/hide based on menu state. -->
         <div
-            :key="componentKey"
             class="mx-auto w-10/12"
             :class="{ static: menuMobileVisible, hidden: !menuMobileVisible }"
             id="mobile-menu"
