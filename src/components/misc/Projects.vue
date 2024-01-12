@@ -14,23 +14,21 @@ defineProps({
 
 const projects = [
     {
-        image: 'spotify-liked-tracks-sorter',
-        title: 'Spotify liked tracks sorter',
+        image: 'x-memes',
+        title: 'X-Memes',
         description:
-            "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
-        technologies: ['HTML5', 'VueJS', 'Bootstrap', 'Api'],
-        url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
-        github: 'auto-sorting-spotify-liked-songs',
-        category: 'web-application',
+            "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
+        technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
+        url: 'https://x-memes.com',
+        category: 'website',
     },
     {
-        image: 'pure-css-windows-10-desktop',
-        title: 'Pure CSS Windows 10 desktop',
-        description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS.",
-        technologies: ['HTML5', 'SCSS'],
-        url: 'https://codepen.io/gcazin/full/bKbMQW',
-        github: 'pure-css-windows-10-desktop',
-        category: 'resources',
+        image: 'portfolio',
+        title: 'Portfolio',
+        description: 'Création de mon portfolio.',
+        technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
+        github: 'portfolio',
+        category: 'website',
     },
     {
         image: 'slimys',
@@ -40,6 +38,16 @@ const projects = [
         technologies: ['HTML5', 'Laravel', 'VueJS', 'Bootstrap'],
         url: 'https://beta-slimys.netlify.app/',
         category: 'website',
+    },
+    {
+        image: 'spotify-liked-tracks-sorter',
+        title: 'Spotify liked tracks sorter',
+        description:
+            "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
+        technologies: ['HTML5', 'VueJS', 'Bootstrap', 'Api'],
+        url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
+        github: 'auto-sorting-spotify-liked-songs',
+        category: 'web-application',
     },
     {
         image: 'inskub',
@@ -69,21 +77,13 @@ const projects = [
         category: 'website',
     },
     {
-        image: 'portfolio',
-        title: 'Portfolio',
-        description: 'Création de mon portfolio.',
-        technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
-        github: 'portfolio',
-        category: 'website',
-    },
-    {
-        image: 'x-memes',
-        title: 'X-Memes',
-        description:
-            "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
-        technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
-        url: 'https://x-memes.com',
-        category: 'website',
+        image: 'pure-css-windows-10-desktop',
+        title: 'Pure CSS Windows 10 desktop',
+        description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS.",
+        technologies: ['HTML5', 'SCSS'],
+        url: 'https://codepen.io/gcazin/full/bKbMQW',
+        github: 'pure-css-windows-10-desktop',
+        category: 'resources',
     },
 ]
 const category = ref('all')
@@ -158,7 +158,7 @@ const countProjectsByCategory = (category) => {
             />
         </div>
         <div
-            class="flex w-full flex-col gap-2 rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800/30"
+            class="flex w-full flex-col gap-2 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
             :class="index % 2 === 0 ? 'order-1' : 'order-0'"
         >
             <Text type="title" class="dark:text-white">{{
