@@ -6,26 +6,65 @@
 
 A web application that showcases my work and skills as a developer.
 
-## Technology Stack
+## Technology stack
 
--   Vue.js with Vite
--   TailwindCSS
+- VueJS
+- TailwindCSS
+- Ionic Icons
+- Hero patterns
+- Netlify
 
+## Demo
+
+Website  : https://www.guillaume-cazin.fr/
 ## Features
 
--   Introduction
--   Resume
--   Skills
--   Display projects with screenshots and descriptions
+- Introduction
+- Resume
+- Skills
+- Display projects with screenshots and descriptions
+- Light/dark mode toggle
 
-## Getting Started
 
-1. Install the required dependencies:
+## Run locally
 
-`npm install`
+Clone the project
 
-2. Build and serve the project locally:
+```bash
+  git clone https://github.com/gcazin/portfolio
+```
 
-`npm run dev`
+Go to the project directory
 
-3. Access the application in a web browser at http://localhost:5173
+```bash
+  cd portfolio
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Feedback
+
+If you have any feedback, please reach out to me at contact@guillaume-cazin.fr
+
+
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
