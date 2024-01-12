@@ -1,8 +1,8 @@
 <script setup>
 import AnimateOnScroll from '../misc/Animate.vue'
-import Badge from '../elements/Badge.vue'
 import Text from '../elements/Text.vue'
 import { ref } from 'vue'
+import Badge from "../elements/Badge.vue";
 
 const showFullText = ref(false)
 
@@ -46,11 +46,11 @@ defineProps({
                     <div class="flex flex-col gap-2 lg:px-4">
                         <Text type="subtitle">{{ job }}</Text>
                         <Text
-                            ><img
-                                class="mr-2 inline w-6"
-                                :src="`/images/companies/${image}`"
-                                alt=""
-                            />{{ company }}</Text
+                        ><img
+                            class="mr-2 inline w-6"
+                            :src="`/images/companies/${image}`"
+                            alt=""
+                        />{{ company }}</Text
                         >
                         <Text>{{ period }}</Text>
                         <Text class="text-justify lg:text-left">
@@ -81,12 +81,14 @@ defineProps({
                             class="flex flex-wrap gap-x-1 gap-y-2"
                             v-if="technologies.length"
                         >
-                            <template
+                            <Badge
                                 v-for="(technology, index) in technologies"
                                 :key="index"
+                                secondary
+                                size="sm"
                             >
-                                <Badge size="sm">{{ technology }}</Badge>
-                            </template>
+                                {{ technology }}
+                            </Badge>
                         </div>
                     </div>
                 </div>

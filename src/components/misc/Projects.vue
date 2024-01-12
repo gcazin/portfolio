@@ -4,6 +4,7 @@ import Icon from '../elements/Icon.vue'
 import Button from '../elements/Button.vue'
 import { onMounted, ref, watch } from 'vue'
 import Animate from './Animate.vue'
+import Badge from "../elements/Badge.vue";
 
 defineProps({
     category: {
@@ -82,7 +83,6 @@ const projects = [
             "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
         technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
         url: 'https://x-memes.com',
-        github: 'x-memes',
         category: 'website',
     },
 ]
@@ -162,8 +162,8 @@ const countProjectsByCategory = (category) => {
             :class="index % 2 === 0 ? 'order-1' : 'order-0'"
         >
             <Text type="title" class="dark:text-white">{{
-                project.title
-            }}</Text>
+                    project.title
+                }}</Text>
             <template v-if="project.url">
                 <a
                     class="break-all text-lg text-blue-500"
@@ -186,21 +186,15 @@ const countProjectsByCategory = (category) => {
             <Text type="text">{{ project.description }}</Text>
             <Text class="font-bold">Technologies utilisés</Text>
             <div
-                class="flex flex-row items-center gap-4"
-                v-for="(technology, index) in project.technologies"
-                :key="index"
+                class="flex flex-row items-center gap-2"
             >
-                <div>
-                    <img
-                        class="w-6"
-                        :src="`images/skills/${technology.toLowerCase()}.png`"
-                        :alt="technology"
-                        :title="technology"
-                    />
-                </div>
-                <div>
-                    <Text>{{ technology }}</Text>
-                </div>
+                <Badge
+                    v-for="(technology, index) in project.technologies"
+                    :key="index"
+                    secondary
+                >
+                    {{ technology }}
+                </Badge>
             </div>
         </div>
     </Animate>
