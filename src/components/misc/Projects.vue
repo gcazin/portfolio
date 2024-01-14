@@ -186,7 +186,7 @@ const countProjectsByCategory = (category) => {
             <Text type="text">{{ project.description }}</Text>
             <Text class="font-bold">Technologies utilisés</Text>
             <div
-                class="flex flex-row items-center gap-2"
+                class="flex flex-row flex-wrap items-center gap-2"
             >
                 <Badge
                     v-for="(technology, index) in project.technologies"
