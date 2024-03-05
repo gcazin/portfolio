@@ -149,8 +149,8 @@ onMounted(() => {
 
     <Section title="CV" id="hero">
         <div class="mx-auto max-w-4xl">
-            <a href="/images/misc/cv.pdf" target="_blank">
-                <Button class="mb-7 text-center"
+            <a href="/images/misc/cv.pdf" download>
+                <Button class="mb-4 text-center"
                     >Télécharger la version PDF</Button
                 >
             </a>

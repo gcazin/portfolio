@@ -28,6 +28,7 @@ const projects = [
         description: 'Création de mon portfolio.',
         technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
         github: 'portfolio',
+        url: 'https://guillaume-cazin.fr',
         category: 'website',
     },
     {
@@ -151,14 +152,16 @@ const countProjectsByCategory = (category) => {
         :to="index % 2 === 0 ? 'right' : 'left'"
     >
         <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
-            <img
-                class="rounded-lg shadow-lg"
-                :src="`images/projects/${project.image}.webp`"
-                :alt="project.title"
-            />
+            <a :href="project.url">
+                <img
+                    class="rounded-lg shadow-lg"
+                    :src="`images/projects/${project.image}.webp`"
+                    :alt="project.title"
+                />
+            </a>
         </div>
         <div
-            class="flex w-full flex-col gap-2 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
+            class="flex w-full flex-col gap-1 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
             :class="index % 2 === 0 ? 'order-1' : 'order-0'"
         >
             <Text type="title" class="dark:text-white">{{
