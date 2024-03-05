@@ -89,7 +89,7 @@ const projects = [
 const category = ref('all')
 const filteredProjects = ref([])
 
-watch(category, (oldCategory, newCategory) => {
+watch(category, (newCategory) => {
     filteringProjects(newCategory)
 })
 
