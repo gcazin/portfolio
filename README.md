@@ -8,23 +8,23 @@ A web application that showcases my work and skills as a developer.
 
 ## Technology stack
 
-- VueJS
-- TailwindCSS
-- Ionic Icons
-- Hero patterns
-- Netlify
+-   VueJS
+-   TailwindCSS
+-   Ionic Icons
+-   Hero patterns
+-   Netlify
 
 ## Demo
 
-Website  : https://www.guillaume-cazin.fr/
+Website : https://www.guillaume-cazin.fr/
+
 ## Features
 
-- Introduction
-- Resume
-- Skills
-- Display projects with screenshots and descriptions
-- Light/dark mode toggle
-
+-   Introduction
+-   Resume
+-   Skills
+-   Display projects with screenshots and descriptions
+-   Light/dark mode toggle
 
 ## Run locally
 
@@ -52,11 +52,9 @@ Start the server
   npm run dev
 ```
 
-
 ## Feedback
 
 If you have any feedback, please reach out to me at contact@guillaume-cazin.fr
-
 
 ## Contributing
 
@@ -65,6 +63,7 @@ Contributions are always welcome!
 See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

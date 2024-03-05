@@ -4,7 +4,7 @@ import Icon from '../elements/Icon.vue'
 import Button from '../elements/Button.vue'
 import { onMounted, ref, watch } from 'vue'
 import Animate from './Animate.vue'
-import Badge from "../elements/Badge.vue";
+import Badge from '../elements/Badge.vue'
 
 defineProps({
     category: {
@@ -162,8 +162,8 @@ const countProjectsByCategory = (category) => {
             :class="index % 2 === 0 ? 'order-1' : 'order-0'"
         >
             <Text type="title" class="dark:text-white">{{
-                    project.title
-                }}</Text>
+                project.title
+            }}</Text>
             <template v-if="project.url">
                 <a
                     class="break-all text-lg text-blue-500"
@@ -185,9 +185,7 @@ const countProjectsByCategory = (category) => {
             </template>
             <Text type="text">{{ project.description }}</Text>
             <Text class="font-bold">Technologies utilisés</Text>
-            <div
-                class="flex flex-row flex-wrap items-center gap-2"
-            >
+            <div class="flex flex-row flex-wrap items-center gap-2">
                 <Badge
                     v-for="(technology, index) in project.technologies"
                     :key="index"

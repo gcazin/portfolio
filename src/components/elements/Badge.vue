@@ -13,7 +13,8 @@ const props = defineProps({
 const properties = () => {
     return {
         'bg-blue-500 text-white': !props.secondary,
-        'bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500': props.secondary,
+        'bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500':
+            props.secondary,
         '!px-2 py-1 !text-sm': props.size === 'sm',
         '!px-3.5 !py-2.5': props.size === 'md',
     }
