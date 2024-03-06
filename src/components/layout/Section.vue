@@ -51,16 +51,13 @@ defineProps({
                     </template>
                 </div>
 
-                <div class="my-5">
+                <div class="my-4">
                     <slot></slot>
                 </div>
             </div>
         </Container>
-        <div class="overflow-hidden">
-            <div
-                v-if="hasBackground"
-                class="invisible absolute -bottom-20 right-0 z-10 lg:visible"
-            >
+        <div v-if="hasBackground" class="overflow-hidden">
+            <div class="invisible absolute -bottom-20 right-0 z-10 lg:visible">
                 <img src="/images/misc/blob-tear.svg" class="w-40" alt="" />
             </div>
         </div>

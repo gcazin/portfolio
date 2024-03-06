@@ -462,7 +462,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     <!-- Scroll to top -->
     <div
         v-if="scrollTop > scrollTopPositionButtonAppear"
-        class="fixed bottom-5 right-5 z-50"
+        class="fixed bottom-4 right-4 z-50"
     >
         <Button secondary @click="scrollToTop"
             ><Icon name="chevron-up"

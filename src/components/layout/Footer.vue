@@ -20,15 +20,13 @@ defineProps({
         }"
     >
         <Container>
-            <div class="py-10 md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
-                    <a href="/">
-                        <span class="text-2xl font-semibold dark:text-white"
-                            >Guillaume Cazin</span
-                        >
-                    </a>
-                </div>
-                <div class="flex space-x-5 pt-5">
+            <div class="my-4 items-center md:flex md:justify-between">
+                <a href="/">
+                    <span class="text-2xl font-semibold dark:text-white"
+                        >Guillaume Cazin</span
+                    >
+                </a>
+                <div class="flex space-x-4">
                     <a
                         target="_blank"
                         href="https://www.linkedin.com/in/guillaume-cazin/"
@@ -79,10 +77,10 @@ defineProps({
                     </a>
                 </div>
             </div>
-        </Container>
-        <hr class="m-auto border-gray-200 dark:border-gray-700 sm:mx-auto" />
-        <Container>
-            <div class="py-5 sm:flex sm:items-center sm:justify-between">
+            <hr
+                class="m-auto border-gray-200 dark:border-gray-700 sm:mx-auto"
+            />
+            <div class="py-4 sm:flex sm:items-center sm:justify-between">
                 <span
                     class="text-sm text-gray-500 dark:text-gray-400 sm:text-center"
                     >© {{ new Date().getFullYear() }}
