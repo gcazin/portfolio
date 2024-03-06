@@ -23,6 +23,7 @@ onMounted(() => {
     window.addEventListener('scroll', getScrollTop)
 })
 
+const actualYear = new Date().getFullYear()
 const typed = ref(null)
 const skills = ['Full-stack', 'Laravel', 'VueJS', 'PHP', 'JS']
 const projectCategory = ref('all')
@@ -183,11 +184,11 @@ const removeAnchor = (url) => {
                         <div
                             class="grid w-full grid-cols-1 gap-4 md:grid-cols-2"
                         >
-                            <Card title="+12" description="ans de passions" />
-                            <Card title="+2" description="ans d'expériences" />
-                            <Card title="+47" description="projets GitHub" />
+                            <Card :title="`+${actualYear - 2011}`" description="ans de passions" />
+                            <Card :title="`+${actualYear - 2021}`" description="ans d'expérience" />
+                            <Card title="+47" description="projets sur GitHub" />
                             <Card
-                                title="+514"
+                                title="+1060"
                                 description="commits sur GitHub"
                             />
                         </div>
