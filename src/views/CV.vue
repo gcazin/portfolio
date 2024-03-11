@@ -141,7 +141,7 @@ onBeforeMount(() => {
 })
 
 onMounted(() => {
-    document.title += 'CV - Guillaume Cazin - Développeur web freelance'
+    document.title = 'CV - Guillaume Cazin - Développeur web freelance'
 })
 </script>
 

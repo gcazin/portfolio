@@ -2,6 +2,7 @@
 import Icon from '../elements/Icon.vue'
 import Container from './Container.vue'
 import Link from '../elements/Link.vue'
+import Text from "../elements/Text.vue";
 
 defineProps({
     hasBackground: {
@@ -23,7 +24,7 @@ defineProps({
             <div class="my-4 items-center md:flex md:justify-between">
                 <a href="/">
                     <span class="text-2xl font-semibold dark:text-white"
-                        >Guillaume Cazin</span
+                    >Guillaume Cazin</span
                     >
                 </a>
                 <div class="flex space-x-4">
@@ -83,13 +84,21 @@ defineProps({
             <div class="py-4 sm:flex sm:items-center sm:justify-between">
                 <span
                     class="text-sm text-gray-500 dark:text-gray-400 sm:text-center"
-                    >© {{ new Date().getFullYear() }}
+                >© {{ new Date().getFullYear() }}
                     <a
                         href="https://guillaume-cazin.fr/"
                         class="hover:underline"
-                        >Guillaume Cazin™</a
+                    >Guillaume Cazin™</a
                     >. Tous droits réservés.
                 </span>
+                <div class="flex gap-2">
+                    <a class="text-white/50" href="/politique-de-confidentialite">
+                        Politique de confidentialité
+                    </a>
+                    <a class="text-white/50" href="/mentions-legales">
+                        Mentions légales
+                    </a>
+                </div>
             </div>
         </Container>
     </footer>
