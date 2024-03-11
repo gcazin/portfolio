@@ -1,5 +1,4 @@
 import puppeteer from 'puppeteer'
-
 ;(async () => {
     console.info('Commencement de la génération...')
     const browser = await puppeteer.launch({

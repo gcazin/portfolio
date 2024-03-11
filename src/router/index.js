@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CV from '../views/CV.vue'
 import Home from '../views/Home.vue'
-import LegalNotice from "../views/LegalNotice.vue";
-import PrivacyPolicy from "../views/PrivacyPolicy.vue";
+import LegalNotice from '../views/LegalNotice.vue'
+import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 
 export default createRouter({
     history: createWebHistory(),
@@ -20,12 +20,12 @@ export default createRouter({
         {
             name: 'legal-notice',
             path: '/mentions-legales',
-            component: LegalNotice
+            component: LegalNotice,
         },
         {
             name: 'privacy-policy',
             path: '/politique-de-confidentialite',
-            component: PrivacyPolicy
-        }
+            component: PrivacyPolicy,
+        },
     ],
 })
