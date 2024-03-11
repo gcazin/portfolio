@@ -184,9 +184,18 @@ const removeAnchor = (url) => {
                         <div
                             class="grid w-full grid-cols-1 gap-4 md:grid-cols-2"
                         >
-                            <Card :title="`+${actualYear - 2011}`" description="ans de passions" />
-                            <Card :title="`+${actualYear - 2021}`" description="ans d'expérience" />
-                            <Card title="+47" description="projets sur GitHub" />
+                            <Card
+                                :title="`+${actualYear - 2011}`"
+                                description="ans de passions"
+                            />
+                            <Card
+                                :title="`+${actualYear - 2021}`"
+                                description="ans d'expérience"
+                            />
+                            <Card
+                                title="+47"
+                                description="projets sur GitHub"
+                            />
                             <Card
                                 title="+1060"
                                 description="commits sur GitHub"

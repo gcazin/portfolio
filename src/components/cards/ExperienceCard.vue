@@ -45,17 +45,19 @@ defineProps({
                 >
                     <div class="flex flex-col gap-2 lg:px-4">
                         <Text type="subtitle">{{ job }}</Text>
-                        <Text
-                            v-if="company"
-                        ><img
-                            v-if="image"
-                            class="mr-2 inline w-6"
-                            :src="`/images/companies/${image}`"
-                            alt=""
-                        />{{ company }}</Text
+                        <Text v-if="company"
+                            ><img
+                                v-if="image"
+                                class="mr-2 inline w-6"
+                                :src="`/images/companies/${image}`"
+                                alt=""
+                            />{{ company }}</Text
                         >
                         <Text>{{ period }}</Text>
-                        <Text class="text-justify lg:text-left" v-if="description">
+                        <Text
+                            class="text-justify lg:text-left"
+                            v-if="description"
+                        >
                             {{
                                 !showFullText
                                     ? description.slice(0, 100)
