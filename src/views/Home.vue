@@ -17,9 +17,11 @@ import Animate from '../components/misc/Animate.vue'
 
 onMounted(() => {
     document.title = 'Guillaume Cazin - Développeur web freelance'
+
     getTyped().then((typed) => {
         typed.value = typed
     })
+
     window.addEventListener('scroll', getScrollTop)
 })
 
