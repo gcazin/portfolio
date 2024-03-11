@@ -58,19 +58,19 @@ const formations = [
 
 const skills = [
     {
-        title: 'HTML',
-        rating: 'Maîtrise',
-    },
-    {
-        title: 'CSS',
-        rating: 'Maîtrise',
-    },
-    {
-        title: 'Javascript',
+        title: 'HTML5 & CSS3',
         rating: 'Maîtrise',
     },
     {
         title: 'VueJS 3',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'Laravel 10',
+        rating: 'Maîtrise',
+    },
+    {
+        title: 'Javascript',
         rating: 'Maîtrise',
     },
     {
@@ -79,10 +79,6 @@ const skills = [
     },
     {
         title: 'PHP',
-        rating: 'Maîtrise',
-    },
-    {
-        title: 'Laravel 10',
         rating: 'Maîtrise',
     },
     {
@@ -106,8 +102,13 @@ const skills = [
 const experiences = [
     {
         title: 'Développeur web',
+        enterprise: 'Freelance, France',
+        date: 'Mar. 2024 - Aujourd\'hui'
+    },
+    {
+        title: 'Développeur web',
         enterprise: 'CDI, Diatem, Strasbourg (67000)',
-        date: '2020-2022',
+        date: 'Nov.2020 - Déc.2022',
         description:
             'Plateforme spécialisée en PHP et VueJS, Site vitrine sous Drupal et Wordpress',
     },
@@ -161,8 +162,8 @@ onMounted(() => {
                 />
             </div>
             <div
-                class="hidden gap-2 px-8 shadow-lg dark:bg-gray-800 lg:flex lg:flex-col"
                 id="cv"
+                class="hidden gap-2 px-8 shadow-lg lg:flex lg:flex-col overflow-hidden bg-white h-full w-full"
             >
                 <!-- First section -->
                 <div class="mt-4 flex items-center gap-x-8">
@@ -188,17 +189,17 @@ onMounted(() => {
                     <div class="flex flex-1 flex-col justify-center gap-2">
                         <div class="text-2xl">
                             <span class="text-2xl uppercase">{{
-                                infos.name
-                            }}</span>
+                                    infos.name
+                                }}</span>
                         </div>
                         <div>
                             <span class="text-4xl font-bold uppercase">{{
-                                infos.role
-                            }}</span>
+                                    infos.role
+                                }}</span>
                         </div>
                         <div>
                             <span class="text-xl uppercase"
-                                >{{ infos.age }} ans</span
+                            >{{ infos.age }} ans</span
                             >
                         </div>
                         <div class="flex justify-between">
@@ -206,10 +207,10 @@ onMounted(() => {
                                 <div class="block">
                                     <span
                                         class="border-before pb-2 font-bold uppercase"
-                                        >Contact</span
+                                    >Contact</span
                                     >
                                     <span class="inline font-bold text-blue-700"
-                                        >__</span
+                                    >__</span
                                     >
                                 </div>
                                 <div class="mt-2 flex flex-col gap-1">
@@ -243,10 +244,10 @@ onMounted(() => {
                                 <div class="block">
                                     <span
                                         class="border-before pb-2 font-bold uppercase"
-                                        >Social</span
+                                    >Social</span
                                     >
                                     <span class="inline font-bold text-blue-700"
-                                        >__</span
+                                    >__</span
                                     >
                                 </div>
                                 <div class="mt-2 flex flex-col gap-1">
@@ -274,7 +275,7 @@ onMounted(() => {
                     <div class="mb-2 block">
                         <span
                             class="border-before pb-2 text-xl font-bold uppercase"
-                            ><Icon name="person" class="mr-1 text-blue-700" /> À
+                        ><Icon name="person" class="mr-1 text-blue-700" /> À
                             propos</span
                         >
                         <span class="inline font-bold text-blue-700"> __</span>
@@ -289,20 +290,20 @@ onMounted(() => {
 
                 <!-- Second section -->
                 <div class="flex gap-x-8">
-                    <div class="w-60">
+                    <div class="w-48">
                         <div class="flex flex-col gap-2">
                             <div class="flex-1">
                                 <div class="mb-2 block">
                                     <span
                                         class="border-before text-lg font-bold uppercase"
-                                        ><Icon
-                                            name="code-slash"
-                                            class="mr-1 text-blue-700"
-                                        />
+                                    ><Icon
+                                        name="code-slash"
+                                        class="mr-1 text-blue-700"
+                                    />
                                         Compétences</span
                                     >
                                     <span class="inline font-bold text-blue-700"
-                                        >__</span
+                                    >__</span
                                     >
                                 </div>
                                 <div class="flex flex-col gap-2">
@@ -344,14 +345,14 @@ onMounted(() => {
                                 <div class="mb-2 block">
                                     <span
                                         class="border-before text-lg font-bold uppercase"
-                                        ><Icon
-                                            name="language"
-                                            class="mr-1 text-blue-700"
-                                        />
+                                    ><Icon
+                                        name="language"
+                                        class="mr-1 text-blue-700"
+                                    />
                                         Langues</span
                                     >
                                     <span class="inline font-bold text-blue-700"
-                                        >__</span
+                                    >__</span
                                     >
                                 </div>
                                 <div class="flex flex-col gap-2">
@@ -374,14 +375,14 @@ onMounted(() => {
                                 <div class="mb-2 block">
                                     <span
                                         class="border-before text-lg font-bold uppercase"
-                                        ><Icon
-                                            name="library"
-                                            class="mr-1 text-blue-700"
-                                        />
+                                    ><Icon
+                                        name="library"
+                                        class="mr-1 text-blue-700"
+                                    />
                                         Loisirs</span
                                     >
                                     <span class="inline font-bold text-blue-700"
-                                        >__</span
+                                    >__</span
                                     >
                                 </div>
                                 <div class="mt-3">
@@ -398,14 +399,14 @@ onMounted(() => {
                                 <div class="mb-2 block">
                                     <span
                                         class="border-before text-lg font-bold uppercase"
-                                        ><Icon
-                                            name="briefcase"
-                                            class="mr-1 text-blue-700"
-                                        />
+                                    ><Icon
+                                        name="briefcase"
+                                        class="mr-1 text-blue-700"
+                                    />
                                         Expériences professionnelles</span
                                     >
                                     <span class="inline font-bold text-blue-700"
-                                        >__</span
+                                    >__</span
                                     >
                                 </div>
                                 <div class="flex flex-col gap-2">
@@ -441,14 +442,14 @@ onMounted(() => {
                                 <div class="mb-2 block">
                                     <span
                                         class="border-before text-lg font-bold uppercase"
-                                        ><Icon
-                                            name="school"
-                                            class="mr-1 text-blue-700"
-                                        />
+                                    ><Icon
+                                        name="school"
+                                        class="mr-1 text-blue-700"
+                                    />
                                         Formations & diplômes</span
                                     >
                                     <span class="inline font-bold text-blue-700"
-                                        >__</span
+                                    >__</span
                                     >
                                 </div>
                                 <div class="flex flex-col gap-2">
@@ -486,21 +487,6 @@ onMounted(() => {
 
 <style scoped>
 #cv {
-    height: 29.7cm;
-    width: 21cm;
-    overflow: hidden;
-    background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%231d4ed8' fill-opacity='0.05'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 }
-/*.border-before {
-  position: relative;
-}
-.border-before::before {
-  content: '';
-  height: 4px;
-  width: 100px;
-  background: rgb(59 130 246);
-  position: absolute;
-  bottom: -2px;
-}*/
 </style>

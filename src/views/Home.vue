@@ -228,6 +228,19 @@ const removeAnchor = (url) => {
                     ></div>
                     <div class="space-y-24 lg:space-y-8">
                         <ExperienceCard
+                            job="Développeur web freelance"
+                            period="Freelance (Mars. 2024 - Aujourd'hui)"
+                            :technologies="[
+                                'HTML5',
+                                'CSS3',
+                                'VueJS',
+                                'PHP',
+                                'Laravel',
+                                'jQuery',
+                                'API',
+                            ]"
+                        />
+                        <ExperienceCard
                             image="diatem.webp"
                             job="Développeur web"
                             company="Diatem"
@@ -244,6 +257,7 @@ const removeAnchor = (url) => {
                                 'jQuery',
                                 'API',
                             ]"
+                            right
                         />
                         <ExperienceCard
                             image="armatis.webp"
@@ -261,7 +275,6 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                 'Lumen',
                                 'API',
                             ]"
-                            right
                         />
                         <ExperienceCard
                             image="echinghen.webp"
@@ -270,6 +283,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                             period="2018"
                             description="Développement d'un site web vitrine pour une mairie. Conçu en PHP, ce site est destiné à être une plateforme en ligne pour la mairie, offrant aux citoyens un accès facile à des informations importantes sur les services municipaux et les événements en cours."
                             :technologies="['HTML5', 'CSS3', 'PHP']"
+                            right
                         />
                         <ExperienceCard
                             image="armatis.webp"
@@ -283,7 +297,6 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                 'Symfony',
                                 'Framework Cocorico',
                             ]"
-                            right
                         />
                     </div>
                 </div>
