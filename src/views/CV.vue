@@ -150,7 +150,7 @@ onMounted(() => {
 
     <Section title="CV" id="hero">
         <div class="mx-auto max-w-4xl">
-            <a href="/images/misc/cv.pdf" download>
+            <a href="/images/misc/cv-guillaume-cazin.pdf" download>
                 <Button class="mb-4 text-center">Version PDF</Button>
             </a>
             <div class="block lg:hidden">

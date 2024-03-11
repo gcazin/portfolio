@@ -38,7 +38,7 @@ import puppeteer from 'puppeteer'
   `)
     console.log('Génération du PDF...')
     await page.pdf({
-        path: '../public/images/misc/cv.pdf',
+        path: '../public/images/misc/cv-guillaume-cazin.pdf',
         format: 'A4',
         printBackground: true,
         height: '100%',
