@@ -14,6 +14,7 @@ import Footer from '../components/layout/Footer.vue'
 import BlobBackground from '../components/misc/BlobBackground.vue'
 import { onMounted, ref } from 'vue'
 import Animate from '../components/misc/Animate.vue'
+import Stack from '../components/layout/Stack.vue'
 
 onMounted(() => {
     document.title = 'Guillaume Cazin - Développeur web freelance'
@@ -128,89 +129,93 @@ const removeAnchor = (url) => {
     >
         <div class="text-center">
             <div class="m-auto gap-4 text-left lg:flex lg:flex-col">
-                <div class="mb-4 flex-1">
-                    <Animate type="zoom" to="in">
-                        <Text>
-                            Passionné et autodidacte depuis plus de 12 ans dans
-                            le développement web, je me suis spécialisé en PHP,
-                            notamment avec le framework Laravel, et je suis très
-                            à l'aise en JS, en particulier avec VueJS.
-                        </Text>
-                        <Text>
-                            J'ai travaillé sur divers projets, allant de sites
-                            web pour petites entreprises à des plateformes
-                            spécifiques pour de grandes entreprises.
-                        </Text>
-                    </Animate>
-                </div>
-                <div class="flex-1 md:gap-10 lg:flex">
-                    <Animate
-                        full
-                        to="right"
-                        class="my-4 flex w-full flex-col gap-4 lg:w-1/3"
+                <div class="space-y-4 lg:space-y-8">
+                    <div class="flex-1">
+                        <Animate type="zoom" to="in">
+                            <Text>
+                                Passionné et autodidacte depuis plus de 12 ans
+                                dans le développement web, je me suis spécialisé
+                                en PHP, notamment avec le framework Laravel, et
+                                je suis très à l'aise en JS, en particulier avec
+                                VueJS.
+                            </Text>
+                            <Text>
+                                J'ai travaillé sur divers projets, allant de
+                                sites web pour petites entreprises à des
+                                plateformes spécifiques pour de grandes
+                                entreprises.
+                            </Text>
+                        </Animate>
+                    </div>
+                    <div
+                        class="flex flex-1 flex-col gap-4 lg:flex-row lg:gap-8"
                     >
-                        <Text>
-                            <Icon
-                                :outline="false"
-                                name="home"
-                                class="mr-2 text-blue-500"
-                            />
-                            Boulogne-sur-Mer
-                        </Text>
-                        <Text>
-                            <Icon
-                                :outline="false"
-                                name="mail"
-                                class="mr-2 font-bold text-blue-500"
-                            />
-                            czn.guillaume[at]gmail[dot]com
-                        </Text>
-                        <Text>
-                            <Icon
-                                :outline="false"
-                                name="speedometer"
-                                class="mr-2 font-bold text-blue-500"
-                            />
-                            Niveau confirmé (2 ans d'exp.)
-                        </Text>
-                        <Text>
-                            <Icon
-                                :outline="false"
-                                name="laptop"
-                                class="mr-2 font-bold text-blue-500"
-                            />
-                            Télétravail total
-                        </Text>
-                    </Animate>
-                    <Animate to="left">
-                        <div
-                            class="grid w-full grid-cols-1 gap-4 md:grid-cols-2"
+                        <Animate
+                            full
+                            to="right"
+                            class="flex w-full flex-col lg:w-1/3 lg:gap-4"
                         >
-                            <Card
-                                :title="`+${actualYear - 2011}`"
-                                description="ans de passions"
-                            />
-                            <Card
-                                :title="`+${actualYear - 2021}`"
-                                description="ans d'expérience"
-                            />
-                            <Card
-                                title="+47"
-                                description="projets sur GitHub"
-                            />
-                            <Card
-                                title="+1060"
-                                description="commits sur GitHub"
-                            />
-                        </div>
+                            <Text>
+                                <Icon
+                                    :outline="false"
+                                    name="home"
+                                    class="mr-2 text-blue-500"
+                                />
+                                Boulogne-sur-Mer
+                            </Text>
+                            <Text>
+                                <Icon
+                                    :outline="false"
+                                    name="mail"
+                                    class="mr-2 font-bold text-blue-500"
+                                />
+                                czn.guillaume[at]gmail[dot]com
+                            </Text>
+                            <Text>
+                                <Icon
+                                    :outline="false"
+                                    name="speedometer"
+                                    class="mr-2 font-bold text-blue-500"
+                                />
+                                Niveau confirmé (2 ans d'exp.)
+                            </Text>
+                            <Text>
+                                <Icon
+                                    :outline="false"
+                                    name="laptop"
+                                    class="mr-2 font-bold text-blue-500"
+                                />
+                                Télétravail total
+                            </Text>
+                        </Animate>
+                        <Animate to="left">
+                            <div
+                                class="grid w-full grid-cols-1 gap-4 md:grid-cols-2"
+                            >
+                                <Card
+                                    :title="`+${actualYear - 2011}`"
+                                    description="ans de passions"
+                                />
+                                <Card
+                                    :title="`+${actualYear - 2021}`"
+                                    description="ans d'expérience"
+                                />
+                                <Card
+                                    title="+47"
+                                    description="projets sur GitHub"
+                                />
+                                <Card
+                                    title="+1060"
+                                    description="commits sur GitHub"
+                                />
+                            </div>
+                        </Animate>
+                    </div>
+                    <Animate class="text-center">
+                        <Button is-link to="cv" secondary>Voir mon CV</Button>
                     </Animate>
                 </div>
             </div>
-            <Animate>
-                <Button is-link to="cv" class="mt-10" secondary
-                    >Voir mon CV</Button
-                >
-            </Animate>
         </div>
     </Section>
 
@@ -231,13 +236,13 @@ const removeAnchor = (url) => {
         title="Expériences"
         has-background
     >
-        <div class="flex flex-col justify-center py-8 lg:py-12">
+        <div class="flex flex-col justify-center py-4 lg:py-12">
             <div class="mx-auto w-full lg:max-w-4xl">
                 <div class="relative">
                     <div
                         class="absolute left-1/2 hidden h-full w-px -translate-x-1/2 transform bg-blue-500 lg:block"
                     ></div>
-                    <div class="space-y-24 lg:space-y-8">
+                    <div class="space-y-8">
                         <ExperienceCard
                             job="Développeur web freelance"
                             period="Freelance (Mars. 2024 - Aujourd'hui)"
@@ -322,7 +327,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         title="Compétences"
     >
         <BlobBackground />
-        <div class="py-10">
+        <div class="py-4 lg:py-8">
             <div class="grid gap-5 text-center lg:grid-cols-3">
                 <Animate to="right">
                     <SkillCard

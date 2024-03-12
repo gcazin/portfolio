@@ -5,6 +5,7 @@ import Button from '../elements/Button.vue'
 import { onMounted, ref, watch } from 'vue'
 import Animate from './Animate.vue'
 import Badge from '../elements/Badge.vue'
+import Stack from '../layout/Stack.vue'
 
 defineProps({
     category: {
@@ -114,91 +115,99 @@ const countProjectsByCategory = (category) => {
 </script>
 
 <template>
-    <div class="flex flex-row flex-wrap justify-center gap-4 lg:grid-cols-3">
-        <Button
-            size="sm"
-            :secondary="category !== 'all'"
-            @click="category = 'all'"
-        >
-            Tout ({{ projects.length }})
-        </Button>
-        <Button
-            :secondary="category !== 'website'"
-            size="sm"
-            @click="category = 'website'"
-        >
-            Site web ({{ countProjectsByCategory('website') }})
-        </Button>
-        <Button
-            :secondary="category !== 'web-application'"
-            size="sm"
-            @click="category = 'web-application'"
-        >
-            Application web ({{ countProjectsByCategory('web-application') }})
-        </Button>
-        <Button
-            :secondary="category !== 'resources'"
-            secondary
-            size="sm"
-            @click="category = 'resources'"
-        >
-            Ressources ({{ countProjectsByCategory('resources') }})
-        </Button>
-    </div>
-    <Animate
-        v-for="(project, index) in filteredProjects"
-        :key="index"
-        class="mb-16 mt-12 flex flex-col gap-2 lg:flex-row lg:gap-6"
-        :to="index % 2 === 0 ? 'right' : 'left'"
-    >
-        <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
-            <a :href="project.url">
-                <img
-                    class="rounded-lg shadow-lg"
-                    :src="`images/projects/${project.image}.webp`"
-                    :alt="project.title"
-                />
-            </a>
-        </div>
+    <Stack>
         <div
-            class="flex w-full flex-col gap-1 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
-            :class="index % 2 === 0 ? 'order-1' : 'order-0'"
+            class="flex flex-row flex-wrap justify-center gap-4 lg:grid-cols-3"
         >
-            <Text type="title" class="dark:text-white">{{
-                project.title
-            }}</Text>
-            <template v-if="project.url">
-                <a
-                    class="break-all text-lg text-blue-500"
-                    target="_blank"
-                    :href="project.url"
-                >
-                    {{ project.url }} <Icon name="arrow-redo" />
-                </a>
-            </template>
-            <template v-if="project.github">
-                <a
-                    class="break-all text-lg text-blue-500"
-                    target="_blank"
-                    :href="`https://github.com/gcazin/${project.github}`"
-                >
-                    gcazin/{{ project.github }}
-                    <Icon name="logo-github" :outline="false" />
-                </a>
-            </template>
-            <Text type="text">{{ project.description }}</Text>
-            <Text class="font-bold">Technologies utilisés</Text>
-            <div class="flex flex-row flex-wrap items-center gap-2">
-                <Badge
-                    v-for="(technology, index) in project.technologies"
-                    :key="index"
-                    secondary
-                >
-                    {{ technology }}
-                </Badge>
-            </div>
+            <Button
+                size="sm"
+                :secondary="category !== 'all'"
+                @click="category = 'all'"
+            >
+                Tout ({{ projects.length }})
+            </Button>
+            <Button
+                :secondary="category !== 'website'"
+                size="sm"
+                @click="category = 'website'"
+            >
+                Site web ({{ countProjectsByCategory('website') }})
+            </Button>
+            <Button
+                :secondary="category !== 'web-application'"
+                size="sm"
+                @click="category = 'web-application'"
+            >
+                Application web ({{
+                    countProjectsByCategory('web-application')
+                }})
+            </Button>
+            <Button
+                :secondary="category !== 'resources'"
+                secondary
+                size="sm"
+                @click="category = 'resources'"
+            >
+                Ressources ({{ countProjectsByCategory('resources') }})
+            </Button>
         </div>
-    </Animate>
+        <Stack spacing="8">
+            <Animate
+                v-for="(project, index) in filteredProjects"
+                :key="index"
+                class="flex flex-col gap-2 lg:flex-row lg:gap-6"
+                :to="index % 2 === 0 ? 'right' : 'left'"
+            >
+                <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
+                    <a :href="project.url">
+                        <img
+                            class="rounded-lg shadow-lg"
+                            :src="`images/projects/${project.image}.webp`"
+                            :alt="project.title"
+                        />
+                    </a>
+                </div>
+                <div
+                    class="flex w-full flex-col gap-1 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
+                    :class="index % 2 === 0 ? 'order-1' : 'order-0'"
+                >
+                    <Text type="title" class="dark:text-white">{{
+                        project.title
+                    }}</Text>
+                    <template v-if="project.url">
+                        <a
+                            class="break-all text-lg text-blue-500"
+                            target="_blank"
+                            :href="project.url"
+                        >
+                            {{ project.url }} <Icon name="arrow-redo" />
+                        </a>
+                    </template>
+                    <template v-if="project.github">
+                        <a
+                            class="break-all text-lg text-blue-500"
+                            target="_blank"
+                            :href="`https://github.com/gcazin/${project.github}`"
+                        >
+                            gcazin/{{ project.github }}
+                            <Icon name="logo-github" :outline="false" />
+                        </a>
+                    </template>
+                    <Text type="text">{{ project.description }}</Text>
+                    <Text class="font-bold">Technologies utilisés</Text>
+                    <div class="flex flex-row flex-wrap items-center gap-2">
+                        <Badge
+                            v-for="(technology, index) in project.technologies"
+                            :key="index"
+                            secondary
+                        >
+                            {{ technology }}
+                        </Badge>
+                    </div>
+                </div>
+            </Animate>
+        </Stack>
+    </Stack>
 </template>
 
 <style scoped></style>

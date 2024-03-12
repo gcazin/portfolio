@@ -2,6 +2,7 @@
 import Text from '../elements/Text.vue'
 import Button from '../elements/Button.vue'
 import Container from './Container.vue'
+import Stack from './Stack.vue'
 
 defineProps({
     id: {
@@ -40,14 +41,16 @@ defineProps({
         <Container>
             <div class="py-8 lg:py-24">
                 <div
-                    class="flex flex-col items-center justify-center text-justify lg:text-center"
+                    class="flex flex-col items-center justify-center lg:text-center"
                 >
                     <template v-if="title">
-                        <Text type="heading">{{ heading }}</Text>
-                        <Text type="title">{{ title }}</Text>
-                        <div class="container" v-if="description">
-                            <Text>{{ description }}</Text>
-                        </div>
+                        <Stack>
+                            <Text type="heading">{{ heading }}</Text>
+                            <Text type="title">{{ title }}</Text>
+                            <div class="container" v-if="description">
+                                <Text>{{ description }}</Text>
+                            </div>
+                        </Stack>
                     </template>
                 </div>
 

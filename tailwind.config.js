@@ -6,4 +6,9 @@ module.exports = {
         extend: {},
     },
     plugins: [],
+    safelist: [
+        {
+            pattern: /space-./,
+        },
+    ],
 }

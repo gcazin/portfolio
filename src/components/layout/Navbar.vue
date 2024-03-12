@@ -114,8 +114,11 @@ const checkCurrentUrl = () => {
                     </Button>
                 </div>
                 <div class="lg:ml-0">
-                    <Link to="home">
-                        <Text type="subtitle">Guillaume Cazin</Text>
+                    <Link to="home" class="flex items-center gap-2">
+                        <img src="/images/misc/logo.png" class="w-10 xl:w-8" />
+                        <Text class="hidden !pb-0 xl:block" type="subtitle"
+                            >Guillaume Cazin</Text
+                        >
                     </Link>
                 </div>
                 <div
