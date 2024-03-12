@@ -1,20 +1,19 @@
 <script setup>
-import Text from '../components/elements/Text.vue'
-import Section from '../components/layout/Section.vue'
-import SkillCard from '../components/cards/SkillCard.vue'
-import Button from '../components/elements/Button.vue'
-import ExperienceCard from '../components/cards/ExperienceCard.vue'
+import Text from '~/components/elements/Text.vue'
+import SkillCard from '~/components/cards/SkillCard.vue'
+import Button from '~/components/elements/Button.vue'
+import ExperienceCard from '~/components/cards/ExperienceCard.vue'
 import Typed from 'typed.js'
-import Icon from '../components/elements/Icon.vue'
-import Projects from '../components/misc/Projects.vue'
-import Card from '../components/cards/Card.vue'
-import References from '../components/misc/References.vue'
-import Navbar from '../components/layout/Navbar.vue'
-import Footer from '../components/layout/Footer.vue'
-import BlobBackground from '../components/misc/BlobBackground.vue'
+import Icon from '~/components/elements/Icon.vue'
+import Projects from '~/components/misc/Projects.vue'
+import Card from '~/components/cards/Card.vue'
+import References from '~/components/misc/References.vue'
+import Navbar from '~/components/layout/Navbar.vue'
+import Footer from '~/components/layout/Footer.vue'
+import BlobBackground from '~/components/misc/BlobBackground.vue'
 import { onMounted, ref } from 'vue'
-import Animate from '../components/misc/Animate.vue'
-import Stack from '../components/layout/Stack.vue'
+import Animate from '~/components/misc/Animate.vue'
+import Section from '~/components/layout/Section.vue'
 
 onMounted(() => {
     document.title = 'Guillaume Cazin - Développeur web freelance'
@@ -68,12 +67,8 @@ const removeAnchor = (url) => {
 </script>
 
 <template>
-    <!-- Navbar -->
-    <Navbar />
-
     <!-- Hero section -->
     <Section id="hero">
-        <BlobBackground hero />
         <div class="isolate pb-8 pt-32 lg:pb-16">
             <div
                 class="container mx-auto flex h-full max-w-7xl flex-col items-center gap-24 lg:flex-row lg:gap-0"
@@ -498,8 +493,6 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
             ><Icon name="chevron-up"
         /></Button>
     </div>
-
-    <Footer has-background />
 </template>
 
 <style scoped>

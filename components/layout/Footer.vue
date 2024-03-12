@@ -22,11 +22,11 @@ defineProps({
     >
         <Container>
             <div class="my-4 items-center md:flex md:justify-between">
-                <a href="/">
+                <NuxtLink to="/">
                     <span class="text-2xl font-semibold dark:text-white"
                         >Guillaume Cazin</span
                     >
-                </a>
+                </NuxtLink>
                 <div class="flex space-x-4">
                     <a
                         target="_blank"
@@ -92,15 +92,12 @@ defineProps({
                     >. Tous droits réservés.
                 </span>
                 <div class="flex gap-2">
-                    <a
-                        class="text-white/50"
-                        href="/politique-de-confidentialite"
-                    >
+                    <NuxtLink class="text-white/50" to="/privacy-policy">
                         Politique de confidentialité
-                    </a>
-                    <a class="text-white/50" href="/mentions-legales">
+                    </NuxtLink>
+                    <NuxtLink class="text-white/50" to="/legal-notice">
                         Mentions légales
-                    </a>
+                    </NuxtLink>
                 </div>
             </div>
         </Container>

@@ -1,11 +1,11 @@
 <script setup>
-import Icon from '../components/elements/Icon.vue'
-import Navbar from '../components/layout/Navbar.vue'
-import Section from '../components/layout/Section.vue'
-import Footer from '../components/layout/Footer.vue'
-import Button from '../components/elements/Button.vue'
+import Icon from '~/components/elements/Icon.vue'
+import Navbar from '~/components/layout/Navbar.vue'
+import Section from '~/components/layout/Section.vue'
+import Footer from '~/components/layout/Footer.vue'
+import Button from '~/components/elements/Button.vue'
 import { onBeforeMount, onMounted, ref } from 'vue'
-import Text from '../components/elements/Text.vue'
+import Text from '~/components/elements/Text.vue'
 
 onMounted(() => {
     document.title = 'CV - Guillaume Cazin - Développeur web freelance'
@@ -13,9 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Navbar />
-
-    <Section title="Mentions légales">
+    <Section title="Mentions légales" class="pt-16 lg:pt-0">
         <div class="space-y-4">
             <Text>
                 Conformément aux dispositions de la loi n° 2004-575 du 21 juin
@@ -71,8 +69,6 @@ onMounted(() => {
             </div>
         </div>
     </Section>
-
-    <Footer has-background />
 </template>
 
 <style scoped>

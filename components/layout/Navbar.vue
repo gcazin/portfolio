@@ -44,42 +44,50 @@ const toggleNavbar = () => {
 }
 
 const getTheme = () => {
-    return localStorage.getItem('theme')
+    if (typeof localStorage !== 'undefined') {
+        return localStorage.getItem('theme')
+    }
 }
 
 const setTheme = (theme) => {
-    localStorage.setItem('theme', theme)
+    if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', theme)
 
-    if (getTheme() === 'dark') {
-        iconTheme.value = 'sunny'
-    } else {
-        iconTheme.value = 'moon'
+        if (getTheme() === 'dark') {
+            iconTheme.value = 'sunny'
+        } else {
+            iconTheme.value = 'moon'
+        }
     }
 }
 const setDefaultTheme = () => {
-    if (
-        localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-        document.documentElement.classList.add('dark')
-        setTheme('dark')
-    } else {
-        document.documentElement.classList.remove('dark')
-        setTheme('light')
+    if (typeof localStorage !== 'undefined') {
+        if (
+            localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            document.documentElement.classList.add('dark')
+            setTheme('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+            setTheme('light')
+        }
     }
 }
 
 const toggleTheme = () => {
-    const theme = localStorage.getItem('theme')
+    if (typeof localStorage !== 'undefined') {
+        const theme = localStorage.getItem('theme')
 
-    if (theme) {
-        if (theme === 'light') {
-            setTheme('dark')
-            document.documentElement.classList.add('dark')
-        } else {
-            setTheme('light')
-            document.documentElement.classList.remove('dark')
+        if (theme) {
+            if (theme === 'light') {
+                setTheme('dark')
+                document.documentElement.classList.add('dark')
+            } else {
+                setTheme('light')
+                document.documentElement.classList.remove('dark')
+            }
         }
     }
 }
@@ -114,12 +122,12 @@ const checkCurrentUrl = () => {
                     </Button>
                 </div>
                 <div class="lg:ml-0">
-                    <Link to="home" class="flex items-center gap-2">
-                        <img src="/images/misc/logo.png" class="w-10 xl:w-8" />
+                    <NuxtLink to="/" class="flex items-center gap-2">
+                        <img src="/favicon.png" class="w-10 xl:w-8" />
                         <Text class="hidden !pb-0 xl:block" type="subtitle"
                             >Guillaume Cazin</Text
                         >
-                    </Link>
+                    </NuxtLink>
                 </div>
                 <div
                     class="invisible absolute inset-y-0 right-0 flex items-center sm:inset-auto lg:visible lg:static"

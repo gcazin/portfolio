@@ -1,11 +1,11 @@
 <script setup>
-import Icon from '../components/elements/Icon.vue'
-import Navbar from '../components/layout/Navbar.vue'
-import Section from '../components/layout/Section.vue'
-import Footer from '../components/layout/Footer.vue'
-import Button from '../components/elements/Button.vue'
+import Icon from '~/components/elements/Icon.vue'
+import Navbar from '~/components/layout/Navbar.vue'
+import Section from '~/components/layout/Section.vue'
+import Footer from '~/components/layout/Footer.vue'
+import Button from '~/components/elements/Button.vue'
 import { onBeforeMount, onMounted, ref } from 'vue'
-import Text from '../components/elements/Text.vue'
+import Text from '~/components/elements/Text.vue'
 
 onMounted(() => {
     document.title =
@@ -14,9 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Navbar />
-
-    <Section title="Politique de confidentialité">
+    <Section title="Politique de confidentialité" class="pt-16 lg:pt-0">
         <div class="space-y-4">
             <Text>
                 Le site web www.guillaume-cazin.fr est détenu par Guillaume
@@ -183,12 +181,6 @@ onMounted(() => {
             </div>
         </div>
     </Section>
-
-    <Footer has-background />
 </template>
 
-<style scoped>
-#cv {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%231d4ed8' fill-opacity='0.05'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-}
-</style>
+<style scoped></style>
