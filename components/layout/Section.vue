@@ -1,6 +1,5 @@
 <script setup>
 import Text from '../elements/Text.vue'
-import Button from '../elements/Button.vue'
 import Container from './Container.vue'
 import Stack from './Stack.vue'
 

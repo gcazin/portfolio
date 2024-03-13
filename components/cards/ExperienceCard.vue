@@ -1,8 +1,8 @@
 <script setup>
-import AnimateOnScroll from '../misc/Animate.vue'
-import Text from '../elements/Text.vue'
 import { ref } from 'vue'
 import Badge from '../elements/Badge.vue'
+import Text from '../elements/Text.vue'
+import AnimateOnScroll from '../misc/Animate.vue'
 
 const showFullText = ref(false)
 

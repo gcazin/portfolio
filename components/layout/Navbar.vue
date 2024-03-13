@@ -1,9 +1,8 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import Button from '../elements/Button.vue'
-import Text from '../elements/Text.vue'
 import Icon from '../elements/Icon.vue'
-import Link from '../elements/Link.vue'
-import { onMounted, ref, watch } from 'vue'
+import Text from '../elements/Text.vue'
 
 const items = [
     {

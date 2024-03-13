@@ -1,11 +1,7 @@
 <script setup>
-import Icon from '~/components/elements/Icon.vue'
-import Navbar from '~/components/layout/Navbar.vue'
-import Section from '~/components/layout/Section.vue'
-import Footer from '~/components/layout/Footer.vue'
-import Button from '~/components/elements/Button.vue'
-import { onBeforeMount, onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import Text from '~/components/elements/Text.vue'
+import Section from '~/components/layout/Section.vue'
 
 onMounted(() => {
     document.title =

@@ -1,5 +1,4 @@
 <script setup>
-import AnimateOnScroll from '../misc/Animate.vue'
 import Text from '../elements/Text.vue'
 import Stack from '../layout/Stack.vue'
 

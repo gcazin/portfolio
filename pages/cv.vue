@@ -1,10 +1,8 @@
 <script setup>
-import Icon from '~/components/elements/Icon.vue'
-import Navbar from '~/components/layout/Navbar.vue'
-import Section from '~/components/layout/Section.vue'
-import Footer from '~/components/layout/Footer.vue'
+import { onBeforeMount, onMounted } from 'vue'
 import Button from '~/components/elements/Button.vue'
-import { onBeforeMount, onMounted, ref } from 'vue'
+import Icon from '~/components/elements/Icon.vue'
+import Section from '~/components/layout/Section.vue'
 
 const infos = {
     name: 'Guillaume Cazin',

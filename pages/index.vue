@@ -1,19 +1,17 @@
 <script setup>
-import Text from '~/components/elements/Text.vue'
+import Typed from 'typed.js'
+import { onMounted, ref } from 'vue'
+import Card from '~/components/cards/Card.vue'
+import ExperienceCard from '~/components/cards/ExperienceCard.vue'
 import SkillCard from '~/components/cards/SkillCard.vue'
 import Button from '~/components/elements/Button.vue'
-import ExperienceCard from '~/components/cards/ExperienceCard.vue'
-import Typed from 'typed.js'
 import Icon from '~/components/elements/Icon.vue'
-import Projects from '~/components/misc/Projects.vue'
-import Card from '~/components/cards/Card.vue'
-import References from '~/components/misc/References.vue'
-import Navbar from '~/components/layout/Navbar.vue'
-import Footer from '~/components/layout/Footer.vue'
-import BlobBackground from '~/components/misc/BlobBackground.vue'
-import { onMounted, ref } from 'vue'
-import Animate from '~/components/misc/Animate.vue'
+import Text from '~/components/elements/Text.vue'
 import Section from '~/components/layout/Section.vue'
+import Animate from '~/components/misc/Animate.vue'
+import BlobBackground from '~/components/misc/BlobBackground.vue'
+import Projects from '~/components/misc/Projects.vue'
+import References from '~/components/misc/References.vue'
 
 onMounted(() => {
     document.title = 'Guillaume Cazin - Développeur web freelance'
@@ -84,10 +82,9 @@ const removeAnchor = (url) => {
                     </p>
                     <Text type="subtitle" class="font-bold uppercase">
                         Un freelance
-                        <span
-                            class="typed text-blue-500 dark:text-blue-600"
-                            >{{ typed }}</span
-                        >
+                        <span class="typed text-blue-500 dark:text-blue-600">{{
+                            typed
+                        }}</span>
                     </Text>
                     <div>
                         <Button is-link to="cv">Voir mon cv</Button>

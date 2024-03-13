@@ -1,11 +1,11 @@
 <script setup>
-import Text from '../elements/Text.vue'
-import Icon from '../elements/Icon.vue'
-import Button from '../elements/Button.vue'
 import { onMounted, ref, watch } from 'vue'
-import Animate from './Animate.vue'
 import Badge from '../elements/Badge.vue'
+import Button from '../elements/Button.vue'
+import Icon from '../elements/Icon.vue'
+import Text from '../elements/Text.vue'
 import Stack from '../layout/Stack.vue'
+import Animate from './Animate.vue'
 
 defineProps({
     category: {

@@ -1,8 +1,6 @@
 <script setup>
 import Icon from '../elements/Icon.vue'
 import Container from './Container.vue'
-import Link from '../elements/Link.vue'
-import Text from '../elements/Text.vue'
 
 defineProps({
     hasBackground: {
