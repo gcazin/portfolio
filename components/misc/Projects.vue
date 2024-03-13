@@ -20,6 +20,7 @@ const projects = [
         description:
             "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
         technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
+        github: 'x-memes',
         url: 'https://x-memes.com',
         category: 'website',
     },
