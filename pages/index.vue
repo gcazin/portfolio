@@ -25,7 +25,7 @@ onMounted(() => {
     window.addEventListener('scroll', getScrollTop)
 })
 
-const actualYear = new Date().getFullYear()
+const actualYear = useState('actualYear', () => new Date().getFullYear())
 const typed = ref(null)
 const skills = ['Full-stack', 'Laravel', 'VueJS', 'PHP', 'JS']
 const projectCategory = ref('all')
@@ -34,7 +34,7 @@ const scrollTopPositionButtonAppear = 250
 
 const getTyped = async () => {
     return new Promise((successCallback) => {
-        const typed = new Typed('.element', {
+        const typed = new Typed('.typed', {
             strings: skills,
             typeSpeed: 150,
             loop: true,
@@ -85,7 +85,7 @@ const removeAnchor = (url) => {
                     <Text type="subtitle" class="font-bold uppercase">
                         Un freelance
                         <span
-                            class="element text-blue-500 dark:text-blue-600"
+                            class="typed text-blue-500 dark:text-blue-600"
                             >{{ typed }}</span
                         >
                     </Text>

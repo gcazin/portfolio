@@ -3,7 +3,7 @@ import Button from '../elements/Button.vue'
 import Text from '../elements/Text.vue'
 import Icon from '../elements/Icon.vue'
 import Link from '../elements/Link.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const items = [
     {
@@ -34,6 +34,7 @@ const items = [
 const menuMobileVisible = ref(false)
 const iconTheme = ref('moon')
 const anchorName = ref('')
+const route = useRoute()
 
 onMounted(() => {
     setDefaultTheme()
@@ -95,11 +96,7 @@ const toggleTheme = () => {
 const checkCurrentUrl = () => {
     menuMobileVisible.value = false
 
-    const anchor = window.location.hash
-
-    if (anchor) {
-        anchorName.value = anchor
-    }
+    anchorName.value = route.fullPath.replace('/', '')
 }
 </script>
 
@@ -137,9 +134,14 @@ const checkCurrentUrl = () => {
                             <li v-for="item in items">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a
+                                    @click="checkCurrentUrl()"
                                     v-if="item.text !== 'Contact'"
                                     :href="`/${item.url}`"
                                     class="px-2 font-bold uppercase text-gray-800 transition-colors hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-600"
+                                    :class="{
+                                        'text-blue-500 dark:!text-blue-600':
+                                            anchorName === item.url,
+                                    }"
                                 >
                                     {{ item.text }}
                                 </a>

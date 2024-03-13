@@ -35,7 +35,7 @@ const references = [
     >
         <Animate
             to="up"
-            duration="500"
+            :duration="500"
             v-for="(reference, index) in references"
             :key="index"
             :full="false"

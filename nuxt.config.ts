@@ -34,4 +34,9 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ['@nuxtjs/tailwindcss', 'nuxt-aos'],
     css: ['~/assets/css/main.css'],
+    vue: {
+        compilerOptions: {
+            isCustomElement: (tag) => tag.startsWith('ion-'),
+        }
+    }
 })
