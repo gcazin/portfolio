@@ -397,6 +397,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                     netlify-honeypot="bot-field"
                     data-netlify="true"
                 >
+                    <input type="hidden" name="form-name" value="contact" />
                     <p class="hidden">
                         <label>
                             Don’t fill this out if you’re human: <input name="bot-field" />
