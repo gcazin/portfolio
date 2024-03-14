@@ -392,8 +392,6 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         <div class="flex gap-8">
             <div class="flex-1">
                     <form name="contact" method="POST" netlify>
-                        <input type="hidden" name="form-name" value="contact" />
-
                         <Stack>
                             <div class="bg-blue-800/30 rounded-lg px-4 py-3 shadow">
                                 <Stack spacing="2">
