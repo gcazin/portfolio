@@ -16,6 +16,10 @@ const props = defineProps({
     icon: {
         type: String,
     },
+    type: {
+        type: String,
+        default: 'button'
+    },
     // Link
     isLink: {
         type: Boolean,
@@ -51,7 +55,7 @@ const property = () => {
 </script>
 
 <template>
-    <button v-if="!isLink" :class="property()" type="button">
+    <button v-if="!isLink" :class="property()" :type="type">
         <template v-if="icon">
             <ion-icon
                 class="rounded-full bg-blue-500 p-2 align-middle text-2xl text-white"

@@ -12,6 +12,9 @@ import Animate from '~/components/misc/Animate.vue'
 import BlobBackground from '~/components/misc/BlobBackground.vue'
 import Projects from '~/components/misc/Projects.vue'
 import References from '~/components/misc/References.vue'
+import Input from "~/components/form/Input.vue";
+import Stack from "~/components/layout/Stack.vue";
+import Textarea from "~/components/form/Textarea.vue";
 
 onMounted(() => {
     document.title = 'Guillaume Cazin - Développeur web freelance'
@@ -73,7 +76,7 @@ const removeAnchor = (url) => {
             >
                 <div class="lg:order-0 order-1 flex flex-1 flex-col gap-6">
                     <Text type="subtitle" class="font-bold uppercase"
-                        >👋, je suis</Text
+                    >👋, je suis</Text
                     >
                     <p
                         class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl lg:leading-normal"
@@ -83,8 +86,8 @@ const removeAnchor = (url) => {
                     <Text type="subtitle" class="font-bold uppercase">
                         Un freelance
                         <span class="typed text-blue-500 dark:text-blue-600">{{
-                            typed
-                        }}</span>
+                                typed
+                            }}</span>
                     </Text>
                     <div>
                         <Button is-link to="cv">Voir mon cv</Button>
@@ -211,13 +214,15 @@ const removeAnchor = (url) => {
         </div>
     </Section>
 
+    <!-- Références -->
     <Section
         id="references"
         heading="Projets d'entreprises"
         title="Références"
         description="Projets d'entreprises pour lesquelles j'ai travaillé durant mes expériences professionnelles."
+        has-blob-background
+        blob-background-is-inverted
     >
-        <BlobBackground invert />
         <References />
     </Section>
 
@@ -312,13 +317,13 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         </div>
     </Section>
 
-    <!-- Mes compétences -->
+    <!-- Compétences -->
     <Section
         heading="Technologies & outils"
         id="competences"
         title="Compétences"
+        has-blob-background
     >
-        <BlobBackground />
         <div class="py-4 lg:py-8">
             <div class="grid gap-5 text-center lg:grid-cols-3">
                 <Animate to="right">
@@ -364,7 +369,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         </div>
     </Section>
 
-    <!-- Mes projets -->
+    <!-- Projets -->
     <Section
         id="projets"
         heading="Portfolio"
@@ -376,109 +381,103 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     </Section>
 
     <!-- Contact -->
-    <Section id="contact">
-        <BlobBackground invert />
-        <Animate type="zoom" to="in">
-            <div
-                class="relative m-auto max-w-7xl overflow-hidden rounded-lg bg-blue-500 py-10 text-center text-blue-500 dark:bg-blue-700 dark:text-white"
-            >
-                <div class="relative z-10 flex flex-col gap-5 px-5 lg:pr-10">
-                    <div class="flex-1">
-                        <Text type="title" class="text-white"
-                            >Intéressé ? Contactez-moi !</Text
-                        >
-                    </div>
-                    <div class="flex-1">
-                        <Button is-link to="cv" secondary
-                            >Prise de contact</Button
-                        >
-                    </div>
-                </div>
-                <div
-                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-                >
-                    <svg
-                        width="818"
-                        height="286"
-                        viewBox="0 0 818 286"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="text-center"
-                    >
-                        <circle
-                            cx="409"
-                            cy="409"
-                            r="408.5"
-                            stroke="url(#paint0_linear_0:1)"
-                        ></circle>
-                        <circle
-                            cx="409"
-                            cy="409"
-                            r="349.5"
-                            stroke="url(#paint1_linear_0:1)"
-                        ></circle>
-                        <defs>
-                            <linearGradient
-                                id="paint0_linear_0:1"
-                                x1="-34.5"
-                                y1="291.5"
-                                x2="851"
-                                y2="291.5"
-                                gradientUnits="userSpaceOnUse"
-                            >
-                                <stop
-                                    stop-color="white"
-                                    stop-opacity="0.35"
-                                ></stop>
-                                <stop
-                                    offset="0.218415"
-                                    stop-color="white"
-                                    stop-opacity="0"
-                                ></stop>
-                                <stop
-                                    offset="0.728079"
-                                    stop-color="white"
-                                    stop-opacity="0"
-                                ></stop>
-                                <stop
-                                    offset="1"
-                                    stop-color="white"
-                                    stop-opacity="0.35"
-                                ></stop>
-                            </linearGradient>
-                            <linearGradient
-                                id="paint1_linear_0:1"
-                                x1="29.4768"
-                                y1="308.45"
-                                x2="787.24"
-                                y2="308.45"
-                                gradientUnits="userSpaceOnUse"
-                            >
-                                <stop
-                                    stop-color="white"
-                                    stop-opacity="0.35"
-                                ></stop>
-                                <stop
-                                    offset="0.218415"
-                                    stop-color="white"
-                                    stop-opacity="0"
-                                ></stop>
-                                <stop
-                                    offset="0.777261"
-                                    stop-color="white"
-                                    stop-opacity="0"
-                                ></stop>
-                                <stop
-                                    offset="1"
-                                    stop-color="white"
-                                    stop-opacity="0.35"
-                                ></stop>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
+    <Section
+        id="contact"
+        heading="Formulaire de contact"
+        title="Contactez-moi"
+        description="Si vous avez des questions ou des préoccupations, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences et à mes intérêts."
+        has-blob-background
+        blob-background-is-inverted
+    >
+        <div class="flex gap-8">
+            <div class="flex-1">
+                    <form name="contact" method="POST" netlify>
+                        <input type="hidden" name="form-name" value="contact" />
+
+                        <Stack>
+                            <div class="bg-blue-800/30 rounded-lg px-4 py-3 shadow">
+                                <Stack spacing="2">
+                                    <Input id="name" label="Nom" placeholder="Dupont" required />
+                                    <Input type="email" id="email" placeholder="john@doe.fr" label="Adresse e-mail" required />
+                                    <Textarea id="message" label="Message" placeholder="Bonjour" required />
+                                </Stack>
+                            </div>
+
+                            <div class="text-right">
+                                <Button type="submit">Envoyer</Button>
+                            </div>
+                        </Stack>
+                    </form>
             </div>
-        </Animate>
+            <div class="flex-1 self-center">
+                <Stack spacing="8">
+                    <Stack>
+                        <div class="flex gap-2">
+                            <Icon name="at" size="xl" class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2" />
+                            <Text>contact@guillaume-cazin.fr</Text>
+                        </div>
+                        <div class="flex gap-2">
+                            <Icon name="call" size="xl" class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2" />
+                            <Text>06 10 85 42 18</Text>
+                        </div>
+                    </Stack>
+                    <div class="flex space-x-4">
+                        <a
+                            target="_blank"
+                            href="https://www.linkedin.com/in/guillaume-cazin/"
+                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                        >
+                            <Icon
+                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
+                                name="logo-linkedin"
+                                :outline="false"
+                                size="xl"
+                            />
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                        <a
+                            target="_blank"
+                            href="http://github.com/gcazin"
+                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                        >
+                            <Icon
+                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
+                                name="logo-github"
+                                :outline="false"
+                                size="xl"
+                            />
+                            <span class="sr-only">GitHub</span>
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://twitter.com/gcazinonx"
+                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                        >
+                            <Icon
+                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
+                                name="logo-twitter"
+                                :outline="false"
+                                size="xl"
+                            />
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://codepen.io/gcazin"
+                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                        >
+                            <Icon
+                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
+                                name="logo-codepen"
+                                :outline="false"
+                                size="xl"
+                            />
+                            <span class="sr-only">Codepen</span>
+                        </a>
+                    </div>
+                </Stack>
+            </div>
+        </div>
     </Section>
 
     <!-- Scroll to top -->
@@ -487,7 +486,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         class="fixed bottom-4 right-4 z-50"
     >
         <Button secondary @click="scrollToTop"
-            ><Icon name="chevron-up"
+        ><Icon name="chevron-up"
         /></Button>
     </div>
 </template>
