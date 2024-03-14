@@ -391,21 +391,31 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     >
         <div class="flex gap-8">
             <div class="flex-1">
-                    <form name="contact" method="POST" data-netlify="true">
-                        <Stack>
-                            <div class="bg-blue-800/30 rounded-lg px-4 py-3 shadow">
-                                <Stack spacing="2">
-                                    <Input id="name" label="Nom" placeholder="Dupont" required />
-                                    <Input type="email" id="email" placeholder="john@doe.fr" label="Adresse e-mail" required />
-                                    <Textarea id="message" label="Message" placeholder="Bonjour" required />
-                                </Stack>
-                            </div>
+                <form
+                    name="contact"
+                    method="POST"
+                    netlify-honeypot="bot-field"
+                    data-netlify="true"
+                >
+                    <p class="hidden">
+                        <label>
+                            Don’t fill this out if you’re human: <input name="bot-field" />
+                        </label>
+                    </p>
+                    <Stack>
+                        <div class="bg-blue-800/30 rounded-lg px-4 py-3 shadow">
+                            <Stack spacing="2">
+                                <Input id="name" label="Nom" placeholder="Dupont" required />
+                                <Input type="email" id="email" placeholder="john@doe.fr" label="Adresse e-mail" required />
+                                <Textarea id="message" label="Message" placeholder="Bonjour" required />
+                            </Stack>
+                        </div>
 
-                            <div class="text-right">
-                                <Button type="submit">Envoyer</Button>
-                            </div>
-                        </Stack>
-                    </form>
+                        <div class="text-right">
+                            <Button type="submit">Envoyer</Button>
+                        </div>
+                    </Stack>
+                </form>
             </div>
             <div class="flex-1 self-center">
                 <Stack spacing="8">
