@@ -1,8 +1,8 @@
 <script setup>
+import BlobBackground from '~/components/misc/BlobBackground.vue'
 import Text from '../elements/Text.vue'
 import Container from './Container.vue'
 import Stack from './Stack.vue'
-import BlobBackground from "~/components/misc/BlobBackground.vue";
 
 defineProps({
     id: {
@@ -28,7 +28,7 @@ defineProps({
     blobBackgroundIsInverted: {
         type: Boolean,
         default: false,
-    }
+    },
 })
 </script>
 
@@ -46,7 +46,10 @@ defineProps({
                 <img src="/images/misc/blob-tear.svg" class="w-40" alt="" />
             </div>
         </div>
-        <BlobBackground v-if="hasBlobBackground" :invert="blobBackgroundIsInverted" />
+        <BlobBackground
+            v-if="hasBlobBackground"
+            :invert="blobBackgroundIsInverted"
+        />
         <Container class="relative">
             <div class="py-8 lg:py-24">
                 <div

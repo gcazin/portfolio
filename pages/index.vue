@@ -7,14 +7,13 @@ import SkillCard from '~/components/cards/SkillCard.vue'
 import Button from '~/components/elements/Button.vue'
 import Icon from '~/components/elements/Icon.vue'
 import Text from '~/components/elements/Text.vue'
+import Input from '~/components/form/Input.vue'
+import Textarea from '~/components/form/Textarea.vue'
 import Section from '~/components/layout/Section.vue'
+import Stack from '~/components/layout/Stack.vue'
 import Animate from '~/components/misc/Animate.vue'
-import BlobBackground from '~/components/misc/BlobBackground.vue'
 import Projects from '~/components/misc/Projects.vue'
 import References from '~/components/misc/References.vue'
-import Input from "~/components/form/Input.vue";
-import Stack from "~/components/layout/Stack.vue";
-import Textarea from "~/components/form/Textarea.vue";
 
 onMounted(() => {
     document.title = 'Guillaume Cazin - Développeur web freelance'
@@ -76,7 +75,7 @@ const removeAnchor = (url) => {
             >
                 <div class="lg:order-0 order-1 flex flex-1 flex-col gap-6">
                     <Text type="subtitle" class="font-bold uppercase"
-                    >👋, je suis</Text
+                        >👋, je suis</Text
                     >
                     <p
                         class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl lg:leading-normal"
@@ -86,8 +85,8 @@ const removeAnchor = (url) => {
                     <Text type="subtitle" class="font-bold uppercase">
                         Un freelance
                         <span class="typed text-blue-500 dark:text-blue-600">{{
-                                typed
-                            }}</span>
+                            typed
+                        }}</span>
                     </Text>
                     <div>
                         <Button is-link to="cv">Voir mon cv</Button>
@@ -384,108 +383,154 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     <Section
         id="contact"
         heading="Formulaire de contact"
-        title="Contactez-moi"
+        title="Une idée ou un projet en tête?"
         description="Si vous avez des questions ou des préoccupations, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences et à mes intérêts."
         has-blob-background
         blob-background-is-inverted
     >
-        <div class="flex gap-8">
-            <div class="flex-1">
-                <form
-                    name="contact"
-                    method="POST"
-                    netlify-honeypot="bot-field"
-                    data-netlify="true"
-                >
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p class="hidden">
-                        <label>
-                            Don’t fill this out if you’re human: <input name="bot-field" />
-                        </label>
-                    </p>
-                    <Stack>
-                        <div class="bg-blue-800/30 rounded-lg px-4 py-3 shadow">
-                            <Stack spacing="2">
-                                <Input id="name" label="Nom" placeholder="Dupont" required />
-                                <Input type="email" id="email" placeholder="john@doe.fr" label="Adresse e-mail" required />
-                                <Textarea id="message" label="Message" placeholder="Bonjour" required />
-                            </Stack>
+        <div class="py-2">
+            <Stack spacing="8">
+                <div class="mx-auto w-full xl:w-10/12">
+                    <form
+                        name="contact"
+                        method="POST"
+                        netlify-honeypot="bot-field"
+                        data-netlify="true"
+                    >
+                        <div
+                            class="dakr:bg-blue-800/30 rounded-lg bg-white p-4 shadow lg:p-6"
+                        >
+                            <input
+                                type="hidden"
+                                name="form-name"
+                                value="contact"
+                            />
+                            <p class="hidden">
+                                <label>
+                                    Don’t fill this out if you’re human:
+                                    <input name="bot-field" />
+                                </label>
+                            </p>
+                            <div
+                                class="grid gap-y-2 md:grid-cols-2 md:grid-rows-2 md:gap-x-4"
+                            >
+                                <Input
+                                    id="first_name"
+                                    label="Nom"
+                                    placeholder="Nom"
+                                    required
+                                />
+                                <Input
+                                    id="last_name"
+                                    label="Prénom"
+                                    placeholder="Prénom"
+                                    required
+                                />
+                                <Input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Email"
+                                    label="Adresse e-mail"
+                                    required
+                                />
+                                <Input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Numéro de téléphone"
+                                    label="Numéro de téléphone"
+                                />
+                                <div class="md:col-span-2">
+                                    <Textarea
+                                        id="message"
+                                        label="Message"
+                                        placeholder="Soyez le plus explicite possible afin de faciliter nos futurs échanges."
+                                        required
+                                    />
+                                </div>
+                                <div class="space-x-2 md:col-span-2">
+                                    <input
+                                        type="checkbox"
+                                        id="agree"
+                                        name="agree"
+                                    />
+                                    <label
+                                        for="agree"
+                                        class="text-gray-700 dark:text-gray-300"
+                                        >En acceptant la soumission de ce
+                                        formulaire, je consens à ce que les
+                                        données que j'ai fournies soient
+                                        utilisées dans le but de traiter ma
+                                        demande de contact et d'établir une
+                                        relation commerciale.</label
+                                    >
+                                </div>
+                                <div class="text-right md:col-span-2">
+                                    <Button type="submit">Envoyer</Button>
+                                </div>
+                            </div>
                         </div>
+                    </form>
+                </div>
 
-                        <div class="text-right">
-                            <Button type="submit">Envoyer</Button>
-                        </div>
+                <div
+                    class="grid grid-cols-1 gap-8 text-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-12"
+                >
+                    <Stack spacing="1">
+                        <Icon
+                            class="rounded-xl bg-blue-100 p-2 text-blue-400 dark:bg-blue-400 dark:text-blue-900"
+                            name="at"
+                            size="4xl"
+                        />
+                        <Text>Adresse e-mail</Text>
+                        <NuxtLink
+                            to="mailto:contact@guillaume-cazin.fr"
+                            class="block text-lg font-bold !text-blue-500 underline underline-offset-4 dark:!text-blue-700"
+                        >
+                            contact@guillaume-cazin.fr
+                        </NuxtLink>
                     </Stack>
-                </form>
-            </div>
-            <div class="flex-1 self-center">
-                <Stack spacing="8">
-                    <Stack>
-                        <div class="flex gap-2">
-                            <Icon name="at" size="xl" class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2" />
-                            <Text>contact@guillaume-cazin.fr</Text>
-                        </div>
-                        <div class="flex gap-2">
-                            <Icon name="call" size="xl" class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2" />
-                            <Text>06 10 85 42 18</Text>
-                        </div>
+                    <Stack spacing="1">
+                        <Icon
+                            class="rounded-xl bg-blue-100 p-2 text-blue-400 dark:bg-blue-400 dark:text-blue-900"
+                            name="call"
+                            size="4xl"
+                        />
+                        <Text>Téléphone</Text>
+                        <NuxtLink
+                            to="tel:0610854218"
+                            class="block text-lg font-bold !text-blue-500 underline underline-offset-4 dark:!text-blue-700"
+                        >
+                            06 10 85 42 18
+                        </NuxtLink>
                     </Stack>
-                    <div class="flex space-x-4">
-                        <a
-                            target="_blank"
-                            href="https://www.linkedin.com/in/guillaume-cazin/"
-                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                    <Stack spacing="1">
+                        <Icon
+                            class="rounded-xl bg-blue-100 p-2 text-blue-400 dark:bg-blue-400 dark:text-blue-900"
+                            name="time"
+                            size="4xl"
+                        />
+                        <Text>Horaires</Text>
+                        <Text
+                            class="font-bold !text-blue-500 dark:!text-blue-700"
                         >
-                            <Icon
-                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
-                                name="logo-linkedin"
-                                :outline="false"
-                                size="xl"
-                            />
-                            <span class="sr-only">LinkedIn</span>
-                        </a>
-                        <a
-                            target="_blank"
-                            href="http://github.com/gcazin"
-                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                            Du lundi au vendredi de 9h à 18h
+                        </Text>
+                    </Stack>
+                    <Stack spacing="1">
+                        <Icon
+                            class="rounded-xl bg-blue-100 p-2 text-blue-400 dark:bg-blue-400 dark:text-blue-900"
+                            name="business"
+                            size="4xl"
+                        />
+                        <Text>SIREN</Text>
+                        <Text
+                            class="font-bold !text-blue-500 dark:!text-blue-700"
                         >
-                            <Icon
-                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
-                                name="logo-github"
-                                :outline="false"
-                                size="xl"
-                            />
-                            <span class="sr-only">GitHub</span>
-                        </a>
-                        <a
-                            target="_blank"
-                            href="https://twitter.com/gcazinonx"
-                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                        >
-                            <Icon
-                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
-                                name="logo-twitter"
-                                :outline="false"
-                                size="xl"
-                            />
-                            <span class="sr-only">Twitter</span>
-                        </a>
-                        <a
-                            target="_blank"
-                            href="https://codepen.io/gcazin"
-                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                        >
-                            <Icon
-                                class="text-white bg-blue-500 dark:bg-blue-800 rounded-full p-2"
-                                name="logo-codepen"
-                                :outline="false"
-                                size="xl"
-                            />
-                            <span class="sr-only">Codepen</span>
-                        </a>
-                    </div>
-                </Stack>
-            </div>
+                            985 175 728
+                        </Text>
+                    </Stack>
+                </div>
+            </Stack>
         </div>
     </Section>
 
@@ -495,7 +540,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         class="fixed bottom-4 right-4 z-50"
     >
         <Button secondary @click="scrollToTop"
-        ><Icon name="chevron-up"
+            ><Icon name="chevron-up"
         /></Button>
     </div>
 </template>

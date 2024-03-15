@@ -18,7 +18,7 @@ const props = defineProps({
     },
     type: {
         type: String,
-        default: 'button'
+        default: 'button',
     },
     // Link
     isLink: {

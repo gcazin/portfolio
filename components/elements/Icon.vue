@@ -9,8 +9,8 @@ const props = defineProps({
     },
     size: {
         type: String,
-        default: 'md'
-    }
+        default: 'md',
+    },
 })
 
 const sizeClass = computed(() => {
