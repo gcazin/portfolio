@@ -398,7 +398,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                         data-netlify="true"
                     >
                         <div
-                            class="dakr:bg-blue-800/30 rounded-lg bg-white p-4 shadow lg:p-6"
+                            class="dark:bg-blue-800/30 rounded-lg bg-white p-4 shadow lg:p-6"
                         >
                             <input
                                 type="hidden"
