@@ -75,21 +75,22 @@ const removeAnchor = (url) => {
             >
                 <div class="lg:order-0 order-1 flex flex-1 flex-col gap-6">
                     <Text type="subtitle" class="font-bold uppercase"
-                        >👋, je suis</Text
+                    >👋, je suis</Text
                     >
                     <p
-                        class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl lg:leading-normal"
+                        class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl"
                     >
                         Guillaume
                     </p>
                     <Text type="subtitle" class="font-bold uppercase">
-                        Un freelance
+                        Un développeur web freelance
                         <span class="typed text-blue-500 dark:text-blue-600">{{
-                            typed
-                        }}</span>
+                                typed
+                            }}</span>
                     </Text>
-                    <div>
-                        <Button is-link to="cv">Voir mon cv</Button>
+                    <div class="space-x-2">
+                        <Button to="#introduction">Découvrir</Button>
+                        <Button type="ghost" to="cv">Voir mon CV</Button>
                     </div>
                 </div>
                 <div class="order-0 relative text-center lg:order-1">
@@ -205,9 +206,6 @@ const removeAnchor = (url) => {
                             </div>
                         </Animate>
                     </div>
-                    <Animate class="text-center">
-                        <Button is-link to="cv" secondary>Voir mon CV</Button>
-                    </Animate>
                 </div>
             </div>
         </div>
@@ -384,7 +382,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         id="contact"
         heading="Formulaire de contact"
         title="Une idée ou un projet en tête?"
-        description="Si vous avez des questions ou des préoccupations, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences et à mes intérêts."
+        description="Vous souhaiter en discuter ou simplement vous renseigner, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences."
         has-blob-background
         blob-background-is-inverted
     >
@@ -456,7 +454,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                     <label
                                         for="agree"
                                         class="text-gray-700 dark:text-gray-300"
-                                        >En acceptant la soumission de ce
+                                    >En acceptant la soumission de ce
                                         formulaire, je consens à ce que les
                                         données que j'ai fournies soient
                                         utilisées dans le but de traiter ma
@@ -540,7 +538,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         class="fixed bottom-4 right-4 z-50"
     >
         <Button secondary @click="scrollToTop"
-            ><Icon name="chevron-up"
+        ><Icon name="chevron-up"
         /></Button>
     </div>
 </template>

@@ -26,9 +26,9 @@ defineProps({
                     >
                 </NuxtLink>
                 <div class="flex space-x-4">
-                    <a
+                    <NuxtLink
                         target="_blank"
-                        href="https://www.linkedin.com/in/guillaume-cazin/"
+                        to="https://www.linkedin.com/in/guillaume-cazin/"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                     >
                         <Icon
@@ -37,10 +37,10 @@ defineProps({
                             :outline="false"
                         />
                         <span class="sr-only">LinkedIn</span>
-                    </a>
-                    <a
+                    </NuxtLink>
+                    <NuxtLink
                         target="_blank"
-                        href="http://github.com/gcazin"
+                        to="http://github.com/gcazin"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                     >
                         <Icon
@@ -49,10 +49,10 @@ defineProps({
                             :outline="false"
                         />
                         <span class="sr-only">GitHub</span>
-                    </a>
-                    <a
+                    </NuxtLink>
+                    <NuxtLink
                         target="_blank"
-                        href="https://twitter.com/gcazinonx"
+                        to="https://twitter.com/gcazinonx"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                     >
                         <Icon
@@ -61,10 +61,10 @@ defineProps({
                             :outline="false"
                         />
                         <span class="sr-only">Twitter</span>
-                    </a>
-                    <a
+                    </NuxtLink>
+                    <NuxtLink
                         target="_blank"
-                        href="https://codepen.io/gcazin"
+                        to="https://codepen.io/gcazin"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                     >
                         <Icon
@@ -73,7 +73,7 @@ defineProps({
                             :outline="false"
                         />
                         <span class="sr-only">Codepen</span>
-                    </a>
+                    </NuxtLink>
                 </div>
             </div>
             <hr
@@ -83,10 +83,10 @@ defineProps({
                 <span
                     class="text-sm text-gray-500 dark:text-gray-400 sm:text-center"
                     >© {{ new Date().getFullYear() }}
-                    <a
-                        href="https://guillaume-cazin.fr/"
+                    <NuxtLink
+                        to="https://guillaume-cazin.fr/"
                         class="hover:underline"
-                        >Guillaume Cazin™</a
+                        >Guillaume Cazin™</NuxtLink
                     >. Tous droits réservés.
                 </span>
                 <div class="flex gap-2">

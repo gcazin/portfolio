@@ -59,7 +59,7 @@ defineProps({
                         <Stack>
                             <Text type="heading">{{ heading }}</Text>
                             <Text type="title">{{ title }}</Text>
-                            <div class="container" v-if="description">
+                            <div v-if="description" class="container">
                                 <Text>{{ description }}</Text>
                             </div>
                         </Stack>

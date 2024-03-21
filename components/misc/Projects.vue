@@ -81,7 +81,7 @@ const projects = [
     },
     {
         image: 'pure-css-windows-10-desktop',
-        title: 'Pure CSS Windows 10 desktop',
+        title: 'Bureau Windows 10 en CSS',
         description: "Reproduction de l'interface de Windows 10 en HTML5/SCSS.",
         technologies: ['HTML5', 'SCSS'],
         url: 'https://codepen.io/gcazin/full/bKbMQW',
@@ -89,18 +89,30 @@ const projects = [
         category: 'resources',
     },
 ]
-const category = ref('all')
-const filteredProjects = ref([])
+const categories = [
+    {
+        label: 'Tout',
+        value: 'all',
+    },
+    {
+        label: 'Sites web',
+        value: 'website',
+    },
+    {
+        label: 'Applications web',
+        value: 'web-application',
+    },
+    {
+        label: 'Ressources',
+        value: 'resources',
+    }
+]
+const selectedCategory = ref('all')
+const filteredProjects = ref(projects)
 
-watch(category, (newCategory) => {
-    filteringProjects(newCategory)
-})
+const selectCategory = (category) => {
+    selectedCategory.value = category
 
-onMounted(() => {
-    filteredProjects.value = projects
-})
-
-const filteringProjects = (category) => {
     filteredProjects.value = projects
 
     if (!category || category !== 'all') {
@@ -117,40 +129,29 @@ const countProjectsByCategory = (category) => {
 
 <template>
     <Stack>
+        <!-- Filtering buttons -->
         <div
             class="flex flex-row flex-wrap justify-center gap-4 lg:grid-cols-3"
         >
             <Button
+                v-for="(category, index) in categories"
+                :key="index"
                 size="sm"
-                :secondary="category !== 'all'"
-                @click="category = 'all'"
+                :type="selectedCategory === category.value ? 'primary' : 'secondary'"
+                @click="selectCategory(category.value)"
             >
-                Tout ({{ projects.length }})
+                {{ category.label }}
+                ({{ category.value === 'all' ? projects.length : countProjectsByCategory(category.value) }})
             </Button>
-            <Button
-                :secondary="category !== 'website'"
-                size="sm"
-                @click="category = 'website'"
-            >
-                Site web ({{ countProjectsByCategory('website') }})
-            </Button>
-            <Button
-                :secondary="category !== 'web-application'"
-                size="sm"
-                @click="category = 'web-application'"
-            >
-                Application web ({{
-                    countProjectsByCategory('web-application')
-                }})
-            </Button>
-            <Button
-                :secondary="category !== 'resources'"
-                secondary
-                size="sm"
-                @click="category = 'resources'"
-            >
-                Ressources ({{ countProjectsByCategory('resources') }})
-            </Button>
+        </div>
+
+        <!-- Projects -->
+        <div>
+            <Text type="sub">
+                {{ filteredProjects.length }}
+                élémént{{ filteredProjects.length > 1 ? 's' : ''}}
+                affiché{{ filteredProjects.length > 1 ? 's' : ''}}
+            </Text>
         </div>
         <Stack spacing="8">
             <Animate
@@ -160,13 +161,13 @@ const countProjectsByCategory = (category) => {
                 :to="index % 2 === 0 ? 'right' : 'left'"
             >
                 <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
-                    <a :href="project.url">
+                    <NuxtLink :to="project.url" target="_blank">
                         <img
                             class="rounded-lg shadow-lg"
                             :src="`images/projects/${project.image}.webp`"
                             :alt="project.title"
                         />
-                    </a>
+                    </NuxtLink>
                 </div>
                 <div
                     class="flex w-full flex-col gap-1 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
@@ -176,23 +177,23 @@ const countProjectsByCategory = (category) => {
                         project.title
                     }}</Text>
                     <template v-if="project.url">
-                        <a
+                        <NuxtLink
                             class="break-all text-lg text-blue-500"
                             target="_blank"
-                            :href="project.url"
+                            :to="project.url"
                         >
-                            {{ project.url }} <Icon name="arrow-redo" />
-                        </a>
+                            {{ project.url }}
+                        </NuxtLink>
                     </template>
                     <template v-if="project.github">
-                        <a
+                        <NuxtLink
                             class="break-all text-lg text-blue-500"
                             target="_blank"
-                            :href="`https://github.com/gcazin/${project.github}`"
+                            :to="`https://github.com/gcazin/${project.github}`"
                         >
-                            gcazin/{{ project.github }}
                             <Icon name="logo-github" :outline="false" />
-                        </a>
+                            gcazin/{{ project.github }}
+                        </NuxtLink>
                     </template>
                     <Text type="text">{{ project.description }}</Text>
                     <Text class="font-bold">Technologies utilisés</Text>

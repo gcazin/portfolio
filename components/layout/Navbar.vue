@@ -91,12 +91,6 @@ const toggleTheme = () => {
         }
     }
 }
-
-const checkCurrentUrl = () => {
-    menuMobileVisible.value = false
-
-    anchorName.value = route.fullPath.replace('/', '')
-}
 </script>
 
 <template>
@@ -111,17 +105,17 @@ const checkCurrentUrl = () => {
                     <!-- Mobile menu button-->
                     <Button
                         @click="toggleNavbar"
-                        color="transparent"
+                        type="transparent"
                         class="!pl-0"
-                    >
-                        <Icon class="text-3xl" name="menu" />
-                    </Button>
+                        size="lg"
+                        icon="menu"
+                    ></Button>
                 </div>
                 <div class="lg:ml-0">
                     <NuxtLink to="/" class="flex items-center gap-2">
                         <img src="/favicon.png" class="w-10 xl:w-8" />
                         <Text class="hidden !pb-0 xl:block" type="subtitle"
-                            >Guillaume Cazin</Text
+                        >Guillaume Cazin</Text
                         >
                     </NuxtLink>
                 </div>
@@ -130,23 +124,13 @@ const checkCurrentUrl = () => {
                 >
                     <div class="relative ml-3">
                         <ul class="flex items-center space-x-4">
-                            <li v-for="item in items">
-                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a
-                                    @click="checkCurrentUrl()"
-                                    v-if="item.text !== 'Contact'"
-                                    :href="`/${item.url}`"
-                                    class="px-2 font-bold uppercase text-gray-800 transition-colors hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-600"
-                                    :class="{
-                                        'text-blue-500 dark:!text-blue-600':
-                                            anchorName === item.url,
-                                    }"
+                            <li v-for="(item, index) in items" :key="index">
+                                <NuxtLink
+                                    :to="item.url"
+                                    class="navbar-link px-2 font-bold uppercase text-gray-800 transition-colors hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-600"
                                 >
                                     {{ item.text }}
-                                </a>
-                                <Button v-else is-link to="cv">{{
-                                    item.text
-                                }}</Button>
+                                </NuxtLink>
                             </li>
                         </ul>
                     </div>
@@ -180,23 +164,21 @@ const checkCurrentUrl = () => {
             id="mobile-menu"
         >
             <div class="space-y-1 pb-3">
-                <template v-for="item in items">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a
-                        :href="`/${item.url}`"
-                        @click="checkCurrentUrl()"
-                        :class="{
-                            'bg-blue-500 text-white dark:bg-blue-800':
-                                anchorName === item.url,
-                        }"
-                        class="block rounded-md px-3 py-2 text-base font-medium dark:text-white"
-                    >
-                        {{ item.text }}
-                    </a>
-                </template>
+                <NuxtLink
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :to="item.url"
+                    class="navbar-link block rounded-md px-3 py-2 text-base font-bold dark:text-white"
+                >
+                    {{ item.text }}
+                </NuxtLink>
             </div>
         </div>
     </nav>
 </template>
 
-<style scoped></style>
+<style scoped>
+.navbar-link.router-link-active:focus {
+    @apply text-blue-500 dark:!text-blue-600;
+}
+</style>
