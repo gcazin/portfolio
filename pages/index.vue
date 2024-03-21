@@ -75,7 +75,7 @@ const removeAnchor = (url) => {
             >
                 <div class="lg:order-0 order-1 flex flex-1 flex-col gap-6">
                     <Text type="subtitle" class="font-bold uppercase"
-                    >👋, je suis</Text
+                        >👋, je suis</Text
                     >
                     <p
                         class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl"
@@ -85,8 +85,8 @@ const removeAnchor = (url) => {
                     <Text type="subtitle" class="font-bold uppercase">
                         Un développeur web freelance
                         <span class="typed text-blue-500 dark:text-blue-600">{{
-                                typed
-                            }}</span>
+                            typed
+                        }}</span>
                     </Text>
                     <div class="space-x-2">
                         <Button to="#introduction">Découvrir</Button>
@@ -396,7 +396,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                         data-netlify="true"
                     >
                         <div
-                            class="dark:bg-blue-800/30 rounded-lg bg-white p-4 shadow lg:p-6"
+                            class="rounded-lg bg-white p-4 shadow dark:bg-blue-800/30 lg:p-6"
                         >
                             <input
                                 type="hidden"
@@ -454,7 +454,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                     <label
                                         for="agree"
                                         class="text-gray-700 dark:text-gray-300"
-                                    >En acceptant la soumission de ce
+                                        >En acceptant la soumission de ce
                                         formulaire, je consens à ce que les
                                         données que j'ai fournies soient
                                         utilisées dans le but de traiter ma
@@ -538,7 +538,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         class="fixed bottom-4 right-4 z-50"
     >
         <Button secondary @click="scrollToTop"
-        ><Icon name="chevron-up"
+            ><Icon name="chevron-up"
         /></Button>
     </div>
 </template>

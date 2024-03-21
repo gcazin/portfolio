@@ -26,7 +26,8 @@ const props = defineProps({
 const buttonColor = () => {
     return {
         primary: 'bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800',
-        secondary: 'bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-800',
+        secondary:
+            'bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-800',
         ghost: 'border border-transparent text-blue-600 hover:bg-blue-100 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:bg-blue-800/30 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600',
         transparent: 'bg-transparent text-black dark:text-white',
     }[props.type]
@@ -64,7 +65,7 @@ const buttonSize = () => {
     <component
         :is="to ? 'a' : 'button'"
         v-bind:href="to ? to : ''"
-        class="inline-block rounded font-semibold leading-7 text-white transition-all duration-250 uppercase"
+        class="duration-250 inline-block rounded font-semibold uppercase leading-7 text-white transition-all"
         :class="[
             buttonColor(),
             {

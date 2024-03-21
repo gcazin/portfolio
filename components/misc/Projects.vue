@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { ref } from 'vue'
 import Badge from '../elements/Badge.vue'
 import Button from '../elements/Button.vue'
 import Icon from '../elements/Icon.vue'
@@ -105,7 +105,7 @@ const categories = [
     {
         label: 'Ressources',
         value: 'resources',
-    }
+    },
 ]
 const selectedCategory = ref('all')
 const filteredProjects = ref(projects)
@@ -137,11 +137,19 @@ const countProjectsByCategory = (category) => {
                 v-for="(category, index) in categories"
                 :key="index"
                 size="sm"
-                :type="selectedCategory === category.value ? 'primary' : 'secondary'"
+                :type="
+                    selectedCategory === category.value
+                        ? 'primary'
+                        : 'secondary'
+                "
                 @click="selectCategory(category.value)"
             >
                 {{ category.label }}
-                ({{ category.value === 'all' ? projects.length : countProjectsByCategory(category.value) }})
+                ({{
+                    category.value === 'all'
+                        ? projects.length
+                        : countProjectsByCategory(category.value)
+                }})
             </Button>
         </div>
 
@@ -149,8 +157,9 @@ const countProjectsByCategory = (category) => {
         <div>
             <Text type="sub">
                 {{ filteredProjects.length }}
-                élémént{{ filteredProjects.length > 1 ? 's' : ''}}
-                affiché{{ filteredProjects.length > 1 ? 's' : ''}}
+                élémént{{ filteredProjects.length > 1 ? 's' : '' }} affiché{{
+                    filteredProjects.length > 1 ? 's' : ''
+                }}
             </Text>
         </div>
         <Stack spacing="8">

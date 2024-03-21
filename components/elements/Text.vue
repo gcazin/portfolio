@@ -30,8 +30,10 @@ const tagType = computed(() => {
                 type === 'subtitle',
             'text-base leading-loose text-gray-800 dark:text-gray-200 lg:text-lg':
                 type === 'text',
-            'text-sm lg:text-base text-gray-600 dark:text-gray-400': type === 'sub',
-            'text-xs lg:text-sm text-gray-600 dark:text-gray-400': type === 'xs',
+            'text-sm text-gray-600 dark:text-gray-400 lg:text-base':
+                type === 'sub',
+            'text-xs text-gray-600 dark:text-gray-400 lg:text-sm':
+                type === 'xs',
         }"
     >
         <slot></slot>
