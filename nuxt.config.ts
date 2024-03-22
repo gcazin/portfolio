@@ -1,9 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    site: {
-        url: 'https://guillaume-cazin.fr',
-        name: 'Guillaume Cazin',
-    },
     app: {
         head: {
             charset: 'utf-8',
@@ -35,7 +31,11 @@ export default defineNuxtConfig({
             ],
         },
     },
-    devtools: { enabled: false },
+    colorMode: {
+        classSuffix: '',
+    },
+    css: ['~/assets/css/main.css'],
+    devtools: {enabled: false},
     modules: [
         '@nuxtjs/tailwindcss',
         'nuxt-aos',
@@ -43,9 +43,14 @@ export default defineNuxtConfig({
         '@nuxtjs/sitemap',
         '@nuxtjs/color-mode',
     ],
-    css: ['~/assets/css/main.css'],
-    colorMode: {
-        classSuffix: '',
+    routeRules: {
+        '/contact-submission': {
+            robots: false,
+        }
+    },
+    site: {
+        url: 'https://guillaume-cazin.fr',
+        name: 'Guillaume Cazin',
     },
     vue: {
         compilerOptions: {
