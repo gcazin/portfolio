@@ -27,31 +27,10 @@ const items = [
     },
 ]
 const menuMobileVisible = ref(false)
-const iconTheme = ref('moon')
 
 const toggleNavbar = () => {
     menuMobileVisible.value = !menuMobileVisible.value
 }
-
-const toggleTheme = () => {
-    if (typeof localStorage !== 'undefined') {
-        const theme = localStorage.getItem('theme')
-
-        if (theme) {
-            if (theme === 'light') {
-                setTheme('dark')
-                document.documentElement.classList.add('dark')
-            } else {
-                setTheme('light')
-                document.documentElement.classList.remove('dark')
-            }
-        }
-    }
-}
-
-const colorMode = useColorMode()
-const onClick = () =>
-    (colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light')
 </script>
 
 <template>
@@ -100,7 +79,7 @@ const onClick = () =>
             <div class="absolute right-8 top-5 lg:top-1/4 lg:h-full">
                 <button
                     class="flex gap-2 rounded-xl bg-gray-100 dark:bg-gray-900"
-                    @click="onClick()"
+                    @click="$colorMode.preference = $colorMode.value === 'light' ? 'dark' : 'light'"
                 >
                     <Icon
                         v-if="$colorMode.value === 'light'"

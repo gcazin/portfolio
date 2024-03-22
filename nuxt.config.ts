@@ -40,8 +40,8 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         'nuxt-aos',
         '@nuxt/image',
-        '@nuxtjs/color-mode',
         '@nuxtjs/sitemap',
+        '@nuxtjs/color-mode',
     ],
     css: ['~/assets/css/main.css'],
     colorMode: {
