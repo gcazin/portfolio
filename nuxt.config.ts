@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         },
     },
     devtools: { enabled: false },
-    modules: ['@nuxtjs/tailwindcss', 'nuxt-aos'],
+    modules: ['@nuxtjs/tailwindcss', 'nuxt-aos', "@nuxt/image"],
     css: ['~/assets/css/main.css'],
     vue: {
         compilerOptions: {

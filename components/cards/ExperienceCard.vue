@@ -46,7 +46,7 @@ defineProps({
                     <div class="flex flex-col gap-2 lg:px-4">
                         <Text type="subtitle">{{ job }}</Text>
                         <Text v-if="company"
-                            ><img
+                            ><NuxtImg
                                 v-if="image"
                                 class="mr-2 inline w-6"
                                 :src="`/images/companies/${image}`"

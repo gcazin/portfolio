@@ -43,7 +43,7 @@ defineProps({
     >
         <div class="overflow-hidden" v-if="!hasBackground">
             <div class="invisible absolute -bottom-20 z-10 lg:visible">
-                <img src="/images/misc/blob-tear.svg" class="w-40" alt="" />
+                <NuxtImg src="/images/misc/blob-tear.svg" class="w-40" alt="" />
             </div>
         </div>
         <BlobBackground
@@ -73,7 +73,7 @@ defineProps({
         </Container>
         <div v-if="hasBackground" class="overflow-hidden">
             <div class="invisible absolute -bottom-20 right-0 z-10 lg:visible">
-                <img src="/images/misc/blob-tear.svg" class="w-40" alt="" />
+                <NuxtImg src="/images/misc/blob-tear.svg" class="w-40" alt="" />
             </div>
         </div>
     </section>

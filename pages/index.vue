@@ -75,8 +75,7 @@ const removeAnchor = (url) => {
             >
                 <div class="lg:order-0 order-1 flex flex-1 flex-col gap-6">
                     <Text type="subtitle" class="font-bold uppercase"
-                        >👋, je suis</Text
-                    >
+                        >👋, je suis</Text>
                     <p
                         class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl"
                     >
@@ -94,17 +93,17 @@ const removeAnchor = (url) => {
                     </div>
                 </div>
                 <div class="order-0 relative text-center lg:order-1">
-                    <img
+                    <NuxtImg
                         src="/images/misc/blob-tear.svg"
                         class="absolute -bottom-12 -left-10 -z-10 w-40"
                         alt="Background"
                     />
-                    <img
+                    <NuxtImg
                         src="/images/misc/avatar.webp"
                         class="avatar-background m-auto w-40 rounded-br-3xl rounded-tl-3xl lg:w-80"
                         alt="Avatar"
                     />
-                    <img
+                    <NuxtImg
                         src="/images/misc/blob-tear.svg"
                         class="absolute -right-10 -top-12 -z-10 w-40"
                         alt="Background"
@@ -537,7 +536,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         v-if="scrollTop > scrollTopPositionButtonAppear"
         class="fixed bottom-4 right-4 z-50"
     >
-        <Button secondary @click="scrollToTop"
+        <Button type="secondary" @click="scrollToTop"
             ><Icon name="chevron-up"
         /></Button>
     </div>

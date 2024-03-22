@@ -40,7 +40,7 @@ const references = [
             :key="index"
             :full="false"
         >
-            <img
+            <NuxtImg
                 :src="`/images/references/${reference.image}.webp`"
                 class="m-auto w-32 lg:text-inherit"
                 :alt="reference.name"

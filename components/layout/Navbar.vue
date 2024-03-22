@@ -113,7 +113,7 @@ const toggleTheme = () => {
                 </div>
                 <div class="lg:ml-0">
                     <NuxtLink to="/" class="flex items-center gap-2">
-                        <img src="/favicon.png" class="w-10 xl:w-8" />
+                        <NuxtImg src="/favicon.png" class="w-10 xl:w-8" />
                         <Text class="hidden !pb-0 xl:block" type="subtitle"
                             >Guillaume Cazin</Text
                         >

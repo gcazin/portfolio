@@ -150,7 +150,7 @@ onMounted(() => {
                 <Button class="mb-4 text-center">Version PDF</Button>
             </a>
             <div class="block lg:hidden">
-                <img
+                <NuxtImg
                     src="/images/misc/cv.webp"
                     class="w-full"
                     type="application/pdf"
@@ -165,17 +165,17 @@ onMounted(() => {
                 <div class="mt-4 flex items-center gap-x-8">
                     <div class="mr-4">
                         <div class="relative hidden text-center lg:block">
-                            <img
+                            <NuxtImg
                                 src="/images/misc/blob-tear.svg"
                                 class="absolute -bottom-2 -left-2 w-20"
                                 alt="Background"
                             />
-                            <img
+                            <NuxtImg
                                 src="/images/misc/avatar.webp"
                                 class="relative z-30 m-auto w-52 rounded-br-3xl rounded-tl-3xl bg-gray-50"
                                 alt="Avatar"
                             />
-                            <img
+                            <NuxtImg
                                 src="/images/misc/blob-tear.svg"
                                 class="absolute -right-2 -top-2 w-20"
                                 alt="Background"

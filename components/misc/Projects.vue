@@ -171,7 +171,7 @@ const countProjectsByCategory = (category) => {
             >
                 <div :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
                     <NuxtLink :to="project.url" target="_blank">
-                        <img
+                        <NuxtImg
                             class="rounded-lg shadow-lg"
                             :src="`images/projects/${project.image}.webp`"
                             :alt="project.title"
