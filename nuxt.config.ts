@@ -32,8 +32,16 @@ export default defineNuxtConfig({
         },
     },
     devtools: { enabled: false },
-    modules: ['@nuxtjs/tailwindcss', 'nuxt-aos', '@nuxt/image'],
+    modules: [
+        '@nuxtjs/tailwindcss',
+        'nuxt-aos',
+        '@nuxt/image',
+        '@nuxtjs/color-mode',
+    ],
     css: ['~/assets/css/main.css'],
+    colorMode: {
+        classSuffix: '',
+    },
     vue: {
         compilerOptions: {
             isCustomElement: (tag) => tag.startsWith('ion-'),

@@ -17,6 +17,10 @@ defineProps({
     description: {
         type: String,
     },
+    fullSize: {
+        type: Boolean,
+        default: false,
+    },
     hasBackground: {
         type: Boolean,
         default: false,
@@ -39,6 +43,7 @@ defineProps({
         :class="{
             'bg-slate-100 dark:bg-[#0B1120]/95': hasBackground,
             'bg-slate-50 dark:bg-[#0B1120]': !hasBackground,
+            'h-screen': fullSize,
         }"
     >
         <div class="overflow-hidden" v-if="!hasBackground">

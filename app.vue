@@ -1,5 +1,4 @@
 <template>
-    <NuxtLoadingIndicator />
     <Head>
         <Meta
             name="description"

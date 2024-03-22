@@ -1,14 +1,10 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import Button from '../elements/Button.vue'
 import Icon from '../elements/Icon.vue'
 import Text from '../elements/Text.vue'
 
 const items = [
-    {
-        url: '#hero',
-        text: 'Accueil',
-    },
     {
         url: '#introduction',
         text: 'À propos',
@@ -32,48 +28,9 @@ const items = [
 ]
 const menuMobileVisible = ref(false)
 const iconTheme = ref('moon')
-const anchorName = ref('')
-const route = useRoute()
-
-onMounted(() => {
-    setDefaultTheme()
-})
 
 const toggleNavbar = () => {
     menuMobileVisible.value = !menuMobileVisible.value
-}
-
-const getTheme = () => {
-    if (typeof localStorage !== 'undefined') {
-        return localStorage.getItem('theme')
-    }
-}
-
-const setTheme = (theme) => {
-    if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('theme', theme)
-
-        if (getTheme() === 'dark') {
-            iconTheme.value = 'sunny'
-        } else {
-            iconTheme.value = 'moon'
-        }
-    }
-}
-const setDefaultTheme = () => {
-    if (typeof localStorage !== 'undefined') {
-        if (
-            localStorage.theme === 'dark' ||
-            (!('theme' in localStorage) &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches)
-        ) {
-            document.documentElement.classList.add('dark')
-            setTheme('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-            setTheme('light')
-        }
-    }
 }
 
 const toggleTheme = () => {
@@ -91,6 +48,10 @@ const toggleTheme = () => {
         }
     }
 }
+
+const colorMode = useColorMode()
+const onClick = () =>
+    (colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light')
 </script>
 
 <template>
@@ -139,18 +100,18 @@ const toggleTheme = () => {
             <div class="absolute right-8 top-5 lg:top-1/4 lg:h-full">
                 <button
                     class="flex gap-2 rounded-xl bg-gray-100 dark:bg-gray-900"
-                    @click="toggleTheme()"
+                    @click="onClick()"
                 >
                     <Icon
-                        v-if="getTheme() === 'light'"
+                        v-if="$colorMode.value === 'light'"
                         class="cursor-pointer rounded-lg bg-gray-100 p-1 px-2 py-1.5 text-xl text-gray-500 hover:bg-gray-300 dark:bg-gray-300"
-                        :name="iconTheme"
+                        name="moon"
                         :outline="false"
                     ></Icon>
                     <Icon
                         v-else
                         class="cursor-pointer rounded-lg bg-yellow-50 p-1 px-2 py-1.5 text-xl text-yellow-500 dark:bg-gray-700"
-                        :name="iconTheme"
+                        name="sunny"
                         :outline="false"
                     ></Icon>
                 </button>
