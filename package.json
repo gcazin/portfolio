@@ -13,6 +13,7 @@
     "dependencies": {
         "nuxt": "^3.10.3",
         "puppeteer": "^22.6.0",
+        "sharp": "^0.33.2",
         "typed.js": "^2.1.0",
         "vue": "^3.4.21",
         "vue-router": "^4.3.0"
