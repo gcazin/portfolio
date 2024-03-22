@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    site: {
+        url: 'https://guillaume-cazin.fr',
+        name: 'Guillaume Cazin',
+    },
     app: {
         head: {
             charset: 'utf-8',
@@ -37,6 +41,7 @@ export default defineNuxtConfig({
         'nuxt-aos',
         '@nuxt/image',
         '@nuxtjs/color-mode',
+        '@nuxtjs/sitemap',
     ],
     css: ['~/assets/css/main.css'],
     colorMode: {

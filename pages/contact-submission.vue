@@ -4,6 +4,11 @@ import Button from '~/components/elements/Button.vue'
 import Text from '~/components/elements/Text.vue'
 import Section from '~/components/layout/Section.vue'
 import Stack from '~/components/layout/Stack.vue'
+import {defineRouteRules} from "nuxt/dist/pages/runtime/index.js";
+
+defineRouteRules({
+    robots: false,
+})
 
 onBeforeMount(() => {
     if (window.scrollY) {
