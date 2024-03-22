@@ -75,7 +75,8 @@ const removeAnchor = (url) => {
             >
                 <div class="lg:order-0 order-1 flex flex-1 flex-col gap-6">
                     <Text type="subtitle" class="font-bold uppercase"
-                        >👋, je suis</Text>
+                        >👋, je suis</Text
+                    >
                     <p
                         class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl"
                     >
