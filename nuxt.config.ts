@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         classSuffix: '',
     },
     css: ['~/assets/css/main.css'],
-    devtools: {enabled: false},
+    devtools: { enabled: false },
     modules: [
         '@nuxtjs/tailwindcss',
         'nuxt-aos',
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     routeRules: {
         '/contact-submission': {
             robots: false,
-        }
+        },
     },
     site: {
         url: 'https://guillaume-cazin.fr',

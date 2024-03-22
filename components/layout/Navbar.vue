@@ -53,7 +53,11 @@ const toggleNavbar = () => {
                 </div>
                 <div class="lg:ml-0">
                     <NuxtLink to="/" class="flex items-center gap-2">
-                        <NuxtImg src="/favicon.png" class="w-10 xl:w-8" />
+                        <NuxtImg
+                            src="/favicon.png"
+                            class="w-10 xl:w-8"
+                            alt="Logo Guillaume Cazin"
+                        />
                         <Text class="hidden !pb-0 xl:block" type="subtitle"
                             >Guillaume Cazin</Text
                         >
@@ -79,7 +83,10 @@ const toggleNavbar = () => {
             <div class="absolute right-8 top-5 lg:top-1/4 lg:h-full">
                 <button
                     class="flex gap-2 rounded-xl bg-gray-100 dark:bg-gray-900"
-                    @click="$colorMode.preference = $colorMode.value === 'light' ? 'dark' : 'light'"
+                    @click="
+                        $colorMode.preference =
+                            $colorMode.value === 'light' ? 'dark' : 'light'
+                    "
                 >
                     <Icon
                         v-if="$colorMode.value === 'light'"

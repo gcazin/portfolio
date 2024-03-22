@@ -12,7 +12,8 @@ onBeforeMount(() => {
 })
 
 onMounted(() => {
-    document.title = 'Message envoyé - Guillaume Cazin - Développeur web freelance'
+    document.title =
+        'Message envoyé - Guillaume Cazin - Développeur web freelance'
 })
 </script>
 
