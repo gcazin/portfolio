@@ -429,13 +429,13 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                 <Input
                                     type="email"
                                     id="email"
-                                    placeholder="Email"
+                                    placeholder="Adresse e-mail"
                                     label="Adresse e-mail"
                                     required
                                 />
                                 <Input
-                                    type="email"
-                                    id="email"
+                                    type="tel"
+                                    id="telephone"
                                     placeholder="Numéro de téléphone"
                                     label="Numéro de téléphone"
                                 />
