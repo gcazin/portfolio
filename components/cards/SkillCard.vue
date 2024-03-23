@@ -36,7 +36,7 @@ defineProps({
                 :name="`${icon}-outline`"
             ></ion-icon>
             <Text type="subtitle">{{ title }}</Text>
-            <div class="mb-2 grid grid-cols-2 gap-x-5 gap-y-2">
+            <div class="mb-2 grid grid-cols-2 gap-x-5 gap-y-2 pb-4 lg:pb-0">
                 <template v-for="(skill, index) in skills" :key="index">
                     <Text :class="index % 2 ? 'text-left' : 'text-right'">{{
                         skill
