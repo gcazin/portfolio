@@ -52,7 +52,7 @@ export default defineNuxtConfig({
         },
     },
     site: {
-        url: 'https://guillaume-cazin.fr',
+        url: 'https://www.guillaume-cazin.fr',
         name: 'Guillaume Cazin',
     },
     vue: {

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /contact-submission
 
-Sitemap: https://guillaume-cazin.fr/sitemap.xml
+Sitemap: https://www.guillaume-cazin.fr/sitemap.xml
