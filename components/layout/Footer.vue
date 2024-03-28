@@ -84,7 +84,7 @@ defineProps({
                     class="text-sm text-gray-500 dark:text-gray-400 sm:text-center"
                     >© {{ new Date().getFullYear() }}
                     <NuxtLink
-                        to="https://guillaume-cazin.fr/"
+                        to="https://www.guillaume-cazin.fr/"
                         class="hover:underline"
                         >Guillaume Cazin™</NuxtLink
                     >. Tous droits réservés.

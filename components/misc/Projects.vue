@@ -30,7 +30,7 @@ const projects = [
         description: 'Création de mon portfolio.',
         technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
         github: 'portfolio',
-        url: 'https://guillaume-cazin.fr',
+        url: 'https://www.guillaume-cazin.fr',
         category: 'website',
     },
     {

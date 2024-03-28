@@ -13,7 +13,7 @@ const infos = {
     socials: [
         {
             label: 'guillaume-cazin.fr',
-            url: 'https://guillaume-cazin.fr/',
+            url: 'https://www.guillaume-cazin.fr/',
             icon: 'link-outline',
         },
         {
