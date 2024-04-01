@@ -100,7 +100,7 @@ const removeAnchor = (url) => {
                         alt="Background"
                     />
                     <NuxtImg
-                        src="/images/misc/avatar-2.png"
+                        src="/images/misc/avatar.webp"
                         class="avatar-background m-auto w-52 rounded-br-3xl rounded-tl-3xl lg:w-80"
                         alt="Avatar"
                     />
