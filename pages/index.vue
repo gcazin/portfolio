@@ -100,8 +100,8 @@ const removeAnchor = (url) => {
                         alt="Background"
                     />
                     <NuxtImg
-                        src="/images/misc/avatar.webp"
-                        class="avatar-background m-auto w-40 rounded-br-3xl rounded-tl-3xl lg:w-80"
+                        src="/images/misc/avatar-2.png"
+                        class="avatar-background m-auto w-52 rounded-br-3xl rounded-tl-3xl lg:w-80"
                         alt="Avatar"
                     />
                     <NuxtImg
@@ -126,19 +126,26 @@ const removeAnchor = (url) => {
             <div class="m-auto gap-4 text-left lg:flex lg:flex-col">
                 <div class="space-y-4 lg:space-y-8">
                     <div class="flex-1">
-                        <Animate type="zoom" to="in">
+                        <Animate type="zoom" to="in" class="space-y-2">
                             <Text>
-                                Passionné et autodidacte depuis plus de 12 ans
-                                dans le développement web, je me suis spécialisé
-                                en PHP, notamment avec le framework Laravel, et
-                                je suis très à l'aise en JS, en particulier avec
-                                VueJS.
+                                Passionné, autodidacte depuis plus de 12 ans, et
+                                fort d'une expérience de plus de 3 ans en
+                                entreprise, je me suis spécialisé en PHP, avec
+                                le framework Laravel, et en JavaScript, en
+                                particulier avec VueJS.
                             </Text>
                             <Text>
                                 J'ai travaillé sur divers projets, allant de
                                 sites web pour petites entreprises à des
                                 plateformes spécifiques pour de grandes
                                 entreprises.
+                            </Text>
+                            <Text>
+                                Je porte une attention toute particulière à la
+                                création de sites internet responsive compatible
+                                mobile (Android, Iphone, Tablette...), facile à
+                                prendre en main, avec une base de conception
+                                maintenable et à jour.
                             </Text>
                         </Animate>
                     </div>
