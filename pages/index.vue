@@ -171,7 +171,7 @@ const removeAnchor = (url) => {
                                     name="mail"
                                     class="mr-2 font-bold text-blue-500"
                                 />
-                                czn.guillaume[at]gmail[dot]com
+                                contact[at]guillaume-cazin[dot]fr
                             </Text>
                             <Text>
                                 <Icon
@@ -179,7 +179,7 @@ const removeAnchor = (url) => {
                                     name="speedometer"
                                     class="mr-2 font-bold text-blue-500"
                                 />
-                                Niveau confirmé (2 ans d'exp.)
+                                Niveau confirmé (3 ans d'exp.)
                             </Text>
                             <Text>
                                 <Icon
@@ -233,7 +233,7 @@ const removeAnchor = (url) => {
     <!-- Expériences -->
     <Section
         id="experiences"
-        heading="Formations & diplômes"
+        heading="Parcours professionnels et scolaires"
         title="Expériences"
         has-background
     >
@@ -245,6 +245,7 @@ const removeAnchor = (url) => {
                     ></div>
                     <div class="space-y-8">
                         <ExperienceCard
+                            image="guillaume-cazin.webp"
                             job="Développeur web freelance"
                             period="Freelance (Mars. 2024 - Aujourd'hui)"
                             :technologies="[
@@ -280,7 +281,7 @@ const removeAnchor = (url) => {
                             image="armatis.webp"
                             job="Stage en développement web"
                             company="Armatis"
-                            period="2020"
+                            period="Avr. 2020 - Juin 2020"
                             description="Développement d'une application mobile qui vise à simplifier les repas entre collègues. Cette application, développée en React Native, permet aux utilisateurs de s'organiser facilement pour les repas en groupe, que ce soit au bureau ou en déplacement.
 La partie API de l'application a été écrite en PHP avec le framework Lumen, ce qui lui permet d'être rapide et fiable. L'application est conçue pour être facile à utiliser et intuitive.
 Les utilisateurs peuvent créer des événements de repas en quelques minutes seulement, et inviter leurs collègues."
@@ -294,19 +295,9 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                             ]"
                         />
                         <ExperienceCard
-                            image="echinghen.webp"
-                            job="Stage en développement web"
-                            company="Commune d'Échinghen"
-                            period="2018"
-                            description="Développement d'un site web vitrine pour une mairie. Conçu en PHP, ce site est destiné à être une plateforme en ligne pour la mairie, offrant aux citoyens un accès facile à des informations importantes sur les services municipaux et les événements en cours."
-                            :technologies="['HTML5', 'CSS3', 'PHP']"
-                            right
-                        />
-                        <ExperienceCard
-                            image="armatis.webp"
                             company="Mesconcierges"
                             job="Stage en développement web"
-                            period="Nov. 2020 - Nov. 2022"
+                            period="Mai 2019 - Juil. 2019"
                             description="Développement d'un site web avec le framework Cocorico basé sur Symfony, qui offre aux utilisateurs une plateforme en ligne pour gérer les services de conciergerie dans leurs locations."
                             :technologies="[
                                 'HTML5',
@@ -314,6 +305,15 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                 'Symfony',
                                 'Framework Cocorico',
                             ]"
+                            right
+                        />
+                        <ExperienceCard
+                            image="echinghen.webp"
+                            job="Stage en développement web"
+                            company="Commune d'Échinghen"
+                            period="Mai 2018 - Juil. 2018"
+                            description="Développement d'un site web vitrine pour une mairie. Conçu en PHP, ce site est destiné à être une plateforme en ligne pour la mairie, offrant aux citoyens un accès facile à des informations importantes sur les services municipaux et les événements en cours."
+                            :technologies="['HTML5', 'CSS3', 'PHP']"
                         />
                     </div>
                 </div>
