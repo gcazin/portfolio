@@ -172,7 +172,7 @@ onMounted(() => {
                             />
                             <NuxtImg
                                 src="/images/misc/avatar.webp"
-                                class="relative z-30 m-auto w-52 rounded-br-3xl rounded-tl-3xl bg-gray-50"
+                                class="relative z-30 m-auto w-60 rounded-br-3xl rounded-tl-3xl bg-gray-50"
                                 alt="Avatar"
                             />
                             <NuxtImg

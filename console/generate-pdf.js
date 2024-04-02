@@ -2,11 +2,11 @@ import puppeteer from 'puppeteer'
 ;(async () => {
     console.info('Commencement de la génération...')
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
     })
     const page = await browser.newPage()
     await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 })
-    await page.goto('http://localhost:5173/cv', { waitUntil: 'networkidle2' })
+    await page.goto('http://localhost:3000/cv', { waitUntil: 'networkidle2' })
     await page.$eval('nav', (el) => el.remove())
     await page.waitForSelector('#cv')
     const overlay = await page.$('#cv')
