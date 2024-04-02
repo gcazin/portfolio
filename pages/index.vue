@@ -247,6 +247,7 @@ const removeAnchor = (url) => {
                         <ExperienceCard
                             image="guillaume-cazin.webp"
                             job="Développeur web freelance"
+                            company="Guillaume Cazin"
                             period="Freelance (Mars. 2024 - Aujourd'hui)"
                             :technologies="[
                                 'HTML5',
