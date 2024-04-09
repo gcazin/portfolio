@@ -10,7 +10,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <Section title="Politique de confidentialité" class="pt-16 lg:pt-0">
+    <Section
+        title="Politique de confidentialité"
+        title-selector="h1"
+        class="pt-16 lg:pt-0"
+    >
         <div class="space-y-4">
             <Text>
                 Le site web www.guillaume-cazin.fr est détenu par Guillaume

@@ -1,5 +1,8 @@
 <script setup>
 const props = defineProps({
+    selector: {
+        type: String,
+    },
     type: {
         type: String,
         default: 'text',
@@ -21,7 +24,7 @@ const tagType = computed(() => {
 
 <template>
     <component
-        :is="tagType"
+        :is="selector ?? tagType"
         :class="{
             'font-bold uppercase text-blue-500': type === 'heading',
             'text-3xl font-bold leading-tight dark:text-white lg:text-4xl':

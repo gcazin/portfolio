@@ -40,9 +40,12 @@ defineProps({
                     ></circle>
                 </svg>
             </div>
-            <Text class="text-blue-500 group-hover:text-white" type="title">{{
-                title
-            }}</Text>
+            <Text
+                selector="span"
+                class="text-blue-500 group-hover:text-white"
+                type="title"
+                >{{ title }}</Text
+            >
             <p class="text-xl group-hover:text-white dark:text-gray-100">
                 {{ description }}
             </p>

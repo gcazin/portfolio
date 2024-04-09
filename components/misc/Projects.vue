@@ -192,7 +192,7 @@ const countProjectsByCategory = (category) => {
                     class="flex w-full flex-col gap-1 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
                     :class="index % 2 === 0 ? 'order-1' : 'order-0'"
                 >
-                    <Text type="title" class="dark:text-white">{{
+                    <Text selector="h3" type="title" class="dark:text-white">{{
                         project.title
                     }}</Text>
                     <template v-if="project.url">

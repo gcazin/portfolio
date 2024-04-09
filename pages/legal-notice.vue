@@ -9,7 +9,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Section title="Mentions légales" class="pt-16 lg:pt-0">
+    <Section title="Mentions légales" title-selector="h1" class="pt-16 lg:pt-0">
         <div class="space-y-4">
             <Text>
                 Conformément aux dispositions de la loi n° 2004-575 du 21 juin

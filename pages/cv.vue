@@ -144,7 +144,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Section title="CV" id="hero">
+    <Section title="CV" title-selector="h1" id="hero">
         <div class="mx-auto max-w-4xl">
             <a href="/images/misc/cv-guillaume-cazin.pdf" download>
                 <Button class="mb-4 text-center">Version PDF</Button>

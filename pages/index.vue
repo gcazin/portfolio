@@ -73,25 +73,37 @@ const removeAnchor = (url) => {
             <div
                 class="container mx-auto flex h-full max-w-7xl flex-col items-center gap-24 lg:flex-row lg:gap-0"
             >
-                <div class="lg:order-0 order-1 flex flex-1 flex-col gap-6">
-                    <Text type="subtitle" class="font-bold uppercase"
-                        >👋, je suis</Text
-                    >
-                    <p
-                        class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl"
-                    >
-                        Guillaume
-                    </p>
-                    <Text type="subtitle" class="font-bold uppercase">
-                        Un développeur web freelance
-                        <span class="typed text-blue-500 dark:text-blue-600">{{
-                            typed
-                        }}</span>
-                    </Text>
-                    <div class="space-x-2">
-                        <Button to="#introduction">Découvrir</Button>
-                        <Button type="ghost" to="cv">Voir mon CV</Button>
-                    </div>
+                <div class="lg:order-0 order-1 flex-1">
+                    <Stack spacing="8">
+                        <h1 class="flex flex-1 flex-col gap-6">
+                            <Text
+                                selector="span"
+                                type="subtitle"
+                                class="font-bold uppercase"
+                                >👋, je suis</Text
+                            >
+                            <span
+                                class="text-7xl font-extrabold tracking-tight text-blue-500 dark:text-blue-700 lg:text-8xl"
+                            >
+                                Guillaume
+                            </span>
+                            <Text
+                                selector="span"
+                                type="subtitle"
+                                class="font-bold uppercase"
+                            >
+                                Un développeur web freelance
+                                <span
+                                    class="typed text-blue-500 dark:text-blue-600"
+                                    >{{ typed }}</span
+                                >
+                            </Text>
+                        </h1>
+                        <div class="space-x-2">
+                            <Button to="#introduction">Découvrir</Button>
+                            <Button type="ghost" to="cv">Voir mon CV</Button>
+                        </div>
+                    </Stack>
                 </div>
                 <div class="order-0 relative text-center lg:order-1">
                     <NuxtImg

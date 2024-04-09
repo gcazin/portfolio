@@ -50,7 +50,7 @@ defineProps({
                                 v-if="image"
                                 class="mr-2 inline w-6"
                                 :src="`/images/companies/${image}`"
-                                alt=""
+                                :alt="company"
                             />{{ company }}</Text
                         >
                         <Text>{{ period }}</Text>

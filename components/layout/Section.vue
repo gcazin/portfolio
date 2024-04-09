@@ -14,6 +14,9 @@ defineProps({
     title: {
         type: String,
     },
+    titleSelector: {
+        type: String,
+    },
     description: {
         type: String,
     },
@@ -48,7 +51,11 @@ defineProps({
     >
         <div class="overflow-hidden" v-if="!hasBackground">
             <div class="invisible absolute -bottom-20 z-10 lg:visible">
-                <NuxtImg src="/images/misc/blob-tear.svg" class="w-40" alt="" />
+                <NuxtImg
+                    src="/images/misc/blob-tear.svg"
+                    class="w-40"
+                    alt="Background"
+                />
             </div>
         </div>
         <BlobBackground
@@ -63,7 +70,9 @@ defineProps({
                     <template v-if="title">
                         <Stack>
                             <Text type="heading">{{ heading }}</Text>
-                            <Text type="title">{{ title }}</Text>
+                            <Text :selector="titleSelector" type="title">{{
+                                title
+                            }}</Text>
                             <div v-if="description" class="container">
                                 <Text>{{ description }}</Text>
                             </div>
@@ -78,7 +87,11 @@ defineProps({
         </Container>
         <div v-if="hasBackground" class="overflow-hidden">
             <div class="invisible absolute -bottom-20 right-0 z-10 lg:visible">
-                <NuxtImg src="/images/misc/blob-tear.svg" class="w-40" alt="" />
+                <NuxtImg
+                    src="/images/misc/blob-tear.svg"
+                    class="w-40"
+                    alt="Background"
+                />
             </div>
         </div>
     </section>

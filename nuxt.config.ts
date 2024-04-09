@@ -51,6 +51,9 @@ export default defineNuxtConfig({
             robots: false,
         },
     },
+    router: {
+        trailingSlash: true,
+    },
     site: {
         url: 'https://www.guillaume-cazin.fr',
         name: 'Guillaume Cazin',

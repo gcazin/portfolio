@@ -2,7 +2,7 @@
     <Head>
         <Meta
             name="description"
-            content="Passionné depuis 12 ans par tout ce qui est attrait au développement web, j'y ai consacré l'entièreté de mes années d'études et la majorité de mon temps libre durant toutes ces années."
+            content="Développeur web freelance full stack spécialisé en Laravel et VueJS. Sur ce portfolio, vous y trouverez mon CV, mes projets et mes expériences professionnelles."
         ></Meta>
     </Head>
 
