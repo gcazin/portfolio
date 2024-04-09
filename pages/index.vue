@@ -64,6 +64,10 @@ const removeAnchor = (url) => {
 
     return url
 }
+
+onMounted(() => {
+    document.title = 'Portfolio - Guillaume Cazin - Développeur web freelance'
+})
 </script>
 
 <template>
