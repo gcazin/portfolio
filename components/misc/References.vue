@@ -1,7 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import Animate from './Animate.vue'
 
-const references = [
+interface Reference {
+    name: string
+    image: string
+}
+
+const references: Reference[] = [
     {
         name: 'Eléphant bleu',
         image: 'elephant-bleu',
@@ -36,14 +41,14 @@ const references = [
         <Animate
             to="up"
             :duration="500"
-            v-for="(reference, index) in references"
+            v-for="({ name, image }, index) in references"
             :key="index"
             :full="false"
         >
             <NuxtImg
-                :src="`/images/references/${reference.image}.webp`"
+                :src="`/images/references/${image}.webp`"
                 class="m-auto w-32 lg:text-inherit"
-                :alt="reference.name"
+                :alt="name"
             />
         </Animate>
     </div>

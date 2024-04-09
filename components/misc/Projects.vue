@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import Badge from '../elements/Badge.vue'
 import Button from '../elements/Button.vue'
@@ -13,7 +13,22 @@ defineProps({
     },
 })
 
-const projects = [
+interface Project {
+    image: string
+    title: string
+    description: string
+    technologies: string[]
+    github?: string
+    url?: string
+    category: string
+}
+
+interface Category {
+    label: string
+    value: string
+}
+
+const projects: Project[] = [
     {
         image: 'x-memes',
         title: 'X-Memes',
@@ -89,7 +104,8 @@ const projects = [
         category: 'resources',
     },
 ]
-const categories = [
+
+const categories: Category[] = [
     {
         label: 'Tout',
         value: 'all',
@@ -110,7 +126,7 @@ const categories = [
 const selectedCategory = ref('all')
 const filteredProjects = ref(projects)
 
-const selectCategory = (category) => {
+const selectCategory = (category: string) => {
     selectedCategory.value = category
 
     filteredProjects.value = projects
@@ -122,7 +138,7 @@ const selectCategory = (category) => {
     }
 }
 
-const countProjectsByCategory = (category) => {
+const countProjectsByCategory = (category:string): number => {
     return projects.filter((project) => project.category === category).length
 }
 </script>

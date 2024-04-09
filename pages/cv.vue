@@ -1,10 +1,41 @@
-<script setup>
+<script setup lang="ts">
 import { onBeforeMount, onMounted } from 'vue'
 import Button from '~/components/elements/Button.vue'
 import Icon from '~/components/elements/Icon.vue'
 import Section from '~/components/layout/Section.vue'
 
-const infos = {
+interface Information {
+    name: string
+    age: number
+    role: string
+    mail: string
+    phone: string
+    socials: {
+        label: string
+        url: string
+        icon: string
+    }[]
+}
+
+interface Formation {
+    title: string
+    school: string
+    date: string
+}
+
+interface Skill {
+    title: string
+    rating: string
+}
+
+interface Experience {
+    title: string
+    enterprise: string
+    date: string
+    description?: string
+}
+
+const infos: Information = {
     name: 'Guillaume Cazin',
     age: new Date().getFullYear() - 1999,
     role: 'Développeur web',
@@ -34,18 +65,16 @@ const infos = {
     ],
 }
 
-const formations = [
+const formations: Formation[] = [
     {
         title: 'Licence professionnelle Développement Internet et Mobile',
         school: 'IUT, Calais (62250)',
         date: '2019-2020',
-        // description: 'Lorem ipsum dolor sit amet',
     },
     {
         title: 'BTS SIO option SLAM',
         school: 'Lycée Saint-Joseph, Saint-Martin-Boulogne (62280)',
         date: 'Juin 2019',
-        // description: 'Lorem ipsum dolor sit amet',
     },
     {
         title: 'Bac STI2D option SIN',
@@ -54,7 +83,7 @@ const formations = [
     },
 ]
 
-const skills = [
+const skills: Skill[] = [
     {
         title: 'HTML5 & CSS3',
         rating: 'Maîtrise',
@@ -97,7 +126,7 @@ const skills = [
     },
 ]
 
-const experiences = [
+const experiences: Experience[] = [
     {
         title: 'Développeur web',
         enterprise: 'Freelance, France',
