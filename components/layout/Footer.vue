@@ -90,10 +90,10 @@ defineProps({
                     >. Tous droits réservés.
                 </span>
                 <div class="flex gap-2">
-                    <NuxtLink class="text-white/50" to="/privacy-policy">
+                    <NuxtLink class="text-white/50" to="/privacy-policy/">
                         Politique de confidentialité
                     </NuxtLink>
-                    <NuxtLink class="text-white/50" to="/legal-notice">
+                    <NuxtLink class="text-white/50" to="/legal-notice/">
                         Mentions légales
                     </NuxtLink>
                 </div>

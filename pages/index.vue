@@ -105,7 +105,7 @@ onMounted(() => {
                         </h1>
                         <div class="space-x-2">
                             <Button to="#introduction">Découvrir</Button>
-                            <Button type="ghost" to="cv">Voir mon CV</Button>
+                            <Button type="ghost" to="cv/">Voir mon CV</Button>
                         </div>
                     </Stack>
                 </div>
