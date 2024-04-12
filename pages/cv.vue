@@ -14,7 +14,7 @@ interface Information {
         label: string
         url: string
         icon: string
-    }[]
+    }
 }
 
 interface Formation {
