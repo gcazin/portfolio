@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeMount, onMounted } from 'vue'
+import { onBeforeMount } from 'vue'
 import Button from '~/components/elements/Button.vue'
 import Icon from '~/components/elements/Icon.vue'
 import Section from '~/components/layout/Section.vue'

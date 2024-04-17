@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted } from 'vue'
 import Text from '~/components/elements/Text.vue'
 import Section from '~/components/layout/Section.vue'
 

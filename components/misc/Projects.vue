@@ -32,7 +32,7 @@ const projects: Project[] = [
     {
         image: 'colibri-pma-hope',
         title: 'Colibri PMA Hope',
-        description: 'Création d\'un site e-commerce Shopify.',
+        description: "Création d'un site e-commerce Shopify.",
         technologies: ['Shopify', 'CSS3', 'JavaScript'],
         url: 'https://colibripmahope.com',
         category: 'website',
@@ -146,7 +146,7 @@ const selectCategory = (category: string) => {
     }
 }
 
-const countProjectsByCategory = (category:string): number => {
+const countProjectsByCategory = (category: string): number => {
     return projects.filter((project) => project.category === category).length
 }
 </script>
@@ -193,7 +193,10 @@ const countProjectsByCategory = (category:string): number => {
                 class="flex flex-col gap-2 lg:flex-row lg:gap-6"
                 :to="index % 2 === 0 ? 'right' : 'left'"
             >
-                <div class="flex-1" :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'">
+                <div
+                    class="flex-1"
+                    :class="index % 2 === 0 ? 'lg:order-0' : 'lg:order-1'"
+                >
                     <NuxtLink
                         v-if="project.url"
                         :to="project.url"
@@ -213,7 +216,7 @@ const countProjectsByCategory = (category:string): number => {
                     />
                 </div>
                 <div
-                    class="flex flex-1 w-full flex-col gap-1 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
+                    class="flex w-full flex-1 flex-col gap-1 rounded-lg bg-white px-6 py-4 shadow-sm dark:bg-gray-800/30"
                     :class="index % 2 === 0 ? 'order-1' : 'order-0'"
                 >
                     <Text selector="h3" type="title" class="dark:text-white">{{

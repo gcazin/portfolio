@@ -69,7 +69,9 @@ defineProps({
                 >
                     <template v-if="title">
                         <Stack>
-                            <Text v-if="heading" type="heading">{{ heading }}</Text>
+                            <Text v-if="heading" type="heading">{{
+                                heading
+                            }}</Text>
                             <Text :selector="titleSelector" type="title">{{
                                 title
                             }}</Text>
