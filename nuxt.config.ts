@@ -57,6 +57,7 @@ export default defineNuxtConfig({
     site: {
         url: 'https://www.guillaume-cazin.fr',
         name: 'Guillaume Cazin',
+        trailingSlash: true,
     },
     vue: {
         compilerOptions: {
