@@ -52,18 +52,6 @@ defineProps({
                     </NuxtLink>
                     <NuxtLink
                         target="_blank"
-                        to="https://twitter.com/gcazinonx"
-                        class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                    >
-                        <Icon
-                            class="text-xl"
-                            name="logo-twitter"
-                            :outline="false"
-                        />
-                        <span class="sr-only">Twitter</span>
-                    </NuxtLink>
-                    <NuxtLink
-                        target="_blank"
                         to="https://codepen.io/gcazin"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                     >
@@ -79,7 +67,7 @@ defineProps({
             <hr
                 class="m-auto border-gray-200 dark:border-gray-700 sm:mx-auto"
             />
-            <div class="py-4 sm:flex sm:items-center sm:justify-between">
+            <div class="py-4 space-y-2 lg:space-y-0 sm:flex sm:items-center sm:justify-between">
                 <span
                     class="text-sm text-gray-500 dark:text-gray-400 sm:text-center"
                     >© {{ new Date().getFullYear() }}
@@ -89,7 +77,7 @@ defineProps({
                         >Guillaume Cazin™</NuxtLink
                     >. Tous droits réservés.
                 </span>
-                <div class="flex gap-2">
+                <div class="flex gap-4">
                     <NuxtLink class="text-white/50" to="/privacy-policy/">
                         Politique de confidentialité
                     </NuxtLink>
