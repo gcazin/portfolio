@@ -167,8 +167,8 @@ onBeforeMount(() => {
     }
 })
 
-onMounted(() => {
-    document.title = 'CV - Guillaume Cazin - Développeur web freelance'
+useHead({
+    title: 'CV - Guillaume Cazin - Développeur web freelance',
 })
 </script>
 

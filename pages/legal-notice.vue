@@ -3,8 +3,8 @@ import { onMounted } from 'vue'
 import Text from '~/components/elements/Text.vue'
 import Section from '~/components/layout/Section.vue'
 
-onMounted(() => {
-    document.title = 'Mentions légales - Guillaume Cazin - Développeur web freelance'
+useHead({
+    title: 'Mentions légales - Guillaume Cazin - Développeur web freelance',
 })
 </script>
 

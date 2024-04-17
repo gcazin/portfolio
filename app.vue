@@ -3,7 +3,7 @@
         <Meta
             name="description"
             content="Développeur web freelance full stack spécialisé en Laravel et VueJS. Sur ce portfolio, vous y trouverez mon CV, mes projets et mes expériences professionnelles."
-        ></Meta>
+        />
     </Head>
 
     <Navbar />
