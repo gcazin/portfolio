@@ -4,7 +4,7 @@ import Text from '~/components/elements/Text.vue'
 import Section from '~/components/layout/Section.vue'
 
 onMounted(() => {
-    document.title = 'CV - Guillaume Cazin - Développeur web freelance'
+    document.title = 'Mentions légales - Guillaume Cazin - Développeur web freelance'
 })
 </script>
 
