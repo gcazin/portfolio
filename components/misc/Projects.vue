@@ -34,7 +34,7 @@ const projects: Project[] = [
         title: 'Colibri PMA Hope',
         description: "Création d'un site e-commerce Shopify.",
         technologies: ['Shopify', 'CSS3', 'JavaScript'],
-        url: 'https://colibripmahope.com',
+        url: 'https://colibri-pma-hope.myshopify.com/',
         category: 'website',
     },
     {
