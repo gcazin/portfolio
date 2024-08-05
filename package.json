@@ -11,7 +11,7 @@
         "prettier": "prettier . --write"
     },
     "dependencies": {
-        "nuxt": "^3.10.3",
+        "nuxt": "^3.12.4",
         "puppeteer": "^22.6.2",
         "sharp": "^0.33.2",
         "typed.js": "^2.1.0",
