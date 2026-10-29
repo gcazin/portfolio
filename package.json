@@ -11,6 +11,7 @@
         "prettier": "prettier . --write"
     },
     "dependencies": {
+        "nodemailer": "^10.3.1",
         "nuxt": "^3.10.3",
         "puppeteer": "^22.6.2",
         "sharp": "^0.33.2",
@@ -23,6 +24,7 @@
         "@nuxtjs/color-mode": "^3.3.3",
         "@nuxtjs/sitemap": "^5.1.2",
         "@nuxtjs/tailwindcss": "^6.11.4",
+        "@types/nodemailer": "^8.0.2",
         "@volar/vue-typescript": "^1.6.5",
         "nuxt-aos": "^1.2.4",
         "prettier": "^3.2.5",

@@ -1,6 +1,6 @@
 <script setup>
 import Typed from 'typed.js'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import Card from '~/components/cards/Card.vue'
 import ExperienceCard from '~/components/cards/ExperienceCard.vue'
 import SkillCard from '~/components/cards/SkillCard.vue'
@@ -23,8 +23,18 @@ onMounted(() => {
     })
 
     window.addEventListener('scroll', getScrollTop)
+
+    if (window.turnstile) {
+        renderTurnstile()
+    } else {
+        window.onTurnstileLoad = renderTurnstile
+    }
 })
 
+const route = useRoute()
+const runtimeConfig = useRuntimeConfig()
+const turnstileContainer = ref(null)
+const hasContactError = computed(() => route.query.contact === 'erreur')
 const actualYear = useState('actualYear', () => new Date().getFullYear())
 const typed = ref(null)
 const skills = ['Full-stack', 'Laravel', 'VueJS', 'PHP', 'JS']
@@ -40,6 +50,13 @@ const getTyped = async () => {
             loop: true,
         })
         successCallback(typed)
+    })
+}
+
+const renderTurnstile = () => {
+    window.turnstile.render(turnstileContainer.value, {
+        sitekey: runtimeConfig.public.turnstileSiteKey,
+        action: 'contact',
     })
 }
 
@@ -67,6 +84,13 @@ const removeAnchor = (url) => {
 
 useHead({
     title: 'Portfolio - Guillaume Cazin - Développeur web freelance',
+    script: [
+        {
+            src: 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad',
+            async: true,
+            defer: true,
+        },
+    ],
 })
 </script>
 
@@ -413,22 +437,10 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
         <div class="py-2">
             <Stack spacing="8">
                 <div class="mx-auto w-full xl:w-10/12">
-                    <form
-                        name="contact"
-                        method="POST"
-                        action="/contact-submission"
-                        data-netlify-recaptcha="true"
-                        netlify-honeypot="bot-field"
-                        data-netlify="true"
-                    >
+                    <form name="contact" method="POST" action="/api/contact">
                         <div
                             class="rounded-lg bg-white p-4 shadow dark:bg-blue-800/30 lg:p-6"
                         >
-                            <input
-                                type="hidden"
-                                name="form-name"
-                                value="contact"
-                            />
                             <p class="hidden">
                                 <label>
                                     Don’t fill this out if you’re human:
@@ -439,13 +451,13 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                 class="grid gap-y-2 md:grid-cols-2 md:grid-rows-2 md:gap-x-4"
                             >
                                 <Input
-                                    id="first_name"
+                                    id="last_name"
                                     label="Nom"
                                     placeholder="Nom"
                                     required
                                 />
                                 <Input
-                                    id="last_name"
+                                    id="first_name"
                                     label="Prénom"
                                     placeholder="Prénom"
                                     required
@@ -489,7 +501,17 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                                         relation commerciale.</label
                                     >
                                 </div>
-                                <div data-netlify-recaptcha="true"></div>
+                                <div
+                                    ref="turnstileContainer"
+                                    class="md:col-span-2"
+                                ></div>
+                                <p
+                                    v-if="hasContactError"
+                                    class="text-red-500 md:col-span-2"
+                                >
+                                    Le message n'a pas pu être envoyé. Vérifiez
+                                    les champs puis réessayez.
+                                </p>
                                 <div class="text-right md:col-span-2">
                                     <Button type="primary">Envoyer</Button>
                                 </div>

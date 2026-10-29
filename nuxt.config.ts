@@ -51,6 +51,17 @@ export default defineNuxtConfig({
             robots: false,
         },
     },
+    runtimeConfig: {
+        contactRecipient: 'contact@guillaume-cazin.fr',
+        smtpHost: 'pro3.mail.ovh.net',
+        smtpPort: 587,
+        smtpUser: 'contact@guillaume-cazin.fr',
+        smtpPassword: '',
+        turnstileSecretKey: '',
+        public: {
+            turnstileSiteKey: '0x4AAAAAAFrQ3neInQWhOMSL',
+        },
+    },
     router: {
         trailingSlash: true,
     },
