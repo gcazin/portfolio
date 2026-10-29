@@ -208,14 +208,6 @@ useHead({
                             <Text>
                                 <Icon
                                     :outline="false"
-                                    name="mail"
-                                    class="mr-2 font-bold text-blue-500"
-                                />
-                                contact[at]guillaume-cazin[dot]fr
-                            </Text>
-                            <Text>
-                                <Icon
-                                    :outline="false"
                                     name="speedometer"
                                     class="mr-2 font-bold text-blue-500"
                                 />
@@ -521,36 +513,8 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                 </div>
 
                 <div
-                    class="grid grid-cols-1 gap-8 text-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-12"
+                    class="grid grid-cols-1 gap-8 text-center md:grid-cols-2 xl:gap-12"
                 >
-                    <Stack spacing="1">
-                        <Icon
-                            class="rounded-xl bg-blue-100 p-2 text-blue-400 dark:bg-blue-400 dark:text-blue-900"
-                            name="at"
-                            size="4xl"
-                        />
-                        <Text>Adresse e-mail</Text>
-                        <NuxtLink
-                            to="mailto:contact@guillaume-cazin.fr"
-                            class="block text-lg font-bold !text-blue-500 underline underline-offset-4 dark:!text-blue-700"
-                        >
-                            contact@guillaume-cazin.fr
-                        </NuxtLink>
-                    </Stack>
-                    <Stack spacing="1">
-                        <Icon
-                            class="rounded-xl bg-blue-100 p-2 text-blue-400 dark:bg-blue-400 dark:text-blue-900"
-                            name="call"
-                            size="4xl"
-                        />
-                        <Text>Téléphone</Text>
-                        <NuxtLink
-                            to="tel:0610854218"
-                            class="block text-lg font-bold !text-blue-500 underline underline-offset-4 dark:!text-blue-700"
-                        >
-                            06 10 85 42 18
-                        </NuxtLink>
-                    </Stack>
                     <Stack spacing="1">
                         <Icon
                             class="rounded-xl bg-blue-100 p-2 text-blue-400 dark:bg-blue-400 dark:text-blue-900"
