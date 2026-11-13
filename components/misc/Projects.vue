@@ -49,7 +49,7 @@ const projects: Project[] = [
         image: 'x-memes',
         title: 'X-Memes',
         description:
-            "Création d'une plateforme permettant de partager ses mêmes favoris venant de Twitter.",
+            "Création d'une plateforme permettant de partager ses mèmes favoris venant de Twitter.",
         technologies: ['HTML5', 'Laravel', 'VueJS', 'TailwindCSS'],
         github: 'x-memes',
         url: 'https://x-memes.com',
@@ -68,7 +68,7 @@ const projects: Project[] = [
         image: 'slimys',
         title: 'Slimys',
         description:
-            "Création d'un site vitrine pour un projet NFT, avec liaison API a un back-end développé en Lumen.",
+            "Création d'un site vitrine pour un projet NFT, avec liaison API à un back-end développé en Lumen.",
         technologies: ['HTML5', 'Laravel', 'VueJS', 'Bootstrap'],
         url: 'https://beta-slimys.netlify.app/',
         category: 'website',
@@ -77,7 +77,7 @@ const projects: Project[] = [
         image: 'spotify-liked-tracks-sorter',
         title: 'Spotify liked tracks sorter',
         description:
-            "Petit utilitaire permetttant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
+            "Petit utilitaire permettant de récupérer les dernières musiques aimées, d'en extraire le genre et de les classer dans les bonnes playlists automatiquement.",
         technologies: ['HTML5', 'VueJS', 'Bootstrap', 'Api'],
         url: 'https://auto-sorting-spotify-liked-songs.netlify.app',
         github: 'auto-sorting-spotify-liked-songs',
@@ -96,7 +96,7 @@ const projects: Project[] = [
         image: 'medializ',
         title: 'Medializ',
         description:
-            "Création d'une plateforme où les utilisateurs peuvent poster leurs mêmes venant de source divers telle qu'une vidéo ou Twitter.",
+            "Création d'une plateforme où les utilisateurs peuvent poster leurs mèmes venant de sources diverses telles qu'une vidéo ou Twitter.",
         technologies: ['HTML5', 'Laravel', 'TailwindCSS'],
         github: 'medializ',
         category: 'website',
@@ -189,7 +189,7 @@ const countProjectsByCategory = (category: string): number => {
         <div>
             <Text type="sub">
                 {{ filteredProjects.length }}
-                élémént{{ filteredProjects.length > 1 ? 's' : '' }} affiché{{
+                élément{{ filteredProjects.length > 1 ? 's' : '' }} affiché{{
                     filteredProjects.length > 1 ? 's' : ''
                 }}
             </Text>
@@ -250,7 +250,7 @@ const countProjectsByCategory = (category: string): number => {
                         </NuxtLink>
                     </template>
                     <Text type="text">{{ project.description }}</Text>
-                    <Text class="font-bold">Technologies utilisés</Text>
+                    <Text class="font-bold">Technologies utilisées</Text>
                     <div class="flex flex-row flex-wrap items-center gap-2">
                         <Badge
                             v-for="(technology, index) in project.technologies"

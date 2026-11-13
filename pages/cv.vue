@@ -144,7 +144,7 @@ const experiences: Experience[] = [
         enterprise: 'Stage, Armatis, Calais (62100)',
         date: '2019',
         description:
-            "Création d'une application mobile en React-Native avec API développé en Laravel",
+            "Création d'une application mobile en React-Native avec API développée en Laravel",
     },
     {
         title: 'Stage en développement web',

@@ -182,10 +182,10 @@ useHead({
                             </Text>
                             <Text>
                                 Je porte une attention toute particulière à la
-                                création de sites internet responsive compatible
-                                mobile (Android, Iphone, Tablette...), facile à
-                                prendre en main, avec une base de conception
-                                maintenable et à jour.
+                                création de sites internet responsive
+                                compatibles mobile (Android, iPhone,
+                                Tablette...), faciles à prendre en main, avec
+                                une base de conception maintenable et à jour.
                             </Text>
                         </Animate>
                     </div>
@@ -371,7 +371,7 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                         :skills="[
                             'HTML',
                             'CSS',
-                            'Boostrap',
+                            'Bootstrap',
                             'Tailwind',
                             'PHP',
                             'Laravel',
@@ -395,8 +395,8 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
                         title="Workflow"
                         :skills="[
                             'Workstation Linux',
-                            'Méthodes agile (Scrum, Kanban)',
-                            'Versionning Git',
+                            'Méthodes agiles (Scrum, Kanban)',
+                            'Versioning Git',
                             'Télétravail',
                         ]"
                         last
@@ -421,8 +421,8 @@ Les utilisateurs peuvent créer des événements de repas en quelques minutes se
     <Section
         id="contact"
         heading="Formulaire de contact"
-        title="Une idée ou un projet en tête?"
-        description="Vous souhaiter en discuter ou simplement vous renseigner, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences."
+        title="Une idée ou un projet en tête ?"
+        description="Vous souhaitez en discuter ou simplement vous renseigner, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences."
         has-blob-background
         blob-background-is-inverted
     >
