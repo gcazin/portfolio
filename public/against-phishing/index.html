@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <script>if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) location.replace(location.pathname + '/' + location.search + location.hash)</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Against Phishing — Ne vous faites plus avoir par les faux sites</title>
+    <meta name="description" content="Extension navigateur et appli mobile gratuites qui repèrent les faux sites Ameli, impôts, ANTAI, La Poste, banques… avant que vous ne tapiez quoi que ce soit.">
+    <meta name="theme-color" content="#0b1f4d">
+    <meta property="og:title" content="Against Phishing">
+    <meta property="og:description" content="Repérez les faux sites Ameli, impôts, colis et banques avant de vous faire avoir.">
+    <meta property="og:image" content="app/icons/icon-512.png">
+    <link rel="icon" href="app/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="app/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <header class="nav">
+        <a class="logo" href="./"><img src="app/icons/icon-192.png" alt="" width="32" height="32"> Against Phishing</a>
+        <nav>
+            <a href="#fonctionnement">Comment ça marche</a>
+            <a href="#installer">Installer</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">Gratuit · Sans compte · Sans pub</p>
+                <h1>Ne vous faites plus avoir par les <span>faux sites</span>.</h1>
+                <p class="lead">Faux Ameli, fausses amendes ANTAI, faux colis, fausses banques&nbsp;: Against Phishing les reconnaît <strong>avant</strong> que vous ne tapiez votre mot de passe ou votre carte bancaire, même s'ils ont été créés il y a une heure.</p>
+                <div class="cta">
+                    <a class="button primary" href="app/">Vérifier un lien reçu par SMS</a>
+                    <a class="button ghost" href="#installer">Installer l'extension</a>
+                </div>
+            </div>
+            <div class="phone" aria-hidden="true">
+                <div class="phone-screen">
+                    <div class="phone-icon">⛔</div>
+                    <div class="phone-title">ARNAQUE<br>PROBABLE</div>
+                    <div class="phone-sub">Ce lien imite Ameli (Assurance Maladie).</div>
+                    <div class="phone-host">ameli-remboursement.fr</div>
+                    <div class="phone-list">
+                        <span>Mentionne Ameli sans être un de ses domaines officiels.</span>
+                        <span>Nom de domaine créé il y a 2 jours.</span>
+                    </div>
+                    <div class="phone-button">Vérifier un autre lien</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="try" aria-labelledby="try-title">
+            <h2 id="try-title">Essayez tout de suite</h2>
+            <p>Collez un lien ou un SMS suspect. L'analyse se fait dans votre navigateur.</p>
+            <form id="try-form" class="try-form">
+                <label for="try-input" class="visually-hidden">Lien ou SMS à vérifier</label>
+                <input id="try-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ex. chronopost-suivi.info/p">
+                <button class="button primary" type="submit">Vérifier</button>
+            </form>
+            <div class="examples">
+                <span>Exemples&nbsp;:</span>
+                <button type="button" data-example="https://ameli-remboursement.fr/dossier">ameli-remboursement.fr</button>
+                <button type="button" data-example="https://paypa1.com/signin">paypa1.com</button>
+                <button type="button" data-example="https://antai-amende.top/payer">antai-amende.top</button>
+                <button type="button" data-example="https://www.impots.gouv.fr/">impots.gouv.fr</button>
+            </div>
+            <div id="try-result" class="try-result" hidden aria-live="polite">
+                <p class="try-verdict"><span class="dot"></span><strong id="try-title-result"></strong> <code id="try-host"></code></p>
+                <ul id="try-reasons"></ul>
+            </div>
+        </section>
+
+        <section id="fonctionnement" class="section">
+            <h2>Ce que Google ne voit pas encore</h2>
+            <p class="section-lead">Les navigateurs bloquent les sites déjà signalés. Mais un faux site vit souvent quelques heures&nbsp;: il a disparu avant d'être sur une liste noire. Against Phishing analyse chaque adresse lui-même, sur le moment.</p>
+            <div class="cards">
+                <article class="card">
+                    <div class="card-icon">🔤</div>
+                    <h3>Les sosies</h3>
+                    <p><code>paypa1.com</code>, <code>rnicrosoft.com</code>, un «&nbsp;а&nbsp;» cyrillique à la place d'un «&nbsp;a&nbsp;»&nbsp;: les imitations visuelles sont démasquées.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🏷️</div>
+                    <h3>Les marques détournées</h3>
+                    <p><code>ameli-remboursement.fr</code>, <code>laposte.colis-livraison.xyz</code>&nbsp;: plus de 50 marques et services publics français sont surveillés.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🕒</div>
+                    <h3>Les sites tout neufs</h3>
+                    <p>Un «&nbsp;site des impôts&nbsp;» enregistré avant-hier&nbsp;? L'âge du domaine est vérifié dans l'annuaire officiel des noms de domaine.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🛑</div>
+                    <h3>Un écran impossible à rater</h3>
+                    <p>Sur un faux site, toute la page est recouverte et bloquée. Pas un petit bandeau qu'on ferme sans lire.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="installer" class="section">
+            <h2>Installer</h2>
+            <div class="install">
+                <article class="install-card">
+                    <h3>📱 Sur téléphone</h3>
+                    <p>L'appli «&nbsp;Vérifier un lien&nbsp;» s'installe sur l'écran d'accueil, sans passer par un store.</p>
+                    <ol>
+                        <li>Ouvrez <a href="app/">l'appli</a> sur votre téléphone.</li>
+                        <li><strong>iPhone</strong>&nbsp;: Partager → «&nbsp;Sur l'écran d'accueil&nbsp;».<br><strong>Android</strong>&nbsp;: menu ⋮ → «&nbsp;Installer l'application&nbsp;».</li>
+                        <li>Sur Android, partagez ensuite un SMS suspect vers Against Phishing pour le vérifier.</li>
+                    </ol>
+                    <a class="button primary" href="app/">Ouvrir l'appli</a>
+                </article>
+                <article class="install-card">
+                    <h3>💻 Sur ordinateur</h3>
+                    <p>L'extension protège automatiquement pendant la navigation. Bientôt sur les stores&nbsp;; en attendant&nbsp;:</p>
+                    <ol>
+                        <li><a href="downloads/against-phishing-extension.zip">Téléchargez l'extension</a> et décompressez-la.</li>
+                        <li><strong>Chrome, Edge, Brave</strong>&nbsp;: ouvrez <code>chrome://extensions</code>, activez le «&nbsp;Mode développeur&nbsp;».</li>
+                        <li>Cliquez «&nbsp;Charger l'extension non empaquetée&nbsp;» et choisissez le dossier.</li>
+                    </ol>
+                    <a class="button ghost" href="downloads/against-phishing-extension.zip">Télécharger l'extension</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="faq" class="section faq">
+            <h2>Questions fréquentes</h2>
+            <details>
+                <summary>Est-ce que vous voyez les sites que je visite&nbsp;?</summary>
+                <p>Non. Il n'y a pas de serveur Against Phishing&nbsp;: l'analyse se fait sur votre appareil. Seul le nom de domaine d'un site déjà suspect (ou qui demande un mot de passe) est envoyé à l'annuaire public rdap.org pour connaître sa date de création.</p>
+            </details>
+            <details>
+                <summary>C'est gratuit&nbsp;?</summary>
+                <p>Oui, sans compte, sans publicité et sans collecte de données.</p>
+            </details>
+            <details>
+                <summary>Et si un vrai site est signalé par erreur&nbsp;?</summary>
+                <p>Ouvrez «&nbsp;Je sais ce que je fais&nbsp;», cochez la case de confirmation puis «&nbsp;Toujours faire confiance&nbsp;». Ce site ne sera plus signalé.</p>
+            </details>
+            <details>
+                <summary>Est-ce que ça remplace la prudence&nbsp;?</summary>
+                <p>Non. Aucun outil ne détecte 100&nbsp;% des arnaques. Gardez le réflexe&nbsp;: un service public ou une banque ne vous demande jamais vos coordonnées bancaires par SMS.</p>
+            </details>
+            <details>
+                <summary>J'ai reçu un SMS d'arnaque, que faire&nbsp;?</summary>
+                <p>Ne cliquez pas, transférez-le gratuitement au <strong>33700</strong> puis supprimez-le. Si vous avez déjà donné des informations, faites-vous aider sur <a href="https://www.cybermalveillance.gouv.fr/" rel="noopener">cybermalveillance.gouv.fr</a> et prévenez votre banque.</p>
+            </details>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Against Phishing — projet indépendant, sans lien avec les marques citées.</p>
+        <p><a href="https://www.internet-signalement.gouv.fr/" rel="noopener">Signaler un contenu illicite (Pharos)</a> · <a href="https://www.cybermalveillance.gouv.fr/" rel="noopener">Cybermalveillance.gouv.fr</a></p>
+    </footer>
+
+    <script type="module" src="site.js"></script>
+</body>
+</html>
