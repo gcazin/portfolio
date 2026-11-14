@@ -35,7 +35,7 @@ const projects: Project[] = [
         description:
             "Création d'une extension navigateur et d'une appli mobile qui repèrent les faux sites imitant les banques, services publics et marques françaises (Ameli, impôts, ANTAI, La Poste…), avec un écran d'alerte plein écran avant toute saisie de mot de passe ou de carte bancaire.",
         technologies: ['JavaScript', 'WebExtensions', 'PWA', 'HTML5', 'CSS3'],
-        url: 'https://gcazin.com/against-phishing/',
+        url: 'https://against-phishing.gcazin.com/',
         category: 'web-application',
     },
     {

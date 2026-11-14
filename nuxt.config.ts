@@ -50,6 +50,12 @@ export default defineNuxtConfig({
         '/contact-submission': {
             robots: false,
         },
+        '/against-phishing/**': {
+            redirect: {
+                to: 'https://against-phishing.gcazin.com/**',
+                statusCode: 301,
+            },
+        },
     },
     runtimeConfig: {
         contactRecipient: 'contact@guillaume-cazin.fr',
