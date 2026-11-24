@@ -49,6 +49,7 @@ export default defineNuxtConfig({
     routeRules: {
         '/contact-submission': {
             robots: false,
+            sitemap: false,
         },
         '/against-phishing/**': {
             redirect: {
