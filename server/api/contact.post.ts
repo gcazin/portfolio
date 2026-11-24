@@ -99,7 +99,7 @@ export default defineEventHandler(async (event) => {
     try {
         await getTransporter(config).sendMail({
             from: {
-                name: 'Formulaire guillaume-cazin.fr',
+                name: 'Formulaire gcazin.com',
                 address: config.smtpUser,
             },
             to: config.contactRecipient,

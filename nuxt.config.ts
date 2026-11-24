@@ -52,7 +52,7 @@ export default defineNuxtConfig({
         },
         '/against-phishing/**': {
             redirect: {
-                to: 'https://against-phishing.gcazin.com/**',
+                to: 'https://hookless.gcazin.com/',
                 statusCode: 301,
             },
         },
@@ -72,7 +72,7 @@ export default defineNuxtConfig({
         trailingSlash: true,
     },
     site: {
-        url: 'https://www.guillaume-cazin.fr',
+        url: 'https://gcazin.com',
         name: 'Guillaume Cazin',
         trailingSlash: true,
     },

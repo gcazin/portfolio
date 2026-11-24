@@ -15,17 +15,16 @@ useHead({
     >
         <div class="space-y-4">
             <Text>
-                Le site web www.guillaume-cazin.fr est détenu par Guillaume
-                Cazin, qui est un contrôleur de données de vos données
-                personnelles. Nous avons adopté cette politique de
-                confidentialité, qui détermine la manière dont nous traitons les
-                informations collectées par www.guillaume-cazin.fr, qui fournit
-                également les raisons pour lesquelles nous devons collecter
-                certaines données personnelles vous concernant. Par conséquent,
-                vous devez lire cette politique de confidentialité avant
-                d'utiliser le site web de www.guillaume-cazin.fr. Nous prenons
-                soin de vos données personnelles et nous nous engageons à en
-                garantir la confidentialité et la sécurité.
+                Le site web gcazin.com est détenu par Guillaume Cazin, qui est
+                un contrôleur de données de vos données personnelles. Nous avons
+                adopté cette politique de confidentialité, qui détermine la
+                manière dont nous traitons les informations collectées par
+                gcazin.com, qui fournit également les raisons pour lesquelles
+                nous devons collecter certaines données personnelles vous
+                concernant. Par conséquent, vous devez lire cette politique de
+                confidentialité avant d'utiliser le site web gcazin.com. Nous
+                prenons soin de vos données personnelles et nous nous engageons
+                à en garantir la confidentialité et la sécurité.
             </Text>
 
             <div>
@@ -33,11 +32,11 @@ useHead({
                     >Les informations personnelles que nous collectons :</Text
                 >
                 <Text>
-                    Lorsque vous visitez le www.guillaume-cazin.fr, nous
-                    recueillons automatiquement certaines informations sur votre
-                    appareil, notamment des informations sur votre navigateur
-                    web, votre adresse IP, votre fuseau horaire et certains des
-                    cookies installés sur votre appareil. En outre, lorsque vous
+                    Lorsque vous visitez gcazin.com, nous recueillons
+                    automatiquement certaines informations sur votre appareil,
+                    notamment des informations sur votre navigateur web, votre
+                    adresse IP, votre fuseau horaire et certains des cookies
+                    installés sur votre appareil. En outre, lorsque vous
                     naviguez sur le site, nous recueillons des informations sur
                     les pages web ou les produits individuels que vous
                     consultez, sur les sites web ou les termes de recherche qui

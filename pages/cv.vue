@@ -43,8 +43,8 @@ const infos: Information = {
     phone: '06 10 85 42 18',
     socials: [
         {
-            label: 'guillaume-cazin.fr',
-            url: 'https://www.guillaume-cazin.fr/',
+            label: 'gcazin.com',
+            url: 'https://gcazin.com/',
             icon: 'link-outline',
         },
         {

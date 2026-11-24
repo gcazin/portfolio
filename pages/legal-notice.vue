@@ -21,10 +21,10 @@ useHead({
             <div>
                 <Text type="subtitle">Edition du site</Text>
                 <Text>
-                    Le présent site, accessible à l’URL www.guillaume-cazin.fr
-                    (le « Site »), est édité par : Guillaume Cazin, résidant 45
-                    rue du jeu de paume 62200 BOULOGNE-SUR-MER, de nationalité
-                    Française (France), né(e) le 22/01/1999,
+                    Le présent site, accessible à l’URL gcazin.com (le « Site
+                    »), est édité par : Guillaume Cazin, résidant 45 rue du jeu
+                    de paume 62200 BOULOGNE-SUR-MER, de nationalité Française
+                    (France), né(e) le 22/01/1999,
                 </Text>
             </div>
 

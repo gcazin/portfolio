@@ -30,12 +30,34 @@ interface Category {
 
 const projects: Project[] = [
     {
-        image: 'against-phishing',
-        title: 'Against Phishing',
+        image: 'hookless',
+        title: 'Hookless',
         description:
-            "Création d'une extension navigateur et d'une appli mobile qui repèrent les faux sites imitant les banques, services publics et marques françaises (Ameli, impôts, ANTAI, La Poste…), avec un écran d'alerte plein écran avant toute saisie de mot de passe ou de carte bancaire.",
-        technologies: ['JavaScript', 'WebExtensions', 'PWA', 'HTML5', 'CSS3'],
-        url: 'https://against-phishing.gcazin.com/',
+            "Création d'une appli iOS, d'une extension Safari, Chrome et Firefox et d'un site qui repèrent les faux sites imitant les banques, services publics et marques françaises (Ameli, impôts, ANTAI, La Poste…), avec un écran d'alerte plein écran avant toute saisie de mot de passe ou de carte bancaire. Verdict calculé côté serveur, comptes optionnels et offre premium.",
+        technologies: [
+            'React Native',
+            'Expo',
+            'Next.js',
+            'TypeScript',
+            'PostgreSQL',
+            'Stripe',
+        ],
+        url: 'https://hookless.gcazin.com/',
+        category: 'web-application',
+    },
+    {
+        image: 'tcgbag',
+        title: 'TCGBag',
+        description:
+            "Création d'une application web qui suit la valeur d'une collection Pokémon et One Piece : prix de marché relevés chaque jour pour plus de 2 500 produits scellés et 21 000 cartes, et profit réel par rapport au prix payé.",
+        technologies: [
+            'Next.js',
+            'React',
+            'TypeScript',
+            'TailwindCSS',
+            'Firebase',
+        ],
+        url: 'https://tcgbag.com/',
         category: 'web-application',
     },
     {
@@ -62,7 +84,7 @@ const projects: Project[] = [
         description: 'Création de mon portfolio.',
         technologies: ['HTML5', 'VueJS', 'TailwindCSS', 'Auth0', 'Firebase'],
         github: 'portfolio',
-        url: 'https://www.guillaume-cazin.fr',
+        url: 'https://gcazin.com',
         category: 'website',
     },
     {
