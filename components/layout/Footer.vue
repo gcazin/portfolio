@@ -67,13 +67,13 @@ defineProps({
             <hr
                 class="m-auto border-gray-200 dark:border-gray-700 sm:mx-auto"
             />
-            <div class="py-4 space-y-2 lg:space-y-0 sm:flex sm:items-center sm:justify-between">
+            <div
+                class="space-y-2 py-4 sm:flex sm:items-center sm:justify-between lg:space-y-0"
+            >
                 <span
                     class="text-sm text-gray-500 dark:text-gray-400 sm:text-center"
                     >© {{ new Date().getFullYear() }}
-                    <NuxtLink
-                        to="https://gcazin.com/"
-                        class="hover:underline"
+                    <NuxtLink to="https://gcazin.com/" class="hover:underline"
                         >Guillaume Cazin™</NuxtLink
                     >. Tous droits réservés.
                 </span>
