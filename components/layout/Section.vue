@@ -1,9 +1,4 @@
 <script setup>
-import BlobBackground from '~/components/misc/BlobBackground.vue'
-import Text from '../elements/Text.vue'
-import Container from './Container.vue'
-import Stack from './Stack.vue'
-
 defineProps({
     id: {
         type: String,
@@ -24,83 +19,52 @@ defineProps({
         type: Boolean,
         default: false,
     },
-    hasBackground: {
-        type: Boolean,
-        default: false,
-    },
-    hasBlobBackground: {
-        type: Boolean,
-        default: false,
-    },
-    blobBackgroundIsInverted: {
-        type: Boolean,
-        default: false,
-    },
 })
 </script>
 
 <template>
     <section
         :id="id"
-        class="overflow background relative border-t border-gray-200 dark:border-gray-800"
-        :class="{
-            'bg-slate-100 dark:bg-[#0B1120]/95': hasBackground,
-            'bg-slate-50 dark:bg-[#0B1120]': !hasBackground,
-            'h-screen': fullSize,
-        }"
+        class="wrap section"
+        :class="{ 'section-full': fullSize }"
     >
-        <div class="overflow-hidden" v-if="!hasBackground">
-            <div class="invisible absolute -bottom-20 z-10 lg:visible">
-                <NuxtImg
-                    src="/images/misc/blob-tear.svg"
-                    class="w-40"
-                    alt="Background"
-                />
-            </div>
-        </div>
-        <BlobBackground
-            v-if="hasBlobBackground"
-            :invert="blobBackgroundIsInverted"
-        />
-        <Container class="relative">
-            <div class="py-8 lg:py-24">
-                <div
-                    class="flex flex-col items-center justify-center lg:text-center"
-                >
-                    <template v-if="title">
-                        <Stack>
-                            <Text v-if="heading" type="heading">{{
-                                heading
-                            }}</Text>
-                            <Text :selector="titleSelector" type="title">{{
-                                title
-                            }}</Text>
-                            <div v-if="description" class="container">
-                                <Text>{{ description }}</Text>
-                            </div>
-                        </Stack>
-                    </template>
-                </div>
-
-                <div class="my-4">
-                    <slot></slot>
-                </div>
-            </div>
-        </Container>
-        <div v-if="hasBackground" class="overflow-hidden">
-            <div class="invisible absolute -bottom-20 right-0 z-10 lg:visible">
-                <NuxtImg
-                    src="/images/misc/blob-tear.svg"
-                    class="w-40"
-                    alt="Background"
-                />
-            </div>
+        <header v-if="title" class="rv d1 section-header">
+            <p v-if="heading" class="eyebrow">{{ heading }}</p>
+            <component
+                :is="titleSelector ?? 'h2'"
+                class="display section-title"
+                >{{ title }}</component
+            >
+            <p v-if="description" class="lead">{{ description }}</p>
+        </header>
+        <div class="rv d2 section-body">
+            <slot></slot>
         </div>
     </section>
 </template>
 
 <style scoped>
-.background {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23f1f5f9' fill-opacity='0.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+.section {
+    padding-top: clamp(40px, 6vw, 88px);
+}
+
+.section-full {
+    min-height: 60vh;
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 820px;
+}
+
+.section-title {
+    margin: 0;
+    font-size: clamp(44px, 6vw, 80px);
+}
+
+.section-body {
+    margin-top: clamp(32px, 4vw, 56px);
 }
 </style>
