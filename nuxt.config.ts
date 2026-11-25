@@ -46,13 +46,31 @@ export default defineNuxtConfig({
         '@nuxtjs/sitemap',
         '@nuxtjs/color-mode',
     ],
+    nitro: {
+        prerender: {
+            crawlLinks: true,
+            routes: ['/'],
+        },
+    },
     routeRules: {
         '/contact-submission': {
             robots: false,
             sitemap: false,
         },
+        '/against-phishing/**': {
+            redirect: {
+                to: 'https://hookless.gcazin.com/',
+                statusCode: 301,
+            },
+        },
     },
     runtimeConfig: {
+        contactRecipient: 'contact@guillaume-cazin.fr',
+        smtpHost: 'pro3.mail.ovh.net',
+        smtpPort: 587,
+        smtpUser: 'contact@guillaume-cazin.fr',
+        smtpPassword: '',
+        turnstileSecretKey: '',
         public: {
             turnstileSiteKey: '0x4AAAAAAFrQ3neInQWhOMSL',
         },
