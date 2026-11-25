@@ -1,9 +1,5 @@
 <script setup>
 import { onBeforeMount, onMounted } from 'vue'
-import Button from '~/components/elements/Button.vue'
-import Text from '~/components/elements/Text.vue'
-import Section from '~/components/layout/Section.vue'
-import Stack from '~/components/layout/Stack.vue'
 
 onBeforeMount(() => {
     if (window.scrollY) {
@@ -18,17 +14,37 @@ onMounted(() => {
 </script>
 
 <template>
-    <Section title="Merci!" full-size>
-        <div class="text-center">
-            <Stack>
-                <Text type="subtitle">Votre message a bien été envoyé.</Text>
-                <Text type="subtitle"
-                    >Je reviendrais vers vous dans les plus brefs délais.</Text
-                >
-                <Button type="secondary" to="/">Revenir sur l'accueil</Button>
-            </Stack>
-        </div>
-    </Section>
+    <section class="wrap confirmation">
+        <h1 class="rv d1 display confirmation-title">Merci&#8239;!</h1>
+        <p class="rv d2 lead confirmation-lead">
+            Votre message a bien été envoyé.<br />
+            Je reviendrai vers vous dans les plus brefs délais.
+        </p>
+        <NuxtLink class="rv d3 btn pill pill-outline" to="/"
+            >Revenir à l’accueil</NuxtLink
+        >
+    </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.confirmation {
+    min-height: 60vh;
+    padding-top: clamp(40px, 6vw, 88px);
+    padding-bottom: clamp(40px, 6vw, 88px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.confirmation-title {
+    margin: 0;
+    font-size: clamp(44px, 6vw, 80px);
+}
+
+.confirmation-lead {
+    margin: 24px 0 32px;
+    max-width: 560px;
+}
+</style>
